@@ -1,0 +1,42 @@
+name: Atualizar Dados Copa 2026
+
+on:
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+
+      - name: Buscar dados da API de futebol
+        id: fetch
+        env:
+          FOOTBALL_API_KEY: ${{ secrets.FOOTBALL_API_KEY }}
+        run: |
+          echo "Buscando dados da Copa 2026..."
+          RESPONSE=$(curl -s -X GET \
+            "https://v3.football.api-sports.io/fixtures?league=1&season=2026" \
+            -H "x-rapidapi-host: v3.football.api-sports.io" \
+            -H "x-rapidapi-key: ${FOOTBALL_API_KEY}")
+          echo "$RESPONSE" > data.json
+          echo "Dados salvos em data.json"
+          cat data.json | head -c 500
+
+      - name: Commit e push do data.json atualizado
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add data.json
+          if git diff --staged --quiet; then
+            echo "Sem alterações no data.json"
+          else
+            git commit -m "Atualiza data.json com dados da Copa 2026 [skip ci]"
+            git push
+          fi
