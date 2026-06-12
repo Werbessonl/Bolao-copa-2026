@@ -749,6 +749,37 @@ const PALPITES = [
 // Vice (chega à final): 8pt
 // Campeão (chega à final): 8pt + 25pt bônus = 33pt
 
+// Tradução inglês (API) → português (PALPITES)
+const EN_PT = {
+  'mexico':'México','south africa':'África do Sul','south korea':'Coreia do Sul',
+  'czechia':'República Tcheca','czech republic':'República Tcheca',
+  'bosnia and herzegovina':'Bósnia e Herzegovina','bosnia-herzegovina':'Bósnia e Herzegovina',
+  'switzerland':'Suíça','canada':'Canadá','brazil':'Brasil','morocco':'Marrocos',
+  'united states':'Estados Unidos','usa':'Estados Unidos','turkey':'Turquia',
+  'germany':'Alemanha','ecuador':'Equador','netherlands':'Holanda','japan':'Japão',
+  'belgium':'Bélgica','egypt':'Egito','spain':'Espanha','uruguay':'Uruguai',
+  'france':'França','senegal':'Senegal','argentina':'Argentina','austria':'Áustria',
+  'portugal':'Portugal','colombia':'Colômbia','england':'Inglaterra','croatia':'Croácia',
+  'sweden':'Suécia','norway':'Noruega','ghana':'Gana','paraguay':'Paraguai',
+  'ivory coast':'Costa do Marfim','côte d\'ivoire':'Costa do Marfim',"cote d'ivoire":'Costa do Marfim',
+  'scotland':'Escócia','iran':'Irã','saudi arabia':'Arábia Saudita','algeria':'Argélia',
+  'serbia':'Sérvia','australia':'Austrália','tunisia':'Tunísia','new zealand':'Nova Zelândia',
+  'qatar':'Catar','panama':'Panamá','chile':'Chile','peru':'Peru','venezuela':'Venezuela',
+  'bolivia':'Bolívia','costa rica':'Costa Rica','honduras':'Honduras','jamaica':'Jamaica',
+  'nigeria':'Nigéria','cameroon':'Camarões','mali':'Mali','kenya':'Quênia',
+  'democratic republic of congo':'Congo','dr congo':'Congo',
+  'japan':'Japão','south korea':'Coreia do Sul','australia':'Austrália',
+  'iraq':'Iraque','uzbekistan':'Uzbequistão','jordan':'Jordânia',
+  'ukraine':'Ucrânia','poland':'Polônia','denmark':'Dinamarca',
+  'hungary':'Hungria','romania':'Romênia','greece':'Grécia',
+  'slovakia':'Eslováquia','slovenia':'Eslovênia'
+};
+
+function translate(name) {
+  const lower = name.toLowerCase().trim();
+  return EN_PT[lower] || name;
+}
+
 function normalize(name) {
   return name.toLowerCase()
     .normalize('NFD').replace(/[̀-ͯ]/g, '')
@@ -756,7 +787,11 @@ function normalize(name) {
 }
 
 function teamMatch(a, b) {
-  return normalize(a) === normalize(b);
+  // tenta direto, depois via tradução
+  if (normalize(a) === normalize(b)) return true;
+  if (normalize(translate(a)) === normalize(b)) return true;
+  if (normalize(a) === normalize(translate(b))) return true;
+  return false;
 }
 
 function inList(team, list) {
