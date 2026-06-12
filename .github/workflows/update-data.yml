@@ -2,8 +2,8 @@ name: Atualizar Dados Copa 2026
 
 on:
   schedule:
-    - cron: '0 * * * *'
-  workflow_dispatch:
+    - cron: '0 * * * *'   # A cada hora
+  workflow_dispatch:        # Disparo manual pelo GitHub
 
 jobs:
   update-data:
@@ -12,31 +12,45 @@ jobs:
       contents: write
 
     steps:
-      - name: Checkout do repositório
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Buscar dados da API de futebol
-        id: fetch
+      - name: Buscar dados da API
         env:
-          FOOTBALL_API_KEY: ${{ secrets.FOOTBALL_API_KEY }}
+          API_KEY: ${{ secrets.FOOTBALL_API_KEY }}
         run: |
-          echo "Buscando dados da Copa 2026..."
-          RESPONSE=$(curl -s -X GET \
-            "https://v3.football.api-sports.io/fixtures?league=1&season=2026" \
-            -H "x-rapidapi-host: v3.football.api-sports.io" \
-            -H "x-rapidapi-key: ${FOOTBALL_API_KEY}")
-          echo "$RESPONSE" > data.json
-          echo "Dados salvos em data.json"
-          cat data.json | head -c 500
+          curl -sf -H "X-Auth-Token: $API_KEY" \
+            "https://api.football-data.org/v4/competitions/WC/matches?status=FINISHED" \
+            -o matches_raw.json
 
-      - name: Commit e push do data.json atualizado
+          curl -sf -H "X-Auth-Token: $API_KEY" \
+            "https://api.football-data.org/v4/competitions/WC/standings" \
+            -o standings_raw.json
+
+          python3 - <<'EOF'
+import json, datetime
+
+with open('matches_raw.json') as f:
+    matches_data = json.load(f)
+with open('standings_raw.json') as f:
+    standings_data = json.load(f)
+
+output = {
+    "matches": matches_data.get("matches", []),
+    "standings": standings_data.get("standings", []),
+    "updated": datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+}
+
+with open('data.json', 'w', encoding='utf-8') as f:
+    json.dump(output, f, ensure_ascii=False, separators=(',', ':'))
+
+print(f"OK: {len(output['matches'])} partidas, {len(output['standings'])} grupos")
+EOF
+
+      - name: Commit data.json
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data.json
-          if git diff --staged --quiet; then
-            echo "Sem alterações no data.json"
-          else
-            git commit -m "Atualiza data.json com dados da Copa 2026 [skip ci]"
-            git push
-          fi
+          git diff --staged --quiet && echo "Sem alterações" || \
+            (git commit -m "data: atualiza resultados Copa 2026" && git push)
