@@ -4,17 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bolão Copa do Mundo 2026 — Squad Contas Médicas</title>
-<script>
-// Os dados dos jogos são carregados do data.json gerado pela GitHub Action
-let MATCH_DATA = {};
-async function loadMatchData() {
-  try {
-    const res = await fetch('data.json?t=' + Date.now());
-    if (res.ok) MATCH_DATA = await res.json();
-  } catch(e) { console.warn('data.json não encontrado, usando dados embutidos'); }
-}
-loadMatchData();
-</script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:#0a0e2a;font-family:'Segoe UI',Arial,sans-serif;color:#fff;min-height:100vh;}
@@ -552,9 +541,12 @@ body{background:#0a0e2a;font-family:'Segoe UI',Arial,sans-serif;color:#fff;min-h
       <span class="phase-pill next" id="ph-semi">Semi</span>
       <span class="phase-pill next" id="ph-final">Final</span>
     </div>
-    <div class="rk-tabs">
-      <div class="rk-tab active" id="tab-real" onclick="switchTab('real')">⚽ Pontos Reais</div>
-      <div class="rk-tab" id="tab-virtual" onclick="switchTab('virtual')">💡 Pontos Virtuais</div>
+    <div style="display:flex;align-items:center;justify-content:space-between;max-width:900px;margin:0 auto 8px;">
+      <div class="rk-tabs" style="margin:0;">
+        <div class="rk-tab active" id="tab-real" onclick="switchTab('real')">⚽ Pontos Reais</div>
+        <div class="rk-tab" id="tab-virtual" onclick="switchTab('virtual')">💡 Pontos Virtuais</div>
+      </div>
+      <div id="rk-updated" style="font-size:10px;color:#4a5070;letter-spacing:.5px;"></div>
     </div>
     <div id="rk-loading" class="rk-loading">Carregando dados da Copa do Mundo 2026...</div>
     <div id="rk-error" class="rk-error" style="display:none;"></div>
@@ -989,27 +981,13 @@ async function loadRanking() {
   document.getElementById('rk-content').style.display = 'none';
   document.getElementById('rk-error').style.display = 'none';
 
-  const apiKey = (typeof API_KEY !== 'undefined') ? API_KEY : null;
-  if (!apiKey) {
-    showRankingError('Arquivo config.js não encontrado. Crie config.js com: const API_KEY = "sua_chave";');
-    return;
-  }
-
-  const headers = {'X-Auth-Token': apiKey};
-
   try {
-    const [matchesResp, standingsResp] = await Promise.all([
-      fetch('https://api.football-data.org/v4/competitions/WC/matches?status=FINISHED', {headers}),
-      fetch('https://api.football-data.org/v4/competitions/WC/standings', {headers})
-    ]);
+    const resp = await fetch('data.json?t=' + Date.now());
+    if (!resp.ok) throw new Error('data.json não encontrado (status ' + resp.status + ')');
+    const data = await resp.json();
 
-    if (!matchesResp.ok) throw new Error('API /matches retornou ' + matchesResp.status);
-
-    const matchesData = await matchesResp.json();
-    const standingsData = standingsResp.ok ? await standingsResp.json() : {standings: []};
-
-    const realScores = calcRealPoints(matchesData.matches || []);
-    const fullScores = calcVirtualPoints(realScores, standingsData.standings || []);
+    const realScores = calcRealPoints(data.matches || []);
+    const fullScores = calcVirtualPoints(realScores, data.standings || []);
 
     lastRankingData = {
       real: [...fullScores].sort((a, b) => b.real - a.real),
@@ -1020,10 +998,17 @@ async function loadRanking() {
     document.getElementById('rk-loading').style.display = 'none';
     document.getElementById('rk-content').style.display = 'block';
     renderTable(lastRankingData, currentTab);
-    updatePhases(matchesData.matches || []);
+    updatePhases(data.matches || []);
+
+    // Mostrar última atualização
+    if (data.updated) {
+      const dt = new Date(data.updated);
+      const fmt = dt.toLocaleString('pt-BR', {timeZone:'America/Sao_Paulo', day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit'});
+      document.getElementById('rk-updated').textContent = 'Atualizado: ' + fmt + ' (Brasília)';
+    }
 
   } catch(err) {
-    showRankingError('Erro ao carregar dados: ' + err.message + '. Verifique sua conexão ou tente novamente.');
+    showRankingError('Erro ao carregar dados: ' + err.message);
   }
 }
 
