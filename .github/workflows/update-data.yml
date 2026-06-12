@@ -2,8 +2,8 @@ name: Atualizar Dados Copa 2026
 
 on:
   schedule:
-    - cron: '0 * * * *'   # A cada hora
-  workflow_dispatch:        # Disparo manual pelo GitHub
+    - cron: '0 * * * *'
+  workflow_dispatch:
 
 jobs:
   update-data:
@@ -29,21 +29,17 @@ jobs:
 
           python3 - <<'EOF'
 import json, datetime
-
 with open('matches_raw.json') as f:
     matches_data = json.load(f)
 with open('standings_raw.json') as f:
     standings_data = json.load(f)
-
 output = {
     "matches": matches_data.get("matches", []),
     "standings": standings_data.get("standings", []),
     "updated": datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
 }
-
 with open('data.json', 'w', encoding='utf-8') as f:
     json.dump(output, f, ensure_ascii=False, separators=(',', ':'))
-
 print(f"OK: {len(output['matches'])} partidas, {len(output['standings'])} grupos")
 EOF
 
@@ -52,5 +48,5 @@ EOF
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data.json
-          git diff --staged --quiet && echo "Sem alterações" || \
+          git diff --staged --quiet && echo "Sem alteracoes" || \
             (git commit -m "data: atualiza resultados Copa 2026" && git push)
