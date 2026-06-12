@@ -4,7 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bolão Copa do Mundo 2026 — Squad Contas Médicas</title>
-<script>const API_KEY = '48ac38d64c2c476cb0533801f8816746';</script>
+<script>
+// Os dados dos jogos são carregados do data.json gerado pela GitHub Action
+let MATCH_DATA = {};
+async function loadMatchData() {
+  try {
+    const res = await fetch('data.json?t=' + Date.now());
+    if (res.ok) MATCH_DATA = await res.json();
+  } catch(e) { console.warn('data.json não encontrado, usando dados embutidos'); }
+}
+loadMatchData();
+</script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:#0a0e2a;font-family:'Segoe UI',Arial,sans-serif;color:#fff;min-height:100vh;}
