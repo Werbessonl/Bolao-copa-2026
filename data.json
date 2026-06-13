@@ -197,6 +197,72 @@
           "nationality": "Argentina"
         }
       ]
+    },
+    {
+      "area": {
+        "id": 2267,
+        "name": "World",
+        "code": "INT",
+        "flag": null
+      },
+      "competition": {
+        "id": 2000,
+        "name": "FIFA World Cup",
+        "code": "WC",
+        "type": "CUP",
+        "emblem": "https://crests.football-data.org/wm26.png"
+      },
+      "season": {
+        "id": 2398,
+        "startDate": "2026-06-11",
+        "endDate": "2026-07-19",
+        "currentMatchday": 1,
+        "winner": null
+      },
+      "id": 537345,
+      "utcDate": "2026-06-13T01:00:00Z",
+      "status": "FINISHED",
+      "matchday": 1,
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_D",
+      "lastUpdated": "2026-06-13T03:25:00Z",
+      "homeTeam": {
+        "id": 771,
+        "name": "United States",
+        "shortName": "USA",
+        "tla": "USA",
+        "crest": "https://crests.football-data.org/usa.svg"
+      },
+      "awayTeam": {
+        "id": 761,
+        "name": "Paraguay",
+        "shortName": "Paraguay",
+        "tla": "PAR",
+        "crest": "https://crests.football-data.org/761.svg"
+      },
+      "score": {
+        "winner": "HOME_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "home": 4,
+          "away": 1
+        },
+        "halfTime": {
+          "home": 3,
+          "away": 0
+        }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": [
+        {
+          "id": 43899,
+          "name": "Danny Makkelie",
+          "type": "REFEREE",
+          "nationality": "Netherlands"
+        }
+      ]
     }
   ],
   "standings": [
@@ -469,8 +535,8 @@
           "draw": 0,
           "lost": 0,
           "points": 3,
-          "goalsFor": 3,
-          "goalsAgainst": 0,
+          "goalsFor": 4,
+          "goalsAgainst": 1,
           "goalDifference": 3
         },
         {
@@ -526,8 +592,8 @@
           "draw": 0,
           "lost": 1,
           "points": 0,
-          "goalsFor": 0,
-          "goalsAgainst": 3,
+          "goalsFor": 1,
+          "goalsAgainst": 4,
           "goalDifference": -3
         }
       ]
@@ -1197,5 +1263,5 @@
       ]
     }
   ],
-  "updated": "2026-06-13T02:46:20Z"
+  "updated": "2026-06-13T06:54:25Z"
 }
