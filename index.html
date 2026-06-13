@@ -4,66 +4,88 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bolão Copa do Mundo 2026 — Squad Contas Médicas</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:#0D1225;font-family:'Segoe UI',Arial,sans-serif;color:#fff;min-height:100vh;}
 .screen{display:none;flex-direction:column;min-height:100vh;}
 .screen.active{display:flex;}
 
-/* ===== NAVBAR ===== */
-.navbar{background:linear-gradient(135deg,#0f1440,#060a1e);border-bottom:3px solid #3CAC3B;padding:10px 20px;display:flex;align-items:center;gap:16px;flex-shrink:0;}
-.nb-logo{background:#3CAC3B;color:#070b20;font-weight:900;font-size:9px;padding:4px 8px;border-radius:6px;text-align:center;line-height:1.3;flex-shrink:0;}
+/* ===== NAVBAR (telas internas — 2 linhas) ===== */
+.navbar{background:linear-gradient(135deg,#0f1640,#060a1e);border-bottom:3px solid transparent;border-image:linear-gradient(90deg,#3CAC3B,#2A398D,#E61D25) 1;padding:10px 14px 8px;flex-shrink:0;}
+.nb-row1{display:flex;align-items:center;gap:10px;}
+.nb-logo{background:#3CAC3B;color:#070b20;font-weight:900;font-size:9px;padding:4px 7px;border-radius:6px;text-align:center;line-height:1.3;flex-shrink:0;}
 .nb-logo .squad{font-size:13px;display:block;letter-spacing:2px;}
-.nb-title{font-size:13px;font-weight:900;text-transform:uppercase;color:#fff;flex:1;}
-.nb-title span{color:#3CAC3B;font-size:10px;display:block;font-weight:700;letter-spacing:2px;}
-.nav-pills{display:flex;gap:4px;}
-.pill{padding:5px 12px;border-radius:20px;font-size:10px;font-weight:700;cursor:pointer;letter-spacing:0.5px;text-transform:uppercase;border:1px solid rgba(255,255,255,0.15);color:#8890bb;background:transparent;transition:all .15s;}
+.nb-trophy{flex-shrink:0;color:#C9A84C;}
+.nb-title-wrap{flex:1;min-width:0;}
+.nb-title{font-size:13px;font-weight:900;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.nb-row2{display:flex;align-items:center;gap:8px;margin-top:7px;flex-wrap:nowrap;}
+.nb-flags{display:flex;align-items:center;gap:3px;flex-shrink:0;}
+.nb-flags img{border-radius:2px;vertical-align:middle;}
+.nb-sub{font-size:9px;color:#3CAC3B;font-weight:600;letter-spacing:1px;white-space:nowrap;}
+.nav-pills{display:flex;gap:3px;margin-left:auto;flex-shrink:0;}
+.pill{padding:3px 8px;border-radius:20px;font-size:7px;font-weight:700;cursor:pointer;letter-spacing:0.3px;text-transform:uppercase;border:1px solid rgba(255,255,255,0.12);color:#8890bb;background:transparent;white-space:nowrap;transition:all .15s;}
 .pill:hover{border-color:#3CAC3B;color:#3CAC3B;}
 .pill.active{background:#E61D25;color:#fff;border-color:#E61D25;}
 
 /* ===== HOME ===== */
-#screen-home{background:#0D1225;}
-.home-header{background:linear-gradient(135deg,#0f1440,#060a1e);border-bottom:3px solid #3CAC3B;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;}
-.home-logo{background:#3CAC3B;color:#070b20;font-weight:900;font-size:11px;padding:5px 10px;border-radius:8px;text-align:center;line-height:1.3;}
-.home-logo .squad{font-size:16px;display:block;letter-spacing:2px;}
-.home-hd-title h1{font-size:20px;font-weight:900;text-transform:uppercase;}
-.home-hd-title p{font-size:11px;color:#3CAC3B;font-weight:700;letter-spacing:2px;margin-top:2px;}
-.home-stats{text-align:right;font-size:11px;color:#8890bb;}
-.home-stats strong{color:#3CAC3B;font-size:14px;}
-.home-body{flex:1;display:flex;flex-direction:column;align-items:center;padding:32px 20px 20px;gap:20px;max-width:600px;margin:0 auto;width:100%;}
-.home-hero{background:linear-gradient(135deg,#151a3e,#0d1235);border:1px solid #1e2456;border-radius:12px;padding:24px;text-align:center;width:100%;}
-.home-hero h2{font-size:22px;font-weight:900;color:#3CAC3B;letter-spacing:1px;}
-.home-hero p{font-size:13px;color:#8890bb;margin-top:8px;}
-.home-hero .hero-meta{display:flex;justify-content:center;gap:24px;margin-top:16px;}
-.hero-stat{text-align:center;}
-.hero-stat-val{font-size:28px;font-weight:900;color:#3CAC3B;display:block;}
-.hero-stat-lbl{font-size:10px;color:#8890bb;letter-spacing:1px;text-transform:uppercase;}
-.home-nav-btns{display:flex;flex-direction:column;gap:12px;width:100%;}
-.nav-big-btn{background:#151a3e;border:1px solid #1e2456;border-radius:10px;padding:18px 20px;cursor:pointer;display:flex;align-items:center;gap:16px;width:100%;border-left-width:4px;transition:all .15s;text-align:left;}
-.nav-big-btn:hover{transform:translateX(4px);background:#1a1f4e;}
-.nav-big-btn .btn-icon{font-size:28px;flex-shrink:0;}
+#screen-home{position:relative;overflow:hidden;background:#0D1225;}
+.home-geo{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
+.home-geo-circle{position:absolute;width:clamp(280px,60vw,520px);height:clamp(280px,60vw,520px);border-radius:50%;background:radial-gradient(circle at center,rgba(27,92,230,0.28) 0%,rgba(42,57,141,0.12) 55%,transparent 80%);top:-15%;right:-10%;}
+.home-geo-grid{position:absolute;bottom:0;left:0;width:45%;height:45%;background:linear-gradient(135deg,rgba(60,172,59,0.07) 0%,transparent 70%);}
+.home-geo-star{position:absolute;bottom:24px;right:28px;opacity:0.12;}
+.home-header{background:linear-gradient(135deg,#0f1640,#060a1e);border-bottom:3px solid transparent;border-image:linear-gradient(90deg,#3CAC3B,#2A398D,#E61D25) 1;padding:12px 20px;position:relative;z-index:1;}
+.home-header-row1{display:flex;align-items:center;gap:12px;}
+.home-logo{background:#3CAC3B;color:#070b20;font-weight:900;font-size:9px;padding:4px 8px;border-radius:6px;text-align:center;line-height:1.3;flex-shrink:0;}
+.home-logo .squad{font-size:13px;display:block;letter-spacing:2px;}
+.home-hd-title-wrap{flex:1;min-width:0;display:flex;align-items:center;gap:6px;}
+.home-hd-trophy{color:#C9A84C;flex-shrink:0;}
+.home-hd-title{font-size:16px;font-weight:900;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.home-header-row2{display:flex;align-items:center;gap:8px;margin-top:8px;flex-wrap:nowrap;}
+.home-host-flags{display:flex;align-items:center;gap:3px;flex-shrink:0;}
+.home-host-flags img{border-radius:2px;vertical-align:middle;}
+.home-host-sub{font-size:9px;color:#3CAC3B;font-weight:600;letter-spacing:1px;white-space:nowrap;}
+.home-stats{margin-left:auto;font-size:10px;color:#8890bb;text-align:right;white-space:nowrap;flex-shrink:0;}
+.home-stats strong{color:#3CAC3B;}
+.home-body{flex:1;display:flex;flex-direction:column;align-items:center;padding:24px 16px 16px;gap:16px;max-width:600px;margin:0 auto;width:100%;position:relative;z-index:1;}
+.home-hero{background:linear-gradient(135deg,rgba(42,57,141,0.35),rgba(13,18,37,0.9));border:1px solid rgba(42,57,141,0.5);border-radius:12px;padding:20px;text-align:center;width:100%;position:relative;overflow:hidden;}
+.home-hero::before{content:'26';position:absolute;right:-10px;top:50%;transform:translateY(-50%);font-family:'Bebas Neue',sans-serif;font-size:120px;color:rgba(255,255,255,0.03);line-height:1;pointer-events:none;user-select:none;}
+.home-hero h2{font-size:20px;font-weight:900;color:#fff;letter-spacing:1px;}
+.home-hero p{font-size:12px;color:#8890bb;margin-top:6px;}
+.home-stats-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;width:100%;}
+.home-stat-card{background:#111830;border-radius:8px;padding:10px 6px;text-align:center;border-top:2px solid var(--c);}
+.home-stat-card .sc-icon{margin-bottom:4px;}
+.home-stat-card .sc-val{font-size:22px;font-weight:900;color:var(--c);line-height:1;}
+.home-stat-card .sc-lbl{font-size:8px;color:#8890bb;font-weight:600;letter-spacing:0.8px;text-transform:uppercase;margin-top:2px;}
+.home-nav-btns{display:flex;flex-direction:column;gap:10px;width:100%;}
+.nav-big-btn{background:#111830;border:1px solid #1e2456;border-radius:10px;padding:14px 16px;cursor:pointer;display:flex;align-items:center;gap:14px;width:100%;border-left-width:4px;transition:all .15s;text-align:left;}
+.nav-big-btn:hover{transform:translateX(4px);background:#182040;}
+.btn-icon-box{width:40px;height:40px;border-radius:9px;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
 .nav-big-btn .btn-text{flex:1;}
-.nav-big-btn .btn-title{font-size:15px;font-weight:900;color:#fff;text-transform:uppercase;letter-spacing:.5px;}
-.nav-big-btn .btn-desc{font-size:11px;color:#8890bb;margin-top:3px;}
-.nav-big-btn .btn-chevron{font-size:20px;color:#8890bb;flex-shrink:0;}
+.nav-big-btn .btn-title{font-size:14px;font-weight:900;color:#fff;text-transform:uppercase;letter-spacing:.5px;}
+.nav-big-btn .btn-desc{font-size:10px;color:#8890bb;margin-top:3px;}
+.btn-chevron-icon{color:rgba(255,255,255,0.2);flex-shrink:0;}
 .apostas-btn{border-left-color:#3CAC3B;}
-.raiox-btn{border-left-color:#2A398D;}
-.ranking-btn{border-left-color:#E61D25;}
-.home-footer{text-align:center;font-size:10px;color:#4a5070;letter-spacing:1px;padding-top:8px;}
+.apostas-btn .btn-icon-box{background:rgba(60,172,59,0.12);color:#3CAC3B;}
+.raiox-btn{border-left-color:#E61D25;}
+.raiox-btn .btn-icon-box{background:rgba(230,29,37,0.10);color:#E61D25;}
+.ranking-btn{border-left-color:#5a72d4;}
+.ranking-btn .btn-icon-box{background:rgba(90,114,212,0.12);color:#5a72d4;}
+.home-footer{text-align:center;font-size:10px;color:#4a5070;letter-spacing:1px;padding-top:4px;}
 
 /* ===== APOSTAS ===== */
 #screen-apostas{flex-direction:column;}
 .apostas-main{display:flex;flex:1;min-height:0;height:calc(100vh - 83px);}
-.sidebar{width:220px;flex-shrink:0;background:#0d1235;border-right:1px solid #1e2456;display:flex;flex-direction:column;overflow:hidden;}
-.sidebar-header{background:#2A398D;padding:10px 14px;font-size:10px;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:#fff;flex-shrink:0;}
-.cards-list{flex:1;overflow-y:auto;padding:8px;display:flex;flex-direction:column;gap:5px;}
+.sidebar{width:200px;flex-shrink:0;background:#0b1020;border-right:1px solid #1e2456;display:flex;flex-direction:column;overflow:hidden;}
+.sidebar-header{background:#2A398D;padding:8px 12px;font-size:9px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#fff;flex-shrink:0;display:flex;align-items:center;gap:6px;}
+.cards-list{flex:1;overflow-y:auto;padding:6px;display:flex;flex-direction:column;gap:4px;}
 .cards-list::-webkit-scrollbar{width:4px;}
 .cards-list::-webkit-scrollbar-track{background:#070b20;}
 .cards-list::-webkit-scrollbar-thumb{background:#2a3060;border-radius:2px;}
-.card{background:#151a3e;border:1px solid #2a3060;border-radius:8px;padding:10px 12px;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:8px;}
-.card:hover{background:#1e2456;border-color:#4a5090;transform:translateX(2px);}
-.card.active{background:#1e2456;border-color:#3CAC3B;box-shadow:0 0 10px rgba(180,212,0,.15);}
-.card-num{font-size:9px;color:#8890bb;font-weight:700;min-width:18px;}
+.card{background:#111830;border:1px solid rgba(42,57,141,0.3);border-radius:7px;padding:8px 10px;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:7px;}
+.card:hover{background:#182040;border-color:#4a5090;}
+.card.active{background:#182040;border-color:rgba(60,172,59,0.4);border-left:3px solid #3CAC3B;}
+.card-num{font-size:9px;color:#8890bb;font-weight:700;min-width:16px;}
 .card.active .card-num{color:#3CAC3B;}
 .card-info{flex:1;min-width:0;}
 .card-name{font-size:11px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#ccd0ee;}
@@ -71,23 +93,23 @@ body{background:#0D1225;font-family:'Segoe UI',Arial,sans-serif;color:#fff;min-h
 .card-champ{font-size:9px;color:#8890bb;margin-top:1px;}
 .card.active .card-champ{color:#3CAC3B;}
 .sidebar-nav{display:flex;border-top:1px solid #1e2456;flex-shrink:0;}
-.nav-btn{flex:1;background:#0f1440;border:none;color:#8890bb;padding:10px;cursor:pointer;font-size:16px;font-weight:900;transition:all .1s;}
+.nav-btn{flex:1;background:#0b1020;border:none;color:#8890bb;padding:9px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .1s;}
 .nav-btn:hover{background:#1e2456;color:#3CAC3B;}
 .nav-btn:first-child{border-right:1px solid #1e2456;}
-.current-label{background:#070b20;border-top:1px solid #1e2456;padding:8px 12px;text-align:center;flex-shrink:0;}
+.current-label{background:#070b20;border-top:1px solid #1e2456;padding:7px 10px;text-align:center;flex-shrink:0;}
 .current-label .cl-name{font-size:11px;font-weight:900;color:#3CAC3B;text-transform:uppercase;}
-.current-label .cl-sub{font-size:9px;color:#8890bb;margin-top:1px;}
+.current-label .cl-sub{font-size:9px;color:#8890bb;margin-top:2px;}
 .viewer{flex:1;display:flex;flex-direction:column;background:#0D1225;overflow:hidden;}
-.viewer-toolbar{background:#0f1440;border-bottom:1px solid #1e2456;padding:8px 16px;display:flex;align-items:center;gap:12px;flex-shrink:0;}
-.viewer-title{flex:1;font-size:13px;font-weight:700;color:#ccd0ee;}
+.viewer-toolbar{background:#0f1440;border-bottom:1px solid #1e2456;padding:8px 14px;display:flex;align-items:center;gap:10px;flex-shrink:0;flex-wrap:wrap;}
+.viewer-title{flex:1;font-size:12px;font-weight:700;color:#ccd0ee;min-width:0;}
 .viewer-title span{color:#3CAC3B;}
 .progress-bar{display:flex;gap:3px;align-items:center;}
 .progress-dot{width:6px;height:6px;border-radius:50%;background:#2a3060;transition:background .2s;cursor:pointer;}
 .progress-dot.active{background:#3CAC3B;}
 .progress-dot:hover{background:#2A398D;}
-.btn-dl{background:#2A398D;color:#fff;border:none;padding:5px 12px;border-radius:5px;font-size:10px;font-weight:700;cursor:pointer;letter-spacing:.5px;text-transform:uppercase;transition:background .1s;text-decoration:none;display:inline-block;}
-.btn-dl:hover{background:#8a50d8;}
-.iframe-container{flex:1;overflow:auto;display:flex;justify-content:center;padding:16px;background:#070b20;}
+.btn-dl{background:#2A398D;color:#fff;border:none;padding:5px 11px;border-radius:5px;font-size:10px;font-weight:700;cursor:pointer;letter-spacing:.5px;text-transform:uppercase;transition:background .1s;text-decoration:none;display:inline-flex;align-items:center;gap:5px;}
+.btn-dl:hover{background:#3a4fad;}
+.iframe-container{flex:1;overflow:auto;display:flex;justify-content:center;padding:14px;background:#070b20;}
 .iframe-container::-webkit-scrollbar{width:6px;height:6px;}
 .iframe-container::-webkit-scrollbar-track{background:#070b20;}
 .iframe-container::-webkit-scrollbar-thumb{background:#2a3060;border-radius:3px;}
@@ -95,45 +117,45 @@ body{background:#0D1225;font-family:'Segoe UI',Arial,sans-serif;color:#fff;min-h
 
 /* ===== RAIO X ===== */
 #screen-raiox{flex-direction:column;}
-.rx-body{flex:1;overflow-y:auto;padding:20px;background:#0D1225;}
-.rx-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:900px;margin:0 auto;}
-.rx-card{background:#151a3e;border:1px solid #1e2456;border-radius:8px;padding:16px;}
+.rx-body{flex:1;overflow-y:auto;padding:16px;background:#0D1225;}
+.rx-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:900px;margin:0 auto;}
+.rx-card{background:#111830;border:1px solid #1e2456;border-radius:8px;padding:14px;}
 .rx-card.full{grid-column:1/-1;}
-.rx-card-title{font-size:10px;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:#2A398D;border-bottom:1px solid #1e2456;padding-bottom:8px;margin-bottom:12px;}
-.rx-hero{background:linear-gradient(135deg,#1a1f4e,#0d1235);border:2px solid #3CAC3B;border-radius:8px;padding:20px;grid-column:1/-1;display:flex;align-items:center;gap:20px;}
-.rx-hero-flag{font-size:48px;}
-.rx-hero-info h2{font-size:20px;font-weight:900;color:#3CAC3B;}
-.rx-hero-info p{font-size:12px;color:#8890bb;margin-top:4px;}
-.rx-hero-stats{margin-left:auto;display:flex;gap:20px;}
+.rx-card-title{font-size:10px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#5a72d4;border-bottom:1px solid #1e2456;padding-bottom:8px;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.rx-hero{background:linear-gradient(135deg,#1a2560,#0d1225);border-left:4px solid #3CAC3B;border-radius:10px;padding:16px 18px;grid-column:1/-1;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.rx-hero-badge{background:#3CAC3B;width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.rx-hero-info h2{font-size:18px;font-weight:900;color:#fff;}
+.rx-hero-info p{font-size:11px;color:#8890bb;margin-top:3px;}
+.rx-hero-stats{margin-left:auto;display:flex;gap:18px;flex-wrap:wrap;}
 .rx-stat{text-align:center;}
-.rx-stat-val{font-size:24px;font-weight:900;color:#3CAC3B;display:block;}
+.rx-stat-val{font-size:22px;font-weight:900;color:#3CAC3B;display:block;}
 .rx-stat-lbl{font-size:9px;color:#8890bb;letter-spacing:1px;text-transform:uppercase;}
-.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.bar-row{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
 .bar-flag{flex-shrink:0;}
-.bar-label{font-size:11px;font-weight:700;min-width:80px;}
-.bar-track{flex:1;background:#0D1225;border-radius:4px;height:14px;overflow:hidden;}
+.bar-label{font-size:11px;font-weight:700;min-width:72px;}
+.bar-track{flex:1;background:#0D1225;border-radius:4px;height:12px;overflow:hidden;}
 .bar-fill{height:100%;border-radius:4px;transition:width .5s;}
 .bar-count{font-size:10px;color:#8890bb;min-width:70px;text-align:right;}
 .rx-text-row{display:flex;align-items:center;gap:6px;padding:4px 0;font-size:11px;border-bottom:1px solid rgba(255,255,255,.04);}
 .rx-text-row:last-child{border-bottom:none;}
-.rx-label{color:#8890bb;min-width:100px;font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;}
+.rx-label{color:#8890bb;min-width:90px;font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;}
 .rx-val{color:#fff;flex:1;}
 .rx-accent{color:#3CAC3B;font-weight:700;}
 .zebra-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;}
-.zebra-tag{background:#1e2456;border:1px solid #2a3060;border-radius:20px;padding:4px 10px;font-size:10px;display:flex;align-items:center;gap:5px;}
-.perfil-group{margin-bottom:12px;}
+.zebra-tag{background:rgba(60,172,59,0.08);border:1px solid rgba(60,172,59,0.3);color:#3CAC3B;border-radius:20px;padding:3px 10px;font-size:10px;font-weight:600;display:flex;align-items:center;gap:5px;}
+.perfil-group{margin-bottom:10px;}
 .perfil-group:last-child{margin-bottom:0;}
-.perfil-group-title{font-size:9px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border-radius:3px;display:inline-block;margin-bottom:6px;}
-.perfil-conservador .perfil-group-title{background:#1a5276;color:#5dade2;}
-.perfil-equilibrado .perfil-group-title{background:#1a3a2a;color:#3CAC3B;}
-.perfil-ousado .perfil-group-title{background:#3d1a00;color:#E61D25;}
+.perfil-group-title{font-size:9px;font-weight:900;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:3px;display:inline-block;margin-bottom:5px;}
+.perfil-conservador .perfil-group-title{background:rgba(60,172,59,0.2);color:#3CAC3B;}
+.perfil-equilibrado .perfil-group-title{background:rgba(42,57,141,0.25);color:#5a72d4;}
+.perfil-ousado .perfil-group-title{background:rgba(230,29,37,0.15);color:#E61D25;}
 .perfil-names{font-size:11px;color:#ccd0ee;line-height:1.6;}
 .chance-row{display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.04);}
 .chance-row:last-child{border-bottom:none;}
 .chance-pos{font-size:9px;font-weight:900;color:#8890bb;min-width:18px;}
-.chance-pos.gold{color:#f1c40f;}
-.chance-pos.silver{color:#bdc3c7;}
-.chance-pos.bronze{color:#e67e22;}
+.chance-pos.gold{color:#C9A84C;}
+.chance-pos.silver{color:#A8A8A8;}
+.chance-pos.bronze{color:#C47A3A;}
 .chance-name{flex:1;font-size:11px;}
 .chance-pct{font-size:11px;font-weight:700;color:#3CAC3B;min-width:36px;text-align:right;}
 .chance-bar{width:60px;height:6px;background:#0D1225;border-radius:3px;overflow:hidden;}
@@ -144,33 +166,36 @@ body{background:#0D1225;font-family:'Segoe UI',Arial,sans-serif;color:#fff;min-h
 
 /* ===== RANKING ===== */
 #screen-ranking{flex-direction:column;}
-.rk-body{flex:1;overflow-y:auto;padding:16px;background:#0D1225;}
-.phases-bar{display:flex;gap:4px;margin-bottom:16px;max-width:900px;margin-left:auto;margin-right:auto;flex-wrap:wrap;}
-.phase-pill{padding:5px 12px;border-radius:20px;font-size:9px;font-weight:900;letter-spacing:1px;text-transform:uppercase;border:1px solid #1e2456;color:#8890bb;background:#151a3e;}
-.phase-pill.done{background:#1a3a2a;border-color:#2a5a3a;color:#3CAC3B;}
-.phase-pill.live{background:#E61D25;color:#fff;border-color:#E61D25;animation:pulse 1.5s infinite;}
-.phase-pill.next{background:#151a3e;border-color:#2a3060;color:#4a5070;}
-@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.7;}}
-.rk-tabs{display:flex;gap:4px;margin-bottom:16px;max-width:900px;margin-left:auto;margin-right:auto;}
-.rk-tab{padding:7px 18px;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer;border:1px solid #1e2456;color:#8890bb;background:#151a3e;transition:all .15s;}
-.rk-tab.active{background:#E61D25;color:#fff;border-color:#E61D25;}
-.rk-table-wrap{background:#151a3e;border:1px solid #1e2456;border-radius:8px;overflow:hidden;max-width:900px;margin:0 auto 16px;}
-.rk-table{width:100%;border-collapse:collapse;}
-.rk-table th{background:#1e2456;font-size:9px;font-weight:900;letter-spacing:1px;text-transform:uppercase;padding:10px 12px;color:#8890bb;text-align:left;}
-.rk-table td{padding:10px 12px;font-size:11px;border-bottom:1px solid #1e2456;vertical-align:middle;}
+.rk-body{flex:1;overflow-y:auto;padding:14px;background:#0D1225;}
+.phases-bar{display:flex;gap:4px;margin-bottom:14px;max-width:900px;margin-left:auto;margin-right:auto;flex-wrap:wrap;}
+.phase-pill{padding:4px 10px;border-radius:20px;font-size:9px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;border:1px solid rgba(42,57,141,0.2);color:#8890bb;background:rgba(42,57,141,0.08);display:flex;align-items:center;gap:4px;}
+.phase-pill.done{background:rgba(60,172,59,0.1);border-color:rgba(60,172,59,0.35);color:#3CAC3B;}
+.phase-pill.live{background:rgba(230,29,37,0.12);color:#E61D25;border-color:rgba(230,29,37,0.45);}
+.phase-pill.next{background:rgba(42,57,141,0.08);border-color:rgba(42,57,141,0.2);color:#4a5070;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.5;}}
+.live-dot{width:8px;height:8px;border-radius:50%;background:#E61D25;display:inline-block;animation:pulse 1.5s infinite;flex-shrink:0;}
+.rk-tabs{display:flex;gap:6px;margin-bottom:14px;max-width:900px;margin-left:auto;margin-right:auto;}
+.rk-tab{padding:6px 16px;border-radius:20px;font-size:10px;font-weight:700;cursor:pointer;border:1px solid transparent;color:#fff;background:rgba(42,57,141,0.2);transition:all .15s;display:flex;align-items:center;gap:5px;}
+#tab-real.active{background:#3CAC3B;border-color:#3CAC3B;color:#fff;}
+#tab-virtual.active{background:#2A398D;border-color:#2A398D;color:#fff;}
+.rk-tab:not(.active){color:#8890bb;border-color:rgba(255,255,255,0.1);}
+.rk-table-wrap{background:#111830;border:1px solid #1e2456;border-radius:8px;overflow:hidden;max-width:900px;margin:0 auto 14px;overflow-x:auto;}
+.rk-table{width:100%;border-collapse:collapse;min-width:380px;}
+.rk-table th{background:#1e2456;font-size:9px;font-weight:900;letter-spacing:1px;text-transform:uppercase;padding:9px 10px;color:#8890bb;text-align:left;white-space:nowrap;}
+.rk-table td{padding:9px 10px;font-size:11px;border-bottom:1px solid rgba(42,57,141,0.15);vertical-align:middle;}
 .rk-table tr:last-child td{border-bottom:none;}
 .rk-table tr:hover td{background:rgba(255,255,255,.02);}
 .pos-badge{width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:9px;font-weight:900;}
-.pos-gold{background:#f1c40f;color:#000;}
-.pos-silver{background:#bdc3c7;color:#000;}
-.pos-bronze{background:#cd7f32;color:#fff;}
-.pos-plain{background:#1e2456;color:#8890bb;}
-.rk-prog{width:80px;height:5px;background:#0D1225;border-radius:3px;overflow:hidden;display:inline-block;vertical-align:middle;margin-left:6px;}
+.pos-gold{background:#C9A84C;color:#0D1225;}
+.pos-silver{background:#A8A8A8;color:#0D1225;}
+.pos-bronze{background:#C47A3A;color:#fff;}
+.pos-plain{background:rgba(42,57,141,0.3);color:#8890bb;}
+.rk-prog{width:70px;height:5px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden;display:inline-block;vertical-align:middle;margin-left:4px;}
 .rk-prog-fill{height:100%;background:#3CAC3B;border-radius:3px;}
-.rk-legend{background:#151a3e;border:1px solid #1e2456;border-radius:8px;padding:12px 16px;max-width:900px;margin:0 auto;font-size:10px;color:#8890bb;line-height:1.8;}
+.rk-legend{background:#111830;border:1px solid #1e2456;border-radius:8px;padding:10px 14px;max-width:900px;margin:0 auto;font-size:10px;color:#8890bb;line-height:1.8;}
 .rk-legend strong{color:#3CAC3B;}
 .rk-loading{text-align:center;padding:40px;color:#8890bb;font-size:13px;}
-.rk-error{background:#2a0a08;border:1px solid #c0392b;border-radius:6px;padding:12px;color:#e74c3c;font-size:11px;max-width:900px;margin:0 auto 16px;}
+.rk-error{background:#2a0a08;border:1px solid #c0392b;border-radius:6px;padding:12px;color:#e74c3c;font-size:11px;max-width:900px;margin:0 auto 14px;}
 
 /* ===== FOOTER ===== */
 .page-footer{background:#060a1e;border-top:1px solid #1e2456;padding:6px 16px;font-size:9px;color:#4a5070;text-align:center;flex-shrink:0;letter-spacing:1px;}
@@ -179,75 +204,27 @@ body{background:#0D1225;font-family:'Segoe UI',Arial,sans-serif;color:#fff;min-h
 @media(max-width:700px){
   .apostas-main{flex-direction:column;height:auto;}
   .sidebar{width:100%;height:auto;border-right:none;border-bottom:1px solid #1e2456;}
-  .cards-list{flex-direction:row;overflow-x:auto;overflow-y:hidden;padding:6px;max-height:90px;}
-  .card{min-width:100px;flex-shrink:0;}
+  .cards-list{flex-direction:row;overflow-x:auto;overflow-y:hidden;padding:6px;max-height:90px;flex-wrap:nowrap;}
+  .card{min-width:88px;flex-shrink:0;flex-direction:column;align-items:center;text-align:center;padding:7px 5px;}
+  .card-num{display:none;}
+  .card-name{font-size:10px;}
+  .card-champ{font-size:8px;}
   #arte-frame{width:100%;}
   .rx-grid{grid-template-columns:1fr;}
   .rx-card.full{grid-column:1;}
-  .home-hero .hero-meta{gap:12px;}
+  .rx-hero{flex-direction:column;align-items:flex-start;}
+  .rx-hero-stats{margin-left:0;}
   .nav-pills{gap:2px;}
-  .pill{padding:4px 8px;font-size:9px;}
+  .pill{padding:3px 6px;font-size:7px;}
+  .home-stats-cards{gap:6px;}
+  .home-stat-card .sc-val{font-size:18px;}
+  .rk-table-wrap{overflow-x:auto;}
+  .rk-tabs{flex-wrap:nowrap;}
+  .phases-bar{gap:3px;}
+  .phase-pill{padding:3px 7px;font-size:8px;}
+  .home-header-row2,.nb-row2{flex-wrap:nowrap;}
 }
 </style>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-<style id="mobile-fix">
-@media (max-width:700px){
-  /* Navbar mobile: compacto e sem quebra */
-  .navbar{padding:7px 10px!important;gap:8px!important;flex-wrap:nowrap!important;}
-  .nb-logo{padding:3px 6px!important;}
-  .nb-logo .squad{font-size:11px!important;}
-  .nb-title{font-size:10px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;min-width:0!important;}
-  .nb-title span{font-size:8px!important;letter-spacing:1px!important;}
-  .nav-pills{flex-shrink:0!important;gap:2px!important;}
-  .pill{padding:4px 7px!important;font-size:8px!important;letter-spacing:0!important;white-space:nowrap!important;}
-
-  /* Sidebar / apostas */
-  .main{flex-direction:column!important;height:auto!important;}
-  .sidebar{width:100%!important;height:auto!important;border-right:none!important;border-bottom:1px solid #1e2456!important;}
-  .cards-list{flex-direction:row!important;overflow-x:auto!important;overflow-y:hidden!important;flex-wrap:nowrap!important;max-height:none!important;padding:8px!important;gap:6px!important;}
-  .card{min-width:90px!important;flex-direction:column!important;align-items:center!important;text-align:center!important;padding:8px 6px!important;}
-  .card-num{display:none!important;}
-  .card-name{font-size:10px!important;}
-  .card-champ{font-size:8px!important;}
-  .iframe-container{padding:8px!important;}
-  #arte-frame{width:100%!important;}
-
-  /* Raio X */
-  .rx-grid{grid-template-columns:1fr!important;}
-  .header-stats{display:none!important;}
-
-  /* Ranking */
-  .rk-table-wrap{overflow-x:auto!important;}
-  .rk-table{min-width:380px!important;}
-  .rk-tabs{flex-wrap:nowrap!important;gap:6px!important;}
-  .rk-tab{padding:6px 12px!important;font-size:10px!important;}
-  .phases-bar{gap:3px!important;}
-  .phase-pill{padding:4px 8px!important;font-size:8px!important;}
-}
-.pos-badge{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;font-weight:900;font-size:12px;}
-.pos-gold{background:#C9A84C;color:#0D1225;}
-.pos-silver{background:#A8A8A8;color:#0D1225;}
-.pos-bronze{background:#C47A3A;color:#fff;}
-.pos-plain{background:#1e2456;color:#8890bb;}
-
-/* ===== HOME GEOMETRIC BACKGROUND (FIFA 2026 style) ===== */
-#screen-home{position:relative;overflow:hidden;background:#0D1225;}
-.home-geo{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
-.home-geo-circle{position:absolute;width:clamp(280px,60vw,520px);height:clamp(280px,60vw,520px);border-radius:50%;background:radial-gradient(circle at center,rgba(27,92,230,0.28) 0%,rgba(42,57,141,0.12) 55%,transparent 80%);top:-15%;right:-10%;}
-.home-geo-grid{position:absolute;bottom:0;left:0;width:45%;height:45%;background:linear-gradient(135deg,rgba(60,172,59,0.07) 0%,transparent 70%);}
-.home-geo-star{position:absolute;bottom:24px;right:28px;opacity:0.12;}
-.home-body{position:relative;z-index:1;}
-.home-header{position:relative;z-index:1;}
-
-/* Hero card upgrade */
-.home-hero{background:linear-gradient(135deg,rgba(42,57,141,0.35),rgba(13,18,37,0.9));border:1px solid rgba(42,57,141,0.5);position:relative;overflow:hidden;}
-.home-hero::before{content:'26';position:absolute;right:-10px;top:50%;transform:translateY(-50%);font-family:'Bebas Neue',sans-serif;font-size:120px;color:rgba(255,255,255,0.03);line-height:1;pointer-events:none;user-select:none;}
-
-/* btn-icon SVG sizing */
-.btn-icon{font-size:28px;flex-shrink:0;color:#3CAC3B;display:flex;align-items:center;justify-content:center;width:40px;height:40px;background:rgba(60,172,59,0.1);border-radius:8px;}
-.apostas-btn .btn-icon{color:#3CAC3B;background:rgba(60,172,59,0.1);}
-.raiox-btn .btn-icon{color:#2A398D;background:rgba(42,57,141,0.18);}
-.ranking-btn .btn-icon{color:#E61D25;background:rgba(230,29,37,0.1);}</style>
 </head>
 <body>
 
@@ -255,7 +232,6 @@ body{background:#0D1225;font-family:'Segoe UI',Arial,sans-serif;color:#fff;min-h
      TELA: HOME
      ============================ -->
 <div id="screen-home" class="screen active">
-  <!-- Geometric background FIFA 2026 style -->
   <div class="home-geo" aria-hidden="true">
     <div class="home-geo-circle"></div>
     <div class="home-geo-grid"></div>
@@ -264,47 +240,69 @@ body{background:#0D1225;font-family:'Segoe UI',Arial,sans-serif;color:#fff;min-h
     </div>
   </div>
   <div class="home-header">
-    <div class="home-logo"><span class="squad">SQUAD</span>Contas Médicas</div>
-    <div class="home-hd-title">
-      <h1>Bolão Copa do Mundo 2026</h1>
-      <p>Palpites dos Participantes</p>
+    <div class="home-header-row1">
+      <div class="home-logo"><span class="squad">SQUAD</span>Contas Médicas</div>
+      <div class="home-hd-title-wrap">
+        <svg class="home-hd-trophy" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>
+        <div class="home-hd-title">Bolão Copa do Mundo 2026</div>
+      </div>
+      <div class="home-stats"><strong>12</strong> participantes</div>
     </div>
-    <div class="home-stats"><strong>12</strong> participantes<br>EUA · CAN · MEX · 11 Jun – 19 Jul 2026</div>
+    <div class="home-header-row2">
+      <div class="home-host-flags">
+        <img src="https://flagcdn.com/h20/us.png" width="18" height="12" alt="EUA">
+        <img src="https://flagcdn.com/h20/ca.png" width="18" height="12" alt="CAN">
+        <img src="https://flagcdn.com/h20/mx.png" width="18" height="12" alt="MEX">
+      </div>
+      <span class="home-host-sub">EUA · CAN · MEX · 11 Jun – 19 Jul 2026</span>
+    </div>
   </div>
   <div class="home-body">
     <div class="home-hero">
       <h2>BOLÃO COPA DO MUNDO 2026</h2>
       <p>Squad Contas Médicas — Hapvida NotreDame Intermédica</p>
-      <div class="hero-meta">
-        <div class="hero-stat"><span class="hero-stat-val">12</span><span class="hero-stat-lbl">Participantes</span></div>
-        <div class="hero-stat"><span class="hero-stat-val">64</span><span class="hero-stat-lbl">Jogos</span></div>
-        <div class="hero-stat"><span class="hero-stat-val">48</span><span class="hero-stat-lbl">Seleções</span></div>
+    </div>
+    <div class="home-stats-cards">
+      <div class="home-stat-card" style="--c:#3CAC3B;">
+        <div class="sc-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3CAC3B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div class="sc-val">12</div>
+        <div class="sc-lbl">Participantes</div>
+      </div>
+      <div class="home-stat-card" style="--c:#5a72d4;">
+        <div class="sc-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5a72d4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><polyline points="3 6 4 6"/><polyline points="3 12 4 12"/><polyline points="3 18 4 18"/></svg></div>
+        <div class="sc-val">64</div>
+        <div class="sc-lbl">Jogos</div>
+      </div>
+      <div class="home-stat-card" style="--c:#E61D25;">
+        <div class="sc-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E61D25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+        <div class="sc-val">155</div>
+        <div class="sc-lbl">Pts Máx</div>
       </div>
     </div>
     <div class="home-nav-btns">
       <button class="nav-big-btn apostas-btn" onclick="goTo('apostas')">
-        <span class="btn-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><line x1="12" y1="11" x2="16" y2="11"/><line x1="12" y1="16" x2="16" y2="16"/><line x1="8" y1="11" x2="8.01" y2="11"/><line x1="8" y1="16" x2="8.01" y2="16"/></svg></span>
+        <div class="btn-icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><line x1="12" y1="11" x2="16" y2="11"/><line x1="12" y1="16" x2="16" y2="16"/><line x1="8" y1="11" x2="8.01" y2="11"/><line x1="8" y1="16" x2="8.01" y2="16"/></svg></div>
         <span class="btn-text">
           <span class="btn-title">Apostas</span>
-          <span class="btn-desc">Veja os palpites completos de cada participante</span>
+          <span class="btn-desc">Palpites completos de cada participante</span>
         </span>
-        <span class="btn-chevron">›</span>
+        <svg class="btn-chevron-icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
       </button>
       <button class="nav-big-btn raiox-btn" onclick="goTo('raiox')">
-        <span class="btn-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span>
+        <div class="btn-icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><circle cx="11" cy="11" r="3"/><line x1="11" y1="5" x2="11" y2="5.01"/><line x1="11" y1="17" x2="11" y2="17.01"/><line x1="5" y1="11" x2="5.01" y2="11"/><line x1="17" y1="11" x2="17.01" y2="11"/></svg></div>
         <span class="btn-text">
           <span class="btn-title">Raio X</span>
           <span class="btn-desc">Análise estatística e perfil dos apostadores</span>
         </span>
-        <span class="btn-chevron">›</span>
+        <svg class="btn-chevron-icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
       </button>
       <button class="nav-big-btn ranking-btn" onclick="goTo('ranking')">
-        <span class="btn-icon">🏆</span>
+        <div class="btn-icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg></div>
         <span class="btn-text">
           <span class="btn-title">Ranking</span>
           <span class="btn-desc">Pontuação ao vivo com dados reais da Copa</span>
         </span>
-        <span class="btn-chevron">›</span>
+        <svg class="btn-chevron-icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
       </button>
     </div>
     <div class="home-footer">Apostas encerradas antes do início da Copa · Boa sorte a todos!</div>
@@ -316,118 +314,139 @@ body{background:#0D1225;font-family:'Segoe UI',Arial,sans-serif;color:#fff;min-h
      ============================ -->
 <div id="screen-apostas" class="screen">
   <nav class="navbar">
-    <div class="nb-logo"><span class="squad">SQUAD</span>Contas Médicas</div>
-    <div class="nb-title">Bolão Copa 2026<span>Palpites dos Participantes</span></div>
-    <div class="nav-pills">
-      <span class="pill" onclick="goTo('home')">Home</span>
-      <span class="pill active" data-screen="apostas" onclick="goTo('apostas')">Apostas</span>
-      <span class="pill" data-screen="raiox" onclick="goTo('raiox')">Raio X</span>
-      <span class="pill" data-screen="ranking" onclick="goTo('ranking')">Ranking</span>
+    <div class="nb-row1">
+      <div class="nb-logo"><span class="squad">SQUAD</span>Contas Médicas</div>
+      <svg class="nb-trophy" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>
+      <div class="nb-title-wrap"><div class="nb-title">Bolão Copa do Mundo 2026</div></div>
+    </div>
+    <div class="nb-row2">
+      <div class="nb-flags">
+        <img src="https://flagcdn.com/h20/us.png" width="15" height="10" alt="EUA">
+        <img src="https://flagcdn.com/h20/ca.png" width="15" height="10" alt="CAN">
+        <img src="https://flagcdn.com/h20/mx.png" width="15" height="10" alt="MEX">
+      </div>
+      <span class="nb-sub">APOSTAS</span>
+      <div class="nav-pills">
+        <span class="pill" onclick="goTo('home')">Home</span>
+        <span class="pill active" onclick="goTo('apostas')">Apostas</span>
+        <span class="pill" onclick="goTo('raiox')">Raio X</span>
+        <span class="pill" onclick="goTo('ranking')">Ranking</span>
+      </div>
     </div>
   </nav>
   <div class="apostas-main">
     <div class="sidebar">
-      <div class="sidebar-header"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> Participantes</div>
+      <div class="sidebar-header">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Participantes
+      </div>
       <div class="cards-list" id="cards-list-el">
     <div class="card active" onclick="selectParticipant(0)" id="card-0">
       <div class="card-num">01</div>
       <div class="card-info">
         <div class="card-name">Andressa</div>
-        <div class="card-champ"><img src="https://flagcdn.com/h20/br.png" width="16" height="11" style="vertical-align:middle;border-radius:2px;" alt="Brasil"> Brasil</div>
+        <div class="card-champ"><img src="https://flagcdn.com/h20/br.png" width="14" height="10" style="vertical-align:middle;border-radius:2px;" alt="Brasil"> Brasil</div>
       </div>
     </div>
     <div class="card" onclick="selectParticipant(1)" id="card-1">
       <div class="card-num">02</div>
       <div class="card-info">
         <div class="card-name">Boaventura</div>
-        <div class="card-champ"><img src="https://flagcdn.com/h20/br.png" width="16" height="11" style="vertical-align:middle;border-radius:2px;" alt="Brasil"> Brasil</div>
+        <div class="card-champ"><img src="https://flagcdn.com/h20/br.png" width="14" height="10" style="vertical-align:middle;border-radius:2px;" alt="Brasil"> Brasil</div>
       </div>
     </div>
     <div class="card" onclick="selectParticipant(2)" id="card-2">
       <div class="card-num">03</div>
       <div class="card-info">
         <div class="card-name">Bruno</div>
-        <div class="card-champ"><img src="https://flagcdn.com/h20/fr.png" width="16" height="11" style="vertical-align:middle;border-radius:2px;" alt="Franca"> França</div>
+        <div class="card-champ"><img src="https://flagcdn.com/h20/fr.png" width="14" height="10" style="vertical-align:middle;border-radius:2px;" alt="França"> França</div>
       </div>
     </div>
     <div class="card" onclick="selectParticipant(3)" id="card-3">
       <div class="card-num">04</div>
       <div class="card-info">
         <div class="card-name">Cláudio Henrique</div>
-        <div class="card-champ"><img src="https://flagcdn.com/h20/br.png" width="16" height="11" style="vertical-align:middle;border-radius:2px;" alt="Brasil"> Brasil</div>
+        <div class="card-champ"><img src="https://flagcdn.com/h20/br.png" width="14" height="10" style="vertical-align:middle;border-radius:2px;" alt="Brasil"> Brasil</div>
       </div>
     </div>
     <div class="card" onclick="selectParticipant(4)" id="card-4">
       <div class="card-num">05</div>
       <div class="card-info">
         <div class="card-name">Everton Paes</div>
-        <div class="card-champ"><img src="https://flagcdn.com/h20/pt.png" width="16" height="11" style="vertical-align:middle;border-radius:2px;" alt="Portugal"> Portugal</div>
+        <div class="card-champ"><img src="https://flagcdn.com/h20/pt.png" width="14" height="10" style="vertical-align:middle;border-radius:2px;" alt="Portugal"> Portugal</div>
       </div>
     </div>
     <div class="card" onclick="selectParticipant(5)" id="card-5">
       <div class="card-num">06</div>
       <div class="card-info">
         <div class="card-name">Fabio Fischer</div>
-        <div class="card-champ"><img src="https://flagcdn.com/h20/br.png" width="16" height="11" style="vertical-align:middle;border-radius:2px;" alt="Brasil"> Brasil</div>
+        <div class="card-champ"><img src="https://flagcdn.com/h20/br.png" width="14" height="10" style="vertical-align:middle;border-radius:2px;" alt="Brasil"> Brasil</div>
       </div>
     </div>
     <div class="card" onclick="selectParticipant(6)" id="card-6">
       <div class="card-num">07</div>
       <div class="card-info">
         <div class="card-name">Jorge Patrício</div>
-        <div class="card-champ"><img src="https://flagcdn.com/h20/fr.png" width="16" height="11" style="vertical-align:middle;border-radius:2px;" alt="Franca"> França</div>
+        <div class="card-champ"><img src="https://flagcdn.com/h20/fr.png" width="14" height="10" style="vertical-align:middle;border-radius:2px;" alt="França"> França</div>
       </div>
     </div>
     <div class="card" onclick="selectParticipant(7)" id="card-7">
       <div class="card-num">08</div>
       <div class="card-info">
         <div class="card-name">Osmar</div>
-        <div class="card-champ"><img src="https://flagcdn.com/h20/br.png" width="16" height="11" style="vertical-align:middle;border-radius:2px;" alt="Brasil"> Brasil</div>
+        <div class="card-champ"><img src="https://flagcdn.com/h20/br.png" width="14" height="10" style="vertical-align:middle;border-radius:2px;" alt="Brasil"> Brasil</div>
       </div>
     </div>
     <div class="card" onclick="selectParticipant(8)" id="card-8">
       <div class="card-num">09</div>
       <div class="card-info">
         <div class="card-name">Sávio</div>
-        <div class="card-champ"><img src="https://flagcdn.com/h20/fr.png" width="16" height="11" style="vertical-align:middle;border-radius:2px;" alt="Franca"> França</div>
+        <div class="card-champ"><img src="https://flagcdn.com/h20/fr.png" width="14" height="10" style="vertical-align:middle;border-radius:2px;" alt="França"> França</div>
       </div>
     </div>
     <div class="card" onclick="selectParticipant(9)" id="card-9">
       <div class="card-num">10</div>
       <div class="card-info">
         <div class="card-name">Thaís</div>
-        <div class="card-champ"><img src="https://flagcdn.com/h20/br.png" width="16" height="11" style="vertical-align:middle;border-radius:2px;" alt="Brasil"> Brasil</div>
+        <div class="card-champ"><img src="https://flagcdn.com/h20/br.png" width="14" height="10" style="vertical-align:middle;border-radius:2px;" alt="Brasil"> Brasil</div>
       </div>
     </div>
     <div class="card" onclick="selectParticipant(10)" id="card-10">
       <div class="card-num">11</div>
       <div class="card-info">
         <div class="card-name">Wellerson</div>
-        <div class="card-champ"><img src="https://flagcdn.com/h20/pt.png" width="16" height="11" style="vertical-align:middle;border-radius:2px;" alt="Portugal"> Portugal</div>
+        <div class="card-champ"><img src="https://flagcdn.com/h20/pt.png" width="14" height="10" style="vertical-align:middle;border-radius:2px;" alt="Portugal"> Portugal</div>
       </div>
     </div>
     <div class="card" onclick="selectParticipant(11)" id="card-11">
       <div class="card-num">12</div>
       <div class="card-info">
         <div class="card-name">Werbesson Lourenço</div>
-        <div class="card-champ"><img src="https://flagcdn.com/h20/fr.png" width="16" height="11" style="vertical-align:middle;border-radius:2px;" alt="Franca"> França</div>
+        <div class="card-champ"><img src="https://flagcdn.com/h20/fr.png" width="14" height="10" style="vertical-align:middle;border-radius:2px;" alt="França"> França</div>
       </div>
     </div>
       </div>
       <div class="current-label">
         <div class="cl-name" id="current-name">Andressa</div>
-        <div class="cl-sub" id="current-sub"><img src="https://flagcdn.com/h20/br.png" width="16" height="11" style="vertical-align:middle;border-radius:2px;" alt="Brasil"> Campeão: Brasil</div>
+        <div class="cl-sub" id="current-sub"><img src="https://flagcdn.com/h20/br.png" width="14" height="10" style="vertical-align:middle;border-radius:2px;" alt="Brasil"> Campeão: Brasil</div>
       </div>
       <div class="sidebar-nav">
-        <button class="nav-btn" onclick="navigate(-1)">&#8249;</button>
-        <button class="nav-btn" onclick="navigate(1)">&#8250;</button>
+        <button class="nav-btn" onclick="navigate(-1)" title="Anterior">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="nav-btn" onclick="navigate(1)" title="Próximo">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
       </div>
     </div>
     <div class="viewer">
       <div class="viewer-toolbar">
         <div class="viewer-title">Arte de <span id="viewer-name">Andressa</span></div>
         <div class="progress-bar" id="progress-bar"></div>
-        <a href="#" class="btn-dl" onclick="downloadCurrent(event)">⬇ Baixar</a>
+        <a href="#" class="btn-dl" onclick="downloadCurrent(event)">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Baixar
+        </a>
       </div>
       <div class="iframe-container">
         <iframe id="arte-frame" scrolling="yes"></iframe>
@@ -442,13 +461,24 @@ body{background:#0D1225;font-family:'Segoe UI',Arial,sans-serif;color:#fff;min-h
      ============================ -->
 <div id="screen-raiox" class="screen">
   <nav class="navbar">
-    <div class="nb-logo"><span class="squad">SQUAD</span>Contas Médicas</div>
-    <div class="nb-title">Bolão Copa 2026<span>Análise dos Palpites</span></div>
-    <div class="nav-pills">
-      <span class="pill" onclick="goTo('home')">Home</span>
-      <span class="pill" data-screen="apostas" onclick="goTo('apostas')">Apostas</span>
-      <span class="pill active" data-screen="raiox" onclick="goTo('raiox')">Raio X</span>
-      <span class="pill" data-screen="ranking" onclick="goTo('ranking')">Ranking</span>
+    <div class="nb-row1">
+      <div class="nb-logo"><span class="squad">SQUAD</span>Contas Médicas</div>
+      <svg class="nb-trophy" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>
+      <div class="nb-title-wrap"><div class="nb-title">Bolão Copa do Mundo 2026</div></div>
+    </div>
+    <div class="nb-row2">
+      <div class="nb-flags">
+        <img src="https://flagcdn.com/h20/us.png" width="15" height="10" alt="EUA">
+        <img src="https://flagcdn.com/h20/ca.png" width="15" height="10" alt="CAN">
+        <img src="https://flagcdn.com/h20/mx.png" width="15" height="10" alt="MEX">
+      </div>
+      <span class="nb-sub">RAIO X</span>
+      <div class="nav-pills">
+        <span class="pill" onclick="goTo('home')">Home</span>
+        <span class="pill" onclick="goTo('apostas')">Apostas</span>
+        <span class="pill active" onclick="goTo('raiox')">Raio X</span>
+        <span class="pill" onclick="goTo('ranking')">Ranking</span>
+      </div>
     </div>
   </nav>
   <div class="rx-body">
@@ -456,10 +486,12 @@ body{background:#0D1225;font-family:'Segoe UI',Arial,sans-serif;color:#fff;min-h
 
       <!-- Hero -->
       <div class="rx-hero">
-        <div class="rx-hero-flag"><img src="https://flagcdn.com/h40/br.png" width="56" height="36" style="border-radius:4px;" alt="Brasil"></div>
+        <div class="rx-hero-badge">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
         <div class="rx-hero-info">
-          <h2>BRASIL É O FAVORITO</h2>
-          <p>6 de 12 apostadores escolheram o Hexa · Copa do Mundo 2026</p>
+          <h2>BRASIL É O FAVORITO DO BOLÃO</h2>
+          <p>6 de 12 apostadores escolheram o Hexa · 3 campeões distintos · Copa do Mundo 2026</p>
         </div>
         <div class="rx-hero-stats">
           <div class="rx-stat"><span class="rx-stat-val">50%</span><span class="rx-stat-lbl">Escolheram Brasil</span></div>
@@ -470,7 +502,10 @@ body{background:#0D1225;font-family:'Segoe UI',Arial,sans-serif;color:#fff;min-h
 
       <!-- Campeões apostados -->
       <div class="rx-card">
-        <div class="rx-card-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg> Campeões Apostados</div>
+        <div class="rx-card-title">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>
+          Campeões Apostados
+        </div>
         <div class="bar-row">
           <span class="bar-flag"><img src="https://flagcdn.com/h20/br.png" width="20" height="13" style="vertical-align:middle;border-radius:2px;" alt="Brasil"></span>
           <span class="bar-label">Brasil</span>
@@ -478,9 +513,9 @@ body{background:#0D1225;font-family:'Segoe UI',Arial,sans-serif;color:#fff;min-h
           <span class="bar-count">6 apostas (50%)</span>
         </div>
         <div class="bar-row">
-          <span class="bar-flag"><img src="https://flagcdn.com/h20/fr.png" width="20" height="13" style="vertical-align:middle;border-radius:2px;" alt="Franca"></span>
+          <span class="bar-flag"><img src="https://flagcdn.com/h20/fr.png" width="20" height="13" style="vertical-align:middle;border-radius:2px;" alt="França"></span>
           <span class="bar-label">França</span>
-          <div class="bar-track"><div class="bar-fill" style="width:33%;background:#2A398D;"></div></div>
+          <div class="bar-track"><div class="bar-fill" style="width:33%;background:#5a72d4;"></div></div>
           <span class="bar-count">4 apostas (33%)</span>
         </div>
         <div class="bar-row">
@@ -493,34 +528,42 @@ body{background:#0D1225;font-family:'Segoe UI',Arial,sans-serif;color:#fff;min-h
 
       <!-- Favorito / Sem apostas -->
       <div class="rx-card">
-        <div class="rx-card-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;"><rect x="2" y="10" width="4" height="11" rx="1"/><rect x="10" y="4" width="4" height="17" rx="1"/><rect x="18" y="7" width="4" height="14" rx="1"/></svg> Favorito &amp; Desafiantes</div>
-        <div class="rx-text-row"><span class="rx-label">Favorito</span><span class="rx-val"><img src="https://flagcdn.com/h20/br.png" width="16" height="11" style="vertical-align:middle;border-radius:2px;" alt="Brasil"> <span class="rx-accent">Brasil</span> — Hexa, 50%</span></div>
-        <div class="rx-text-row"><span class="rx-label">Desafiantes</span><span class="rx-val"><img src="https://flagcdn.com/h20/fr.png" width="16" height="11" style="vertical-align:middle;border-radius:2px;" alt="Franca"> França (4) &nbsp; <img src="https://flagcdn.com/h20/pt.png" width="16" height="11" style="vertical-align:middle;border-radius:2px;" alt="Portugal"> Portugal (2)</span></div>
+        <div class="rx-card-title">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="10" width="4" height="11" rx="1"/><rect x="10" y="4" width="4" height="17" rx="1"/><rect x="18" y="7" width="4" height="14" rx="1"/></svg>
+          Favorito &amp; Desafiantes
+        </div>
+        <div class="rx-text-row"><span class="rx-label">Favorito</span><span class="rx-val"><img src="https://flagcdn.com/h20/br.png" width="14" height="10" style="vertical-align:middle;border-radius:2px;" alt="Brasil"> <span class="rx-accent">Brasil</span> — Hexa, 50%</span></div>
+        <div class="rx-text-row"><span class="rx-label">Desafiantes</span><span class="rx-val"><img src="https://flagcdn.com/h20/fr.png" width="14" height="10" style="vertical-align:middle;border-radius:2px;" alt="França"> França (4) &nbsp; <img src="https://flagcdn.com/h20/pt.png" width="14" height="10" style="vertical-align:middle;border-radius:2px;" alt="Portugal"> Portugal (2)</span></div>
         <div class="rx-text-row" style="flex-wrap:wrap;gap:4px;"><span class="rx-label">Sem apostas</span><span class="rx-val" style="display:flex;flex-wrap:wrap;gap:4px;align-items:center;">
-          <img src="https://flagcdn.com/h20/ar.png" width="16" height="11" style="vertical-align:middle;border-radius:2px;" alt="Argentina"> Argentina
-          &nbsp;<img src="https://flagcdn.com/h20/es.png" width="16" height="11" style="vertical-align:middle;border-radius:2px;" alt="Espanha"> Espanha
-          &nbsp;<img src="https://flagcdn.com/h20/gb-eng.png" width="16" height="11" style="vertical-align:middle;border-radius:2px;" alt="Inglaterra"> Inglaterra
-          &nbsp;<img src="https://flagcdn.com/h20/de.png" width="16" height="11" style="vertical-align:middle;border-radius:2px;" alt="Alemanha"> Alemanha
-          &nbsp;<img src="https://flagcdn.com/h20/nl.png" width="16" height="11" style="vertical-align:middle;border-radius:2px;" alt="Holanda"> Holanda
+          <img src="https://flagcdn.com/h20/ar.png" width="14" height="10" style="vertical-align:middle;border-radius:2px;" alt="Argentina"> Argentina
+          &nbsp;<img src="https://flagcdn.com/h20/es.png" width="14" height="10" style="vertical-align:middle;border-radius:2px;" alt="Espanha"> Espanha
+          &nbsp;<img src="https://flagcdn.com/h20/gb-eng.png" width="14" height="10" style="vertical-align:middle;border-radius:2px;" alt="Inglaterra"> Inglaterra
+          &nbsp;<img src="https://flagcdn.com/h20/de.png" width="14" height="10" style="vertical-align:middle;border-radius:2px;" alt="Alemanha"> Alemanha
         </span></div>
       </div>
 
       <!-- Maiores Zebras -->
       <div class="rx-card">
-        <div class="rx-card-title"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Maiores Zebras Apostadas</div>
+        <div class="rx-card-title">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          Maiores Zebras Apostadas
+        </div>
         <div class="zebra-tags">
-          <span class="zebra-tag"><img src="https://flagcdn.com/h20/za.png" width="16" height="11" style="vertical-align:middle;border-radius:2px;" alt="Africa do Sul"> África do Sul</span>
-          <span class="zebra-tag"><img src="https://flagcdn.com/h20/sa.png" width="16" height="11" style="vertical-align:middle;border-radius:2px;" alt="Arabia Saudita"> Arábia Saudita</span>
-          <span class="zebra-tag"><img src="https://flagcdn.com/h20/py.png" width="16" height="11" style="vertical-align:middle;border-radius:2px;" alt="Paraguai"> Paraguai</span>
-          <span class="zebra-tag"><img src="https://flagcdn.com/h20/ma.png" width="16" height="11" style="vertical-align:middle;border-radius:2px;" alt="Marrocos"> Marrocos</span>
-          <span class="zebra-tag"><img src="https://flagcdn.com/h20/hr.png" width="16" height="11" style="vertical-align:middle;border-radius:2px;" alt="Croatia"> Croácia</span>
-          <span class="zebra-tag"><img src="https://flagcdn.com/h20/no.png" width="16" height="11" style="vertical-align:middle;border-radius:2px;" alt="Noruega"> Noruega</span>
+          <span class="zebra-tag"><img src="https://flagcdn.com/h20/za.png" width="14" height="10" style="vertical-align:middle;border-radius:2px;" alt="África do Sul"> África do Sul</span>
+          <span class="zebra-tag"><img src="https://flagcdn.com/h20/sa.png" width="14" height="10" style="vertical-align:middle;border-radius:2px;" alt="Arábia Saudita"> Arábia Saudita</span>
+          <span class="zebra-tag"><img src="https://flagcdn.com/h20/py.png" width="14" height="10" style="vertical-align:middle;border-radius:2px;" alt="Paraguai"> Paraguai</span>
+          <span class="zebra-tag"><img src="https://flagcdn.com/h20/ma.png" width="14" height="10" style="vertical-align:middle;border-radius:2px;" alt="Marrocos"> Marrocos</span>
+          <span class="zebra-tag"><img src="https://flagcdn.com/h20/hr.png" width="14" height="10" style="vertical-align:middle;border-radius:2px;" alt="Croácia"> Croácia</span>
+          <span class="zebra-tag"><img src="https://flagcdn.com/h20/no.png" width="14" height="10" style="vertical-align:middle;border-radius:2px;" alt="Noruega"> Noruega</span>
         </div>
       </div>
 
       <!-- Perfil dos Apostadores -->
       <div class="rx-card">
-        <div class="rx-card-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg> Perfil dos Apostadores</div>
+        <div class="rx-card-title">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Perfil dos Apostadores
+        </div>
         <div class="perfil-group perfil-conservador">
           <div class="perfil-group-title">Conservadores</div>
           <div class="perfil-names">Andressa · Fabio Fischer · Osmar · Werbesson</div>
@@ -537,7 +580,10 @@ body{background:#0D1225;font-family:'Segoe UI',Arial,sans-serif;color:#fff;min-h
 
       <!-- Ranking de Chances -->
       <div class="rx-card">
-        <div class="rx-card-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;"><rect x="2" y="10" width="4" height="11" rx="1"/><rect x="10" y="4" width="4" height="17" rx="1"/><rect x="18" y="7" width="4" height="14" rx="1"/></svg> Ranking de Chances</div>
+        <div class="rx-card-title">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="10" width="4" height="11" rx="1"/><rect x="10" y="4" width="4" height="17" rx="1"/><rect x="18" y="7" width="4" height="14" rx="1"/></svg>
+          Ranking de Chances
+        </div>
         <div class="chance-row"><span class="chance-pos gold">1°</span><span class="chance-name">Werbesson Lourenço</span><div class="chance-bar"><div class="chance-bar-fill" style="width:100%"></div></div><span class="chance-pct">18%</span></div>
         <div class="chance-row"><span class="chance-pos silver">2°</span><span class="chance-name">Bruno</span><div class="chance-bar"><div class="chance-bar-fill" style="width:88%"></div></div><span class="chance-pct">16%</span></div>
         <div class="chance-row"><span class="chance-pos bronze">3°</span><span class="chance-name">Sávio</span><div class="chance-bar"><div class="chance-bar-fill" style="width:83%"></div></div><span class="chance-pct">15%</span></div>
@@ -554,34 +600,37 @@ body{background:#0D1225;font-family:'Segoe UI',Arial,sans-serif;color:#fff;min-h
 
       <!-- Consenso do Grupo -->
       <div class="rx-card full">
-        <div class="rx-card-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> Consenso do Grupo</div>
+        <div class="rx-card-title">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Consenso do Grupo
+        </div>
         <div style="display:flex;gap:16px;flex-wrap:wrap;">
           <div>
             <div style="font-size:9px;color:#8890bb;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">Campeão Médio</div>
-            <div class="consensus-item" style="background:#2a0a08;border-color:#c0392b;">
-              <img src="https://flagcdn.com/h20/br.png" width="20" height="13" style="vertical-align:middle;border-radius:2px;" alt="Brasil"> <strong style="color:#3CAC3B;">Brasil</strong>
+            <div class="consensus-item" style="background:rgba(60,172,59,0.08);border-color:rgba(60,172,59,0.35);">
+              <img src="https://flagcdn.com/h20/br.png" width="18" height="12" style="vertical-align:middle;border-radius:2px;" alt="Brasil"> <strong style="color:#3CAC3B;">Brasil</strong>
             </div>
           </div>
           <div>
             <div style="font-size:9px;color:#8890bb;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">Vice Médio</div>
-            <div class="consensus-item" style="background:#1a0d30;border-color:#2A398D;">
-              <img src="https://flagcdn.com/h20/fr.png" width="20" height="13" style="vertical-align:middle;border-radius:2px;" alt="Franca"> <strong style="color:#3CAC3B;">França</strong>
+            <div class="consensus-item" style="background:rgba(42,57,141,0.15);border-color:rgba(42,57,141,0.4);">
+              <img src="https://flagcdn.com/h20/fr.png" width="18" height="12" style="vertical-align:middle;border-radius:2px;" alt="França"> <strong style="color:#5a72d4;">França</strong>
             </div>
           </div>
           <div>
             <div style="font-size:9px;color:#8890bb;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">Semifinalistas Mais Votados</div>
             <div style="display:flex;gap:6px;flex-wrap:wrap;">
-              <div class="consensus-item"><img src="https://flagcdn.com/h20/fr.png" width="16" height="11" style="vertical-align:middle;border-radius:2px;" alt="Franca"> França <span style="color:#3CAC3B;font-size:9px;margin-left:4px;">10/12</span></div>
-              <div class="consensus-item"><img src="https://flagcdn.com/h20/es.png" width="16" height="11" style="vertical-align:middle;border-radius:2px;" alt="Espanha"> Espanha <span style="color:#3CAC3B;font-size:9px;margin-left:4px;">9/12</span></div>
-              <div class="consensus-item"><img src="https://flagcdn.com/h20/br.png" width="16" height="11" style="vertical-align:middle;border-radius:2px;" alt="Brasil"> Brasil <span style="color:#3CAC3B;font-size:9px;margin-left:4px;">8/12</span></div>
-              <div class="consensus-item"><img src="https://flagcdn.com/h20/pt.png" width="16" height="11" style="vertical-align:middle;border-radius:2px;" alt="Portugal"> Portugal <span style="color:#3CAC3B;font-size:9px;margin-left:4px;">5/12</span></div>
+              <div class="consensus-item"><img src="https://flagcdn.com/h20/fr.png" width="14" height="10" style="vertical-align:middle;border-radius:2px;" alt="França"> França <span style="color:#3CAC3B;font-size:9px;margin-left:4px;">10/12</span></div>
+              <div class="consensus-item"><img src="https://flagcdn.com/h20/es.png" width="14" height="10" style="vertical-align:middle;border-radius:2px;" alt="Espanha"> Espanha <span style="color:#3CAC3B;font-size:9px;margin-left:4px;">9/12</span></div>
+              <div class="consensus-item"><img src="https://flagcdn.com/h20/br.png" width="14" height="10" style="vertical-align:middle;border-radius:2px;" alt="Brasil"> Brasil <span style="color:#3CAC3B;font-size:9px;margin-left:4px;">8/12</span></div>
+              <div class="consensus-item"><img src="https://flagcdn.com/h20/pt.png" width="14" height="10" style="vertical-align:middle;border-radius:2px;" alt="Portugal"> Portugal <span style="color:#3CAC3B;font-size:9px;margin-left:4px;">5/12</span></div>
             </div>
           </div>
         </div>
       </div>
 
-    </div><!-- rx-grid -->
-    <div class="page-footer" style="margin-top:20px;">Apostas encerradas antes do início da Copa do Mundo 2026 · Boa sorte a todos!</div>
+    </div>
+    <div class="page-footer" style="margin-top:16px;">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.2.0</span></div>
   </div>
 </div>
 
@@ -590,13 +639,24 @@ body{background:#0D1225;font-family:'Segoe UI',Arial,sans-serif;color:#fff;min-h
      ============================ -->
 <div id="screen-ranking" class="screen">
   <nav class="navbar">
-    <div class="nb-logo"><span class="squad">SQUAD</span>Contas Médicas</div>
-    <div class="nb-title">Bolão Copa 2026<span>Ranking ao Vivo</span></div>
-    <div class="nav-pills">
-      <span class="pill" onclick="goTo('home')">Home</span>
-      <span class="pill" data-screen="apostas" onclick="goTo('apostas')">Apostas</span>
-      <span class="pill" data-screen="raiox" onclick="goTo('raiox')">Raio X</span>
-      <span class="pill active" data-screen="ranking" onclick="goTo('ranking')">Ranking</span>
+    <div class="nb-row1">
+      <div class="nb-logo"><span class="squad">SQUAD</span>Contas Médicas</div>
+      <svg class="nb-trophy" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>
+      <div class="nb-title-wrap"><div class="nb-title">Bolão Copa do Mundo 2026</div></div>
+    </div>
+    <div class="nb-row2">
+      <div class="nb-flags">
+        <img src="https://flagcdn.com/h20/us.png" width="15" height="10" alt="EUA">
+        <img src="https://flagcdn.com/h20/ca.png" width="15" height="10" alt="CAN">
+        <img src="https://flagcdn.com/h20/mx.png" width="15" height="10" alt="MEX">
+      </div>
+      <span class="nb-sub">RANKING</span>
+      <div class="nav-pills">
+        <span class="pill" onclick="goTo('home')">Home</span>
+        <span class="pill" onclick="goTo('apostas')">Apostas</span>
+        <span class="pill" onclick="goTo('raiox')">Raio X</span>
+        <span class="pill active" onclick="goTo('ranking')">Ranking</span>
+      </div>
     </div>
   </nav>
   <div class="rk-body">
@@ -608,10 +668,16 @@ body{background:#0D1225;font-family:'Segoe UI',Arial,sans-serif;color:#fff;min-h
       <span class="phase-pill next" id="ph-semi">Semi</span>
       <span class="phase-pill next" id="ph-final">Final</span>
     </div>
-    <div style="display:flex;align-items:center;justify-content:space-between;max-width:900px;margin:0 auto 8px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;max-width:900px;margin:0 auto 10px;flex-wrap:wrap;gap:8px;">
       <div class="rk-tabs" style="margin:0;">
-        <div class="rk-tab active" id="tab-real" onclick="switchTab('real')"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;"><circle cx="12" cy="12" r="10"/><polygon points="12,2 14.5,9 9.5,9" fill="currentColor" stroke="none"/><polygon points="4.9,19.1 8,14 12,14 16,14 19.1,19.1" fill="currentColor" stroke="none"/><line x1="5" y1="9.5" x2="19" y2="9.5"/></svg> Pontos Reais</div>
-        <div class="rk-tab" id="tab-virtual" onclick="switchTab('virtual')"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Pontos Virtuais</div>
+        <div class="rk-tab active" id="tab-real" onclick="switchTab('real')">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Pts Reais
+        </div>
+        <div class="rk-tab" id="tab-virtual" onclick="switchTab('virtual')">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          Pts Virtuais
+        </div>
       </div>
       <div id="rk-updated" style="font-size:10px;color:#4a5070;letter-spacing:.5px;"></div>
     </div>
@@ -633,11 +699,11 @@ body{background:#0D1225;font-family:'Segoe UI',Arial,sans-serif;color:#fff;min-h
       </div>
       <div class="rk-legend">
         <strong>Pontos Reais:</strong> acumulados com base nos resultados já disputados da Copa. &nbsp;|&nbsp;
-        <strong>Pontos Virtuais:</strong> pontuação que o participante teria se a fase de grupos encerrasse agora — cruza os palpites de classificação com a tabela atual de cada grupo. &nbsp;|&nbsp;
-        Pontuação: Grupos 1pt · 16 Avos 2pts · Oitavas 3pts · Quartas 4pts · Semis 5pts · Final 8pts · Campeão 25pts
+        <strong>Pontos Virtuais:</strong> pontuação que o participante teria se a fase de grupos encerrasse agora. &nbsp;|&nbsp;
+        Grupos 1pt · 16 Avos 2pts · Oitavas 3pts · Quartas 4pts · Semis 5pts · Final 8pts · Campeão 25pts
       </div>
     </div>
-    <div class="page-footer" style="margin-top:20px;">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.2.0</span></div>
+    <div class="page-footer" style="margin-top:16px;">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.2.0</span></div>
   </div>
 </div>
 
