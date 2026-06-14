@@ -555,7 +555,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_E",
-      "lastUpdated": "2026-06-14T19:03:57Z",
+      "lastUpdated": "2026-06-14T20:07:14Z",
       "homeTeam": {
         "id": 759,
         "name": "Germany",
@@ -1025,12 +1025,12 @@
             "tla": "JPN",
             "crest": "https://crests.football-data.org/766.svg"
           },
-          "playedGames": 0,
+          "playedGames": 1,
           "form": null,
           "won": 0,
-          "draw": 0,
+          "draw": 1,
           "lost": 0,
-          "points": 0,
+          "points": 1,
           "goalsFor": 0,
           "goalsAgainst": 0,
           "goalDifference": 0
@@ -1044,18 +1044,18 @@
             "tla": "NED",
             "crest": "https://crests.football-data.org/8601.svg"
           },
-          "playedGames": 0,
+          "playedGames": 1,
           "form": null,
           "won": 0,
-          "draw": 0,
+          "draw": 1,
           "lost": 0,
-          "points": 0,
+          "points": 1,
           "goalsFor": 0,
           "goalsAgainst": 0,
           "goalDifference": 0
         },
         {
-          "position": 1,
+          "position": 3,
           "team": {
             "id": 792,
             "name": "Sweden",
@@ -1074,7 +1074,7 @@
           "goalDifference": 0
         },
         {
-          "position": 1,
+          "position": 3,
           "team": {
             "id": 802,
             "name": "Tunisia",
@@ -1593,5 +1593,5 @@
       ]
     }
   ],
-  "updated": "2026-06-14T19:15:43Z"
+  "updated": "2026-06-14T21:03:46Z"
 }
