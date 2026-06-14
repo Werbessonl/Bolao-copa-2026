@@ -27,7 +27,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_A",
-      "lastUpdated": "2026-06-13T15:20:17Z",
+      "lastUpdated": "2026-06-12T08:25:00Z",
       "homeTeam": {
         "id": 769,
         "name": "Mexico",
@@ -93,7 +93,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_A",
-      "lastUpdated": "2026-06-13T15:20:17Z",
+      "lastUpdated": "2026-06-12T08:25:00Z",
       "homeTeam": {
         "id": 772,
         "name": "South Korea",
@@ -159,7 +159,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_B",
-      "lastUpdated": "2026-06-13T15:20:17Z",
+      "lastUpdated": "2026-06-12T22:25:00Z",
       "homeTeam": {
         "id": 828,
         "name": "Canada",
@@ -225,7 +225,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_D",
-      "lastUpdated": "2026-06-13T15:20:17Z",
+      "lastUpdated": "2026-06-13T03:25:00Z",
       "homeTeam": {
         "id": 771,
         "name": "United States",
@@ -291,7 +291,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_B",
-      "lastUpdated": "2026-06-13T23:07:33Z",
+      "lastUpdated": "2026-06-13T21:09:44Z",
       "homeTeam": {
         "id": 8030,
         "name": "Qatar",
@@ -357,7 +357,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_C",
-      "lastUpdated": "2026-06-14T02:05:33Z",
+      "lastUpdated": "2026-06-14T00:10:33Z",
       "homeTeam": {
         "id": 764,
         "name": "Brazil",
@@ -591,6 +591,72 @@
           "name": "Jalal Jayed",
           "type": "REFEREE",
           "nationality": "Morocco"
+        }
+      ]
+    },
+    {
+      "area": {
+        "id": 2267,
+        "name": "World",
+        "code": "INT",
+        "flag": null
+      },
+      "competition": {
+        "id": 2000,
+        "name": "FIFA World Cup",
+        "code": "WC",
+        "type": "CUP",
+        "emblem": "https://crests.football-data.org/wm26.png"
+      },
+      "season": {
+        "id": 2398,
+        "startDate": "2026-06-11",
+        "endDate": "2026-07-19",
+        "currentMatchday": 1,
+        "winner": null
+      },
+      "id": 537357,
+      "utcDate": "2026-06-14T20:00:00Z",
+      "status": "FINISHED",
+      "matchday": 1,
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_F",
+      "lastUpdated": "2026-06-14T22:01:31Z",
+      "homeTeam": {
+        "id": 8601,
+        "name": "Netherlands",
+        "shortName": "Netherlands",
+        "tla": "NED",
+        "crest": "https://crests.football-data.org/8601.svg"
+      },
+      "awayTeam": {
+        "id": 766,
+        "name": "Japan",
+        "shortName": "Japan",
+        "tla": "JPN",
+        "crest": "https://crests.football-data.org/766.svg"
+      },
+      "score": {
+        "winner": "DRAW",
+        "duration": "REGULAR",
+        "fullTime": {
+          "home": 2,
+          "away": 2
+        },
+        "halfTime": {
+          "home": 0,
+          "away": 0
+        }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": [
+        {
+          "id": 76608,
+          "name": "Ismail Elfath",
+          "type": "REFEREE",
+          "nationality": "United States"
         }
       ]
     }
@@ -961,12 +1027,12 @@
             "tla": "ECU",
             "crest": "https://crests.football-data.org/791.svg"
           },
-          "playedGames": 0,
+          "playedGames": 1,
           "form": null,
           "won": 0,
-          "draw": 0,
+          "draw": 1,
           "lost": 0,
-          "points": 0,
+          "points": 1,
           "goalsFor": 0,
           "goalsAgainst": 0,
           "goalDifference": 0
@@ -980,12 +1046,12 @@
             "tla": "CIV",
             "crest": "https://crests.football-data.org/787.svg"
           },
-          "playedGames": 0,
+          "playedGames": 1,
           "form": null,
           "won": 0,
-          "draw": 0,
+          "draw": 1,
           "lost": 0,
-          "points": 0,
+          "points": 1,
           "goalsFor": 0,
           "goalsAgainst": 0,
           "goalDifference": 0
@@ -1031,8 +1097,8 @@
           "draw": 1,
           "lost": 0,
           "points": 1,
-          "goalsFor": 0,
-          "goalsAgainst": 0,
+          "goalsFor": 2,
+          "goalsAgainst": 2,
           "goalDifference": 0
         },
         {
@@ -1050,8 +1116,8 @@
           "draw": 1,
           "lost": 0,
           "points": 1,
-          "goalsFor": 0,
-          "goalsAgainst": 0,
+          "goalsFor": 2,
+          "goalsAgainst": 2,
           "goalDifference": 0
         },
         {
@@ -1593,5 +1659,5 @@
       ]
     }
   ],
-  "updated": "2026-06-14T21:03:46Z"
+  "updated": "2026-06-14T23:02:19Z"
 }
