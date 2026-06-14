@@ -329,6 +329,138 @@
           "nationality": "Honduras"
         }
       ]
+    },
+    {
+      "area": {
+        "id": 2267,
+        "name": "World",
+        "code": "INT",
+        "flag": null
+      },
+      "competition": {
+        "id": 2000,
+        "name": "FIFA World Cup",
+        "code": "WC",
+        "type": "CUP",
+        "emblem": "https://crests.football-data.org/wm26.png"
+      },
+      "season": {
+        "id": 2398,
+        "startDate": "2026-06-11",
+        "endDate": "2026-07-19",
+        "currentMatchday": 1,
+        "winner": null
+      },
+      "id": 537339,
+      "utcDate": "2026-06-13T22:00:00Z",
+      "status": "FINISHED",
+      "matchday": 1,
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_C",
+      "lastUpdated": "2026-06-14T00:10:33Z",
+      "homeTeam": {
+        "id": 764,
+        "name": "Brazil",
+        "shortName": "Brazil",
+        "tla": "BRA",
+        "crest": "https://crests.football-data.org/764.svg"
+      },
+      "awayTeam": {
+        "id": 815,
+        "name": "Morocco",
+        "shortName": "Morocco",
+        "tla": "MAR",
+        "crest": "https://crests.football-data.org/morocco.svg"
+      },
+      "score": {
+        "winner": "DRAW",
+        "duration": "REGULAR",
+        "fullTime": {
+          "home": 1,
+          "away": 1
+        },
+        "halfTime": {
+          "home": 1,
+          "away": 1
+        }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": [
+        {
+          "id": 9351,
+          "name": "Slavko Vinčič",
+          "type": "REFEREE",
+          "nationality": "Slovenia"
+        }
+      ]
+    },
+    {
+      "area": {
+        "id": 2267,
+        "name": "World",
+        "code": "INT",
+        "flag": null
+      },
+      "competition": {
+        "id": 2000,
+        "name": "FIFA World Cup",
+        "code": "WC",
+        "type": "CUP",
+        "emblem": "https://crests.football-data.org/wm26.png"
+      },
+      "season": {
+        "id": 2398,
+        "startDate": "2026-06-11",
+        "endDate": "2026-07-19",
+        "currentMatchday": 1,
+        "winner": null
+      },
+      "id": 537340,
+      "utcDate": "2026-06-14T01:00:00Z",
+      "status": "FINISHED",
+      "matchday": 1,
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_C",
+      "lastUpdated": "2026-06-14T03:09:14Z",
+      "homeTeam": {
+        "id": 836,
+        "name": "Haiti",
+        "shortName": "Haiti",
+        "tla": "HAI",
+        "crest": "https://crests.football-data.org/haiti.svg"
+      },
+      "awayTeam": {
+        "id": 8873,
+        "name": "Scotland",
+        "shortName": "Scotland",
+        "tla": "SCO",
+        "crest": "https://crests.football-data.org/814.svg"
+      },
+      "score": {
+        "winner": "AWAY_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "home": 0,
+          "away": 1
+        },
+        "halfTime": {
+          "home": 0,
+          "away": 1
+        }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": [
+        {
+          "id": 190017,
+          "name": "Mustapha Ghorbal",
+          "type": "REFEREE",
+          "nationality": null
+        }
+      ]
     }
   ],
   "standings": [
@@ -506,6 +638,25 @@
         {
           "position": 1,
           "team": {
+            "id": 8873,
+            "name": "Scotland",
+            "shortName": "Scotland",
+            "tla": "SCO",
+            "crest": "https://crests.football-data.org/814.svg"
+          },
+          "playedGames": 1,
+          "form": null,
+          "won": 1,
+          "draw": 0,
+          "lost": 0,
+          "points": 3,
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "goalDifference": 1
+        },
+        {
+          "position": 2,
+          "team": {
             "id": 764,
             "name": "Brazil",
             "shortName": "Brazil",
@@ -523,7 +674,7 @@
           "goalDifference": 0
         },
         {
-          "position": 1,
+          "position": 2,
           "team": {
             "id": 815,
             "name": "Morocco",
@@ -542,7 +693,7 @@
           "goalDifference": 0
         },
         {
-          "position": 3,
+          "position": 4,
           "team": {
             "id": 836,
             "name": "Haiti",
@@ -550,34 +701,15 @@
             "tla": "HAI",
             "crest": "https://crests.football-data.org/haiti.svg"
           },
-          "playedGames": 0,
+          "playedGames": 1,
           "form": null,
           "won": 0,
           "draw": 0,
-          "lost": 0,
+          "lost": 1,
           "points": 0,
           "goalsFor": 0,
-          "goalsAgainst": 0,
-          "goalDifference": 0
-        },
-        {
-          "position": 3,
-          "team": {
-            "id": 8873,
-            "name": "Scotland",
-            "shortName": "Scotland",
-            "tla": "SCO",
-            "crest": "https://crests.football-data.org/814.svg"
-          },
-          "playedGames": 0,
-          "form": null,
-          "won": 0,
-          "draw": 0,
-          "lost": 0,
-          "points": 0,
-          "goalsFor": 0,
-          "goalsAgainst": 0,
-          "goalDifference": 0
+          "goalsAgainst": 1,
+          "goalDifference": -1
         }
       ]
     },
@@ -614,18 +746,18 @@
             "tla": "AUS",
             "crest": "https://crests.football-data.org/779.svg"
           },
-          "playedGames": 0,
+          "playedGames": 1,
           "form": null,
-          "won": 0,
+          "won": 1,
           "draw": 0,
           "lost": 0,
-          "points": 0,
-          "goalsFor": 0,
+          "points": 3,
+          "goalsFor": 1,
           "goalsAgainst": 0,
-          "goalDifference": 0
+          "goalDifference": 1
         },
         {
-          "position": 2,
+          "position": 3,
           "team": {
             "id": 803,
             "name": "Turkey",
@@ -633,15 +765,15 @@
             "tla": "TUR",
             "crest": "https://crests.football-data.org/803.svg"
           },
-          "playedGames": 0,
+          "playedGames": 1,
           "form": null,
           "won": 0,
           "draw": 0,
-          "lost": 0,
+          "lost": 1,
           "points": 0,
           "goalsFor": 0,
-          "goalsAgainst": 0,
-          "goalDifference": 0
+          "goalsAgainst": 1,
+          "goalDifference": -1
         },
         {
           "position": 4,
@@ -1329,5 +1461,5 @@
       ]
     }
   ],
-  "updated": "2026-06-14T00:09:34Z"
+  "updated": "2026-06-14T05:26:32Z"
 }
