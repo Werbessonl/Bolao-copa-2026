@@ -972,25 +972,17 @@ function calcVirtualPoints(realScores, standings) {
     .slice(0, 8)
     .map(r => r.team.name);
 
-  console.log('[DEBUG] Top2:', top2);
-  console.log('[DEBUG] Best8thirds:', best8thirds);
-
   return realScores.map(s => {
     const p = PALPITES[s.idx];
     let gruposPts = 0;
-    const gruposHits = [], gruposMiss = [], tercHits = [], tercMiss = [];
 
     top2.forEach(t => {
-      if (inList(t, p.grupos)) { gruposPts += 1; gruposHits.push(t); }
-      else gruposMiss.push(t);
+      if (inList(t, p.grupos)) gruposPts += 1;
     });
 
     best8thirds.forEach(t => {
-      if (inList(t, p.melhores_terceiros)) { gruposPts += 1; tercHits.push(t); }
-      else tercMiss.push(t);
+      if (inList(t, p.melhores_terceiros)) gruposPts += 1;
     });
-
-    console.log(`[DEBUG] ${s.name} | grupos: ${gruposHits.length} hits [${gruposHits.join(', ')}] | 3os: ${tercHits.length} hits [${tercHits.join(', ')}] | TOTAL virtual: ${s.real + gruposPts}`);
 
     return {...s, virtual: s.real + gruposPts};
   });
