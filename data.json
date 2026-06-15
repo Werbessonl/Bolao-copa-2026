@@ -1374,16 +1374,35 @@
           },
           "playedGames": 1,
           "form": null,
-          "won": 1,
-          "draw": 0,
+          "won": 0,
+          "draw": 1,
           "lost": 0,
-          "points": 3,
+          "points": 1,
           "goalsFor": 1,
-          "goalsAgainst": 0,
-          "goalDifference": 1
+          "goalsAgainst": 1,
+          "goalDifference": 0
         },
         {
-          "position": 2,
+          "position": 1,
+          "team": {
+            "id": 805,
+            "name": "Belgium",
+            "shortName": "Belgium",
+            "tla": "BEL",
+            "crest": "https://crests.football-data.org/805.svg"
+          },
+          "playedGames": 1,
+          "form": null,
+          "won": 0,
+          "draw": 1,
+          "lost": 0,
+          "points": 1,
+          "goalsFor": 1,
+          "goalsAgainst": 1,
+          "goalDifference": 0
+        },
+        {
+          "position": 3,
           "team": {
             "id": 840,
             "name": "Iran",
@@ -1402,7 +1421,7 @@
           "goalDifference": 0
         },
         {
-          "position": 2,
+          "position": 3,
           "team": {
             "id": 783,
             "name": "New Zealand",
@@ -1419,32 +1438,13 @@
           "goalsFor": 0,
           "goalsAgainst": 0,
           "goalDifference": 0
-        },
-        {
-          "position": 4,
-          "team": {
-            "id": 805,
-            "name": "Belgium",
-            "shortName": "Belgium",
-            "tla": "BEL",
-            "crest": "https://crests.football-data.org/805.svg"
-          },
-          "playedGames": 1,
-          "form": null,
-          "won": 0,
-          "draw": 0,
-          "lost": 1,
-          "points": 0,
-          "goalsFor": 0,
-          "goalsAgainst": 1,
-          "goalDifference": -1
         }
       ]
     },
     {
       "stage": "ALL",
       "type": "TOTAL",
-      "group": "Group H",
+      "group": "Atlantic Division",
       "table": [
         {
           "position": 1,
@@ -1464,7 +1464,14 @@
           "goalsFor": 0,
           "goalsAgainst": 0,
           "goalDifference": 0
-        },
+        }
+      ]
+    },
+    {
+      "stage": "ALL",
+      "type": "TOTAL",
+      "group": "Central Division",
+      "table": [
         {
           "position": 1,
           "team": {
@@ -1480,44 +1487,6 @@
           "draw": 1,
           "lost": 0,
           "points": 1,
-          "goalsFor": 0,
-          "goalsAgainst": 0,
-          "goalDifference": 0
-        },
-        {
-          "position": 3,
-          "team": {
-            "id": 801,
-            "name": "Saudi Arabia",
-            "shortName": "Saudi Arabia",
-            "tla": "KSA",
-            "crest": "https://crests.football-data.org/saudi_arabia.svg"
-          },
-          "playedGames": 0,
-          "form": null,
-          "won": 0,
-          "draw": 0,
-          "lost": 0,
-          "points": 0,
-          "goalsFor": 0,
-          "goalsAgainst": 0,
-          "goalDifference": 0
-        },
-        {
-          "position": 3,
-          "team": {
-            "id": 758,
-            "name": "Uruguay",
-            "shortName": "Uruguay",
-            "tla": "URY",
-            "crest": "https://crests.football-data.org/758.svg"
-          },
-          "playedGames": 0,
-          "form": null,
-          "won": 0,
-          "draw": 0,
-          "lost": 0,
-          "points": 0,
           "goalsFor": 0,
           "goalsAgainst": 0,
           "goalDifference": 0
@@ -1857,5 +1826,5 @@
       ]
     }
   ],
-  "updated": "2026-06-15T19:40:23Z"
+  "updated": "2026-06-15T20:58:13Z"
 }
