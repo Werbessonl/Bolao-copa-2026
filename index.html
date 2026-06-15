@@ -640,7 +640,7 @@ body::before{
       <div class="rk-legend">
         <strong>Pontos Reais:</strong> acumulados com base nos resultados já disputados da Copa. &nbsp;|&nbsp;
         <strong>Pontos Virtuais:</strong> pontuação que o participante teria se a fase atual encerrasse agora. &nbsp;|&nbsp;
-        Grupos 1pt · 16 Avos 2pts · Oitavas 3pts · Quartas 4pts · Semis 5pts · Final 8pts · Campeão 25pts
+        Classificados fase de grupos: 32 pts (24 top 1°/2° + 8 melhores 3°s, 1pt cada) · 16 Avos 2pts · Oitavas 3pts · Quartas 4pts · Semis 5pts · Final 8pts · Campeão 25pts
       </div>
     </div>
     <div class="page-footer" style="margin-top:16px;">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.2.0</span></div>
@@ -972,18 +972,17 @@ function calcVirtualPoints(realScores, standings) {
     .slice(0, 8)
     .map(r => r.team.name);
 
+  // Pool única dos 32 classificados (24 top2 + 8 melhores 3os)
+  const classificados32 = [...top2, ...best8thirds];
+
   return realScores.map(s => {
     const p = PALPITES[s.idx];
+    // Apostas unificadas: 24 apostas de top2 + 8 apostas de 3os = 32
+    const apostas32 = [...p.grupos, ...p.melhores_terceiros];
     let gruposPts = 0;
-
-    top2.forEach(t => {
-      if (inList(t, p.grupos)) gruposPts += 1;
+    classificados32.forEach(t => {
+      if (inList(t, apostas32)) gruposPts += 1;
     });
-
-    best8thirds.forEach(t => {
-      if (inList(t, p.melhores_terceiros)) gruposPts += 1;
-    });
-
     return {...s, virtual: s.real + gruposPts};
   });
 }
@@ -1069,7 +1068,7 @@ function switchTab(tab) {
   currentTab = tab;
   document.getElementById('tab-real').classList.toggle('active', tab === 'real');
   document.getElementById('tab-virtual').classList.toggle('active', tab === 'virtual');
-  document.getElementById('th-pts').textContent = tab === 'real' ? 'Pts Reais' : 'Pts Virtuais (fase de grupos)';
+  document.getElementById('th-pts').textContent = tab === 'real' ? 'Pts Reais' : 'Pts Grupos (32)';
   if (lastRankingData) renderTable(lastRankingData, tab);
 }
 
