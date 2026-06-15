@@ -857,6 +857,72 @@
           "nationality": "Jordan"
         }
       ]
+    },
+    {
+      "area": {
+        "id": 2267,
+        "name": "World",
+        "code": "INT",
+        "flag": null
+      },
+      "competition": {
+        "id": 2000,
+        "name": "FIFA World Cup",
+        "code": "WC",
+        "type": "CUP",
+        "emblem": "https://crests.football-data.org/wm26.png"
+      },
+      "season": {
+        "id": 2398,
+        "startDate": "2026-06-11",
+        "endDate": "2026-07-19",
+        "currentMatchday": 1,
+        "winner": null
+      },
+      "id": 537363,
+      "utcDate": "2026-06-15T19:00:00Z",
+      "status": "FINISHED",
+      "matchday": 1,
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_G",
+      "lastUpdated": "2026-06-15T21:03:08Z",
+      "homeTeam": {
+        "id": 805,
+        "name": "Belgium",
+        "shortName": "Belgium",
+        "tla": "BEL",
+        "crest": "https://crests.football-data.org/805.svg"
+      },
+      "awayTeam": {
+        "id": 825,
+        "name": "Egypt",
+        "shortName": "Egypt",
+        "tla": "EGY",
+        "crest": "https://crests.football-data.org/825.svg"
+      },
+      "score": {
+        "winner": "DRAW",
+        "duration": "REGULAR",
+        "fullTime": {
+          "home": 1,
+          "away": 1
+        },
+        "halfTime": {
+          "home": 0,
+          "away": 1
+        }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": [
+        {
+          "id": 18754,
+          "name": "Ramon Abatti Abel",
+          "type": "REFEREE",
+          "nationality": "Brazil"
+        }
+      ]
     }
   ],
   "standings": [
@@ -1366,11 +1432,11 @@
         {
           "position": 1,
           "team": {
-            "id": 825,
-            "name": "Egypt",
-            "shortName": "Egypt",
-            "tla": "EGY",
-            "crest": "https://crests.football-data.org/825.svg"
+            "id": 805,
+            "name": "Belgium",
+            "shortName": "Belgium",
+            "tla": "BEL",
+            "crest": "https://crests.football-data.org/805.svg"
           },
           "playedGames": 1,
           "form": null,
@@ -1383,13 +1449,13 @@
           "goalDifference": 0
         },
         {
-          "position": 1,
+          "position": 2,
           "team": {
-            "id": 805,
-            "name": "Belgium",
-            "shortName": "Belgium",
-            "tla": "BEL",
-            "crest": "https://crests.football-data.org/805.svg"
+            "id": 825,
+            "name": "Egypt",
+            "shortName": "Egypt",
+            "tla": "EGY",
+            "crest": "https://crests.football-data.org/825.svg"
           },
           "playedGames": 1,
           "form": null,
@@ -1444,16 +1510,16 @@
     {
       "stage": "ALL",
       "type": "TOTAL",
-      "group": "Atlantic Division",
+      "group": "Group H",
       "table": [
         {
           "position": 1,
           "team": {
-            "id": 1930,
-            "name": "Cape Verde Islands",
-            "shortName": "Cape Verde",
-            "tla": "CPV",
-            "crest": "https://crests.football-data.org/cape_verde.svg"
+            "id": 801,
+            "name": "Saudi Arabia",
+            "shortName": "Saudi Arabia",
+            "tla": "KSA",
+            "crest": "https://crests.football-data.org/saudi_arabia.svg"
           },
           "playedGames": 1,
           "form": null,
@@ -1464,22 +1530,53 @@
           "goalsFor": 0,
           "goalsAgainst": 0,
           "goalDifference": 0
-        }
-      ]
-    },
-    {
-      "stage": "ALL",
-      "type": "TOTAL",
-      "group": "Central Division",
-      "table": [
+        },
         {
           "position": 1,
+          "team": {
+            "id": 758,
+            "name": "Uruguay",
+            "shortName": "Uruguay",
+            "tla": "URY",
+            "crest": "https://crests.football-data.org/758.svg"
+          },
+          "playedGames": 1,
+          "form": null,
+          "won": 0,
+          "draw": 1,
+          "lost": 0,
+          "points": 1,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0
+        },
+        {
+          "position": 3,
           "team": {
             "id": 760,
             "name": "Spain",
             "shortName": "Spain",
             "tla": "ESP",
             "crest": "https://crests.football-data.org/760.svg"
+          },
+          "playedGames": 1,
+          "form": null,
+          "won": 0,
+          "draw": 1,
+          "lost": 0,
+          "points": 1,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0
+        },
+        {
+          "position": 4,
+          "team": {
+            "id": 1930,
+            "name": "Cape Verde Islands",
+            "shortName": "Cape Verde",
+            "tla": "CPV",
+            "crest": "https://crests.football-data.org/cape_verde.svg"
           },
           "playedGames": 1,
           "form": null,
@@ -1826,5 +1923,5 @@
       ]
     }
   ],
-  "updated": "2026-06-15T21:00:44Z"
+  "updated": "2026-06-15T22:19:08Z"
 }
