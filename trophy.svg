@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 140">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F7E07A"/>
+      <stop offset="40%" stop-color="#E8C440"/>
+      <stop offset="100%" stop-color="#B8860B"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#C9A020"/>
+      <stop offset="50%" stop-color="#F0D060"/>
+      <stop offset="100%" stop-color="#C9A020"/>
+    </linearGradient>
+    <linearGradient id="g3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F5D060"/>
+      <stop offset="100%" stop-color="#A07818"/>
+    </linearGradient>
+    <filter id="sh">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#00000066"/>
+    </filter>
+  </defs>
+  <!-- Cup body -->
+  <path d="M28 8 H72 L62 56 C60 72 52 79 50 81 C48 79 40 72 38 56 Z" fill="url(#g1)" filter="url(#sh)"/>
+  <!-- Cup highlights -->
+  <path d="M35 14 Q33 35 36 50" stroke="rgba(255,255,255,0.35)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <ellipse cx="56" cy="22" rx="5" ry="3" fill="rgba(255,255,255,0.22)" transform="rotate(-20 56 22)"/>
+  <!-- Left handle -->
+  <path d="M28 14 Q12 14 12 30 Q12 46 28 46" stroke="url(#g3)" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <!-- Right handle -->
+  <path d="M72 14 Q88 14 88 30 Q88 46 72 46" stroke="url(#g3)" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <!-- Stem -->
+  <rect x="44" y="81" width="12" height="28" rx="2" fill="url(#g2)"/>
+  <!-- Base platform -->
+  <rect x="24" y="109" width="52" height="10" rx="3" fill="url(#g2)" filter="url(#sh)"/>
+  <!-- Base foot -->
+  <rect x="20" y="118" width="60" height="8" rx="3" fill="url(#g2)" filter="url(#sh)"/>
+  <!-- Base shine -->
+  <rect x="26" y="121" width="48" height="2" rx="1" fill="rgba(255,255,255,0.18)"/>
+</svg>
