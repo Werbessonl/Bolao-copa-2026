@@ -74,11 +74,11 @@ body::before{
 @keyframes livePulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.5;transform:scale(.8);}}
 .trophy-wrap{position:relative;width:130px;height:170px;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
 .trophy-26{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:130px;font-weight:900;line-height:1;letter-spacing:-8px;font-family:'Arial Black',Impact,sans-serif;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,0.09);user-select:none;z-index:0;}
-.trophy-img{width:90px;position:relative;z-index:2;filter:drop-shadow(0 8px 22px rgba(200,160,40,0.55)) drop-shadow(0 2px 8px rgba(0,0,0,0.55));}
-.classificacao-btn{border-left-color:#C9A84C;}
-.classificacao-btn .btn-icon-box{color:#C9A84C;}
-.planilha-btn{border-left-color:#A78BFA;text-decoration:none;color:inherit;}
-.planilha-btn .btn-icon-box{color:#A78BFA;}
+.trophy-img{width:90px;position:relative;z-index:2;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.5));}
+.classificacao-btn{border-left-color:#FBBF24;}
+.classificacao-btn .btn-icon-box{color:#FBBF24;}
+.planilha-btn{border-left-color:#34D399;text-decoration:none;color:inherit;}
+.planilha-btn .btn-icon-box{color:#34D399;}
 .home-stats-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;width:100%;}
 .home-stat-card{background:#0F1870;border-radius:8px;padding:10px 6px;text-align:center;border-top:3px solid var(--c);border-left:1px solid rgba(255,255,255,0.14);border-right:1px solid rgba(255,255,255,0.14);border-bottom:1px solid rgba(255,255,255,0.14);}
 .home-stat-card .sc-icon{margin-bottom:4px;}
@@ -1189,8 +1189,8 @@ function switchTab(tab) {
   if (lastRankingData) renderTable(lastRankingData, tab);
 }
 
-async function loadRanking() {
-  if (rankingLoaded) return;
+async function loadRanking(force) {
+  if (rankingLoaded && !force) return;
   document.getElementById('rk-loading').style.display = 'block';
   document.getElementById('rk-content').style.display = 'none';
   document.getElementById('rk-error').style.display = 'none';
@@ -1282,6 +1282,14 @@ function updatePhases(matches) {
 // Init
 buildProgressBar();
 
+// Auto-refresh a cada 15 min
+setInterval(function() {
+  rankingLoaded = false;
+  classifLoaded = false;
+  if (currentScreen === 'ranking') loadRanking(true);
+  if (currentScreen === 'classificacao') loadClassificacao(true);
+}, 15 * 60 * 1000);
+
 // ===== CLASSIFICAÇÃO =====
 let classifLoaded = false;
 let classifTab = 'class';
@@ -1326,8 +1334,8 @@ function setClassifTab(tab) {
   document.getElementById('cl-panel-thirds').style.display = tab === 'thirds' ? '' : 'none';
 }
 
-async function loadClassificacao() {
-  if (classifLoaded) return;
+async function loadClassificacao(force) {
+  if (classifLoaded && !force) return;
   document.getElementById('cl-loading').style.display = '';
   document.getElementById('cl-content').style.display = 'none';
   try {
