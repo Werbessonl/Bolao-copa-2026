@@ -506,7 +506,7 @@ body::before{
       </div>
     </div>
   </div>
-  <div class="page-footer">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.2.4</span></div>
+  <div class="page-footer">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.2.5</span></div>
 </div>
 
 <!-- ============================
@@ -645,7 +645,7 @@ body::before{
       </div>
 
     </div>
-    <div class="page-footer" style="margin-top:16px;">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.2.4</span></div>
+    <div class="page-footer" style="margin-top:16px;">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.2.5</span></div>
   </div>
 </div>
 
@@ -711,7 +711,7 @@ body::before{
         Classificados fase de grupos: 32 pts (24 top 1°/2° + 8 melhores 3°s, 1pt cada) · 16 Avos 2pts · Oitavas 3pts · Quartas 4pts · Semis 5pts · Final 8pts · Campeão 25pts
       </div>
     </div>
-    <div class="page-footer" style="margin-top:16px;">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.2.4</span></div>
+    <div class="page-footer" style="margin-top:16px;">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.2.5</span></div>
   </div>
 </div>
 
@@ -760,7 +760,7 @@ body::before{
       <div class="cl-updated" id="cl-updated"></div>
     </div>
   </div>
-  <div class="page-footer" style="margin-top:4px;">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.2.4</span></div>
+  <div class="page-footer" style="margin-top:4px;">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.2.5</span></div>
 </div>
 
 <script>
@@ -1062,7 +1062,7 @@ function calcVirtualPoints(realScores, standings) {
   const thirds = [];   // Todos os 3° colocados com seus pontos para determinar os 8 melhores
 
   standings.forEach(grp => {
-    if (!grp.table) return;
+    if (!grp.table || grp.table.length < 3) return;
     const sorted = [...grp.table].sort((a, b) => {
       if (b.points !== a.points) return b.points - a.points;
       const gdA = a.goalsFor - a.goalsAgainst;
@@ -1345,8 +1345,9 @@ async function loadClassificacao(force) {
     classifLoaded = true;
     document.getElementById('cl-loading').style.display = 'none';
     document.getElementById('cl-content').style.display = '';
-    renderClassifGroups(data.standings || []);
-    renderClassifThirds(data.standings || []);
+    const mainStandings = (data.standings || []).filter(function(s){ return s.table && s.table.length >= 3; });
+    renderClassifGroups(mainStandings);
+    renderClassifThirds(mainStandings);
     if (data.updated) {
       const d = new Date(data.updated);
       const fmt = d.toLocaleString('pt-BR', {timeZone:'America/Sao_Paulo',day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'});
