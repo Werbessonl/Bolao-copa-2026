@@ -27,7 +27,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_A",
-      "lastUpdated": "2026-06-12T08:25:00Z",
+      "lastUpdated": "2026-06-14T15:20:16Z",
       "homeTeam": {
         "id": 769,
         "name": "Mexico",
@@ -93,7 +93,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_A",
-      "lastUpdated": "2026-06-12T08:25:00Z",
+      "lastUpdated": "2026-06-14T15:20:16Z",
       "homeTeam": {
         "id": 772,
         "name": "South Korea",
@@ -159,7 +159,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_B",
-      "lastUpdated": "2026-06-12T22:25:00Z",
+      "lastUpdated": "2026-06-14T15:20:16Z",
       "homeTeam": {
         "id": 828,
         "name": "Canada",
@@ -225,7 +225,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_D",
-      "lastUpdated": "2026-06-13T03:25:00Z",
+      "lastUpdated": "2026-06-14T15:20:16Z",
       "homeTeam": {
         "id": 771,
         "name": "United States",
@@ -291,7 +291,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_B",
-      "lastUpdated": "2026-06-13T21:09:44Z",
+      "lastUpdated": "2026-06-14T15:20:16Z",
       "homeTeam": {
         "id": 8030,
         "name": "Qatar",
@@ -357,7 +357,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_C",
-      "lastUpdated": "2026-06-14T00:10:33Z",
+      "lastUpdated": "2026-06-14T15:20:16Z",
       "homeTeam": {
         "id": 764,
         "name": "Brazil",
@@ -423,7 +423,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_C",
-      "lastUpdated": "2026-06-14T03:09:14Z",
+      "lastUpdated": "2026-06-14T15:20:16Z",
       "homeTeam": {
         "id": 836,
         "name": "Haiti",
@@ -489,7 +489,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_D",
-      "lastUpdated": "2026-06-14T06:03:26Z",
+      "lastUpdated": "2026-06-14T15:20:16Z",
       "homeTeam": {
         "id": 779,
         "name": "Australia",
@@ -555,7 +555,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_E",
-      "lastUpdated": "2026-06-14T20:07:14Z",
+      "lastUpdated": "2026-06-14T22:02:14Z",
       "homeTeam": {
         "id": 759,
         "name": "Germany",
@@ -621,7 +621,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_F",
-      "lastUpdated": "2026-06-14T22:01:31Z",
+      "lastUpdated": "2026-06-15T00:57:54Z",
       "homeTeam": {
         "id": 8601,
         "name": "Netherlands",
@@ -1021,6 +1021,25 @@
         {
           "position": 2,
           "team": {
+            "id": 1935,
+            "name": "Ivory Coast",
+            "shortName": "Ivory Coast",
+            "tla": "CIV",
+            "crest": "https://crests.football-data.org/787.svg"
+          },
+          "playedGames": 1,
+          "form": null,
+          "won": 1,
+          "draw": 0,
+          "lost": 0,
+          "points": 3,
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "goalDifference": 1
+        },
+        {
+          "position": 3,
+          "team": {
             "id": 791,
             "name": "Ecuador",
             "shortName": "Ecuador",
@@ -1030,31 +1049,12 @@
           "playedGames": 1,
           "form": null,
           "won": 0,
-          "draw": 1,
-          "lost": 0,
-          "points": 1,
+          "draw": 0,
+          "lost": 1,
+          "points": 0,
           "goalsFor": 0,
-          "goalsAgainst": 0,
-          "goalDifference": 0
-        },
-        {
-          "position": 2,
-          "team": {
-            "id": 1935,
-            "name": "Ivory Coast",
-            "shortName": "Ivory Coast",
-            "tla": "CIV",
-            "crest": "https://crests.football-data.org/787.svg"
-          },
-          "playedGames": 1,
-          "form": null,
-          "won": 0,
-          "draw": 1,
-          "lost": 0,
-          "points": 1,
-          "goalsFor": 0,
-          "goalsAgainst": 0,
-          "goalDifference": 0
+          "goalsAgainst": 1,
+          "goalDifference": -1
         },
         {
           "position": 4,
@@ -1659,5 +1659,5 @@
       ]
     }
   ],
-  "updated": "2026-06-14T23:02:19Z"
+  "updated": "2026-06-15T01:41:20Z"
 }
