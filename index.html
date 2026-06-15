@@ -979,6 +979,49 @@ function inList(team, list) {
   return list.some(t => teamMatch(t, team));
 }
 
+function matchGroupName(groupCode) {
+  const match = /^GROUP_([A-L])$/.exec(groupCode || '');
+  return match ? 'Group ' + match[1] : null;
+}
+
+function normalizeStandingsGroups(standings, matches) {
+  const teamGroups = {};
+  (matches || []).forEach(m => {
+    if (m.stage !== 'GROUP_STAGE') return;
+    const groupName = matchGroupName(m.group);
+    if (!groupName) return;
+    [m.homeTeam, m.awayTeam].forEach(team => {
+      if (team && team.name) teamGroups[normalize(team.name)] = groupName;
+    });
+  });
+
+  const grouped = {};
+  (standings || []).forEach(grp => {
+    if (!grp.table || grp.table.length === 0) return;
+
+    const validGroup = /^Group [A-L]$/.test(grp.group || '');
+    const inferredGroups = [...new Set(grp.table
+      .map(row => row.team && row.team.name ? teamGroups[normalize(row.team.name)] : null)
+      .filter(Boolean)
+    )];
+    const groupName = validGroup ? grp.group : (inferredGroups.length === 1 ? inferredGroups[0] : null);
+    if (!groupName) return;
+
+    if (!grouped[groupName]) {
+      grouped[groupName] = {...grp, group: groupName, table: []};
+    }
+    grouped[groupName].table.push(...grp.table);
+  });
+
+  return Object.values(grouped).map(grp => ({
+    ...grp,
+    table: grp.table.filter((row, idx, arr) => {
+      const teamName = row.team && row.team.name ? normalize(row.team.name) : '';
+      return teamName && arr.findIndex(other => other.team && normalize(other.team.name) === teamName) === idx;
+    })
+  }));
+}
+
 // Calcula pontos reais a partir dos resultados já disputados
 function calcRealPoints(finishedMatches) {
   const STAGE_PTS = {
@@ -1062,7 +1105,7 @@ function calcVirtualPoints(realScores, standings) {
   const thirds = [];   // Todos os 3° colocados com seus pontos para determinar os 8 melhores
 
   standings.forEach(grp => {
-    if (!grp.table || grp.table.length < 3) return;
+    if (!grp.table || grp.table.length < 2) return;
     const sorted = [...grp.table].sort((a, b) => {
       if (b.points !== a.points) return b.points - a.points;
       const gdA = a.goalsFor - a.goalsAgainst;
@@ -1072,7 +1115,7 @@ function calcVirtualPoints(realScores, standings) {
     });
     sorted.forEach((row, idx) => {
       if (idx < 2) top2.push(row.team.name);
-      if (idx === 2) thirds.push(row);
+      if (idx === 2) thirds.push({...row, groupName: grp.group});
     });
   });
 
@@ -1201,7 +1244,8 @@ async function loadRanking(force) {
     const data = await resp.json();
 
     const realScores = calcRealPoints(data.matches || []);
-    const fullScores = calcVirtualPoints(realScores, data.standings || []);
+    const normalizedStandings = normalizeStandingsGroups(data.standings || [], data.matches || []);
+    const fullScores = calcVirtualPoints(realScores, normalizedStandings);
 
     lastRankingData = {
       real: [...fullScores].sort((a, b) => b.real - a.real),
@@ -1345,7 +1389,8 @@ async function loadClassificacao(force) {
     classifLoaded = true;
     document.getElementById('cl-loading').style.display = 'none';
     document.getElementById('cl-content').style.display = '';
-    const mainStandings = (data.standings || []).filter(function(s){ return s.table && s.table.length >= 3; });
+    const normalizedStandings = normalizeStandingsGroups(data.standings || [], data.matches || []);
+    const mainStandings = normalizedStandings.filter(function(s){ return s.table && s.table.length >= 2; });
     renderClassifGroups(mainStandings);
     renderClassifThirds(mainStandings);
     if (data.updated) {
