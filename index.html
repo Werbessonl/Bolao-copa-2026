@@ -984,6 +984,39 @@ function matchGroupName(groupCode) {
   return match ? 'Group ' + match[1] : null;
 }
 
+const GROUP_ROSTERS = {
+  'Group H': ['Spain', 'Cape Verde Islands', 'Uruguay', 'Saudi Arabia']
+};
+
+function emptyStandingRow(teamName, position) {
+  return {
+    position,
+    team: { name: teamName, shortName: teamName },
+    playedGames: 0,
+    won: 0,
+    draw: 0,
+    lost: 0,
+    points: 0,
+    goalsFor: 0,
+    goalsAgainst: 0,
+    goalDifference: 0
+  };
+}
+
+function completeKnownGroup(grp) {
+  const roster = GROUP_ROSTERS[grp.group];
+  if (!roster) return grp;
+
+  const table = [...(grp.table || [])];
+  roster.forEach((teamName, idx) => {
+    if (!table.some(row => row.team && teamMatch(row.team.name, teamName))) {
+      table.push(emptyStandingRow(teamName, idx + 1));
+    }
+  });
+
+  return {...grp, table};
+}
+
 function normalizeStandingsGroups(standings, matches) {
   const teamGroups = {};
   (matches || []).forEach(m => {
@@ -1013,7 +1046,13 @@ function normalizeStandingsGroups(standings, matches) {
     grouped[groupName].table.push(...grp.table);
   });
 
-  return Object.values(grouped).map(grp => ({
+  Object.values(teamGroups).forEach(groupName => {
+    if (GROUP_ROSTERS[groupName] && !grouped[groupName]) {
+      grouped[groupName] = {stage: 'ALL', type: 'TOTAL', group: groupName, table: []};
+    }
+  });
+
+  return Object.values(grouped).map(grp => completeKnownGroup({
     ...grp,
     table: grp.table.filter((row, idx, arr) => {
       const teamName = row.team && row.team.name ? normalize(row.team.name) : '';
