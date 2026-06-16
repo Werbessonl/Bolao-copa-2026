@@ -27,7 +27,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_A",
-      "lastUpdated": "2026-06-12T15:20:17Z",
+      "lastUpdated": "2026-06-15T15:20:14Z",
       "homeTeam": {
         "id": 769,
         "name": "Mexico",
@@ -93,7 +93,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_A",
-      "lastUpdated": "2026-06-12T15:20:17Z",
+      "lastUpdated": "2026-06-15T15:20:14Z",
       "homeTeam": {
         "id": 772,
         "name": "South Korea",
@@ -159,7 +159,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_B",
-      "lastUpdated": "2026-06-12T22:25:00Z",
+      "lastUpdated": "2026-06-15T15:20:14Z",
       "homeTeam": {
         "id": 828,
         "name": "Canada",
@@ -175,15 +175,15 @@
         "crest": "https://crests.football-data.org/bosnia.svg"
       },
       "score": {
-        "winner": null,
+        "winner": "DRAW",
         "duration": "REGULAR",
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 1
         },
         "halfTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 1
         }
       },
       "odds": {
@@ -225,7 +225,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_D",
-      "lastUpdated": "2026-06-13T03:25:00Z",
+      "lastUpdated": "2026-06-15T15:20:14Z",
       "homeTeam": {
         "id": 771,
         "name": "United States",
@@ -291,7 +291,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_B",
-      "lastUpdated": "2026-06-13T21:09:44Z",
+      "lastUpdated": "2026-06-15T15:20:14Z",
       "homeTeam": {
         "id": 8030,
         "name": "Qatar",
@@ -357,7 +357,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_C",
-      "lastUpdated": "2026-06-14T00:10:33Z",
+      "lastUpdated": "2026-06-15T15:20:14Z",
       "homeTeam": {
         "id": 764,
         "name": "Brazil",
@@ -423,7 +423,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_C",
-      "lastUpdated": "2026-06-14T03:09:14Z",
+      "lastUpdated": "2026-06-15T15:20:14Z",
       "homeTeam": {
         "id": 836,
         "name": "Haiti",
@@ -489,7 +489,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_D",
-      "lastUpdated": "2026-06-14T06:03:26Z",
+      "lastUpdated": "2026-06-15T15:20:14Z",
       "homeTeam": {
         "id": 779,
         "name": "Australia",
@@ -555,7 +555,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_E",
-      "lastUpdated": "2026-06-15T08:25:00Z",
+      "lastUpdated": "2026-06-15T15:20:14Z",
       "homeTeam": {
         "id": 759,
         "name": "Germany",
@@ -621,7 +621,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_F",
-      "lastUpdated": "2026-06-15T08:25:01Z",
+      "lastUpdated": "2026-06-15T15:20:14Z",
       "homeTeam": {
         "id": 8601,
         "name": "Netherlands",
@@ -687,7 +687,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_E",
-      "lastUpdated": "2026-06-15T08:25:01Z",
+      "lastUpdated": "2026-06-15T15:20:14Z",
       "homeTeam": {
         "id": 1935,
         "name": "Ivory Coast",
@@ -753,7 +753,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_F",
-      "lastUpdated": "2026-06-15T08:25:01Z",
+      "lastUpdated": "2026-06-15T15:20:14Z",
       "homeTeam": {
         "id": 792,
         "name": "Sweden",
@@ -963,7 +963,7 @@
         "id": 758,
         "name": "Uruguay",
         "shortName": "Uruguay",
-        "tla": "URY",
+        "tla": "URU",
         "crest": "https://crests.football-data.org/758.svg"
       },
       "score": {
@@ -1736,18 +1736,37 @@
             "tla": "FRA",
             "crest": "https://crests.football-data.org/773.svg"
           },
-          "playedGames": 0,
+          "playedGames": 1,
           "form": null,
           "won": 0,
-          "draw": 0,
+          "draw": 1,
           "lost": 0,
-          "points": 0,
+          "points": 1,
           "goalsFor": 0,
           "goalsAgainst": 0,
           "goalDifference": 0
         },
         {
           "position": 1,
+          "team": {
+            "id": 804,
+            "name": "Senegal",
+            "shortName": "Senegal",
+            "tla": "SEN",
+            "crest": "https://crests.football-data.org/senegal.svg"
+          },
+          "playedGames": 1,
+          "form": null,
+          "won": 0,
+          "draw": 1,
+          "lost": 0,
+          "points": 1,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0
+        },
+        {
+          "position": 3,
           "team": {
             "id": 8062,
             "name": "Iraq",
@@ -1766,32 +1785,13 @@
           "goalDifference": 0
         },
         {
-          "position": 1,
+          "position": 3,
           "team": {
             "id": 8872,
             "name": "Norway",
             "shortName": "Norway",
             "tla": "NOR",
             "crest": "https://crests.football-data.org/813.svg"
-          },
-          "playedGames": 0,
-          "form": null,
-          "won": 0,
-          "draw": 0,
-          "lost": 0,
-          "points": 0,
-          "goalsFor": 0,
-          "goalsAgainst": 0,
-          "goalDifference": 0
-        },
-        {
-          "position": 1,
-          "team": {
-            "id": 804,
-            "name": "Senegal",
-            "shortName": "Senegal",
-            "tla": "SEN",
-            "crest": "https://crests.football-data.org/senegal.svg"
           },
           "playedGames": 0,
           "form": null,
@@ -2055,5 +2055,5 @@
       ]
     }
   ],
-  "updated": "2026-06-16T17:34:13Z"
+  "updated": "2026-06-16T20:32:20Z"
 }
