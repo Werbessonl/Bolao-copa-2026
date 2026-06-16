@@ -506,7 +506,7 @@ body::before{
       </div>
     </div>
   </div>
-  <div class="page-footer">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.2.5</span></div>
+  <div class="page-footer">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.2.6</span></div>
 </div>
 
 <!-- ============================
@@ -645,7 +645,7 @@ body::before{
       </div>
 
     </div>
-    <div class="page-footer" style="margin-top:16px;">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.2.5</span></div>
+    <div class="page-footer" style="margin-top:16px;">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.2.6</span></div>
   </div>
 </div>
 
@@ -711,7 +711,7 @@ body::before{
         Classificados fase de grupos: 32 pts (24 top 1°/2° + 8 melhores 3°s, 1pt cada) · 16 Avos 2pts · Oitavas 3pts · Quartas 4pts · Semis 5pts · Final 8pts · Campeão 25pts
       </div>
     </div>
-    <div class="page-footer" style="margin-top:16px;">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.2.5</span></div>
+    <div class="page-footer" style="margin-top:16px;">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.2.6</span></div>
   </div>
 </div>
 
@@ -760,7 +760,7 @@ body::before{
       <div class="cl-updated" id="cl-updated"></div>
     </div>
   </div>
-  <div class="page-footer" style="margin-top:4px;">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.2.5</span></div>
+  <div class="page-footer" style="margin-top:4px;">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.2.6</span></div>
 </div>
 
 <script>
@@ -1052,13 +1052,28 @@ function normalizeStandingsGroups(standings, matches) {
     }
   });
 
-  return Object.values(grouped).map(grp => completeKnownGroup({
+  const result = Object.values(grouped).map(grp => completeKnownGroup({
     ...grp,
     table: grp.table.filter((row, idx, arr) => {
       const teamName = row.team && row.team.name ? normalize(row.team.name) : '';
       return teamName && arr.findIndex(other => other.team && normalize(other.team.name) === teamName) === idx;
     })
   }));
+
+  // Visibilidade: alerta no console se algum grupo nao fechar com 4 times
+  // (entradas tipo "Atlantic Division" que nao puderam ser inferidas/completadas)
+  const allLetters = ['A','B','C','D','E','F','G','H','I','J','K','L'];
+  const foundLetters = result.map(g => (g.group || '').replace('Group ', ''));
+  allLetters.forEach(letter => {
+    const grp = result.find(g => g.group === 'Group ' + letter);
+    if (!grp) {
+      console.warn('[Classificacao] Grupo ' + letter + ' ausente no data.json apos normalizacao.');
+    } else if (!grp.table || grp.table.length !== 4) {
+      console.warn('[Classificacao] Grupo ' + letter + ' com ' + (grp.table ? grp.table.length : 0) + ' times (esperado 4).');
+    }
+  });
+
+  return result;
 }
 
 // Calcula pontos reais a partir dos resultados já disputados
