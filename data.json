@@ -27,7 +27,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_A",
-      "lastUpdated": "2026-06-14T15:20:16Z",
+      "lastUpdated": "2026-06-12T15:20:17Z",
       "homeTeam": {
         "id": 769,
         "name": "Mexico",
@@ -93,7 +93,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_A",
-      "lastUpdated": "2026-06-14T15:20:16Z",
+      "lastUpdated": "2026-06-12T15:20:17Z",
       "homeTeam": {
         "id": 772,
         "name": "South Korea",
@@ -159,7 +159,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_B",
-      "lastUpdated": "2026-06-14T15:20:16Z",
+      "lastUpdated": "2026-06-12T22:25:00Z",
       "homeTeam": {
         "id": 828,
         "name": "Canada",
@@ -175,15 +175,15 @@
         "crest": "https://crests.football-data.org/bosnia.svg"
       },
       "score": {
-        "winner": "DRAW",
+        "winner": null,
         "duration": "REGULAR",
         "fullTime": {
-          "home": 1,
-          "away": 1
+          "home": null,
+          "away": null
         },
         "halfTime": {
-          "home": 0,
-          "away": 1
+          "home": null,
+          "away": null
         }
       },
       "odds": {
@@ -225,7 +225,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_D",
-      "lastUpdated": "2026-06-14T15:20:16Z",
+      "lastUpdated": "2026-06-13T03:25:00Z",
       "homeTeam": {
         "id": 771,
         "name": "United States",
@@ -291,7 +291,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_B",
-      "lastUpdated": "2026-06-14T15:20:16Z",
+      "lastUpdated": "2026-06-13T21:09:44Z",
       "homeTeam": {
         "id": 8030,
         "name": "Qatar",
@@ -357,7 +357,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_C",
-      "lastUpdated": "2026-06-14T15:20:16Z",
+      "lastUpdated": "2026-06-14T00:10:33Z",
       "homeTeam": {
         "id": 764,
         "name": "Brazil",
@@ -423,7 +423,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_C",
-      "lastUpdated": "2026-06-14T15:20:16Z",
+      "lastUpdated": "2026-06-14T03:09:14Z",
       "homeTeam": {
         "id": 836,
         "name": "Haiti",
@@ -489,7 +489,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_D",
-      "lastUpdated": "2026-06-14T15:20:16Z",
+      "lastUpdated": "2026-06-14T06:03:26Z",
       "homeTeam": {
         "id": 779,
         "name": "Australia",
@@ -687,7 +687,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_E",
-      "lastUpdated": "2026-06-15T08:25:00Z",
+      "lastUpdated": "2026-06-15T08:25:01Z",
       "homeTeam": {
         "id": 1935,
         "name": "Ivory Coast",
@@ -921,6 +921,72 @@
           "name": "Ramon Abatti Abel",
           "type": "REFEREE",
           "nationality": "Brazil"
+        }
+      ]
+    },
+    {
+      "area": {
+        "id": 2267,
+        "name": "World",
+        "code": "INT",
+        "flag": null
+      },
+      "competition": {
+        "id": 2000,
+        "name": "FIFA World Cup",
+        "code": "WC",
+        "type": "CUP",
+        "emblem": "https://crests.football-data.org/wm26.png"
+      },
+      "season": {
+        "id": 2398,
+        "startDate": "2026-06-11",
+        "endDate": "2026-07-19",
+        "currentMatchday": 1,
+        "winner": null
+      },
+      "id": 537370,
+      "utcDate": "2026-06-15T22:00:00Z",
+      "status": "FINISHED",
+      "matchday": 1,
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_H",
+      "lastUpdated": "2026-06-16T00:09:30Z",
+      "homeTeam": {
+        "id": 801,
+        "name": "Saudi Arabia",
+        "shortName": "Saudi Arabia",
+        "tla": "KSA",
+        "crest": "https://crests.football-data.org/saudi_arabia.svg"
+      },
+      "awayTeam": {
+        "id": 758,
+        "name": "Uruguay",
+        "shortName": "Uruguay",
+        "tla": "URY",
+        "crest": "https://crests.football-data.org/758.svg"
+      },
+      "score": {
+        "winner": "DRAW",
+        "duration": "REGULAR",
+        "fullTime": {
+          "home": 1,
+          "away": 1
+        },
+        "halfTime": {
+          "home": 1,
+          "away": 0
+        }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": [
+        {
+          "id": 11043,
+          "name": "Maurizio Mariani",
+          "type": "REFEREE",
+          "nationality": "Italy"
         }
       ]
     }
@@ -1432,6 +1498,25 @@
         {
           "position": 1,
           "team": {
+            "id": 783,
+            "name": "New Zealand",
+            "shortName": "New Zealand",
+            "tla": "NZL",
+            "crest": "https://crests.football-data.org/783.svg"
+          },
+          "playedGames": 1,
+          "form": null,
+          "won": 1,
+          "draw": 0,
+          "lost": 0,
+          "points": 3,
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "goalDifference": 1
+        },
+        {
+          "position": 2,
+          "team": {
             "id": 805,
             "name": "Belgium",
             "shortName": "Belgium",
@@ -1449,7 +1534,7 @@
           "goalDifference": 0
         },
         {
-          "position": 2,
+          "position": 3,
           "team": {
             "id": 825,
             "name": "Egypt",
@@ -1468,7 +1553,7 @@
           "goalDifference": 0
         },
         {
-          "position": 3,
+          "position": 4,
           "team": {
             "id": 840,
             "name": "Iran",
@@ -1476,34 +1561,15 @@
             "tla": "IRN",
             "crest": "https://crests.football-data.org/iran.svg"
           },
-          "playedGames": 0,
+          "playedGames": 1,
           "form": null,
           "won": 0,
           "draw": 0,
-          "lost": 0,
+          "lost": 1,
           "points": 0,
           "goalsFor": 0,
-          "goalsAgainst": 0,
-          "goalDifference": 0
-        },
-        {
-          "position": 3,
-          "team": {
-            "id": 783,
-            "name": "New Zealand",
-            "shortName": "New Zealand",
-            "tla": "NZL",
-            "crest": "https://crests.football-data.org/783.svg"
-          },
-          "playedGames": 0,
-          "form": null,
-          "won": 0,
-          "draw": 0,
-          "lost": 0,
-          "points": 0,
-          "goalsFor": 0,
-          "goalsAgainst": 0,
-          "goalDifference": 0
+          "goalsAgainst": 1,
+          "goalDifference": -1
         }
       ]
     },
@@ -1923,5 +1989,5 @@
       ]
     }
   ],
-  "updated": "2026-06-16T00:09:15Z"
+  "updated": "2026-06-16T01:43:53Z"
 }
