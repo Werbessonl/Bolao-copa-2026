@@ -1745,7 +1745,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_L",
-      "lastUpdated": "2026-06-17T23:45:31Z",
+      "lastUpdated": "2026-06-17T23:55:43Z",
       "homeTeam": {
         "id": 763,
         "name": "Ghana",
@@ -1783,6 +1783,242 @@
           "nationality": "Sweden"
         }
       ]
+    },
+    {
+      "area": {
+        "id": 2267,
+        "name": "World",
+        "code": "INT",
+        "flag": null
+      },
+      "competition": {
+        "id": 2000,
+        "name": "FIFA World Cup",
+        "code": "WC",
+        "type": "CUP",
+        "emblem": "https://crests.football-data.org/wm26.png"
+      },
+      "season": {
+        "id": 2398,
+        "startDate": "2026-06-11",
+        "endDate": "2026-07-19",
+        "currentMatchday": 1,
+        "winner": null
+      },
+      "id": 537404,
+      "utcDate": "2026-06-18T02:00:00Z",
+      "status": "TIMED",
+      "matchday": 1,
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_K",
+      "lastUpdated": "2026-06-13T15:20:17Z",
+      "homeTeam": {
+        "id": 8070,
+        "name": "Uzbekistan",
+        "shortName": "Uzbekistan",
+        "tla": "UZB",
+        "crest": "https://crests.football-data.org/8070.png"
+      },
+      "awayTeam": {
+        "id": 818,
+        "name": "Colombia",
+        "shortName": "Colombia",
+        "tla": "COL",
+        "crest": "https://crests.football-data.org/818.svg"
+      },
+      "score": {
+        "winner": null,
+        "duration": "REGULAR",
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "halfTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": []
+    },
+    {
+      "area": {
+        "id": 2267,
+        "name": "World",
+        "code": "INT",
+        "flag": null
+      },
+      "competition": {
+        "id": 2000,
+        "name": "FIFA World Cup",
+        "code": "WC",
+        "type": "CUP",
+        "emblem": "https://crests.football-data.org/wm26.png"
+      },
+      "season": {
+        "id": 2398,
+        "startDate": "2026-06-11",
+        "endDate": "2026-07-19",
+        "currentMatchday": 1,
+        "winner": null
+      },
+      "id": 537329,
+      "utcDate": "2026-06-18T16:00:00Z",
+      "status": "TIMED",
+      "matchday": 2,
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_A",
+      "lastUpdated": "2026-06-13T15:20:17Z",
+      "homeTeam": {
+        "id": 798,
+        "name": "Czechia",
+        "shortName": "Czechia",
+        "tla": "CZE",
+        "crest": "https://crests.football-data.org/798.svg"
+      },
+      "awayTeam": {
+        "id": 774,
+        "name": "South Africa",
+        "shortName": "South Africa",
+        "tla": "RSA",
+        "crest": "https://crests.football-data.org/9396.svg"
+      },
+      "score": {
+        "winner": null,
+        "duration": "REGULAR",
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "halfTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": []
+    },
+    {
+      "area": {
+        "id": 2267,
+        "name": "World",
+        "code": "INT",
+        "flag": null
+      },
+      "competition": {
+        "id": 2000,
+        "name": "FIFA World Cup",
+        "code": "WC",
+        "type": "CUP",
+        "emblem": "https://crests.football-data.org/wm26.png"
+      },
+      "season": {
+        "id": 2398,
+        "startDate": "2026-06-11",
+        "endDate": "2026-07-19",
+        "currentMatchday": 1,
+        "winner": null
+      },
+      "id": 537335,
+      "utcDate": "2026-06-18T19:00:00Z",
+      "status": "TIMED",
+      "matchday": 2,
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_B",
+      "lastUpdated": "2026-06-13T15:20:17Z",
+      "homeTeam": {
+        "id": 788,
+        "name": "Switzerland",
+        "shortName": "Switzerland",
+        "tla": "SUI",
+        "crest": "https://crests.football-data.org/788.svg"
+      },
+      "awayTeam": {
+        "id": 1060,
+        "name": "Bosnia-Herzegovina",
+        "shortName": "Bosnia-H.",
+        "tla": "BIH",
+        "crest": "https://crests.football-data.org/bosnia.svg"
+      },
+      "score": {
+        "winner": null,
+        "duration": "REGULAR",
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "halfTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": []
+    },
+    {
+      "area": {
+        "id": 2267,
+        "name": "World",
+        "code": "INT",
+        "flag": null
+      },
+      "competition": {
+        "id": 2000,
+        "name": "FIFA World Cup",
+        "code": "WC",
+        "type": "CUP",
+        "emblem": "https://crests.football-data.org/wm26.png"
+      },
+      "season": {
+        "id": 2398,
+        "startDate": "2026-06-11",
+        "endDate": "2026-07-19",
+        "currentMatchday": 1,
+        "winner": null
+      },
+      "id": 537336,
+      "utcDate": "2026-06-18T22:00:00Z",
+      "status": "TIMED",
+      "matchday": 2,
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_B",
+      "lastUpdated": "2026-06-13T15:20:17Z",
+      "homeTeam": {
+        "id": 828,
+        "name": "Canada",
+        "shortName": "Canada",
+        "tla": "CAN",
+        "crest": "https://crests.football-data.org/canada.svg"
+      },
+      "awayTeam": {
+        "id": 8030,
+        "name": "Qatar",
+        "shortName": "Qatar",
+        "tla": "QAT",
+        "crest": "https://crests.football-data.org/8030.svg"
+      },
+      "score": {
+        "winner": null,
+        "duration": "REGULAR",
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "halfTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": []
     }
   ],
   "standings": [
@@ -2783,5 +3019,5 @@
       ]
     }
   ],
-  "updated": "2026-06-17T23:46:28Z"
+  "updated": "2026-06-17T23:56:15Z"
 }
