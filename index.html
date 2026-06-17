@@ -41,7 +41,7 @@ body::before{
 .nb-flags img{border-radius:2px;vertical-align:middle;}
 .nb-sub{font-size:9px;color:#5DC85C;font-weight:600;letter-spacing:1px;white-space:nowrap;}
 .nav-pills{display:flex;gap:3px;margin-left:auto;flex-shrink:0;}
-.pill{padding:3px 8px;border-radius:20px;font-size:7px;font-weight:700;cursor:pointer;letter-spacing:0.3px;text-transform:uppercase;border:1px solid rgba(255,255,255,0.2);color:#B8C8F0;background:rgba(255,255,255,0.1);white-space:nowrap;transition:all .15s;}
+.pill{padding:3px 8px;border-radius:20px;font-size:7px;font-weight:700;cursor:pointer;letter-spacing:0.3px;text-transform:uppercase;border:1px solid rgba(255,255,255,0.2);color:#B8C8F0;background:rgba(255,255,255,0.1);white-space:nowrap;transition:all .15s;text-decoration:none;display:inline-block;}
 .pill:hover{border-color:#3CAC3B;color:#5DC85C;}
 .pill.active{background:#E61D25;color:#fff;border-color:#E61D25;}
 
@@ -465,10 +465,11 @@ body::before{
       <span class="nb-sub">APOSTAS</span>
       <div class="nav-pills">
         <span class="pill" onclick="goTo('home')">Home</span>
+        <span class="pill" onclick="goTo('classificacao')">Ao Vivo</span>
         <span class="pill active" onclick="goTo('apostas')">Apostas</span>
         <span class="pill" onclick="goTo('raiox')">Raio X</span>
         <span class="pill" onclick="goTo('ranking')">Ranking</span>
-        <span class="pill" onclick="goTo('classificacao')">Classif.</span>
+        <a class="pill" href="consulta_apostas_bolao_2026.xlsx" download>Planilha</a>
       </div>
     </div>
   </nav>
@@ -579,7 +580,7 @@ body::before{
       </div>
     </div>
   </div>
-  <div class="page-footer">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.3.4</span></div>
+  <div class="page-footer">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.3.5</span></div>
 </div>
 
 <!-- ============================
@@ -597,10 +598,11 @@ body::before{
       <span class="nb-sub">RAIO X</span>
       <div class="nav-pills">
         <span class="pill" onclick="goTo('home')">Home</span>
+        <span class="pill" onclick="goTo('classificacao')">Ao Vivo</span>
         <span class="pill" onclick="goTo('apostas')">Apostas</span>
         <span class="pill active" onclick="goTo('raiox')">Raio X</span>
         <span class="pill" onclick="goTo('ranking')">Ranking</span>
-        <span class="pill" onclick="goTo('classificacao')">Classif.</span>
+        <a class="pill" href="consulta_apostas_bolao_2026.xlsx" download>Planilha</a>
       </div>
     </div>
   </nav>
@@ -718,7 +720,7 @@ body::before{
       </div>
 
     </div>
-    <div class="page-footer" style="margin-top:16px;">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.3.4</span></div>
+    <div class="page-footer" style="margin-top:16px;">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.3.5</span></div>
   </div>
 </div>
 
@@ -737,10 +739,11 @@ body::before{
       <span class="nb-sub">RANKING</span>
       <div class="nav-pills">
         <span class="pill" onclick="goTo('home')">Home</span>
+        <span class="pill" onclick="goTo('classificacao')">Ao Vivo</span>
         <span class="pill" onclick="goTo('apostas')">Apostas</span>
         <span class="pill" onclick="goTo('raiox')">Raio X</span>
         <span class="pill active" onclick="goTo('ranking')">Ranking</span>
-        <span class="pill" onclick="goTo('classificacao')">Classif.</span>
+        <a class="pill" href="consulta_apostas_bolao_2026.xlsx" download>Planilha</a>
       </div>
     </div>
   </nav>
@@ -785,7 +788,7 @@ body::before{
         Classificados fase de grupos: 32 pts (24 top 1°/2° + 8 melhores 3°s, 1pt cada) · 16 Avos 2pts · Oitavas 3pts · Quartas 4pts · Semis 5pts · Final 8pts · Campeão 25pts
       </div>
     </div>
-    <div class="page-footer" style="margin-top:16px;">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.3.4</span></div>
+    <div class="page-footer" style="margin-top:16px;">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.3.5</span></div>
   </div>
 </div>
 
@@ -804,10 +807,11 @@ body::before{
       <span class="nb-sub">CLASSIFICAÇÃO</span>
       <div class="nav-pills">
         <span class="pill" onclick="goTo('home')">Home</span>
+        <span class="pill active" onclick="goTo('classificacao')">Ao Vivo</span>
         <span class="pill" onclick="goTo('apostas')">Apostas</span>
         <span class="pill" onclick="goTo('raiox')">Raio X</span>
         <span class="pill" onclick="goTo('ranking')">Ranking</span>
-        <span class="pill active" onclick="goTo('classificacao')">Classif.</span>
+        <a class="pill" href="consulta_apostas_bolao_2026.xlsx" download>Planilha</a>
       </div>
     </div>
   </nav>
@@ -849,7 +853,7 @@ body::before{
       </div>
     </div>
   </div>
-  <div class="page-footer" style="margin-top:4px;">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.3.4</span></div>
+  <div class="page-footer" style="margin-top:4px;">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.3.5</span></div>
 </div>
 
 <!-- Modal Comparativo -->
