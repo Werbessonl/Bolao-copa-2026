@@ -6,6 +6,7 @@
 <title>Bolão Copa do Mundo 2026 — Squad Contas Médicas</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 <style>
+/* ===== BODY / FUNDO CAZÉ TV ===== */
 *{margin:0;padding:0;box-sizing:border-box;}
 
 body{
@@ -27,6 +28,7 @@ body::before{
 .screen{display:none;flex-direction:column;min-height:100vh;position:relative;z-index:1;}
 .screen.active{display:flex;}
 
+/* ===== NAVBAR (telas internas — 2 linhas) ===== */
 .navbar{background:#111B7A;border-bottom:3px solid transparent;border-image:linear-gradient(90deg,#3CAC3B,#2235C8,#E61D25) 1;padding:10px 14px 8px;flex-shrink:0;}
 .nb-row1{display:flex;align-items:center;gap:10px;}
 .nb-logo{background:#3CAC3B;color:#fff;font-weight:900;font-size:9px;padding:4px 7px;border-radius:6px;text-align:center;line-height:1.3;flex-shrink:0;box-shadow:0 2px 8px rgba(60,172,59,0.4);}
@@ -56,6 +58,7 @@ body::before{
 .home-host-flags{display:flex;align-items:center;gap:3px;flex-shrink:0;}
 .home-host-flags img{border-radius:2px;vertical-align:middle;}
 .home-host-sub{font-size:9px;color:#5DC85C;font-weight:600;letter-spacing:1px;white-space:nowrap;}
+/* ===== HOME ===== */
 .home-stats{margin-left:auto;font-size:10px;color:#B8C8F0;text-align:right;white-space:nowrap;flex-shrink:0;}
 .home-stats strong{color:#5DC85C;}
 .home-body{flex:1;display:flex;flex-direction:column;align-items:center;padding:24px 16px 16px;gap:16px;max-width:600px;margin:0 auto;width:100%;position:relative;z-index:1;}
@@ -93,10 +96,13 @@ body::before{
 .ranking-btn .btn-icon-box{color:#7AB0F0;}
 .classificacao-btn{border-left-color:#E61D25;}
 .classificacao-btn .btn-icon-box{color:#FF4D55;}
+.live-broadcast-icon{animation:broadcastPulse 1.5s ease-in-out infinite;}
+@keyframes broadcastPulse{0%,100%{opacity:1;}50%{opacity:.35;}}
 .planilha-btn{border-left-color:#34D399;text-decoration:none;color:inherit;}
 .planilha-btn .btn-icon-box{color:#34D399;}
 .home-footer{text-align:center;font-size:10px;color:#7A90D0;letter-spacing:1px;padding-top:4px;}
 
+/* ===== APOSTAS ===== */
 #screen-apostas{flex-direction:column;}
 .apostas-main{display:flex;flex:1;min-height:0;height:calc(100vh - 83px);}
 .sidebar{width:200px;flex-shrink:0;background:#0A1260;border-right:1px solid rgba(255,255,255,0.14);display:flex;flex-direction:column;overflow:hidden;}
@@ -138,6 +144,7 @@ body::before{
 .iframe-container::-webkit-scrollbar-thumb{background:#2235C8;border-radius:3px;}
 #arte-frame{width:560px;border:none;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,.5);flex-shrink:0;min-height:100%;}
 
+/* ===== RAIO X ===== */
 #screen-raiox{flex-direction:column;}
 .rx-body{flex:1;overflow-y:auto;padding:16px;}
 .rx-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:900px;margin:0 auto;}
@@ -185,6 +192,7 @@ body::before{
 .consensus-items{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;}
 .consensus-item{background:#0A1260;border:1px solid rgba(255,255,255,0.14);border-radius:6px;padding:6px 10px;display:flex;align-items:center;gap:6px;font-size:11px;color:#B8C8F0;}
 
+/* ===== RANKING ===== */
 #screen-ranking{flex-direction:column;}
 .rk-body{flex:1;overflow-y:auto;padding:14px;}
 .phases-bar{display:flex;gap:4px;margin-bottom:14px;max-width:900px;margin-left:auto;margin-right:auto;flex-wrap:wrap;}
@@ -220,6 +228,7 @@ body::before{
 .rk-loading{text-align:center;padding:40px;color:#7A90D0;font-size:13px;}
 .rk-error{background:rgba(230,29,37,0.12);border:1px solid rgba(230,29,37,0.4);border-radius:6px;padding:12px;color:#FF4D55;font-size:11px;max-width:900px;margin:0 auto 14px;}
 
+/* ===== COMPARATIVO MODAL ===== */
 @keyframes cmpFadeIn{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:scale(1)}}
 .cmp-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:1000;display:none;align-items:center;justify-content:center;padding:16px;}
 .cmp-backdrop.open{display:flex;}
@@ -245,8 +254,10 @@ body::before{
 .rk-tbl-badge{width:16px;height:16px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:8px;font-weight:900;margin-left:5px;vertical-align:middle;}
 .cmp-hint{font-size:9px;color:#7A90D0;text-align:center;margin-top:8px;max-width:900px;margin-left:auto;margin-right:auto;}
 
+/* ===== FOOTER ===== */
 .page-footer{background:#111B7A;border-top:1px solid rgba(255,255,255,0.14);padding:6px 16px;font-size:9px;color:#7A90D0;text-align:center;flex-shrink:0;letter-spacing:1px;}
 
+/* ===== CLASSIFICAÇÃO ===== */
 #screen-classificacao{flex-direction:column;}
 .cl-body{flex:1;overflow-y:auto;padding:14px;}
 .cl-tabs{display:flex;gap:6px;margin-bottom:14px;max-width:900px;margin-left:auto;margin-right:auto;flex-wrap:wrap;}
@@ -256,16 +267,19 @@ body::before{
 #cl-tab-thirds.active{background:#C9A84C;border-color:#C9A84C;color:#fff;}
 .cl-live-badge{background:#fff;color:#E61D25;font-size:7px;font-weight:900;padding:1px 5px;border-radius:8px;letter-spacing:.3px;margin-left:2px;}
 
+/* Cazé TV */
 .caze-btn{display:flex;align-items:center;gap:10px;background:linear-gradient(135deg,#FF0000,#CC0000);border-radius:12px;padding:14px 20px;box-shadow:0 4px 20px rgba(255,0,0,0.35);text-decoration:none;color:#fff;margin-bottom:14px;max-width:900px;margin-left:auto;margin-right:auto;}
 .caze-btn-info{flex:1;}
 .caze-btn-title{font-size:14px;font-weight:900;display:block;}
 .caze-btn-sub{font-size:9px;opacity:0.8;display:block;margin-top:2px;}
 
+/* Seções de jogos */
 .jogos-section{max-width:900px;margin:0 auto 16px;}
 .jogos-section-label{display:flex;align-items:center;gap:6px;font-size:9px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:#B8C8F0;margin-bottom:8px;padding:0 2px;}
 @keyframes liveDotPulse{0%,100%{opacity:1}50%{opacity:.25}}
 .live-dot-sm{width:7px;height:7px;border-radius:50%;background:#FF4D55;display:inline-block;flex-shrink:0;animation:liveDotPulse 1.2s ease-in-out infinite;}
 
+/* Cards de jogo */
 .jogo-card{background:#0F1870;border:1px solid rgba(255,255,255,0.1);border-left:3px solid var(--gc,#7AB0F0);border-radius:10px;overflow:hidden;margin-bottom:8px;}
 .jogo-card-top{display:flex;align-items:center;justify-content:space-between;padding:6px 12px;background:rgba(0,0,0,0.15);}
 .jogo-grp-tag{font-size:7px;font-weight:900;letter-spacing:1px;padding:2px 7px;border-radius:4px;background:var(--gc,#7AB0F0);color:#0a0e2a;text-transform:uppercase;}
@@ -285,6 +299,7 @@ body::before{
 .jogo-score-pause{color:#E8C468;}
 .jogo-vs{font-size:16px;font-weight:700;color:#7A90D0;}
 
+/* Rodapé jogos */
 .jogos-footer{background:#0A1260;border:1px solid rgba(255,255,255,0.14);border-radius:8px;padding:8px 14px;display:flex;align-items:center;justify-content:space-between;gap:6px;font-size:9px;color:#7A90D0;max-width:900px;margin:4px auto 0;}
 .jogos-empty{text-align:center;padding:40px 20px;color:#7A90D0;font-size:13px;}
 .cl-groups-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:900px;margin:0 auto;}
@@ -303,6 +318,7 @@ body::before{
 .risk-badge{background:rgba(230,29,37,0.15);border:1px solid rgba(230,29,37,0.4);color:#FF4D55;font-size:7px;font-weight:800;padding:1px 5px;border-radius:10px;letter-spacing:.5px;margin-left:4px;}
 .cl-loading{text-align:center;padding:40px;color:#7A90D0;font-size:13px;}
 .cl-warn{background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);border-radius:8px;padding:8px 12px;font-size:10px;color:#C9A84C;max-width:900px;margin:0 auto 14px;display:flex;align-items:center;gap:6px;}
+/* ===== MOBILE ===== */
 @media(max-width:700px){
  .cl-groups-grid{grid-template-columns:1fr;}
  .trophy-wrap{width:100px;height:130px;}
@@ -397,7 +413,7 @@ body::before{
     </div>
     <div class="home-nav-btns">
       <button class="nav-big-btn classificacao-btn" onclick="goTo('classificacao')">
-        <div class="btn-icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M21.593 7.203a2.506 2.506 0 0 0-1.762-1.766C18.265 5.007 12 5 12 5s-6.264-.007-7.831.404a2.56 2.56 0 0 0-1.766 1.778c-.413 1.566-.417 4.814-.417 4.814s-.004 3.264.406 4.814c.23.857.905 1.534 1.763 1.765 1.582.43 7.83.437 7.83.437s6.265.007 7.831-.403a2.515 2.515 0 0 0 1.767-1.763c.414-1.565.417-4.812.417-4.812s.02-3.265-.407-4.831zM9.996 15.005l.005-6 5.207 3.005-5.212 2.995z"/></svg></div>
+        <div class="btn-icon-box live-broadcast-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="3"/><path d="M8.5 8.5a5 5 0 0 0 0 7M15.5 8.5a5 5 0 0 1 0 7"/><path d="M5.5 5.5a9 9 0 0 0 0 13M18.5 5.5a9 9 0 0 1 0 13"/></svg></div>
         <span class="btn-text"><span class="btn-title">Acompanhe Ao Vivo</span><span class="btn-desc">Grupos, classificados e jogos em tempo real</span></span>
         <svg class="btn-chevron-icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
       </button>
@@ -555,7 +571,7 @@ body::before{
       </div>
     </div>
   </div>
-  <div class="page-footer">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.3.2</span></div>
+  <div class="page-footer">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.3.3</span></div>
 </div>
 
 <!-- ============================
@@ -694,7 +710,7 @@ body::before{
       </div>
 
     </div>
-    <div class="page-footer" style="margin-top:16px;">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.3.2</span></div>
+    <div class="page-footer" style="margin-top:16px;">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.3.3</span></div>
   </div>
 </div>
 
@@ -761,7 +777,7 @@ body::before{
         Classificados fase de grupos: 32 pts (24 top 1°/2° + 8 melhores 3°s, 1pt cada) · 16 Avos 2pts · Oitavas 3pts · Quartas 4pts · Semis 5pts · Final 8pts · Campeão 25pts
       </div>
     </div>
-    <div class="page-footer" style="margin-top:16px;">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.3.2</span></div>
+    <div class="page-footer" style="margin-top:16px;">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.3.3</span></div>
   </div>
 </div>
 
@@ -825,7 +841,7 @@ body::before{
       </div>
     </div>
   </div>
-  <div class="page-footer" style="margin-top:4px;">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.3.2</span></div>
+  <div class="page-footer" style="margin-top:4px;">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.3.3</span></div>
 </div>
 
 <!-- Modal Comparativo -->
@@ -998,6 +1014,7 @@ const PALPITES = [
 // Vice (chega à final): 8pt
 // Campeão (chega à final): 8pt + 25pt bônus = 33pt
 
+// ===== DICIONÁRIOS DE TRADUÇÃO E BANDEIRAS =====
 // Tradução inglês (API) → português (PALPITES)
 const EN_PT = {
   'mexico':'México','south africa':'África do Sul','south korea':'Coreia do Sul',
@@ -1055,6 +1072,7 @@ function matchGroupName(groupCode) {
   return match ? 'Group ' + match[1] : null;
 }
 
+// ===== CORREÇÃO DE GRUPOS (BUG DA API: "Atlantic Division" etc.) =====
 const GROUP_ROSTERS = {
   'Group H': ['Spain', 'Cape Verde Islands', 'Uruguay', 'Saudi Arabia']
 };
@@ -1147,6 +1165,14 @@ function normalizeStandingsGroups(standings, matches) {
   return result;
 }
 
+// ===== PONTUAÇÃO =====
+// Grupos/melhores_terceiros: 1pt cada
+// Dezesseis_avos: 2pt cada
+// Oitavas: 3pt cada
+// Quartas: 4pt cada
+// Semis: 5pt cada
+// Vice (chega à final): 8pt
+// Campeão (chega à final): 8pt + 25pt bônus = 33pt
 // Calcula pontos reais a partir dos resultados já disputados
 function calcRealPoints(finishedMatches) {
   const STAGE_PTS = {
@@ -1270,6 +1296,7 @@ function calcVirtualPoints(realScores, standings) {
     return {...s, virtual: s.real + gruposPts};
   });
 }
+// ===== NAVEGAÇÃO =====
 const SCREENS = {home:'screen-home',apostas:'screen-apostas',raiox:'screen-raiox',ranking:'screen-ranking',classificacao:'screen-classificacao'};
 let currentScreen = 'home';
 
@@ -1287,6 +1314,7 @@ window.addEventListener('popstate', e => {
   const s = (e.state && e.state.screen) || 'home';
   goTo(s);
 });
+// ===== APOSTAS (iframe com arte HTML de cada participante) =====
 let currentIdx = 0;
 let frameLoaded = false;
 let objectURLs = [];
@@ -1339,6 +1367,7 @@ function downloadCurrent(e) {
   a.download = 'arte_' + String(currentIdx+1).padStart(2,'0') + '_' + NAMES[currentIdx].replace(/ /g,'_') + '.html';
   a.click();
 }
+// ===== RANKING =====
 let rankingLoaded = false;
 let currentTab = 'real';
 let lastRankingData = null;
@@ -1642,6 +1671,7 @@ function flagImgCl(name, h) {
   return '<img src="https://flagcdn.com/h' + h + '/' + code + '.png" width="' + w + '" height="' + h + '" style="border-radius:2px;vertical-align:middle;object-fit:cover;flex-shrink:0" alt="' + name + '">';
 }
 
+// ===== CLASSIFICAÇÃO =====
 function setClassifTab(tab) {
   classifTab = tab;
   ['jogos','class','thirds'].forEach(function(t) {
