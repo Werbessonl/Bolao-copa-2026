@@ -1745,7 +1745,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_L",
-      "lastUpdated": "2026-06-17T23:05:55Z",
+      "lastUpdated": "2026-06-17T23:44:55Z",
       "homeTeam": {
         "id": 763,
         "name": "Ghana",
@@ -2783,5 +2783,5 @@
       ]
     }
   ],
-  "updated": "2026-06-17T23:07:31Z"
+  "updated": "2026-06-17T23:44:58Z"
 }
