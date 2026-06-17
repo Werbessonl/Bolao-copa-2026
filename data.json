@@ -27,7 +27,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_A",
-      "lastUpdated": "2026-06-13T15:20:17Z",
+      "lastUpdated": "2026-06-12T08:25:00Z",
       "homeTeam": {
         "id": 769,
         "name": "Mexico",
@@ -93,7 +93,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_A",
-      "lastUpdated": "2026-06-13T15:20:17Z",
+      "lastUpdated": "2026-06-12T08:25:00Z",
       "homeTeam": {
         "id": 772,
         "name": "South Korea",
@@ -159,7 +159,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_B",
-      "lastUpdated": "2026-06-13T15:20:17Z",
+      "lastUpdated": "2026-06-12T22:25:00Z",
       "homeTeam": {
         "id": 828,
         "name": "Canada",
@@ -225,7 +225,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_D",
-      "lastUpdated": "2026-06-13T15:20:17Z",
+      "lastUpdated": "2026-06-13T03:25:00Z",
       "homeTeam": {
         "id": 771,
         "name": "United States",
@@ -291,7 +291,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_B",
-      "lastUpdated": "2026-06-13T23:07:33Z",
+      "lastUpdated": "2026-06-13T21:09:44Z",
       "homeTeam": {
         "id": 8030,
         "name": "Qatar",
@@ -1187,6 +1187,72 @@
           "nationality": "Gabon"
         }
       ]
+    },
+    {
+      "area": {
+        "id": 2267,
+        "name": "World",
+        "code": "INT",
+        "flag": null
+      },
+      "competition": {
+        "id": 2000,
+        "name": "FIFA World Cup",
+        "code": "WC",
+        "type": "CUP",
+        "emblem": "https://crests.football-data.org/wm26.png"
+      },
+      "season": {
+        "id": 2398,
+        "startDate": "2026-06-11",
+        "endDate": "2026-07-19",
+        "currentMatchday": 1,
+        "winner": null
+      },
+      "id": 537397,
+      "utcDate": "2026-06-17T01:00:00Z",
+      "status": "FINISHED",
+      "matchday": 1,
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_J",
+      "lastUpdated": "2026-06-17T03:06:10Z",
+      "homeTeam": {
+        "id": 762,
+        "name": "Argentina",
+        "shortName": "Argentina",
+        "tla": "ARG",
+        "crest": "https://crests.football-data.org/762.png"
+      },
+      "awayTeam": {
+        "id": 778,
+        "name": "Algeria",
+        "shortName": "Algeria",
+        "tla": "ALG",
+        "crest": "https://crests.football-data.org/algeria.svg"
+      },
+      "score": {
+        "winner": "HOME_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "home": 3,
+          "away": 0
+        },
+        "halfTime": {
+          "home": 1,
+          "away": 0
+        }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": [
+        {
+          "id": 43888,
+          "name": "Szymon Marciniak",
+          "type": "REFEREE",
+          "nationality": "Poland"
+        }
+      ]
     }
   ],
   "standings": [
@@ -1957,28 +2023,9 @@
           "draw": 0,
           "lost": 0,
           "points": 3,
-          "goalsFor": 1,
+          "goalsFor": 3,
           "goalsAgainst": 0,
-          "goalDifference": 1
-        },
-        {
-          "position": 2,
-          "team": {
-            "id": 8049,
-            "name": "Jordan",
-            "shortName": "Jordan",
-            "tla": "JOR",
-            "crest": "https://crests.football-data.org/8049.png"
-          },
-          "playedGames": 0,
-          "form": null,
-          "won": 0,
-          "draw": 0,
-          "lost": 0,
-          "points": 0,
-          "goalsFor": 0,
-          "goalsAgainst": 0,
-          "goalDifference": 0
+          "goalDifference": 3
         },
         {
           "position": 2,
@@ -1989,15 +2036,34 @@
             "tla": "AUT",
             "crest": "https://crests.football-data.org/816.svg"
           },
-          "playedGames": 0,
+          "playedGames": 1,
+          "form": null,
+          "won": 1,
+          "draw": 0,
+          "lost": 0,
+          "points": 3,
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "goalDifference": 1
+        },
+        {
+          "position": 3,
+          "team": {
+            "id": 8049,
+            "name": "Jordan",
+            "shortName": "Jordan",
+            "tla": "JOR",
+            "crest": "https://crests.football-data.org/8049.png"
+          },
+          "playedGames": 1,
           "form": null,
           "won": 0,
           "draw": 0,
-          "lost": 0,
+          "lost": 1,
           "points": 0,
           "goalsFor": 0,
-          "goalsAgainst": 0,
-          "goalDifference": 0
+          "goalsAgainst": 1,
+          "goalDifference": -1
         },
         {
           "position": 4,
@@ -2015,8 +2081,8 @@
           "lost": 1,
           "points": 0,
           "goalsFor": 0,
-          "goalsAgainst": 1,
-          "goalDifference": -1
+          "goalsAgainst": 3,
+          "goalDifference": -3
         }
       ]
     },
@@ -2187,5 +2253,5 @@
       ]
     }
   ],
-  "updated": "2026-06-17T01:31:48Z"
+  "updated": "2026-06-17T05:18:53Z"
 }
