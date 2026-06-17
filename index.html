@@ -299,6 +299,14 @@ body::before{
 .jogo-score-pause{color:#E8C468;}
 .jogo-vs{font-size:16px;font-weight:700;color:#7A90D0;}
 
+/* Tooltip de apostas por seleção */
+.flag-tooltip{position:fixed;z-index:2000;background:#0F1870;border:1px solid rgba(255,255,255,0.2);border-radius:10px;padding:10px 14px;min-width:160px;max-width:220px;box-shadow:0 8px 30px rgba(0,0,0,0.5);animation:cmpFadeIn .15s ease;pointer-events:none;}
+.flag-tooltip-title{font-size:9px;font-weight:800;color:#7AB0F0;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;}
+.flag-tooltip-name{font-size:11px;color:#B8C8F0;padding:3px 0;border-bottom:1px solid rgba(255,255,255,0.06);}
+.flag-tooltip-name:last-child{border-bottom:none;}
+.flag-tooltip-empty{font-size:11px;color:#7A90D0;font-style:italic;}
+.jogo-flag-btn{background:none;border:none;padding:0;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px;transition:transform .15s;}
+.jogo-flag-btn:hover{transform:scale(1.08);}
 /* Rodapé jogos */
 .jogos-footer{background:#0A1260;border:1px solid rgba(255,255,255,0.14);border-radius:8px;padding:8px 14px;display:flex;align-items:center;justify-content:space-between;gap:6px;font-size:9px;color:#7A90D0;max-width:900px;margin:4px auto 0;}
 .jogos-empty{text-align:center;padding:40px 20px;color:#7A90D0;font-size:13px;}
@@ -571,7 +579,7 @@ body::before{
       </div>
     </div>
   </div>
-  <div class="page-footer">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.3.3</span></div>
+  <div class="page-footer">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.3.4</span></div>
 </div>
 
 <!-- ============================
@@ -710,7 +718,7 @@ body::before{
       </div>
 
     </div>
-    <div class="page-footer" style="margin-top:16px;">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.3.3</span></div>
+    <div class="page-footer" style="margin-top:16px;">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.3.4</span></div>
   </div>
 </div>
 
@@ -777,7 +785,7 @@ body::before{
         Classificados fase de grupos: 32 pts (24 top 1°/2° + 8 melhores 3°s, 1pt cada) · 16 Avos 2pts · Oitavas 3pts · Quartas 4pts · Semis 5pts · Final 8pts · Campeão 25pts
       </div>
     </div>
-    <div class="page-footer" style="margin-top:16px;">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.3.3</span></div>
+    <div class="page-footer" style="margin-top:16px;">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.3.4</span></div>
   </div>
 </div>
 
@@ -815,7 +823,7 @@ body::before{
         <a class="caze-btn" href="https://www.youtube.com/live/HpzKFDctbNw?is=2Zzc0_BpIjuIJTzW" target="_blank" rel="noopener noreferrer">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="#fff" style="flex-shrink:0"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
           <div class="caze-btn-info">
-            <span class="caze-btn-title">Acompanhe ao Vivo</span>
+            <span class="caze-btn-title">Acompanhe</span>
             <span class="caze-btn-sub">Cazé TV · Transmissão oficial da Copa 2026</span>
           </div>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
@@ -841,7 +849,7 @@ body::before{
       </div>
     </div>
   </div>
-  <div class="page-footer" style="margin-top:4px;">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.3.3</span></div>
+  <div class="page-footer" style="margin-top:4px;">Bolão Copa do Mundo 2026 · Squad Contas Médicas · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.3.4</span></div>
 </div>
 
 <!-- Modal Comparativo -->
@@ -1735,7 +1743,7 @@ function renderJogosHoje(allMatches) {
   var html = '';
 
   if (live.length > 0) {
-    html += '<div class="jogos-section"><div class="jogos-section-label"><span class="live-dot-sm"></span><span style="color:#FF4D55">AO VIVO AGORA</span></div>';
+    html += '<div class="jogos-section"><div class="jogos-section-label"><span class="live-dot-sm"></span><span style="color:#FF4D55">AGORA</span></div>';
     live.forEach(function(m){ html += renderJogoCard(m); });
     html += '</div>';
   }
@@ -1802,12 +1810,64 @@ function renderJogoCard(m) {
       '<div style="display:flex;align-items:center;gap:8px;">' + statusPill + '<span class="jogo-time">' + hora + '</span></div>' +
     '</div>' +
     '<div class="jogo-card-body">' +
-      '<div class="jogo-team">' + homeFlag + '<span class="jogo-team-name">' + homeName + '</span></div>' +
+      '<div class="jogo-team"><button class="jogo-flag-btn" onclick="showTeamTooltip(\'' + m.homeTeam.name.replace(/'/g,"\\'") + '\',event)">' + homeFlag + '<span class="jogo-team-name">' + homeName + '</span></button></div>' +
       '<div class="jogo-score-wrap">' + scoreHtml + '</div>' +
-      '<div class="jogo-team">' + awayFlag + '<span class="jogo-team-name">' + awayName + '</span></div>' +
+      '<div class="jogo-team"><button class="jogo-flag-btn" onclick="showTeamTooltip(\'' + m.awayTeam.name.replace(/'/g,"\\'") + '\',event)">' + awayFlag + '<span class="jogo-team-name">' + awayName + '</span></button></div>' +
     '</div>' +
   '</div>';
 }
+
+var _tooltipEl = null;
+var _tooltipTimer = null;
+
+function showTeamTooltip(apiName, event) {
+  event.stopPropagation();
+  hideTooltip();
+
+  var ptName = translate(apiName) || apiName;
+  var ptNorm = normalize(ptName);
+
+  var apostadores = NAMES.filter(function(_, i) {
+    var p = PALPITES[i];
+    var todos = (p.grupos || []).concat(p.melhores_terceiros || []);
+    return todos.some(function(t) { return normalize(t) === ptNorm; });
+  });
+
+  var el = document.createElement('div');
+  el.className = 'flag-tooltip';
+
+  var inner = '<div class="flag-tooltip-title">Apostaram em ' + ptName + '</div>';
+  if (apostadores.length === 0) {
+    inner += '<div class="flag-tooltip-empty">Ninguém apostou nessa seleção</div>';
+  } else {
+    apostadores.forEach(function(n) {
+      inner += '<div class="flag-tooltip-name">– ' + n.split(' ')[0] + '</div>';
+    });
+  }
+  el.innerHTML = inner;
+  document.body.appendChild(el);
+  _tooltipEl = el;
+
+  // Posicionar acima do clique
+  var rect = event.currentTarget.getBoundingClientRect();
+  var top = rect.top + window.scrollY - el.offsetHeight - 8;
+  var left = rect.left + window.scrollX + (rect.width / 2) - (el.offsetWidth / 2);
+  if (top < 8) top = rect.bottom + window.scrollY + 8;
+  left = Math.max(8, Math.min(left, window.innerWidth - el.offsetWidth - 8));
+  el.style.top = top + 'px';
+  el.style.left = left + 'px';
+
+  _tooltipTimer = setTimeout(hideTooltip, 4000);
+}
+
+function hideTooltip() {
+  if (_tooltipEl) { _tooltipEl.remove(); _tooltipEl = null; }
+  if (_tooltipTimer) { clearTimeout(_tooltipTimer); _tooltipTimer = null; }
+}
+
+document.addEventListener('click', function(e) {
+  if (_tooltipEl && !e.target.closest('.jogo-flag-btn')) hideTooltip();
+});
 
 function clSortTable(tbl) {
   return [...tbl].sort(function(a,b) {
