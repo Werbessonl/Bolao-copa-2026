@@ -19,10 +19,12 @@ jobs:
         env:
           API_KEY: ${{ secrets.FOOTBALL_API_KEY }}
         run: |
+          TODAY=$(date -u +%Y-%m-%d)
           curl -sf -H "X-Auth-Token: $API_KEY" "https://api.football-data.org/v4/competitions/WC/matches?status=FINISHED" -o matches_raw.json
+          curl -sf -H "X-Auth-Token: $API_KEY" "https://api.football-data.org/v4/competitions/WC/matches?dateFrom=${TODAY}&dateTo=${TODAY}" -o today_raw.json
           curl -sf -H "X-Auth-Token: $API_KEY" "https://api.football-data.org/v4/competitions/WC/standings" -o standings_raw.json
-          jq -n --argjson m "$(cat matches_raw.json)" --argjson s "$(cat standings_raw.json)" '{matches:$m.matches,standings:[$s.standings[]|select(.table|length>0)],updated:(now|strftime("%Y-%m-%dT%H:%M:%SZ"))}' > data.json
-          echo "OK: $(jq '.matches|length' data.json) partidas, $(jq '.standings|length' data.json) grupos"
+          jq -n --argjson m "$(cat matches_raw.json)" --argjson t "$(cat today_raw.json)" --argjson s "$(cat standings_raw.json)" '{matches:$m.matches,today_matches:$t.matches,standings:[$s.standings[]|select(.table|length>0)],updated:(now|strftime("%Y-%m-%dT%H:%M:%SZ"))}' > data.json
+          echo "OK: $(jq '.matches|length' data.json) partidas, $(jq '.today_matches|length' data.json) jogos hoje, $(jq '.standings|length' data.json) grupos"
 
       - name: Commit data.json
         run: |
