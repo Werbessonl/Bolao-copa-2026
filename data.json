@@ -1083,7 +1083,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_I",
-      "lastUpdated": "2026-06-16T21:10:25Z",
+      "lastUpdated": "2026-06-17T08:25:00Z",
       "homeTeam": {
         "id": 773,
         "name": "France",
@@ -1149,7 +1149,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_I",
-      "lastUpdated": "2026-06-17T00:07:58Z",
+      "lastUpdated": "2026-06-17T08:25:00Z",
       "homeTeam": {
         "id": 8062,
         "name": "Iraq",
@@ -1215,7 +1215,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_J",
-      "lastUpdated": "2026-06-17T03:06:10Z",
+      "lastUpdated": "2026-06-17T08:25:01Z",
       "homeTeam": {
         "id": 762,
         "name": "Argentina",
@@ -1251,6 +1251,72 @@
           "name": "Szymon Marciniak",
           "type": "REFEREE",
           "nationality": "Poland"
+        }
+      ]
+    },
+    {
+      "area": {
+        "id": 2267,
+        "name": "World",
+        "code": "INT",
+        "flag": null
+      },
+      "competition": {
+        "id": 2000,
+        "name": "FIFA World Cup",
+        "code": "WC",
+        "type": "CUP",
+        "emblem": "https://crests.football-data.org/wm26.png"
+      },
+      "season": {
+        "id": 2398,
+        "startDate": "2026-06-11",
+        "endDate": "2026-07-19",
+        "currentMatchday": 1,
+        "winner": null
+      },
+      "id": 537398,
+      "utcDate": "2026-06-17T04:00:00Z",
+      "status": "FINISHED",
+      "matchday": 1,
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_J",
+      "lastUpdated": "2026-06-17T08:25:01Z",
+      "homeTeam": {
+        "id": 816,
+        "name": "Austria",
+        "shortName": "Austria",
+        "tla": "AUT",
+        "crest": "https://crests.football-data.org/816.svg"
+      },
+      "awayTeam": {
+        "id": 8049,
+        "name": "Jordan",
+        "shortName": "Jordan",
+        "tla": "JOR",
+        "crest": "https://crests.football-data.org/8049.png"
+      },
+      "score": {
+        "winner": "HOME_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "home": 3,
+          "away": 1
+        },
+        "halfTime": {
+          "home": 1,
+          "away": 0
+        }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": [
+        {
+          "id": 262323,
+          "name": "Dahane Beida",
+          "type": "REFEREE",
+          "nationality": "Mauritania"
         }
       ]
     }
@@ -2042,9 +2108,9 @@
           "draw": 0,
           "lost": 0,
           "points": 3,
-          "goalsFor": 1,
-          "goalsAgainst": 0,
-          "goalDifference": 1
+          "goalsFor": 3,
+          "goalsAgainst": 1,
+          "goalDifference": 2
         },
         {
           "position": 3,
@@ -2061,9 +2127,9 @@
           "draw": 0,
           "lost": 1,
           "points": 0,
-          "goalsFor": 0,
-          "goalsAgainst": 1,
-          "goalDifference": -1
+          "goalsFor": 1,
+          "goalsAgainst": 3,
+          "goalDifference": -2
         },
         {
           "position": 4,
@@ -2253,5 +2319,5 @@
       ]
     }
   ],
-  "updated": "2026-06-17T05:18:53Z"
+  "updated": "2026-06-17T10:16:27Z"
 }
