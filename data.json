@@ -1613,7 +1613,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_L",
-      "lastUpdated": "2026-06-17T20:11:34Z",
+      "lastUpdated": "2026-06-17T21:45:40Z",
       "homeTeam": {
         "id": 770,
         "name": "England",
@@ -1629,15 +1629,15 @@
         "crest": "https://crests.football-data.org/799.svg"
       },
       "score": {
-        "winner": "DRAW",
+        "winner": "HOME_TEAM",
         "duration": "REGULAR",
         "fullTime": {
-          "home": 0,
-          "away": 0
+          "home": 3,
+          "away": 2
         },
         "halfTime": {
-          "home": null,
-          "away": null
+          "home": 2,
+          "away": 2
         }
       },
       "odds": {
@@ -1679,7 +1679,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_L",
-      "lastUpdated": "2026-06-13T15:20:17Z",
+      "lastUpdated": "2026-06-11T15:20:18Z",
       "homeTeam": {
         "id": 763,
         "name": "Ghana",
@@ -1709,7 +1709,14 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [
+        {
+          "id": 30960,
+          "name": "Glenn Nyberg",
+          "type": "REFEREE",
+          "nationality": "Sweden"
+        }
+      ]
     }
   ],
   "standings": [
@@ -2642,35 +2649,16 @@
           },
           "playedGames": 1,
           "form": null,
-          "won": 0,
-          "draw": 1,
+          "won": 1,
+          "draw": 0,
           "lost": 0,
-          "points": 1,
-          "goalsFor": 0,
-          "goalsAgainst": 0,
-          "goalDifference": 0
+          "points": 3,
+          "goalsFor": 3,
+          "goalsAgainst": 2,
+          "goalDifference": 1
         },
         {
-          "position": 1,
-          "team": {
-            "id": 799,
-            "name": "Croatia",
-            "shortName": "Croatia",
-            "tla": "CRO",
-            "crest": "https://crests.football-data.org/799.svg"
-          },
-          "playedGames": 1,
-          "form": null,
-          "won": 0,
-          "draw": 1,
-          "lost": 0,
-          "points": 1,
-          "goalsFor": 0,
-          "goalsAgainst": 0,
-          "goalDifference": 0
-        },
-        {
-          "position": 3,
+          "position": 2,
           "team": {
             "id": 763,
             "name": "Ghana",
@@ -2689,7 +2677,7 @@
           "goalDifference": 0
         },
         {
-          "position": 3,
+          "position": 2,
           "team": {
             "id": 1836,
             "name": "Panama",
@@ -2706,9 +2694,28 @@
           "goalsFor": 0,
           "goalsAgainst": 0,
           "goalDifference": 0
+        },
+        {
+          "position": 4,
+          "team": {
+            "id": 799,
+            "name": "Croatia",
+            "shortName": "Croatia",
+            "tla": "CRO",
+            "crest": "https://crests.football-data.org/799.svg"
+          },
+          "playedGames": 1,
+          "form": null,
+          "won": 0,
+          "draw": 0,
+          "lost": 1,
+          "points": 0,
+          "goalsFor": 2,
+          "goalsAgainst": 3,
+          "goalDifference": -1
         }
       ]
     }
   ],
-  "updated": "2026-06-17T20:12:10Z"
+  "updated": "2026-06-17T21:46:43Z"
 }
