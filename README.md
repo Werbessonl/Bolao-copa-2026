@@ -114,3 +114,4 @@ Andressa · Boaventura · Bruno · Claudio Henrique · Everton Paes · Fabio Fis
 | 4.1 | Favicon personalizado (SVG→PNG), PWA manifest, theme-color para barra do iPhone |
 | 4.2 | Correção crítica: `const HTMLS` ausente do `hb_json.txt` restaurado — apostas voltam a funcionar |
 | 4.3 | `viewport-fit=cover` + `safe-area-inset-top` no navbar/home-header — barra do iPhone fica azul escuro |
+| 4.4 | Overscroll background vermelho `#E61D25` — fundo ao deslizar além do limite da página |
