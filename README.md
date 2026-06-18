@@ -109,3 +109,7 @@ Andressa · Boaventura · Bruno · Claudio Henrique · Everton Paes · Fabio Fis
 | 3.1 | Comparativo entre dois participantes no ranking virtual |
 | 3.2 | Aba "Jogos Hoje", bandeiras corrigidas, filtro por data de Brasília, ícone YouTube |
 | 3.3 | Ícone ao vivo com animação de piscar, comentários de manutenção restaurados |
+| 3.4–3.9 | Tooltip de apostas por seleção, reordem de botões/navbar, título "Bolão - R$240,00 🤑", rodapé "Agile Tech +", workflow busca jogos D+1 UTC |
+| 4.0 | Título da aba "Bolão - Squad CM", logo SQUAD clicável (atualiza página), correção de fonte nas artes |
+| 4.1 | Favicon personalizado (SVG→PNG), PWA manifest, theme-color para barra do iPhone |
+| 4.2 | Correção crítica: `const HTMLS` ausente do `hb_json.txt` restaurado — apostas voltam a funcionar |
