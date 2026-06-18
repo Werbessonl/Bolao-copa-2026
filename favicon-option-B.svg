@@ -5,43 +5,40 @@
       <stop offset="100%" style="stop-color:#2235C8"/>
     </linearGradient>
     <linearGradient id="goldB" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#F0D060"/>
+      <stop offset="0%" style="stop-color:#F5E070"/>
       <stop offset="50%" style="stop-color:#E8C468"/>
-      <stop offset="100%" style="stop-color:#B8862C"/>
+      <stop offset="100%" style="stop-color:#9A6C20"/>
     </linearGradient>
-    <radialGradient id="glowB" cx="50%" cy="40%" r="50%">
-      <stop offset="0%" style="stop-color:rgba(255,220,80,0.2)"/>
-      <stop offset="100%" style="stop-color:rgba(255,220,80,0)"/>
-    </radialGradient>
   </defs>
-  <!-- Fundo -->
+
+  <!-- Fundo gradiente azul -->
   <rect width="512" height="512" rx="102" ry="102" fill="url(#bgB)"/>
-  <!-- Glow sutil -->
-  <ellipse cx="256" cy="200" rx="220" ry="180" fill="url(#glowB)"/>
 
-  <!-- Taça grande e impactante, centralizada -->
-  <g transform="translate(256, 268)" fill="url(#goldB)">
-    <!-- Corpo principal -->
-    <path d="M-80,-80 C-80,-80 -92,50 -58,100 L-36,126 L36,126 L58,100 C92,50 80,-80 80,-80 Z"/>
-    <!-- Alça esquerda -->
-    <path d="M-80,-80 C-126,-80 -132,10 -100,38 C-80,52 -62,46 -62,46" fill="none" stroke="url(#goldB)" stroke-width="20" stroke-linecap="round"/>
-    <!-- Alça direita -->
-    <path d="M80,-80 C126,-80 132,10 100,38 C80,52 62,46 62,46" fill="none" stroke="url(#goldB)" stroke-width="20" stroke-linecap="round"/>
-    <!-- Haste -->
-    <rect x="-18" y="126" width="36" height="18" rx="4"/>
-    <!-- Base larga -->
-    <rect x="-52" y="144" width="104" height="20" rx="6"/>
+  <!-- Faixa verde na base -->
+  <path d="M0,420 L512,420 L512,512 Q512,512 410,512 L102,512 Q0,512 0,512 Z" fill="#3CAC3B"/>
+
+  <!-- "2" em branco -->
+  <text x="100" y="370" font-size="340" font-weight="900"
+        font-family="'Arial Black', Impact, sans-serif"
+        fill="white">2</text>
+
+  <!-- "6" em branco -->
+  <text x="246" y="370" font-size="340" font-weight="900"
+        font-family="'Arial Black', Impact, sans-serif"
+        fill="white">6</text>
+
+  <!-- Taça dourada no centro -->
+  <g transform="translate(256, 235)" fill="url(#goldB)">
+    <path d="M-46,-95 C-46,-95 -54,44 -34,84 L-20,106 L20,106 L34,84 C54,44 46,-95 46,-95 Z"/>
+    <path d="M-46,-95 C-82,-95 -88,8 -60,26 C-44,36 -30,30 -30,30" fill="none" stroke="url(#goldB)" stroke-width="15" stroke-linecap="round"/>
+    <path d="M46,-95 C82,-95 88,8 60,26 C44,36 30,30 30,30" fill="none" stroke="url(#goldB)" stroke-width="15" stroke-linecap="round"/>
+    <path d="M-30,-64 C-30,-64 -36,34 -20,68 L-10,86 L10,86 L20,68 C36,34 30,-64 30,-64 Z" fill="rgba(0,0,0,0.15)"/>
+    <rect x="-14" y="106" width="28" height="12" rx="3"/>
+    <rect x="-36" y="118" width="72" height="15" rx="5"/>
   </g>
 
-  <!-- Bola pequena no topo -->
-  <g transform="translate(256, 138)">
-    <circle cx="0" cy="0" r="36" fill="white" opacity="0.95"/>
-    <polygon points="0,-16 14,6 -14,6" fill="#1A2494" opacity="0.7"/>
-    <polygon points="15,-10 22,10 6,16" fill="#1A2494" opacity="0.55"/>
-    <polygon points="-15,-10 -6,16 -22,10" fill="#1A2494" opacity="0.55"/>
-    <circle cx="0" cy="0" r="36" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2"/>
-  </g>
-
-  <!-- Linha verde no rodapé — elegante -->
-  <rect x="80" y="470" width="352" height="10" rx="5" fill="#3CAC3B"/>
+  <!-- "26" na faixa verde -->
+  <text x="256" y="476" font-size="44" font-weight="900"
+        font-family="'Arial Black', Arial, sans-serif"
+        fill="white" text-anchor="middle" letter-spacing="4">BOLÃO 2026</text>
 </svg>
