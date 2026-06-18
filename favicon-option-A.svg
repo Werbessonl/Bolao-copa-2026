@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bgA" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0D1460"/>
+      <stop offset="100%" style="stop-color:#111B7A"/>
+    </linearGradient>
+    <linearGradient id="goldA" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#F2D660"/>
+      <stop offset="40%" style="stop-color:#E8C468"/>
+      <stop offset="100%" style="stop-color:#A87830"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Fundo azul escuro -->
+  <rect width="512" height="512" rx="102" ry="102" fill="url(#bgA)"/>
+
+  <!-- "2" bold branco -->
+  <text x="108" y="360" font-size="340" font-weight="900"
+        font-family="'Arial Black', 'Impact', sans-serif"
+        fill="white" opacity="1">2</text>
+
+  <!-- "6" bold branco -->
+  <text x="248" y="360" font-size="340" font-weight="900"
+        font-family="'Arial Black', 'Impact', sans-serif"
+        fill="white" opacity="1">6</text>
+
+  <!-- Taça dourada centralizada sobreposta ao "26" -->
+  <g transform="translate(256, 230)" fill="url(#goldA)">
+    <!-- Corpo da taça -->
+    <path d="M-44,-90 C-44,-90 -52,40 -32,80 L-18,100 L18,100 L32,80 C52,40 44,-90 44,-90 Z"/>
+    <!-- Alça esquerda -->
+    <path d="M-44,-90 C-78,-90 -82,4 -56,22 C-40,32 -28,26 -28,26" fill="none" stroke="url(#goldA)" stroke-width="14" stroke-linecap="round"/>
+    <!-- Alça direita -->
+    <path d="M44,-90 C78,-90 82,4 56,22 C40,32 28,26 28,26" fill="none" stroke="url(#goldA)" stroke-width="14" stroke-linecap="round"/>
+    <!-- Detalhe escuro interno -->
+    <path d="M-28,-60 C-28,-60 -34,32 -20,64 L-10,82 L10,82 L20,64 C34,32 28,-60 28,-60 Z" fill="rgba(0,0,0,0.18)"/>
+    <!-- Haste -->
+    <rect x="-12" y="100" width="24" height="12" rx="3"/>
+    <!-- Base -->
+    <rect x="-32" y="112" width="64" height="14" rx="5"/>
+  </g>
+
+  <!-- "FIFA" branco abaixo -->
+  <text x="256" y="468" font-size="52" font-weight="900"
+        font-family="'Arial Black', Arial, sans-serif"
+        fill="white" text-anchor="middle" letter-spacing="6">BOLÃO</text>
+</svg>
