@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bgC" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0D1560"/>
+      <stop offset="60%" style="stop-color:#111B7A"/>
+      <stop offset="100%" style="stop-color:#1A2494"/>
+    </linearGradient>
+    <linearGradient id="goldC" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#F2D660"/>
+      <stop offset="100%" style="stop-color:#C9A84C"/>
+    </linearGradient>
+    <linearGradient id="greenC" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#5DC85C"/>
+      <stop offset="100%" style="stop-color:#2E8B2E"/>
+    </linearGradient>
+  </defs>
+  <!-- Fundo -->
+  <rect width="512" height="512" rx="102" ry="102" fill="url(#bgC)"/>
+
+  <!-- Escudo / shield de fundo (decorativo) -->
+  <path d="M256,60 L380,110 L380,300 Q380,420 256,470 Q132,420 132,300 L132,110 Z"
+        fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.12)" stroke-width="2"/>
+
+  <!-- Taça centralizada menor -->
+  <g transform="translate(256, 260)" fill="url(#goldC)">
+    <path d="M-54,-60 C-54,-60 -62,34 -40,70 L-24,90 L24,90 L40,70 C62,34 54,-60 54,-60 Z"/>
+    <path d="M-54,-60 C-80,-60 -86,8 -64,26 C-50,36 -38,32 -38,32" fill="none" stroke="url(#goldC)" stroke-width="14" stroke-linecap="round"/>
+    <path d="M54,-60 C80,-60 86,8 64,26 C50,36 38,32 38,32" fill="none" stroke="url(#goldC)" stroke-width="14" stroke-linecap="round"/>
+    <rect x="-20" y="90" width="40" height="10" rx="2"/>
+    <rect x="-36" y="100" width="72" height="13" rx="4"/>
+  </g>
+
+  <!-- Bola de futebol acima -->
+  <g transform="translate(256, 155)">
+    <circle cx="0" cy="0" r="42" fill="white" opacity="0.95"/>
+    <polygon points="0,-20 17,7 -17,7" fill="#1A2494" opacity="0.65"/>
+    <polygon points="18,-12 27,12 7,18" fill="#1A2494" opacity="0.5"/>
+    <polygon points="-18,-12 -7,18 -27,12" fill="#1A2494" opacity="0.5"/>
+    <circle cx="0" cy="0" r="42" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="1.5"/>
+  </g>
+
+  <!-- 3 barras de ranking -->
+  <g transform="translate(256, 435)">
+    <rect x="-76" y="-28" width="34" height="28" rx="6" fill="url(#greenC)" opacity="0.85"/>
+    <rect x="-17" y="-46" width="34" height="46" rx="6" fill="url(#greenC)"/>
+    <rect x="42" y="-64" width="34" height="64" rx="6" fill="url(#greenC)" opacity="0.85"/>
+    <!-- Labels mínimos nas barras -->
+    <text x="-59" y="-36" font-size="12" fill="white" opacity="0.7" text-anchor="middle" font-family="Arial" font-weight="bold">2</text>
+    <text x="0" y="-24" font-size="12" fill="white" opacity="0.9" text-anchor="middle" font-family="Arial" font-weight="bold">1</text>
+    <text x="59" y="-42" font-size="12" fill="white" opacity="0.7" text-anchor="middle" font-family="Arial" font-weight="bold">3</text>
+  </g>
+</svg>
