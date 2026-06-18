@@ -27,7 +27,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_A",
-      "lastUpdated": "2026-06-12T08:25:00Z",
+      "lastUpdated": "2026-06-13T15:20:17Z",
       "homeTeam": {
         "id": 769,
         "name": "Mexico",
@@ -93,7 +93,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_A",
-      "lastUpdated": "2026-06-12T08:25:00Z",
+      "lastUpdated": "2026-06-13T15:20:17Z",
       "homeTeam": {
         "id": 772,
         "name": "South Korea",
@@ -159,7 +159,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_B",
-      "lastUpdated": "2026-06-12T22:25:00Z",
+      "lastUpdated": "2026-06-13T15:20:17Z",
       "homeTeam": {
         "id": 828,
         "name": "Canada",
@@ -225,7 +225,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_D",
-      "lastUpdated": "2026-06-13T03:25:00Z",
+      "lastUpdated": "2026-06-13T15:20:17Z",
       "homeTeam": {
         "id": 771,
         "name": "United States",
@@ -291,7 +291,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_B",
-      "lastUpdated": "2026-06-13T21:09:44Z",
+      "lastUpdated": "2026-06-13T23:07:33Z",
       "homeTeam": {
         "id": 8030,
         "name": "Qatar",
@@ -1649,6 +1649,72 @@
           "nationality": "USA"
         }
       ]
+    },
+    {
+      "area": {
+        "id": 2267,
+        "name": "World",
+        "code": "INT",
+        "flag": null
+      },
+      "competition": {
+        "id": 2000,
+        "name": "FIFA World Cup",
+        "code": "WC",
+        "type": "CUP",
+        "emblem": "https://crests.football-data.org/wm26.png"
+      },
+      "season": {
+        "id": 2398,
+        "startDate": "2026-06-11",
+        "endDate": "2026-07-19",
+        "currentMatchday": 1,
+        "winner": null
+      },
+      "id": 537335,
+      "utcDate": "2026-06-18T19:00:00Z",
+      "status": "FINISHED",
+      "matchday": 2,
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_B",
+      "lastUpdated": "2026-06-18T21:06:43Z",
+      "homeTeam": {
+        "id": 788,
+        "name": "Switzerland",
+        "shortName": "Switzerland",
+        "tla": "SUI",
+        "crest": "https://crests.football-data.org/788.svg"
+      },
+      "awayTeam": {
+        "id": 1060,
+        "name": "Bosnia-Herzegovina",
+        "shortName": "Bosnia-H.",
+        "tla": "BIH",
+        "crest": "https://crests.football-data.org/bosnia.svg"
+      },
+      "score": {
+        "winner": "HOME_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "home": 4,
+          "away": 1
+        },
+        "halfTime": {
+          "home": 0,
+          "away": 0
+        }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": [
+        {
+          "id": 38806,
+          "name": "João Pinheiro",
+          "type": "REFEREE",
+          "nationality": "Portugal"
+        }
+      ]
     }
   ],
   "today_matches": [
@@ -1670,7 +1736,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 1,
+        "currentMatchday": 2,
         "winner": null
       },
       "id": 537404,
@@ -1736,7 +1802,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 1,
+        "currentMatchday": 2,
         "winner": null
       },
       "id": 537329,
@@ -1802,16 +1868,16 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 1,
+        "currentMatchday": 2,
         "winner": null
       },
       "id": 537335,
       "utcDate": "2026-06-18T19:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_B",
-      "lastUpdated": "2026-06-18T20:09:17Z",
+      "lastUpdated": "2026-06-18T21:06:43Z",
       "homeTeam": {
         "id": 788,
         "name": "Switzerland",
@@ -1827,15 +1893,15 @@
         "crest": "https://crests.football-data.org/bosnia.svg"
       },
       "score": {
-        "winner": null,
+        "winner": "HOME_TEAM",
         "duration": "REGULAR",
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 4,
+          "away": 1
         },
         "halfTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         }
       },
       "odds": {
@@ -1868,16 +1934,16 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 1,
+        "currentMatchday": 2,
         "winner": null
       },
       "id": 537336,
       "utcDate": "2026-06-18T22:00:00Z",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_B",
-      "lastUpdated": "2026-06-16T15:20:15Z",
+      "lastUpdated": "2026-06-18T22:35:00Z",
       "homeTeam": {
         "id": 828,
         "name": "Canada",
@@ -1893,11 +1959,11 @@
         "crest": "https://crests.football-data.org/8030.svg"
       },
       "score": {
-        "winner": null,
+        "winner": "HOME_TEAM",
         "duration": "REGULAR",
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 2,
+          "away": 0
         },
         "halfTime": {
           "home": null,
@@ -1907,7 +1973,14 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [
+        {
+          "id": 58065,
+          "name": "Cristián Garay",
+          "type": "REFEREE",
+          "nationality": "Chile"
+        }
+      ]
     },
     {
       "area": {
@@ -1927,7 +2000,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 1,
+        "currentMatchday": 2,
         "winner": null
       },
       "id": 537330,
@@ -1936,7 +2009,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_A",
-      "lastUpdated": "2026-06-16T15:20:15Z",
+      "lastUpdated": "2026-06-17T15:20:15Z",
       "homeTeam": {
         "id": 769,
         "name": "Mexico",
@@ -1986,7 +2059,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 1,
+        "currentMatchday": 2,
         "winner": null
       },
       "id": 537348,
@@ -1995,7 +2068,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_D",
-      "lastUpdated": "2026-06-16T15:20:15Z",
+      "lastUpdated": "2026-06-17T15:20:15Z",
       "homeTeam": {
         "id": 771,
         "name": "United States",
@@ -2045,7 +2118,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 1,
+        "currentMatchday": 2,
         "winner": null
       },
       "id": 537342,
@@ -2054,7 +2127,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_C",
-      "lastUpdated": "2026-06-16T15:20:15Z",
+      "lastUpdated": "2026-06-17T15:20:15Z",
       "homeTeam": {
         "id": 8873,
         "name": "Scotland",
@@ -2187,16 +2260,35 @@
           },
           "playedGames": 2,
           "form": null,
-          "won": 0,
-          "draw": 2,
+          "won": 1,
+          "draw": 1,
           "lost": 0,
-          "points": 2,
-          "goalsFor": 1,
-          "goalsAgainst": 1,
-          "goalDifference": 0
+          "points": 4,
+          "goalsFor": 5,
+          "goalsAgainst": 2,
+          "goalDifference": 3
         },
         {
           "position": 2,
+          "team": {
+            "id": 828,
+            "name": "Canada",
+            "shortName": "Canada",
+            "tla": "CAN",
+            "crest": "https://crests.football-data.org/canada.svg"
+          },
+          "playedGames": 2,
+          "form": null,
+          "won": 1,
+          "draw": 1,
+          "lost": 0,
+          "points": 4,
+          "goalsFor": 2,
+          "goalsAgainst": 1,
+          "goalDifference": 1
+        },
+        {
+          "position": 3,
           "team": {
             "id": 1060,
             "name": "Bosnia-Herzegovina",
@@ -2207,31 +2299,12 @@
           "playedGames": 2,
           "form": null,
           "won": 0,
-          "draw": 2,
-          "lost": 0,
-          "points": 2,
-          "goalsFor": 1,
-          "goalsAgainst": 1,
-          "goalDifference": 0
-        },
-        {
-          "position": 3,
-          "team": {
-            "id": 828,
-            "name": "Canada",
-            "shortName": "Canada",
-            "tla": "CAN",
-            "crest": "https://crests.football-data.org/canada.svg"
-          },
-          "playedGames": 1,
-          "form": null,
-          "won": 0,
           "draw": 1,
-          "lost": 0,
+          "lost": 1,
           "points": 1,
-          "goalsFor": 1,
-          "goalsAgainst": 1,
-          "goalDifference": 0
+          "goalsFor": 2,
+          "goalsAgainst": 5,
+          "goalDifference": -3
         },
         {
           "position": 4,
@@ -2242,15 +2315,15 @@
             "tla": "QAT",
             "crest": "https://crests.football-data.org/8030.svg"
           },
-          "playedGames": 1,
+          "playedGames": 2,
           "form": null,
           "won": 0,
           "draw": 1,
-          "lost": 0,
+          "lost": 1,
           "points": 1,
           "goalsFor": 1,
-          "goalsAgainst": 1,
-          "goalDifference": 0
+          "goalsAgainst": 2,
+          "goalDifference": -1
         }
       ]
     },
@@ -3085,5 +3158,5 @@
       ]
     }
   ],
-  "updated": "2026-06-18T20:36:05Z"
+  "updated": "2026-06-18T22:35:03Z"
 }
