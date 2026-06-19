@@ -209,8 +209,8 @@ body::before{
 .phase-pill.done{background:rgba(60,172,59,0.15);border-color:rgba(60,172,59,0.4);color:#5DC85C;}
 .phase-pill.live{background:rgba(230,29,37,0.15);border-color:rgba(230,29,37,0.5);color:#FF4D55;}
 .phase-pill.next{background:#0F1870;border-color:rgba(255,255,255,0.14);color:#7A90D0;}
-@keyframes livePulse{0%,100%{opacity:1;border-color:rgba(230,29,37,0.5);}50%{opacity:0.7;border-color:rgba(230,29,37,0.9);}}
-.phase-pill.live{animation:livePulse 1.5s ease-in-out infinite;}
+@keyframes livePulsePhase{0%,100%{opacity:1;border-color:rgba(230,29,37,0.5);}50%{opacity:0.7;border-color:rgba(230,29,37,0.9);}}
+.phase-pill.live{animation:livePulsePhase 1.5s ease-in-out infinite;}
 .live-icon{width:8px;height:8px;border-radius:50%;background:#FF4D55;flex-shrink:0;animation:livePulse 1.5s ease-in-out infinite;}
 .rk-tabs{display:flex;gap:6px;margin-bottom:14px;max-width:900px;margin-left:auto;margin-right:auto;}
 .rk-tab{padding:6px 16px;border-radius:20px;font-size:10px;font-weight:700;cursor:pointer;border:1px solid rgba(255,255,255,0.14);color:#B8C8F0;background:#0F1870;transition:all .15s;display:flex;align-items:center;gap:5px;}
@@ -228,8 +228,6 @@ body::before{
 .pos-silver{background:#A8A8A8;color:#0a0e2a;}
 .pos-bronze{background:#C47A3A;color:#fff;}
 .pos-plain{background:rgba(255,255,255,0.1);color:#7A90D0;}
-.pts-real{color:#5DC85C;font-weight:800;}
-.pts-virt{color:#7AB0F0;font-weight:800;}
 .rk-prog{width:70px;height:5px;background:#0A1260;border-radius:3px;overflow:hidden;display:inline-block;vertical-align:middle;margin-left:4px;}
 .rk-prog-fill{height:100%;background:#3CAC3B;border-radius:3px;box-shadow:0 1px 4px rgba(60,172,59,0.4);}
 .rk-legend{background:#0F1870;border:1px solid rgba(255,255,255,0.14);border-radius:10px;padding:10px 14px;max-width:900px;margin:0 auto;font-size:10px;color:#7A90D0;line-height:1.8;}
@@ -342,8 +340,6 @@ body::before{
  .trophy-26{font-size:100px;}
  .trophy-img{width:72px;}
  .hero-title{font-size:18px;}
-}
-@media(max-width:700px){
  body{background-attachment:fixed;}
  .apostas-main{flex-direction:column;height:auto;}
  .sidebar{width:100%;height:auto;border-right:none;border-bottom:1px solid rgba(255,255,255,0.14);}
@@ -587,7 +583,7 @@ body::before{
       </div>
     </div>
   </div>
-  <div class="page-footer">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.4.4</span></div>
+  <div class="page-footer">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.4.5</span></div>
 </div>
 
 <!-- ============================
@@ -725,7 +721,7 @@ body::before{
       </div>
 
     </div>
-    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.4.4</span></div>
+    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.4.5</span></div>
   </div>
 </div>
 
@@ -791,7 +787,7 @@ body::before{
         Classificados fase de grupos: 32 pts (24 top 1°/2° + 8 melhores 3°s, 1pt cada) · 16 Avos 2pts · Oitavas 3pts · Quartas 4pts · Semis 5pts · Final 8pts · Campeão 25pts
       </div>
     </div>
-    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.4.4</span></div>
+    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.4.5</span></div>
   </div>
 </div>
 
@@ -855,7 +851,7 @@ body::before{
       </div>
     </div>
   </div>
-  <div class="page-footer" style="margin-top:4px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.4.4</span></div>
+  <div class="page-footer" style="margin-top:4px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.4.5</span></div>
 </div>
 
 <!-- Modal Comparativo -->
@@ -870,6 +866,7 @@ body::before{
 </div>
 
 <script>
+
 
 
 
@@ -1174,7 +1171,6 @@ function normalizeStandingsGroups(standings, matches) {
   // Visibilidade: alerta no console se algum grupo nao fechar com 4 times
   // (entradas tipo "Atlantic Division" que nao puderam ser inferidas/completadas)
   const allLetters = ['A','B','C','D','E','F','G','H','I','J','K','L'];
-  const foundLetters = result.map(g => (g.group || '').replace('Group ', ''));
   allLetters.forEach(letter => {
     const grp = result.find(g => g.group === 'Group ' + letter);
     if (!grp) {
@@ -1249,8 +1245,6 @@ function calcRealPoints(finishedMatches) {
     semiAdv.forEach(t => { if (semis4.some(s => teamMatch(s, t))) pts += 5; });
 
     // Final (os 2 finalistas chegaram à final = +8pt cada)
-    const finalAdv = advancedByStage['FINAL'] || [];
-    // finalAdv = os 2 finalistas (perdedor + ganhador)
     if (champion) {
       // Finalistas = todos que jogaram a final
       const finalists = finishedMatches
@@ -1279,13 +1273,7 @@ function calcVirtualPoints(realScores, standings) {
 
   standings.forEach(grp => {
     if (!grp.table || grp.table.length < 2) return;
-    const sorted = [...grp.table].sort((a, b) => {
-      if (b.points !== a.points) return b.points - a.points;
-      const gdA = a.goalsFor - a.goalsAgainst;
-      const gdB = b.goalsFor - b.goalsAgainst;
-      if (gdB !== gdA) return gdB - gdA;
-      return b.goalsFor - a.goalsFor;
-    });
+    const sorted = [...grp.table].sort(standingsCmp);
     sorted.forEach((row, idx) => {
       if (idx < 2) top2.push(row.team.name);
       if (idx === 2) thirds.push({...row, groupName: grp.group});
@@ -1294,13 +1282,7 @@ function calcVirtualPoints(realScores, standings) {
 
   // 8 melhores terceiros (ordenados por pontos, saldo, gols)
   const best8thirds = thirds
-    .sort((a, b) => {
-      if (b.points !== a.points) return b.points - a.points;
-      const gdA = a.goalsFor - a.goalsAgainst;
-      const gdB = b.goalsFor - b.goalsAgainst;
-      if (gdB !== gdA) return gdB - gdA;
-      return b.goalsFor - a.goalsFor;
-    })
+    .sort(standingsCmp)
     .slice(0, 8)
     .map(r => r.team.name);
 
@@ -1808,19 +1790,19 @@ function renderJogoCard(m) {
 
   if (st === 'FINISHED') {
     statusPill = '<span class="jogo-status-pill jogo-status-fin">Encerrado</span>';
-    var sh = (m.score && m.score.fullTime) ? m.score.fullTime.home : '?';
-    var sa = (m.score && m.score.fullTime) ? m.score.fullTime.away : '?';
+    let sh = (m.score && m.score.fullTime) ? m.score.fullTime.home : '?';
+    let sa = (m.score && m.score.fullTime) ? m.score.fullTime.away : '?';
     scoreHtml = '<div class="jogo-score jogo-score-fin">' + sh + ' – ' + sa + '</div>';
   } else if (st === 'IN_PLAY') {
     statusPill = '<span class="jogo-status-pill jogo-status-live"><span class="live-dot-sm"></span>Ao Vivo</span>';
-    var sh2 = (m.score && m.score.fullTime && m.score.fullTime.home !== null) ? m.score.fullTime.home : '–';
-    var sa2 = (m.score && m.score.fullTime && m.score.fullTime.away !== null) ? m.score.fullTime.away : '–';
-    scoreHtml = '<div class="jogo-score jogo-score-live">' + sh2 + ' – ' + sa2 + '</div>';
+    let sh = (m.score && m.score.fullTime && m.score.fullTime.home !== null) ? m.score.fullTime.home : '–';
+    let sa = (m.score && m.score.fullTime && m.score.fullTime.away !== null) ? m.score.fullTime.away : '–';
+    scoreHtml = '<div class="jogo-score jogo-score-live">' + sh + ' – ' + sa + '</div>';
   } else if (st === 'PAUSED') {
     statusPill = '<span class="jogo-status-pill jogo-status-pause">Intervalo</span>';
-    var sh3 = (m.score && m.score.halfTime) ? m.score.halfTime.home : '?';
-    var sa3 = (m.score && m.score.halfTime) ? m.score.halfTime.away : '?';
-    scoreHtml = '<div class="jogo-score jogo-score-pause">' + sh3 + ' – ' + sa3 + '</div>';
+    let sh = (m.score && m.score.halfTime) ? m.score.halfTime.home : '?';
+    let sa = (m.score && m.score.halfTime) ? m.score.halfTime.away : '?';
+    scoreHtml = '<div class="jogo-score jogo-score-pause">' + sh + ' – ' + sa + '</div>';
   } else {
     statusPill = '<span class="jogo-status-pill jogo-status-sched">Agendado</span>';
     scoreHtml = '<div class="jogo-vs">VS</div>';
@@ -1891,13 +1873,15 @@ document.addEventListener('click', function(e) {
   if (_tooltipEl && !e.target.closest('.jogo-flag-btn')) hideTooltip();
 });
 
+function standingsCmp(a, b) {
+  if (b.points !== a.points) return b.points - a.points;
+  const gdA = a.goalsFor - a.goalsAgainst, gdB = b.goalsFor - b.goalsAgainst;
+  if (gdB !== gdA) return gdB - gdA;
+  return b.goalsFor - a.goalsFor;
+}
+
 function clSortTable(tbl) {
-  return [...tbl].sort(function(a,b) {
-    if (b.points !== a.points) return b.points - a.points;
-    const gdA = a.goalsFor - a.goalsAgainst, gdB = b.goalsFor - b.goalsAgainst;
-    if (gdB !== gdA) return gdB - gdA;
-    return b.goalsFor - a.goalsFor;
-  });
+  return [...tbl].sort(standingsCmp);
 }
 
 function renderClassifGroups(standings) {
@@ -1933,12 +1917,7 @@ function renderClassifThirds(standings) {
       thirds.push(Object.assign({}, sorted[2], {groupLetter: letter}));
     }
   });
-  thirds.sort(function(a,b) {
-    if (b.points !== a.points) return b.points - a.points;
-    const gdA = a.goalsFor - a.goalsAgainst, gdB = b.goalsFor - b.goalsAgainst;
-    if (gdB !== gdA) return gdB - gdA;
-    return b.goalsFor - a.goalsFor;
-  });
+  thirds.sort(standingsCmp);
   document.getElementById('cl-thirds-tbody').innerHTML = thirds.map(function(r, i) {
     const inBest8 = i < 8;
     const isRisk = i >= 5 && i < 8;
