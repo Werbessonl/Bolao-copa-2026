@@ -27,7 +27,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_A",
-      "lastUpdated": "2026-06-13T15:20:17Z",
+      "lastUpdated": "2026-06-12T08:25:00Z",
       "homeTeam": {
         "id": 769,
         "name": "Mexico",
@@ -93,7 +93,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_A",
-      "lastUpdated": "2026-06-13T15:20:17Z",
+      "lastUpdated": "2026-06-12T08:25:00Z",
       "homeTeam": {
         "id": 772,
         "name": "South Korea",
@@ -159,7 +159,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_B",
-      "lastUpdated": "2026-06-13T15:20:17Z",
+      "lastUpdated": "2026-06-12T22:25:00Z",
       "homeTeam": {
         "id": 828,
         "name": "Canada",
@@ -225,7 +225,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_D",
-      "lastUpdated": "2026-06-13T15:20:17Z",
+      "lastUpdated": "2026-06-13T03:25:00Z",
       "homeTeam": {
         "id": 771,
         "name": "United States",
@@ -1979,9 +1979,7 @@
           "nationality": "Uzbekistan"
         }
       ]
-    }
-  ],
-  "today_matches": [
+    },
     {
       "area": {
         "id": 2267,
@@ -2000,16 +1998,16 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 1,
         "winner": null
       },
       "id": 537341,
       "utcDate": "2026-06-20T00:30:00Z",
-      "status": "PAUSED",
+      "status": "FINISHED",
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_C",
-      "lastUpdated": "2026-06-20T01:29:58Z",
+      "lastUpdated": "2026-06-20T02:37:13Z",
       "homeTeam": {
         "id": 764,
         "name": "Brazil",
@@ -2066,16 +2064,16 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 1,
         "winner": null
       },
       "id": 537347,
       "utcDate": "2026-06-20T03:00:00Z",
-      "status": "TIMED",
+      "status": "FINISHED",
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_D",
-      "lastUpdated": "2026-06-20T03:00:01Z",
+      "lastUpdated": "2026-06-20T05:13:40Z",
       "homeTeam": {
         "id": 803,
         "name": "Turkey",
@@ -2091,15 +2089,149 @@
         "crest": "https://crests.football-data.org/761.svg"
       },
       "score": {
-        "winner": null,
+        "winner": "AWAY_TEAM",
         "duration": "REGULAR",
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 1
         },
         "halfTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 1
+        }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": [
+        {
+          "id": 190010,
+          "name": "Ivan Barton",
+          "type": "REFEREE",
+          "nationality": null
+        }
+      ]
+    }
+  ],
+  "today_matches": [
+    {
+      "area": {
+        "id": 2267,
+        "name": "World",
+        "code": "INT",
+        "flag": null
+      },
+      "competition": {
+        "id": 2000,
+        "name": "FIFA World Cup",
+        "code": "WC",
+        "type": "CUP",
+        "emblem": "https://crests.football-data.org/wm26.png"
+      },
+      "season": {
+        "id": 2398,
+        "startDate": "2026-06-11",
+        "endDate": "2026-07-19",
+        "currentMatchday": 1,
+        "winner": null
+      },
+      "id": 537341,
+      "utcDate": "2026-06-20T00:30:00Z",
+      "status": "FINISHED",
+      "matchday": 2,
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_C",
+      "lastUpdated": "2026-06-20T02:37:13Z",
+      "homeTeam": {
+        "id": 764,
+        "name": "Brazil",
+        "shortName": "Brazil",
+        "tla": "BRA",
+        "crest": "https://crests.football-data.org/764.svg"
+      },
+      "awayTeam": {
+        "id": 836,
+        "name": "Haiti",
+        "shortName": "Haiti",
+        "tla": "HAI",
+        "crest": "https://crests.football-data.org/haiti.svg"
+      },
+      "score": {
+        "winner": "HOME_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "home": 3,
+          "away": 0
+        },
+        "halfTime": {
+          "home": 3,
+          "away": 0
+        }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": [
+        {
+          "id": 206208,
+          "name": "Alejandro Hernández Hernández",
+          "type": "REFEREE",
+          "nationality": "Spain"
+        }
+      ]
+    },
+    {
+      "area": {
+        "id": 2267,
+        "name": "World",
+        "code": "INT",
+        "flag": null
+      },
+      "competition": {
+        "id": 2000,
+        "name": "FIFA World Cup",
+        "code": "WC",
+        "type": "CUP",
+        "emblem": "https://crests.football-data.org/wm26.png"
+      },
+      "season": {
+        "id": 2398,
+        "startDate": "2026-06-11",
+        "endDate": "2026-07-19",
+        "currentMatchday": 1,
+        "winner": null
+      },
+      "id": 537347,
+      "utcDate": "2026-06-20T03:00:00Z",
+      "status": "FINISHED",
+      "matchday": 2,
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_D",
+      "lastUpdated": "2026-06-20T05:13:40Z",
+      "homeTeam": {
+        "id": 803,
+        "name": "Turkey",
+        "shortName": "Turkey",
+        "tla": "TUR",
+        "crest": "https://crests.football-data.org/803.svg"
+      },
+      "awayTeam": {
+        "id": 761,
+        "name": "Paraguay",
+        "shortName": "Paraguay",
+        "tla": "PAR",
+        "crest": "https://crests.football-data.org/761.svg"
+      },
+      "score": {
+        "winner": "AWAY_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "home": 0,
+          "away": 1
+        },
+        "halfTime": {
+          "home": 0,
+          "away": 1
         }
       },
       "odds": {
@@ -2132,7 +2264,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 1,
         "winner": null
       },
       "id": 537359,
@@ -2141,7 +2273,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_F",
-      "lastUpdated": "2026-06-19T15:20:16Z",
+      "lastUpdated": "2026-06-10T10:20:19Z",
       "homeTeam": {
         "id": 8601,
         "name": "Netherlands",
@@ -2191,7 +2323,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 1,
         "winner": null
       },
       "id": 537353,
@@ -2200,7 +2332,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_E",
-      "lastUpdated": "2026-06-19T15:20:16Z",
+      "lastUpdated": "2026-06-10T10:20:19Z",
       "homeTeam": {
         "id": 759,
         "name": "Germany",
@@ -2250,7 +2382,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 1,
         "winner": null
       },
       "id": 537354,
@@ -2259,7 +2391,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_E",
-      "lastUpdated": "2026-06-19T15:20:16Z",
+      "lastUpdated": "2026-06-10T10:20:19Z",
       "homeTeam": {
         "id": 791,
         "name": "Ecuador",
@@ -2309,7 +2441,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 1,
         "winner": null
       },
       "id": 537360,
@@ -2318,7 +2450,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_F",
-      "lastUpdated": "2026-06-19T15:20:16Z",
+      "lastUpdated": "2026-06-10T10:20:19Z",
       "homeTeam": {
         "id": 802,
         "name": "Tunisia",
@@ -2368,7 +2500,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 1,
         "winner": null
       },
       "id": 537371,
@@ -2377,7 +2509,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_H",
-      "lastUpdated": "2026-06-19T15:20:16Z",
+      "lastUpdated": "2026-06-10T10:20:19Z",
       "homeTeam": {
         "id": 760,
         "name": "Spain",
@@ -2427,7 +2559,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 1,
         "winner": null
       },
       "id": 537365,
@@ -2436,7 +2568,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_G",
-      "lastUpdated": "2026-06-19T15:20:16Z",
+      "lastUpdated": "2026-06-10T10:20:19Z",
       "homeTeam": {
         "id": 805,
         "name": "Belgium",
@@ -2486,7 +2618,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 1,
         "winner": null
       },
       "id": 537372,
@@ -2495,12 +2627,12 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_H",
-      "lastUpdated": "2026-06-19T15:20:16Z",
+      "lastUpdated": "2026-06-10T10:20:19Z",
       "homeTeam": {
         "id": 758,
         "name": "Uruguay",
         "shortName": "Uruguay",
-        "tla": "URU",
+        "tla": "URY",
         "crest": "https://crests.football-data.org/758.svg"
       },
       "awayTeam": {
@@ -2703,25 +2835,6 @@
         {
           "position": 1,
           "team": {
-            "id": 815,
-            "name": "Morocco",
-            "shortName": "Morocco",
-            "tla": "MAR",
-            "crest": "https://crests.football-data.org/morocco.svg"
-          },
-          "playedGames": 2,
-          "form": null,
-          "won": 1,
-          "draw": 1,
-          "lost": 0,
-          "points": 4,
-          "goalsFor": 2,
-          "goalsAgainst": 1,
-          "goalDifference": 1
-        },
-        {
-          "position": 2,
-          "team": {
             "id": 764,
             "name": "Brazil",
             "shortName": "Brazil",
@@ -2737,6 +2850,25 @@
           "goalsFor": 4,
           "goalsAgainst": 1,
           "goalDifference": 3
+        },
+        {
+          "position": 2,
+          "team": {
+            "id": 815,
+            "name": "Morocco",
+            "shortName": "Morocco",
+            "tla": "MAR",
+            "crest": "https://crests.football-data.org/morocco.svg"
+          },
+          "playedGames": 2,
+          "form": null,
+          "won": 1,
+          "draw": 1,
+          "lost": 0,
+          "points": 4,
+          "goalsFor": 2,
+          "goalsAgainst": 1,
+          "goalDifference": 1
         },
         {
           "position": 3,
@@ -2824,39 +2956,39 @@
         {
           "position": 3,
           "team": {
-            "id": 803,
-            "name": "Turkey",
-            "shortName": "Turkey",
-            "tla": "TUR",
-            "crest": "https://crests.football-data.org/803.svg"
-          },
-          "playedGames": 1,
-          "form": null,
-          "won": 0,
-          "draw": 0,
-          "lost": 1,
-          "points": 0,
-          "goalsFor": 0,
-          "goalsAgainst": 2,
-          "goalDifference": -2
-        },
-        {
-          "position": 4,
-          "team": {
             "id": 761,
             "name": "Paraguay",
             "shortName": "Paraguay",
             "tla": "PAR",
             "crest": "https://crests.football-data.org/761.svg"
           },
-          "playedGames": 1,
+          "playedGames": 2,
+          "form": null,
+          "won": 1,
+          "draw": 0,
+          "lost": 1,
+          "points": 3,
+          "goalsFor": 2,
+          "goalsAgainst": 4,
+          "goalDifference": -2
+        },
+        {
+          "position": 4,
+          "team": {
+            "id": 803,
+            "name": "Turkey",
+            "shortName": "Turkey",
+            "tla": "TUR",
+            "crest": "https://crests.football-data.org/803.svg"
+          },
+          "playedGames": 2,
           "form": null,
           "won": 0,
           "draw": 0,
-          "lost": 1,
+          "lost": 2,
           "points": 0,
-          "goalsFor": 1,
-          "goalsAgainst": 4,
+          "goalsFor": 0,
+          "goalsAgainst": 3,
           "goalDifference": -3
         }
       ]
@@ -3526,5 +3658,5 @@
       ]
     }
   ],
-  "updated": "2026-06-20T01:31:40Z"
+  "updated": "2026-06-20T06:04:41Z"
 }
