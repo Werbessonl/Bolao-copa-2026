@@ -1875,7 +1875,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_D",
-      "lastUpdated": "2026-06-20T08:25:01Z",
+      "lastUpdated": "2026-06-20T08:25:00Z",
       "homeTeam": {
         "id": 771,
         "name": "United States",
@@ -2549,7 +2549,7 @@
         "id": 9460,
         "name": "Curaçao",
         "shortName": "Curaçao",
-        "tla": "CUW",
+        "tla": "CUR",
         "crest": "https://crests.football-data.org/curacao.svg"
       },
       "score": {
@@ -2797,16 +2797,16 @@
       },
       "id": 537372,
       "utcDate": "2026-06-21T22:00:00Z",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_H",
-      "lastUpdated": "2026-06-16T15:20:15Z",
+      "lastUpdated": "2026-06-21T22:52:40Z",
       "homeTeam": {
         "id": 758,
         "name": "Uruguay",
         "shortName": "Uruguay",
-        "tla": "URU",
+        "tla": "URY",
         "crest": "https://crests.football-data.org/758.svg"
       },
       "awayTeam": {
@@ -2817,11 +2817,11 @@
         "crest": "https://crests.football-data.org/cape_verde.svg"
       },
       "score": {
-        "winner": null,
+        "winner": "DRAW",
         "duration": "REGULAR",
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 1
         },
         "halfTime": {
           "home": null,
@@ -2867,7 +2867,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_G",
-      "lastUpdated": "2026-06-16T15:20:15Z",
+      "lastUpdated": "2025-12-06T20:20:44Z",
       "homeTeam": {
         "id": 783,
         "name": "New Zealand",
@@ -2926,7 +2926,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_J",
-      "lastUpdated": "2026-06-16T15:20:15Z",
+      "lastUpdated": "2026-05-11T05:21:09Z",
       "homeTeam": {
         "id": 762,
         "name": "Argentina",
@@ -2985,7 +2985,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_I",
-      "lastUpdated": "2026-06-16T15:20:15Z",
+      "lastUpdated": "2026-05-11T05:21:09Z",
       "homeTeam": {
         "id": 773,
         "name": "France",
@@ -3044,7 +3044,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_I",
-      "lastUpdated": "2026-06-16T15:20:15Z",
+      "lastUpdated": "2025-12-06T20:20:44Z",
       "homeTeam": {
         "id": 8872,
         "name": "Norway",
@@ -3686,24 +3686,43 @@
         {
           "position": 2,
           "team": {
+            "id": 1930,
+            "name": "Cape Verde Islands",
+            "shortName": "Cape Verde",
+            "tla": "CPV",
+            "crest": "https://crests.football-data.org/cape_verde.svg"
+          },
+          "playedGames": 2,
+          "form": null,
+          "won": 1,
+          "draw": 1,
+          "lost": 0,
+          "points": 4,
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "goalDifference": 1
+        },
+        {
+          "position": 3,
+          "team": {
             "id": 758,
             "name": "Uruguay",
             "shortName": "Uruguay",
             "tla": "URU",
             "crest": "https://crests.football-data.org/758.svg"
           },
-          "playedGames": 1,
+          "playedGames": 2,
           "form": null,
           "won": 0,
           "draw": 1,
-          "lost": 0,
+          "lost": 1,
           "points": 1,
           "goalsFor": 1,
-          "goalsAgainst": 1,
-          "goalDifference": 0
+          "goalsAgainst": 2,
+          "goalDifference": -1
         },
         {
-          "position": 3,
+          "position": 4,
           "team": {
             "id": 801,
             "name": "Saudi Arabia",
@@ -3720,25 +3739,6 @@
           "goalsFor": 1,
           "goalsAgainst": 5,
           "goalDifference": -4
-        },
-        {
-          "position": 4,
-          "team": {
-            "id": 1930,
-            "name": "Cape Verde Islands",
-            "shortName": "Cape Verde",
-            "tla": "CPV",
-            "crest": "https://crests.football-data.org/cape_verde.svg"
-          },
-          "playedGames": 1,
-          "form": null,
-          "won": 0,
-          "draw": 1,
-          "lost": 0,
-          "points": 1,
-          "goalsFor": 0,
-          "goalsAgainst": 0,
-          "goalDifference": 0
         }
       ]
     },
@@ -4075,5 +4075,5 @@
       ]
     }
   ],
-  "updated": "2026-06-21T21:44:05Z"
+  "updated": "2026-06-21T22:53:18Z"
 }
