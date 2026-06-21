@@ -2403,7 +2403,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_H",
-      "lastUpdated": "2026-06-21T18:07:46Z",
+      "lastUpdated": "2026-06-21T20:36:54Z",
       "homeTeam": {
         "id": 760,
         "name": "Spain",
@@ -2422,7 +2422,7 @@
         "winner": "HOME_TEAM",
         "duration": "REGULAR",
         "fullTime": {
-          "home": 5,
+          "home": 4,
           "away": 0
         },
         "halfTime": {
@@ -2439,6 +2439,72 @@
           "name": "Raphael Claus",
           "type": "REFEREE",
           "nationality": "Brazil"
+        }
+      ]
+    },
+    {
+      "area": {
+        "id": 2267,
+        "name": "World",
+        "code": "INT",
+        "flag": null
+      },
+      "competition": {
+        "id": 2000,
+        "name": "FIFA World Cup",
+        "code": "WC",
+        "type": "CUP",
+        "emblem": "https://crests.football-data.org/wm26.png"
+      },
+      "season": {
+        "id": 2398,
+        "startDate": "2026-06-11",
+        "endDate": "2026-07-19",
+        "currentMatchday": 1,
+        "winner": null
+      },
+      "id": 537365,
+      "utcDate": "2026-06-21T19:00:00Z",
+      "status": "FINISHED",
+      "matchday": 2,
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_G",
+      "lastUpdated": "2026-06-21T21:06:37Z",
+      "homeTeam": {
+        "id": 805,
+        "name": "Belgium",
+        "shortName": "Belgium",
+        "tla": "BEL",
+        "crest": "https://crests.football-data.org/805.svg"
+      },
+      "awayTeam": {
+        "id": 840,
+        "name": "Iran",
+        "shortName": "Iran",
+        "tla": "IRN",
+        "crest": "https://crests.football-data.org/iran.svg"
+      },
+      "score": {
+        "winner": "DRAW",
+        "duration": "REGULAR",
+        "fullTime": {
+          "home": 0,
+          "away": 0
+        },
+        "halfTime": {
+          "home": 0,
+          "away": 0
+        }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": [
+        {
+          "id": 57288,
+          "name": "Darío Herrera",
+          "type": "REFEREE",
+          "nationality": "Argentina"
         }
       ]
     }
@@ -2462,7 +2528,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 1,
         "winner": null
       },
       "id": 537354,
@@ -2528,7 +2594,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 1,
         "winner": null
       },
       "id": 537360,
@@ -2594,7 +2660,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 1,
         "winner": null
       },
       "id": 537371,
@@ -2603,7 +2669,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_H",
-      "lastUpdated": "2026-06-21T18:07:46Z",
+      "lastUpdated": "2026-06-21T20:36:54Z",
       "homeTeam": {
         "id": 760,
         "name": "Spain",
@@ -2622,7 +2688,7 @@
         "winner": "HOME_TEAM",
         "duration": "REGULAR",
         "fullTime": {
-          "home": 5,
+          "home": 4,
           "away": 0
         },
         "halfTime": {
@@ -2660,16 +2726,16 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 1,
         "winner": null
       },
       "id": 537365,
       "utcDate": "2026-06-21T19:00:00Z",
-      "status": "PAUSED",
+      "status": "FINISHED",
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_G",
-      "lastUpdated": "2026-06-21T19:59:34Z",
+      "lastUpdated": "2026-06-21T21:06:37Z",
       "homeTeam": {
         "id": 805,
         "name": "Belgium",
@@ -2726,7 +2792,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 1,
         "winner": null
       },
       "id": 537372,
@@ -2735,7 +2801,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_H",
-      "lastUpdated": "2026-06-20T15:20:13Z",
+      "lastUpdated": "2026-06-16T15:20:15Z",
       "homeTeam": {
         "id": 758,
         "name": "Uruguay",
@@ -2792,7 +2858,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 1,
         "winner": null
       },
       "id": 537366,
@@ -2801,7 +2867,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_G",
-      "lastUpdated": "2026-06-20T15:20:13Z",
+      "lastUpdated": "2026-06-16T15:20:15Z",
       "homeTeam": {
         "id": 783,
         "name": "New Zealand",
@@ -2851,7 +2917,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 1,
         "winner": null
       },
       "id": 537399,
@@ -2860,7 +2926,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_J",
-      "lastUpdated": "2026-06-20T15:20:13Z",
+      "lastUpdated": "2026-06-16T15:20:15Z",
       "homeTeam": {
         "id": 762,
         "name": "Argentina",
@@ -2910,7 +2976,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 1,
         "winner": null
       },
       "id": 537393,
@@ -2919,7 +2985,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_I",
-      "lastUpdated": "2026-06-20T15:20:13Z",
+      "lastUpdated": "2026-06-16T15:20:15Z",
       "homeTeam": {
         "id": 773,
         "name": "France",
@@ -2969,7 +3035,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 1,
         "winner": null
       },
       "id": 537394,
@@ -2978,7 +3044,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_I",
-      "lastUpdated": "2026-06-20T15:20:13Z",
+      "lastUpdated": "2026-06-16T15:20:15Z",
       "homeTeam": {
         "id": 8872,
         "name": "Norway",
@@ -4009,5 +4075,5 @@
       ]
     }
   ],
-  "updated": "2026-06-21T20:05:27Z"
+  "updated": "2026-06-21T21:44:05Z"
 }
