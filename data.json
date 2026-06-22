@@ -2403,7 +2403,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_H",
-      "lastUpdated": "2026-06-21T20:36:54Z",
+      "lastUpdated": "2026-06-22T03:25:01Z",
       "homeTeam": {
         "id": 760,
         "name": "Spain",
@@ -2469,7 +2469,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_G",
-      "lastUpdated": "2026-06-21T21:06:37Z",
+      "lastUpdated": "2026-06-22T03:25:01Z",
       "homeTeam": {
         "id": 805,
         "name": "Belgium",
@@ -2535,7 +2535,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_H",
-      "lastUpdated": "2026-06-22T00:10:40Z",
+      "lastUpdated": "2026-06-22T03:25:01Z",
       "homeTeam": {
         "id": 758,
         "name": "Uruguay",
@@ -2573,6 +2573,72 @@
           "nationality": "Norway"
         }
       ]
+    },
+    {
+      "area": {
+        "id": 2267,
+        "name": "World",
+        "code": "INT",
+        "flag": null
+      },
+      "competition": {
+        "id": 2000,
+        "name": "FIFA World Cup",
+        "code": "WC",
+        "type": "CUP",
+        "emblem": "https://crests.football-data.org/wm26.png"
+      },
+      "season": {
+        "id": 2398,
+        "startDate": "2026-06-11",
+        "endDate": "2026-07-19",
+        "currentMatchday": 1,
+        "winner": null
+      },
+      "id": 537366,
+      "utcDate": "2026-06-22T01:00:00Z",
+      "status": "FINISHED",
+      "matchday": 2,
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_G",
+      "lastUpdated": "2026-06-22T03:25:01Z",
+      "homeTeam": {
+        "id": 783,
+        "name": "New Zealand",
+        "shortName": "New Zealand",
+        "tla": "NZL",
+        "crest": "https://crests.football-data.org/783.svg"
+      },
+      "awayTeam": {
+        "id": 825,
+        "name": "Egypt",
+        "shortName": "Egypt",
+        "tla": "EGY",
+        "crest": "https://crests.football-data.org/825.svg"
+      },
+      "score": {
+        "winner": "AWAY_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "home": 1,
+          "away": 3
+        },
+        "halfTime": {
+          "home": 1,
+          "away": 0
+        }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": [
+        {
+          "id": 129569,
+          "name": "Omar Mohamed Al Ali",
+          "type": "REFEREE",
+          "nationality": "United Arab Emirates"
+        }
+      ]
     }
   ],
   "today_matches": [
@@ -2594,16 +2660,16 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 1,
         "winner": null
       },
       "id": 537366,
       "utcDate": "2026-06-22T01:00:00Z",
-      "status": "TIMED",
+      "status": "FINISHED",
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_G",
-      "lastUpdated": "2026-06-20T15:20:13Z",
+      "lastUpdated": "2026-06-22T03:25:01Z",
       "homeTeam": {
         "id": 783,
         "name": "New Zealand",
@@ -2619,15 +2685,15 @@
         "crest": "https://crests.football-data.org/825.svg"
       },
       "score": {
-        "winner": null,
+        "winner": "AWAY_TEAM",
         "duration": "REGULAR",
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 3
         },
         "halfTime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 0
         }
       },
       "odds": {
@@ -2660,7 +2726,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 1,
         "winner": null
       },
       "id": 537399,
@@ -2669,7 +2735,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_J",
-      "lastUpdated": "2026-06-20T15:20:13Z",
+      "lastUpdated": "2026-06-13T15:20:17Z",
       "homeTeam": {
         "id": 762,
         "name": "Argentina",
@@ -2719,7 +2785,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 1,
         "winner": null
       },
       "id": 537393,
@@ -2728,7 +2794,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_I",
-      "lastUpdated": "2026-06-20T15:20:13Z",
+      "lastUpdated": "2026-06-13T15:20:17Z",
       "homeTeam": {
         "id": 773,
         "name": "France",
@@ -2778,7 +2844,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 1,
         "winner": null
       },
       "id": 537394,
@@ -2787,7 +2853,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_I",
-      "lastUpdated": "2026-06-20T15:20:13Z",
+      "lastUpdated": "2026-06-13T15:20:17Z",
       "homeTeam": {
         "id": 8872,
         "name": "Norway",
@@ -2837,7 +2903,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 1,
         "winner": null
       },
       "id": 537400,
@@ -2846,7 +2912,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_J",
-      "lastUpdated": "2026-06-20T15:20:13Z",
+      "lastUpdated": "2026-06-13T15:20:17Z",
       "homeTeam": {
         "id": 8049,
         "name": "Jordan",
@@ -2896,7 +2962,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 1,
         "winner": null
       },
       "id": 537405,
@@ -2905,7 +2971,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_K",
-      "lastUpdated": "2026-06-20T15:20:13Z",
+      "lastUpdated": "2026-06-13T15:20:17Z",
       "homeTeam": {
         "id": 765,
         "name": "Portugal",
@@ -2955,7 +3021,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 1,
         "winner": null
       },
       "id": 537411,
@@ -2964,7 +3030,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_L",
-      "lastUpdated": "2026-06-20T15:20:13Z",
+      "lastUpdated": "2026-06-13T15:20:17Z",
       "homeTeam": {
         "id": 770,
         "name": "England",
@@ -3014,7 +3080,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 1,
         "winner": null
       },
       "id": 537412,
@@ -3023,7 +3089,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_L",
-      "lastUpdated": "2026-06-20T15:20:13Z",
+      "lastUpdated": "2026-06-13T15:20:17Z",
       "homeTeam": {
         "id": 1836,
         "name": "Panama",
@@ -3563,6 +3629,25 @@
         {
           "position": 1,
           "team": {
+            "id": 825,
+            "name": "Egypt",
+            "shortName": "Egypt",
+            "tla": "EGY",
+            "crest": "https://crests.football-data.org/825.svg"
+          },
+          "playedGames": 2,
+          "form": null,
+          "won": 1,
+          "draw": 1,
+          "lost": 0,
+          "points": 4,
+          "goalsFor": 4,
+          "goalsAgainst": 2,
+          "goalDifference": 2
+        },
+        {
+          "position": 2,
+          "team": {
             "id": 840,
             "name": "Iran",
             "shortName": "Iran",
@@ -3580,7 +3665,7 @@
           "goalDifference": 0
         },
         {
-          "position": 2,
+          "position": 3,
           "team": {
             "id": 805,
             "name": "Belgium",
@@ -3599,7 +3684,7 @@
           "goalDifference": 0
         },
         {
-          "position": 3,
+          "position": 4,
           "team": {
             "id": 783,
             "name": "New Zealand",
@@ -3607,34 +3692,15 @@
             "tla": "NZL",
             "crest": "https://crests.football-data.org/783.svg"
           },
-          "playedGames": 1,
+          "playedGames": 2,
           "form": null,
           "won": 0,
           "draw": 1,
-          "lost": 0,
+          "lost": 1,
           "points": 1,
-          "goalsFor": 2,
-          "goalsAgainst": 2,
-          "goalDifference": 0
-        },
-        {
-          "position": 4,
-          "team": {
-            "id": 825,
-            "name": "Egypt",
-            "shortName": "Egypt",
-            "tla": "EGY",
-            "crest": "https://crests.football-data.org/825.svg"
-          },
-          "playedGames": 1,
-          "form": null,
-          "won": 0,
-          "draw": 1,
-          "lost": 0,
-          "points": 1,
-          "goalsFor": 1,
-          "goalsAgainst": 1,
-          "goalDifference": 0
+          "goalsFor": 3,
+          "goalsAgainst": 5,
+          "goalDifference": -2
         }
       ]
     },
@@ -4054,5 +4120,5 @@
       ]
     }
   ],
-  "updated": "2026-06-22T00:19:36Z"
+  "updated": "2026-06-22T06:07:56Z"
 }
