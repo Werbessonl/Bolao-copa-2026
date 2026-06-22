@@ -2731,11 +2731,11 @@
       },
       "id": 537399,
       "utcDate": "2026-06-22T17:00:00Z",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_J",
-      "lastUpdated": "2026-06-09T10:20:22Z",
+      "lastUpdated": "2026-06-22T17:16:25Z",
       "homeTeam": {
         "id": 762,
         "name": "Argentina",
@@ -2751,11 +2751,11 @@
         "crest": "https://crests.football-data.org/816.svg"
       },
       "score": {
-        "winner": null,
+        "winner": "DRAW",
         "duration": "REGULAR",
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         },
         "halfTime": {
           "home": null,
@@ -2765,7 +2765,14 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [
+        {
+          "id": 276653,
+          "name": "Amin Omar",
+          "type": "REFEREE",
+          "nationality": "Egypt"
+        }
+      ]
     },
     {
       "area": {
@@ -2794,7 +2801,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_I",
-      "lastUpdated": "2026-06-09T10:20:22Z",
+      "lastUpdated": "2026-05-11T05:21:09Z",
       "homeTeam": {
         "id": 773,
         "name": "France",
@@ -2853,7 +2860,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_I",
-      "lastUpdated": "2026-06-09T10:20:22Z",
+      "lastUpdated": "2025-12-06T20:20:44Z",
       "homeTeam": {
         "id": 8872,
         "name": "Norway",
@@ -2912,7 +2919,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_J",
-      "lastUpdated": "2026-06-09T10:20:22Z",
+      "lastUpdated": "2026-03-30T20:21:10Z",
       "homeTeam": {
         "id": 8049,
         "name": "Jordan",
@@ -2971,7 +2978,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_K",
-      "lastUpdated": "2026-06-09T10:20:22Z",
+      "lastUpdated": "2025-12-06T20:20:44Z",
       "homeTeam": {
         "id": 765,
         "name": "Portugal",
@@ -3030,7 +3037,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_L",
-      "lastUpdated": "2026-06-09T10:20:22Z",
+      "lastUpdated": "2026-05-11T05:21:09Z",
       "homeTeam": {
         "id": 770,
         "name": "England",
@@ -3089,7 +3096,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_L",
-      "lastUpdated": "2026-06-09T10:20:22Z",
+      "lastUpdated": "2025-12-06T20:20:44Z",
       "homeTeam": {
         "id": 1836,
         "name": "Panama",
@@ -3884,12 +3891,12 @@
             "tla": "ARG",
             "crest": "https://crests.football-data.org/762.png"
           },
-          "playedGames": 1,
+          "playedGames": 2,
           "form": null,
           "won": 1,
-          "draw": 0,
+          "draw": 1,
           "lost": 0,
-          "points": 3,
+          "points": 4,
           "goalsFor": 3,
           "goalsAgainst": 0,
           "goalDifference": 3
@@ -3903,12 +3910,12 @@
             "tla": "AUT",
             "crest": "https://crests.football-data.org/816.svg"
           },
-          "playedGames": 1,
+          "playedGames": 2,
           "form": null,
           "won": 1,
-          "draw": 0,
+          "draw": 1,
           "lost": 0,
-          "points": 3,
+          "points": 4,
           "goalsFor": 3,
           "goalsAgainst": 1,
           "goalDifference": 2
@@ -4120,5 +4127,5 @@
       ]
     }
   ],
-  "updated": "2026-06-22T12:28:01Z"
+  "updated": "2026-06-22T17:16:58Z"
 }
