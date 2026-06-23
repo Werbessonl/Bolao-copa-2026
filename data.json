@@ -2837,6 +2837,72 @@
           "nationality": "Brazil"
         }
       ]
+    },
+    {
+      "area": {
+        "id": 2267,
+        "name": "World",
+        "code": "INT",
+        "flag": null
+      },
+      "competition": {
+        "id": 2000,
+        "name": "FIFA World Cup",
+        "code": "WC",
+        "type": "CUP",
+        "emblem": "https://crests.football-data.org/wm26.png"
+      },
+      "season": {
+        "id": 2398,
+        "startDate": "2026-06-11",
+        "endDate": "2026-07-19",
+        "currentMatchday": 2,
+        "winner": null
+      },
+      "id": 537400,
+      "utcDate": "2026-06-23T03:00:00Z",
+      "status": "FINISHED",
+      "matchday": 2,
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_J",
+      "lastUpdated": "2026-06-23T05:06:45Z",
+      "homeTeam": {
+        "id": 8049,
+        "name": "Jordan",
+        "shortName": "Jordan",
+        "tla": "JOR",
+        "crest": "https://crests.football-data.org/8049.png"
+      },
+      "awayTeam": {
+        "id": 778,
+        "name": "Algeria",
+        "shortName": "Algeria",
+        "tla": "ALG",
+        "crest": "https://crests.football-data.org/algeria.svg"
+      },
+      "score": {
+        "winner": "AWAY_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "home": 1,
+          "away": 2
+        },
+        "halfTime": {
+          "home": 1,
+          "away": 0
+        }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": [
+        {
+          "id": 9351,
+          "name": "Slavko Vinčič",
+          "type": "REFEREE",
+          "nationality": "Slovenia"
+        }
+      ]
     }
   ],
   "today_matches": [
@@ -2929,11 +2995,11 @@
       },
       "id": 537400,
       "utcDate": "2026-06-23T03:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_J",
-      "lastUpdated": "2026-06-23T04:13:49Z",
+      "lastUpdated": "2026-06-23T05:06:45Z",
       "homeTeam": {
         "id": 8049,
         "name": "Jordan",
@@ -2949,11 +3015,11 @@
         "crest": "https://crests.football-data.org/algeria.svg"
       },
       "score": {
-        "winner": "HOME_TEAM",
+        "winner": "AWAY_TEAM",
         "duration": "REGULAR",
         "fullTime": {
           "home": 1,
-          "away": 0
+          "away": 2
         },
         "halfTime": {
           "home": 1,
@@ -2999,7 +3065,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_K",
-      "lastUpdated": "2026-06-11T15:20:18Z",
+      "lastUpdated": "2026-06-16T10:20:15Z",
       "homeTeam": {
         "id": 765,
         "name": "Portugal",
@@ -3058,7 +3124,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_L",
-      "lastUpdated": "2026-06-11T15:20:18Z",
+      "lastUpdated": "2026-06-16T10:20:15Z",
       "homeTeam": {
         "id": 770,
         "name": "England",
@@ -3117,7 +3183,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_L",
-      "lastUpdated": "2026-06-11T15:20:18Z",
+      "lastUpdated": "2026-06-16T10:20:15Z",
       "homeTeam": {
         "id": 1836,
         "name": "Panama",
@@ -3176,7 +3242,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_K",
-      "lastUpdated": "2026-06-11T15:20:18Z",
+      "lastUpdated": "2026-06-16T10:20:15Z",
       "homeTeam": {
         "id": 818,
         "name": "Colombia",
@@ -3235,7 +3301,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_B",
-      "lastUpdated": "2026-06-11T15:20:18Z",
+      "lastUpdated": "2026-06-16T10:20:15Z",
       "homeTeam": {
         "id": 788,
         "name": "Switzerland",
@@ -3294,7 +3360,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_B",
-      "lastUpdated": "2026-06-11T15:20:18Z",
+      "lastUpdated": "2026-06-16T10:20:15Z",
       "homeTeam": {
         "id": 1060,
         "name": "Bosnia-Herzegovina",
@@ -3353,7 +3419,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_C",
-      "lastUpdated": "2026-06-11T15:20:18Z",
+      "lastUpdated": "2026-06-16T10:20:15Z",
       "homeTeam": {
         "id": 815,
         "name": "Morocco",
@@ -3412,7 +3478,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_C",
-      "lastUpdated": "2026-06-11T15:20:18Z",
+      "lastUpdated": "2026-06-16T10:20:15Z",
       "homeTeam": {
         "id": 8873,
         "name": "Scotland",
@@ -4239,25 +4305,6 @@
         {
           "position": 3,
           "team": {
-            "id": 8049,
-            "name": "Jordan",
-            "shortName": "Jordan",
-            "tla": "JOR",
-            "crest": "https://crests.football-data.org/8049.png"
-          },
-          "playedGames": 2,
-          "form": null,
-          "won": 1,
-          "draw": 0,
-          "lost": 1,
-          "points": 3,
-          "goalsFor": 2,
-          "goalsAgainst": 3,
-          "goalDifference": -1
-        },
-        {
-          "position": 4,
-          "team": {
             "id": 778,
             "name": "Algeria",
             "shortName": "Algeria",
@@ -4266,13 +4313,32 @@
           },
           "playedGames": 2,
           "form": null,
+          "won": 1,
+          "draw": 0,
+          "lost": 1,
+          "points": 3,
+          "goalsFor": 2,
+          "goalsAgainst": 4,
+          "goalDifference": -2
+        },
+        {
+          "position": 4,
+          "team": {
+            "id": 8049,
+            "name": "Jordan",
+            "shortName": "Jordan",
+            "tla": "JOR",
+            "crest": "https://crests.football-data.org/8049.png"
+          },
+          "playedGames": 2,
+          "form": null,
           "won": 0,
           "draw": 0,
           "lost": 2,
           "points": 0,
-          "goalsFor": 0,
-          "goalsAgainst": 4,
-          "goalDifference": -4
+          "goalsFor": 2,
+          "goalsAgainst": 5,
+          "goalDifference": -3
         }
       ]
     },
@@ -4443,5 +4509,5 @@
       ]
     }
   ],
-  "updated": "2026-06-23T04:14:10Z"
+  "updated": "2026-06-23T08:00:44Z"
 }
