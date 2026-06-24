@@ -1280,11 +1280,10 @@ function calcVirtualPoints(realScores, standings) {
     });
   });
 
-  // 8 melhores terceiros (ordenados por pontos, saldo, gols)
-  const best8thirds = thirds
-    .sort(standingsCmp)
-    .slice(0, 8)
-    .map(r => r.team.name);
+  // 8 melhores terceiros — só calcula quando todos os 12 grupos tiverem standings
+  const best8thirds = thirds.length >= 12
+    ? thirds.sort(standingsCmp).slice(0, 8).map(r => r.team.name)
+    : [];
 
   // Pool única dos 32 classificados (24 top2 + 8 melhores 3os)
   const classificados32 = [...top2, ...best8thirds];
