@@ -27,7 +27,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_A",
-      "lastUpdated": "2026-06-12T15:20:17Z",
+      "lastUpdated": "2026-06-12T08:25:00Z",
       "homeTeam": {
         "id": 769,
         "name": "Mexico",
@@ -93,7 +93,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_A",
-      "lastUpdated": "2026-06-12T15:20:17Z",
+      "lastUpdated": "2026-06-12T08:25:00Z",
       "homeTeam": {
         "id": 772,
         "name": "South Korea",
@@ -175,15 +175,15 @@
         "crest": "https://crests.football-data.org/bosnia.svg"
       },
       "score": {
-        "winner": null,
+        "winner": "DRAW",
         "duration": "REGULAR",
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 1
         },
         "halfTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 1
         }
       },
       "odds": {
@@ -3174,7 +3174,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 1,
+        "currentMatchday": 2,
         "winner": null
       },
       "id": 537406,
@@ -3233,7 +3233,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 1,
+        "currentMatchday": 2,
         "winner": null
       },
       "id": 537337,
@@ -3242,7 +3242,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_B",
-      "lastUpdated": "2026-06-16T10:20:15Z",
+      "lastUpdated": "2026-06-20T15:20:13Z",
       "homeTeam": {
         "id": 788,
         "name": "Switzerland",
@@ -3292,7 +3292,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 1,
+        "currentMatchday": 2,
         "winner": null
       },
       "id": 537338,
@@ -3301,7 +3301,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_B",
-      "lastUpdated": "2026-06-16T10:20:15Z",
+      "lastUpdated": "2026-06-20T15:20:13Z",
       "homeTeam": {
         "id": 1060,
         "name": "Bosnia-Herzegovina",
@@ -3351,7 +3351,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 1,
+        "currentMatchday": 2,
         "winner": null
       },
       "id": 537344,
@@ -3360,7 +3360,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_C",
-      "lastUpdated": "2026-06-16T10:20:15Z",
+      "lastUpdated": "2026-06-20T15:20:13Z",
       "homeTeam": {
         "id": 815,
         "name": "Morocco",
@@ -3410,7 +3410,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 1,
+        "currentMatchday": 2,
         "winner": null
       },
       "id": 537343,
@@ -3419,7 +3419,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_C",
-      "lastUpdated": "2026-06-16T10:20:15Z",
+      "lastUpdated": "2026-06-20T15:20:13Z",
       "homeTeam": {
         "id": 8873,
         "name": "Scotland",
@@ -3469,7 +3469,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 1,
+        "currentMatchday": 2,
         "winner": null
       },
       "id": 537331,
@@ -3478,7 +3478,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_A",
-      "lastUpdated": "2026-06-16T10:20:15Z",
+      "lastUpdated": "2026-06-20T15:20:13Z",
       "homeTeam": {
         "id": 798,
         "name": "Czechia",
@@ -3528,7 +3528,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 1,
+        "currentMatchday": 2,
         "winner": null
       },
       "id": 537332,
@@ -3537,7 +3537,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_A",
-      "lastUpdated": "2026-06-16T10:20:15Z",
+      "lastUpdated": "2026-06-20T15:20:13Z",
       "homeTeam": {
         "id": 774,
         "name": "South Africa",
@@ -3587,7 +3587,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 1,
+        "currentMatchday": 2,
         "winner": null
       },
       "id": 537355,
@@ -3596,7 +3596,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_E",
-      "lastUpdated": "2026-06-16T10:20:15Z",
+      "lastUpdated": "2026-06-20T15:20:13Z",
       "homeTeam": {
         "id": 791,
         "name": "Ecuador",
@@ -3646,7 +3646,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 1,
+        "currentMatchday": 2,
         "winner": null
       },
       "id": 537356,
@@ -3655,7 +3655,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_E",
-      "lastUpdated": "2026-06-16T10:20:15Z",
+      "lastUpdated": "2026-06-20T15:20:13Z",
       "homeTeam": {
         "id": 9460,
         "name": "Curaçao",
@@ -3705,7 +3705,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 1,
+        "currentMatchday": 2,
         "winner": null
       },
       "id": 537361,
@@ -3714,7 +3714,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_F",
-      "lastUpdated": "2026-06-16T10:20:15Z",
+      "lastUpdated": "2026-06-20T15:20:13Z",
       "homeTeam": {
         "id": 802,
         "name": "Tunisia",
@@ -3764,7 +3764,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 1,
+        "currentMatchday": 2,
         "winner": null
       },
       "id": 537362,
@@ -3773,7 +3773,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_F",
-      "lastUpdated": "2026-06-16T10:20:15Z",
+      "lastUpdated": "2026-06-20T15:20:13Z",
       "homeTeam": {
         "id": 766,
         "name": "Japan",
@@ -4804,5 +4804,5 @@
       ]
     }
   ],
-  "updated": "2026-06-24T06:13:55Z"
+  "updated": "2026-06-24T09:53:15Z"
 }
