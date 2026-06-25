@@ -1875,7 +1875,7 @@
       "matchday": 2,
       "stage": "GROUP_STAGE",
       "group": "GROUP_D",
-      "lastUpdated": "2026-06-20T08:25:00Z",
+      "lastUpdated": "2026-06-20T08:25:01Z",
       "homeTeam": {
         "id": 771,
         "name": "United States",
@@ -3549,6 +3549,138 @@
           "nationality": "Argentina"
         }
       ]
+    },
+    {
+      "area": {
+        "id": 2267,
+        "name": "World",
+        "code": "INT",
+        "flag": null
+      },
+      "competition": {
+        "id": 2000,
+        "name": "FIFA World Cup",
+        "code": "WC",
+        "type": "CUP",
+        "emblem": "https://crests.football-data.org/wm26.png"
+      },
+      "season": {
+        "id": 2398,
+        "startDate": "2026-06-11",
+        "endDate": "2026-07-19",
+        "currentMatchday": 1,
+        "winner": null
+      },
+      "id": 537355,
+      "utcDate": "2026-06-25T20:00:00Z",
+      "status": "FINISHED",
+      "matchday": 3,
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_E",
+      "lastUpdated": "2026-06-25T22:08:03Z",
+      "homeTeam": {
+        "id": 791,
+        "name": "Ecuador",
+        "shortName": "Ecuador",
+        "tla": "ECU",
+        "crest": "https://crests.football-data.org/791.svg"
+      },
+      "awayTeam": {
+        "id": 759,
+        "name": "Germany",
+        "shortName": "Germany",
+        "tla": "GER",
+        "crest": "https://crests.football-data.org/759.svg"
+      },
+      "score": {
+        "winner": "HOME_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "home": 2,
+          "away": 1
+        },
+        "halfTime": {
+          "home": 1,
+          "away": 1
+        }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": [
+        {
+          "id": 212450,
+          "name": "Tori Penso",
+          "type": "REFEREE",
+          "nationality": "USA"
+        }
+      ]
+    },
+    {
+      "area": {
+        "id": 2267,
+        "name": "World",
+        "code": "INT",
+        "flag": null
+      },
+      "competition": {
+        "id": 2000,
+        "name": "FIFA World Cup",
+        "code": "WC",
+        "type": "CUP",
+        "emblem": "https://crests.football-data.org/wm26.png"
+      },
+      "season": {
+        "id": 2398,
+        "startDate": "2026-06-11",
+        "endDate": "2026-07-19",
+        "currentMatchday": 1,
+        "winner": null
+      },
+      "id": 537356,
+      "utcDate": "2026-06-25T20:00:00Z",
+      "status": "FINISHED",
+      "matchday": 3,
+      "stage": "GROUP_STAGE",
+      "group": "GROUP_E",
+      "lastUpdated": "2026-06-25T22:04:07Z",
+      "homeTeam": {
+        "id": 9460,
+        "name": "Curaçao",
+        "shortName": "Curaçao",
+        "tla": "CUW",
+        "crest": "https://crests.football-data.org/curacao.svg"
+      },
+      "awayTeam": {
+        "id": 1935,
+        "name": "Ivory Coast",
+        "shortName": "Ivory Coast",
+        "tla": "CIV",
+        "crest": "https://crests.football-data.org/787.svg"
+      },
+      "score": {
+        "winner": "AWAY_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "home": 0,
+          "away": 2
+        },
+        "halfTime": {
+          "home": 0,
+          "away": 1
+        }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": [
+        {
+          "id": 30960,
+          "name": "Glenn Nyberg",
+          "type": "REFEREE",
+          "nationality": "Sweden"
+        }
+      ]
     }
   ],
   "today_matches": [
@@ -3570,7 +3702,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 3,
         "winner": null
       },
       "id": 537331,
@@ -3636,7 +3768,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 3,
         "winner": null
       },
       "id": 537332,
@@ -3702,16 +3834,16 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 3,
         "winner": null
       },
       "id": 537355,
       "utcDate": "2026-06-25T20:00:00Z",
-      "status": "LIVE",
+      "status": "FINISHED",
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_E",
-      "lastUpdated": "2026-06-25T20:33:43Z",
+      "lastUpdated": "2026-06-25T22:08:03Z",
       "homeTeam": {
         "id": 791,
         "name": "Ecuador",
@@ -3727,15 +3859,15 @@
         "crest": "https://crests.football-data.org/759.svg"
       },
       "score": {
-        "winner": "DRAW",
+        "winner": "HOME_TEAM",
         "duration": "REGULAR",
         "fullTime": {
-          "home": 1,
+          "home": 2,
           "away": 1
         },
         "halfTime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 1
         }
       },
       "odds": {
@@ -3768,16 +3900,16 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 3,
         "winner": null
       },
       "id": 537356,
       "utcDate": "2026-06-25T20:00:00Z",
-      "status": "LIVE",
+      "status": "FINISHED",
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_E",
-      "lastUpdated": "2026-06-25T20:33:40Z",
+      "lastUpdated": "2026-06-25T22:04:07Z",
       "homeTeam": {
         "id": 9460,
         "name": "Curaçao",
@@ -3797,11 +3929,11 @@
         "duration": "REGULAR",
         "fullTime": {
           "home": 0,
-          "away": 1
+          "away": 2
         },
         "halfTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 1
         }
       },
       "odds": {
@@ -3834,7 +3966,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 3,
         "winner": null
       },
       "id": 537361,
@@ -3843,7 +3975,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_F",
-      "lastUpdated": "2026-06-20T15:20:13Z",
+      "lastUpdated": "2026-06-23T15:20:15Z",
       "homeTeam": {
         "id": 802,
         "name": "Tunisia",
@@ -3873,7 +4005,14 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [
+        {
+          "id": 212546,
+          "name": "Katia García",
+          "type": "REFEREE",
+          "nationality": "Mexico"
+        }
+      ]
     },
     {
       "area": {
@@ -3893,7 +4032,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 3,
         "winner": null
       },
       "id": 537362,
@@ -3902,7 +4041,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_F",
-      "lastUpdated": "2026-06-20T15:20:13Z",
+      "lastUpdated": "2026-06-23T15:20:15Z",
       "homeTeam": {
         "id": 766,
         "name": "Japan",
@@ -3932,7 +4071,14 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [
+        {
+          "id": 190010,
+          "name": "Ivan Barton",
+          "type": "REFEREE",
+          "nationality": null
+        }
+      ]
     },
     {
       "area": {
@@ -3952,7 +4098,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 3,
         "winner": null
       },
       "id": 537349,
@@ -3961,7 +4107,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_D",
-      "lastUpdated": "2026-06-20T15:20:13Z",
+      "lastUpdated": "2026-06-23T15:20:15Z",
       "homeTeam": {
         "id": 803,
         "name": "Turkey",
@@ -4011,7 +4157,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 3,
         "winner": null
       },
       "id": 537350,
@@ -4020,7 +4166,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_D",
-      "lastUpdated": "2026-06-20T15:20:13Z",
+      "lastUpdated": "2026-06-23T15:20:15Z",
       "homeTeam": {
         "id": 761,
         "name": "Paraguay",
@@ -4070,7 +4216,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 3,
         "winner": null
       },
       "id": 537395,
@@ -4079,7 +4225,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_I",
-      "lastUpdated": "2026-06-20T15:20:13Z",
+      "lastUpdated": "2026-06-23T15:20:15Z",
       "homeTeam": {
         "id": 8872,
         "name": "Norway",
@@ -4129,7 +4275,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 3,
         "winner": null
       },
       "id": 537396,
@@ -4138,7 +4284,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_I",
-      "lastUpdated": "2026-06-20T15:20:13Z",
+      "lastUpdated": "2026-06-23T15:20:15Z",
       "homeTeam": {
         "id": 804,
         "name": "Senegal",
@@ -4188,7 +4334,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 3,
         "winner": null
       },
       "id": 537373,
@@ -4197,7 +4343,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_H",
-      "lastUpdated": "2026-06-20T15:20:13Z",
+      "lastUpdated": "2026-06-23T15:20:15Z",
       "homeTeam": {
         "id": 758,
         "name": "Uruguay",
@@ -4247,7 +4393,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 3,
         "winner": null
       },
       "id": 537374,
@@ -4256,7 +4402,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_H",
-      "lastUpdated": "2026-06-20T15:20:13Z",
+      "lastUpdated": "2026-06-23T15:20:15Z",
       "homeTeam": {
         "id": 1930,
         "name": "Cape Verde Islands",
@@ -4639,12 +4785,12 @@
           "playedGames": 3,
           "form": null,
           "won": 2,
-          "draw": 1,
-          "lost": 0,
-          "points": 7,
+          "draw": 0,
+          "lost": 1,
+          "points": 6,
           "goalsFor": 10,
-          "goalsAgainst": 3,
-          "goalDifference": 7
+          "goalsAgainst": 4,
+          "goalDifference": 6
         },
         {
           "position": 2,
@@ -4661,9 +4807,9 @@
           "draw": 0,
           "lost": 1,
           "points": 6,
-          "goalsFor": 3,
+          "goalsFor": 4,
           "goalsAgainst": 2,
-          "goalDifference": 1
+          "goalDifference": 2
         },
         {
           "position": 3,
@@ -4676,13 +4822,13 @@
           },
           "playedGames": 3,
           "form": null,
-          "won": 0,
-          "draw": 2,
+          "won": 1,
+          "draw": 1,
           "lost": 1,
-          "points": 2,
-          "goalsFor": 1,
+          "points": 4,
+          "goalsFor": 2,
           "goalsAgainst": 2,
-          "goalDifference": -1
+          "goalDifference": 0
         },
         {
           "position": 4,
@@ -4700,8 +4846,8 @@
           "lost": 2,
           "points": 1,
           "goalsFor": 1,
-          "goalsAgainst": 8,
-          "goalDifference": -7
+          "goalsAgainst": 9,
+          "goalDifference": -8
         }
       ]
     },
@@ -5287,5 +5433,5 @@
       ]
     }
   ],
-  "updated": "2026-06-25T20:33:53Z"
+  "updated": "2026-06-25T22:11:26Z"
 }
