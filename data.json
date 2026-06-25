@@ -3570,7 +3570,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 1,
         "winner": null
       },
       "id": 537331,
@@ -3636,7 +3636,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 1,
         "winner": null
       },
       "id": 537332,
@@ -3702,7 +3702,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 1,
         "winner": null
       },
       "id": 537355,
@@ -3711,7 +3711,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_E",
-      "lastUpdated": "2026-06-20T15:20:13Z",
+      "lastUpdated": "2026-06-11T15:20:18Z",
       "homeTeam": {
         "id": 791,
         "name": "Ecuador",
@@ -3761,7 +3761,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 1,
         "winner": null
       },
       "id": 537356,
@@ -3770,7 +3770,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_E",
-      "lastUpdated": "2026-06-20T15:20:13Z",
+      "lastUpdated": "2026-06-11T15:20:18Z",
       "homeTeam": {
         "id": 9460,
         "name": "Curaçao",
@@ -3820,7 +3820,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 1,
         "winner": null
       },
       "id": 537361,
@@ -3829,7 +3829,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_F",
-      "lastUpdated": "2026-06-20T15:20:13Z",
+      "lastUpdated": "2026-06-11T15:20:18Z",
       "homeTeam": {
         "id": 802,
         "name": "Tunisia",
@@ -3879,7 +3879,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 1,
         "winner": null
       },
       "id": 537362,
@@ -3888,7 +3888,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_F",
-      "lastUpdated": "2026-06-20T15:20:13Z",
+      "lastUpdated": "2026-06-11T15:20:18Z",
       "homeTeam": {
         "id": 766,
         "name": "Japan",
@@ -3938,7 +3938,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 1,
         "winner": null
       },
       "id": 537349,
@@ -3947,7 +3947,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_D",
-      "lastUpdated": "2026-06-20T15:20:13Z",
+      "lastUpdated": "2026-06-11T15:20:18Z",
       "homeTeam": {
         "id": 803,
         "name": "Turkey",
@@ -3997,7 +3997,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 1,
         "winner": null
       },
       "id": 537350,
@@ -4006,7 +4006,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_D",
-      "lastUpdated": "2026-06-20T15:20:13Z",
+      "lastUpdated": "2026-06-11T15:20:18Z",
       "homeTeam": {
         "id": 761,
         "name": "Paraguay",
@@ -4056,7 +4056,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 1,
         "winner": null
       },
       "id": 537395,
@@ -4065,7 +4065,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_I",
-      "lastUpdated": "2026-06-20T15:20:13Z",
+      "lastUpdated": "2026-06-11T15:20:18Z",
       "homeTeam": {
         "id": 8872,
         "name": "Norway",
@@ -4115,7 +4115,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 1,
         "winner": null
       },
       "id": 537396,
@@ -4124,7 +4124,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_I",
-      "lastUpdated": "2026-06-20T15:20:13Z",
+      "lastUpdated": "2026-06-11T15:20:18Z",
       "homeTeam": {
         "id": 804,
         "name": "Senegal",
@@ -4174,7 +4174,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 1,
         "winner": null
       },
       "id": 537373,
@@ -4183,12 +4183,12 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_H",
-      "lastUpdated": "2026-06-20T15:20:13Z",
+      "lastUpdated": "2026-06-11T15:20:18Z",
       "homeTeam": {
         "id": 758,
         "name": "Uruguay",
         "shortName": "Uruguay",
-        "tla": "URU",
+        "tla": "URY",
         "crest": "https://crests.football-data.org/758.svg"
       },
       "awayTeam": {
@@ -4233,7 +4233,7 @@
         "id": 2398,
         "startDate": "2026-06-11",
         "endDate": "2026-07-19",
-        "currentMatchday": 2,
+        "currentMatchday": 1,
         "winner": null
       },
       "id": 537374,
@@ -4242,7 +4242,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_H",
-      "lastUpdated": "2026-06-20T15:20:13Z",
+      "lastUpdated": "2026-06-11T15:20:18Z",
       "homeTeam": {
         "id": 1930,
         "name": "Cape Verde Islands",
@@ -5273,5 +5273,5 @@
       ]
     }
   ],
-  "updated": "2026-06-25T13:30:50Z"
+  "updated": "2026-06-25T16:10:49Z"
 }
