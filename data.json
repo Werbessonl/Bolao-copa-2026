@@ -27,7 +27,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_A",
-      "lastUpdated": "2026-06-13T15:20:17Z",
+      "lastUpdated": "2026-06-12T08:25:00Z",
       "homeTeam": {
         "id": 769,
         "name": "Mexico",
@@ -93,7 +93,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_A",
-      "lastUpdated": "2026-06-13T15:20:17Z",
+      "lastUpdated": "2026-06-12T08:25:00Z",
       "homeTeam": {
         "id": 772,
         "name": "South Korea",
@@ -159,7 +159,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_B",
-      "lastUpdated": "2026-06-13T15:20:17Z",
+      "lastUpdated": "2026-06-12T22:25:00Z",
       "homeTeam": {
         "id": 828,
         "name": "Canada",
@@ -225,7 +225,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_D",
-      "lastUpdated": "2026-06-13T15:20:17Z",
+      "lastUpdated": "2026-06-13T03:25:00Z",
       "homeTeam": {
         "id": 771,
         "name": "United States",
@@ -291,7 +291,7 @@
       "matchday": 1,
       "stage": "GROUP_STAGE",
       "group": "GROUP_B",
-      "lastUpdated": "2026-06-13T23:07:33Z",
+      "lastUpdated": "2026-06-13T21:09:44Z",
       "homeTeam": {
         "id": 8030,
         "name": "Qatar",
@@ -3711,7 +3711,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_E",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-11T15:20:18Z",
       "homeTeam": {
         "id": 791,
         "name": "Ecuador",
@@ -3770,7 +3770,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_E",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-11T15:20:18Z",
       "homeTeam": {
         "id": 9460,
         "name": "Curaçao",
@@ -3829,7 +3829,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_F",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-11T15:20:18Z",
       "homeTeam": {
         "id": 802,
         "name": "Tunisia",
@@ -3888,7 +3888,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_F",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-11T15:20:18Z",
       "homeTeam": {
         "id": 766,
         "name": "Japan",
@@ -3947,7 +3947,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_D",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-11T15:20:18Z",
       "homeTeam": {
         "id": 803,
         "name": "Turkey",
@@ -4006,7 +4006,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_D",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-11T15:20:18Z",
       "homeTeam": {
         "id": 761,
         "name": "Paraguay",
@@ -4065,7 +4065,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_I",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-11T15:20:18Z",
       "homeTeam": {
         "id": 8872,
         "name": "Norway",
@@ -4124,7 +4124,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_I",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-11T15:20:18Z",
       "homeTeam": {
         "id": 804,
         "name": "Senegal",
@@ -4183,7 +4183,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_H",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-11T15:20:18Z",
       "homeTeam": {
         "id": 758,
         "name": "Uruguay",
@@ -4242,7 +4242,7 @@
       "matchday": 3,
       "stage": "GROUP_STAGE",
       "group": "GROUP_H",
-      "lastUpdated": "2026-06-12T00:20:17Z",
+      "lastUpdated": "2026-06-11T15:20:18Z",
       "homeTeam": {
         "id": 1930,
         "name": "Cape Verde Islands",
@@ -5273,5 +5273,5 @@
       ]
     }
   ],
-  "updated": "2026-06-25T08:00:41Z"
+  "updated": "2026-06-25T11:09:32Z"
 }
