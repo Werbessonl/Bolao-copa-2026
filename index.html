@@ -583,7 +583,7 @@ body::before{
       </div>
     </div>
   </div>
-  <div class="page-footer">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.4.6</span></div>
+  <div class="page-footer">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.4.7</span></div>
 </div>
 
 <!-- ============================
@@ -721,7 +721,7 @@ body::before{
       </div>
 
     </div>
-    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.4.6</span></div>
+    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.4.7</span></div>
   </div>
 </div>
 
@@ -787,7 +787,7 @@ body::before{
         Classificados fase de grupos: 32 pts (24 top 1°/2° + 8 melhores 3°s, 1pt cada) · 16 Avos 2pts · Oitavas 3pts · Quartas 4pts · Semis 5pts · Final 8pts · Campeão 25pts
       </div>
     </div>
-    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.4.6</span></div>
+    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.4.7</span></div>
   </div>
 </div>
 
@@ -851,7 +851,7 @@ body::before{
       </div>
     </div>
   </div>
-  <div class="page-footer" style="margin-top:4px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.4.6</span></div>
+  <div class="page-footer" style="margin-top:4px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.4.7</span></div>
 </div>
 
 <!-- Modal Comparativo -->
@@ -866,6 +866,7 @@ body::before{
 </div>
 
 <script>
+
 
 
 
@@ -995,7 +996,7 @@ const PALPITES = [
   // 9 Thais
   {
     grupos: ["México","África do Sul","Suíça","Canadá","Brasil","Marrocos","Estados Unidos","Turquia","Alemanha","Equador","Holanda","Japão","Bélgica","Egito","Uruguai","Espanha","França","Senegal","Argentina","Áustria","Portugal","Colômbia","Inglaterra","Croácia"],
-    melhores_terceiros: ["Argentina","França","Brasil","Alemanha","Portugal","Espanha","Inglaterra","Holanda"],
+    melhores_terceiros: ["Coreia do Sul","Noruega","Paraguai","República Tcheca","Gana","Escócia","Irã","Bósnia e Herzegovina"],
     dezesseis_avos: ["Argentina","França","Canadá","Holanda","Croácia","Uruguai","Brasil","Espanha","Brasil","Senegal","Alemanha","Portugal","Argentina","Turquia","Inglaterra","Portugal"],
     oitavas: ["Argentina","Canadá","Uruguai","Espanha","Brasil","Portugal","Argentina","Inglaterra"],
     quartas: ["Argentina","Brasil","Portugal","Argentina"],
@@ -1203,23 +1204,28 @@ function calcRealPoints(finishedMatches, standings) {
     'FINAL': 8
   };
 
-  // ===== FASE DE GRUPOS: pontua grupos já encerrados =====
-  // Um grupo está encerrado quando todos os times jogaram o mesmo nº máximo de jogos
+  // ===== FASE DE GRUPOS: pontua apenas grupos já encerrados =====
   const realTop2 = [];
   const realThirds = [];
+  let concludedCount = 0;
+  const totalGroups = (standings || []).length;
 
   (standings || []).forEach(grp => {
     if (!grp.table || grp.table.length < 3) return;
     const sorted = [...grp.table].sort(standingsCmp);
     const maxPlayed = Math.max(...sorted.map(r => r.playedGames));
-    const allDone = sorted.every(r => r.playedGames === maxPlayed) && maxPlayed >= (sorted.length - 1);
-    if (!allDone) return; // grupo ainda em andamento
+    const groupDone = sorted.every(r => r.playedGames === maxPlayed) && maxPlayed >= (sorted.length - 1);
+    if (!groupDone) return;
+    concludedCount++;
     realTop2.push(sorted[0].team.name, sorted[1].team.name);
     if (sorted[2]) realThirds.push(sorted[2]);
   });
 
-  // 8 melhores terceiros confirmados (só de grupos encerrados)
-  const realBest8 = realThirds.sort(standingsCmp).slice(0, 8).map(r => r.team.name);
+  // Melhores 3° só valem quando TODOS os grupos encerrarem
+  const allGroupsDone = concludedCount === totalGroups && totalGroups > 0;
+  const realBest8 = allGroupsDone
+    ? realThirds.sort(standingsCmp).slice(0, 8).map(r => r.team.name)
+    : [];
 
   // ===== FASES ELIMINATÓRIAS =====
   const advancedByStage = {};
@@ -1240,12 +1246,14 @@ function calcRealPoints(finishedMatches, standings) {
 
   return NAMES.map((name, i) => {
     const p = PALPITES[i];
+    let ptsGroup = 0;
     let pts = 0;
 
     // Grupos encerrados: 1 pt por top2 acertado
-    const apostasGrupos = (p.grupos || []).concat(p.melhores_terceiros || []);
-    realTop2.forEach(t => { if (inList(t, p.grupos)) pts += 1; });
-    realBest8.forEach(t => { if (inList(t, p.melhores_terceiros)) pts += 1; });
+    realTop2.forEach(t => { if (inList(t, p.grupos)) ptsGroup += 1; });
+    // Melhores 3° só quando TODOS os grupos encerraram
+    realBest8.forEach(t => { if (inList(t, p.melhores_terceiros)) ptsGroup += 1; });
+    pts += ptsGroup;
 
     // 16 avos
     const avos = advancedByStage['ROUND_OF_32'] || advancedByStage['LAST_32'] || [];
@@ -1275,7 +1283,7 @@ function calcRealPoints(finishedMatches, standings) {
       if (teamMatch(champion, p.campeao)) pts += 25;
     }
 
-    return {name, idx: i, real: pts, virtual: 0};
+    return {name, idx: i, real: pts, realGroup: ptsGroup, virtual: 0};
   });
 }
 
@@ -1309,13 +1317,16 @@ function calcVirtualPoints(realScores, standings) {
 
   return realScores.map(s => {
     const p = PALPITES[s.idx];
-    // Apostas unificadas: 24 apostas de top2 + 8 apostas de 3os = 32
     const apostas32 = [...p.grupos, ...p.melhores_terceiros];
+    // Projeta pontos de TODOS os grupos (para ranking virtual)
     let gruposPts = 0;
     classificados32.forEach(t => {
       if (inList(t, apostas32)) gruposPts += 1;
     });
-    return {...s, virtual: s.real + gruposPts};
+    // virtual = projeção total dos grupos + pontos reais de fases eliminatórias
+    // (s.realGroup já está em s.real; não somamos s.real para não duplicar grupos encerrados)
+    const knockoutPts = s.real - (s.realGroup || 0);
+    return {...s, virtual: gruposPts + knockoutPts};
   });
 }
 // ===== NAVEGAÇÃO =====
@@ -1959,4 +1970,5 @@ function renderClassifThirds(standings) {
 </script>
 </body>
 </html>
+
 
