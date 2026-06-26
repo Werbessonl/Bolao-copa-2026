@@ -4401,7 +4401,14 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [
+        {
+          "id": 76608,
+          "name": "Ismail Elfath",
+          "type": "REFEREE",
+          "nationality": "United States"
+        }
+      ]
     },
     {
       "area": {
@@ -4460,7 +4467,14 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [
+        {
+          "id": 43918,
+          "name": "François Letexier",
+          "type": "REFEREE",
+          "nationality": "France"
+        }
+      ]
     },
     {
       "area": {
@@ -5815,5 +5829,5 @@
       ]
     }
   ],
-  "updated": "2026-06-26T21:46:16Z"
+  "updated": "2026-06-26T23:16:00Z"
 }
