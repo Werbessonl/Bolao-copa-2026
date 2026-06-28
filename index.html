@@ -2008,9 +2008,9 @@ function renderJogoCard(m) {
       '<div style="display:flex;align-items:center;gap:8px;">' + statusPill + '<span class="jogo-time">' + hora + '</span></div>' +
     '</div>' +
     '<div class="jogo-card-body">' +
-      '<div class="jogo-team"><button class="jogo-flag-btn" onclick="showTeamTooltip(\'' + m.homeTeam.name.replace(/'/g,"\\'") + '\',event)">' + homeFlag + '<span class="jogo-team-name">' + homeName + '</span></button></div>' +
+      '<div class="jogo-team"><button class="jogo-flag-btn" onclick="showTeamTooltip(\'' + m.homeTeam.name.replace(/'/g,"\\'") + '\',\'' + m.stage + '\',event)">' + homeFlag + '<span class="jogo-team-name">' + homeName + '</span></button></div>' +
       '<div class="jogo-score-wrap">' + scoreHtml + '</div>' +
-      '<div class="jogo-team"><button class="jogo-flag-btn" onclick="showTeamTooltip(\'' + m.awayTeam.name.replace(/'/g,"\\'") + '\',event)">' + awayFlag + '<span class="jogo-team-name">' + awayName + '</span></button></div>' +
+      '<div class="jogo-team"><button class="jogo-flag-btn" onclick="showTeamTooltip(\'' + m.awayTeam.name.replace(/'/g,"\\'") + '\',\'' + m.stage + '\',event)">' + awayFlag + '<span class="jogo-team-name">' + awayName + '</span></button></div>' +
     '</div>' +
   '</div>';
 }
@@ -2018,23 +2018,48 @@ function renderJogoCard(m) {
 var _tooltipEl = null;
 var _tooltipTimer = null;
 
-function showTeamTooltip(apiName, event) {
+function showTeamTooltip(apiName, stage, event) {
+  if (stage && typeof stage === 'object') { event = stage; stage = 'GROUP_STAGE'; }
   event.stopPropagation();
   hideTooltip();
 
   var ptName = translate(apiName) || apiName;
   var ptNorm = normalize(ptName);
 
-  var apostadores = NAMES.filter(function(_, i) {
-    var p = PALPITES[i];
-    var todos = (p.grupos || []).concat(p.melhores_terceiros || []);
-    return todos.some(function(t) { return normalize(t) === ptNorm; });
-  });
+  var title, apostadores;
+  if (stage === 'LAST_32') {
+    title = 'Apostaram no avanço de ' + ptName;
+    apostadores = NAMES.filter(function(_, i) {
+      return (PALPITES[i].oitavas || []).some(function(t) { return normalize(t) === ptNorm; });
+    });
+  } else if (stage === 'LAST_16') {
+    title = 'Apostaram no avanço de ' + ptName;
+    apostadores = NAMES.filter(function(_, i) {
+      return (PALPITES[i].quartas || []).some(function(t) { return normalize(t) === ptNorm; });
+    });
+  } else if (stage === 'QUARTER_FINALS') {
+    title = 'Apostaram no avanço de ' + ptName;
+    apostadores = NAMES.filter(function(_, i) {
+      return (PALPITES[i].semis || []).some(function(t) { return normalize(t) === ptNorm; });
+    });
+  } else if (stage === 'SEMI_FINALS' || stage === 'FINAL') {
+    title = 'Apostaram no campeão: ' + ptName;
+    apostadores = NAMES.filter(function(_, i) {
+      return normalize(PALPITES[i].campeao || '') === ptNorm;
+    });
+  } else {
+    title = 'Apostaram em ' + ptName;
+    apostadores = NAMES.filter(function(_, i) {
+      var p = PALPITES[i];
+      var todos = (p.grupos || []).concat(p.melhores_terceiros || []);
+      return todos.some(function(t) { return normalize(t) === ptNorm; });
+    });
+  }
 
   var el = document.createElement('div');
   el.className = 'flag-tooltip';
 
-  var inner = '<div class="flag-tooltip-title">Apostaram em ' + ptName + '</div>';
+  var inner = '<div class="flag-tooltip-title">' + title + '</div>';
   if (apostadores.length === 0) {
     inner += '<div class="flag-tooltip-empty">Ninguém apostou nessa seleção</div>';
   } else {
@@ -2046,7 +2071,6 @@ function showTeamTooltip(apiName, event) {
   document.body.appendChild(el);
   _tooltipEl = el;
 
-  // Posicionar acima do clique
   var rect = event.currentTarget.getBoundingClientRect();
   var top = rect.top + window.scrollY - el.offsetHeight - 8;
   var left = rect.left + window.scrollX + (rect.width / 2) - (el.offsetWidth / 2);
