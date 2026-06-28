@@ -1733,6 +1733,30 @@ function flagImgCl(name, h) {
   return '<img src="https://flagcdn.com/h' + h + '/' + code + '.png" width="' + w + '" height="' + h + '" style="border-radius:2px;vertical-align:middle;object-fit:cover;flex-shrink:0" alt="' + name + '">';
 }
 
+// Chaveamento FIFA 2026 LAST_32: 16 confrontos em ordem cronológica
+var BRACKET_32 = [
+  {home:"2A",away:"2B"},{home:"1C",away:"2F"},{home:"1E",away:"3D"},{home:"1F",away:"2C"},
+  {home:"2E",away:"2I"},{home:"1I",away:"3F"},{home:"1A",away:"3E"},{home:"1L",away:"3K"},
+  {home:"1G",away:"3I"},{home:"1D",away:"3B"},{home:"1H",away:"2J"},{home:"1B",away:"3J"},
+  {home:"2K",away:"2L"},{home:"2D",away:"2G"},{home:"1J",away:"2H"},{home:"1K",away:"3L"}
+];
+
+function bracketTeam(key, standings) {
+  if (!key || !standings || !standings.length) return null;
+  var pos = parseInt(key[0], 10);
+  var letter = key[1];
+  for (var i = 0; i < standings.length; i++) {
+    if (standings[i].group === 'Group ' + letter) {
+      var grp = standings[i];
+      if (!grp.table || grp.table.length < pos) return null;
+      var sorted = grp.table.slice().sort(standingsCmp);
+      var row = sorted[pos - 1];
+      return row && row.team ? row.team.name : null;
+    }
+  }
+  return null;
+}
+
 // ===== CLASSIFICAÇÃO =====
 function setClassifTab(tab) {
   classifTab = tab;
@@ -1742,7 +1766,7 @@ function setClassifTab(tab) {
   });
 }
 
-function renderAvos(matches) {
+function renderAvos(matches, standings) {
   var el = document.getElementById('cl-avos-content');
   if (!matches || matches.length === 0) {
     el.innerHTML = '<div class="cl-loading" style="padding:30px 0;">Os confrontos dos 16 avos serão exibidos após o encerramento de todos os grupos.</div>';
@@ -1777,6 +1801,18 @@ function renderAvos(matches) {
     return '<div class="avos-team-row">' + flagEl + '<span class="' + nameClass + '">' + name + '</span>' + scoreEl + '</div>';
   }
 
+  // Build bracket index for LAST_32 matches
+  var last32 = matches.filter(function(m){return m.stage==='LAST_32';})
+                      .sort(function(a,b){return new Date(a.utcDate)-new Date(b.utcDate);});
+  var last32IdxMap = {};
+  last32.forEach(function(m,i){ last32IdxMap[m.id] = i; });
+
+  function resolveTeam(apiTeam, bracketKey) {
+    if (apiTeam && apiTeam.name && apiTeam.name !== 'TBD') return apiTeam;
+    var name = bracketTeam(bracketKey, standings);
+    return name ? {name: name} : null;
+  }
+
   var sorted = matches.slice().sort(function(a, b) { return new Date(a.utcDate) - new Date(b.utcDate); });
   var html = '';
   var lastDay = '';
@@ -1789,6 +1825,14 @@ function renderAvos(matches) {
       lastDay = day;
       html += '<div class="avos-date-sep">' + fmtDate(m.utcDate).split(' · ')[0] + '</div>';
     }
+
+    var bracket = {};
+    if (m.stage === 'LAST_32') {
+      var bidx = last32IdxMap[m.id];
+      if (bidx !== undefined) bracket = BRACKET_32[bidx] || {};
+    }
+    var homeTeam = resolveTeam(m.homeTeam, bracket.home);
+    var awayTeam = resolveTeam(m.awayTeam, bracket.away);
 
     var st = m.status;
     var cardClass = 'avos-match' + (st === 'FINISHED' ? ' done' : st === 'IN_PLAY' || st === 'PAUSED' ? ' live' : '');
@@ -1804,8 +1848,8 @@ function renderAvos(matches) {
 
     html += '<div class="' + cardClass + '">';
     html += '<div class="avos-match-top"><span class="avos-match-info">' + time + '</span>' + statusLabel + '</div>';
-    html += teamRow(m.homeTeam, hs, hw);
-    html += teamRow(m.awayTeam, as, aw);
+    html += teamRow(homeTeam, hs, hw);
+    html += teamRow(awayTeam, as, aw);
     html += '</div>';
   });
 
@@ -1827,16 +1871,16 @@ async function loadClassificacao(force) {
     // Jogos hoje
     renderJogosHoje(data.today_matches || []);
 
+    // Classificação e 3°s (computed first — needed by renderAvos)
+    const normalizedStandings = normalizeStandingsGroups(data.standings || [], data.matches || []);
+
     // 16 Avos
-    renderAvos(data.knockout_matches || []);
+    renderAvos(data.knockout_matches || [], normalizedStandings);
     if (data.updated) {
       const d = new Date(data.updated);
       const fmt = d.toLocaleString('pt-BR', {timeZone:'America/Sao_Paulo',day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'});
       document.getElementById('cl-jogos-updated').textContent = fmt + ' (Brasília)';
     }
-
-    // Classificação e 3°s
-    const normalizedStandings = normalizeStandingsGroups(data.standings || [], data.matches || []);
     const mainStandings = normalizedStandings.filter(function(s){ return s.table && s.table.length >= 2; });
     renderClassifGroups(mainStandings);
     renderClassifThirds(mainStandings);
