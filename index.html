@@ -1822,7 +1822,7 @@ function renderAvos(matches, standings) {
       ? '<span class="avos-score ' + (isWinner ? 'win' : 'loss') + '">' + score + '</span>'
       : '';
     if (name !== 'A definir') {
-      return '<div class="avos-team-row avos-clickable" onclick="showKnockoutTooltip(' + JSON.stringify(name) + ',\'oitavas\',event)">' + flagEl + '<span class="' + nameClass + '">' + name + '</span>' + scoreEl + '</div>';
+      return '<div class="avos-team-row avos-clickable" onclick="showKnockoutTooltip(' + JSON.stringify(name) + ',\'dezesseis_avos\',event)">' + flagEl + '<span class="' + nameClass + '">' + name + '</span>' + scoreEl + '</div>';
     }
     return '<div class="avos-team-row">' + flagEl + '<span class="' + nameClass + '">' + name + '</span>' + scoreEl + '</div>';
   }
@@ -2028,21 +2028,26 @@ function showTeamTooltip(apiName, stage, event) {
 
   var title, apostadores;
   if (stage === 'LAST_32') {
-    title = 'Apostaram no avanço de ' + ptName;
+    title = 'Apostaram nos 16 avos: ' + ptName;
+    apostadores = NAMES.filter(function(_, i) {
+      return (PALPITES[i].dezesseis_avos || []).some(function(t) { return normalize(t) === ptNorm; });
+    });
+  } else if (stage === 'LAST_16') {
+    title = 'Apostaram nas oitavas: ' + ptName;
     apostadores = NAMES.filter(function(_, i) {
       return (PALPITES[i].oitavas || []).some(function(t) { return normalize(t) === ptNorm; });
     });
-  } else if (stage === 'LAST_16') {
-    title = 'Apostaram no avanço de ' + ptName;
+  } else if (stage === 'QUARTER_FINALS') {
+    title = 'Apostaram nas quartas: ' + ptName;
     apostadores = NAMES.filter(function(_, i) {
       return (PALPITES[i].quartas || []).some(function(t) { return normalize(t) === ptNorm; });
     });
-  } else if (stage === 'QUARTER_FINALS') {
-    title = 'Apostaram no avanço de ' + ptName;
+  } else if (stage === 'SEMI_FINALS') {
+    title = 'Apostaram nas semis: ' + ptName;
     apostadores = NAMES.filter(function(_, i) {
       return (PALPITES[i].semis || []).some(function(t) { return normalize(t) === ptNorm; });
     });
-  } else if (stage === 'SEMI_FINALS' || stage === 'FINAL') {
+  } else if (stage === 'FINAL') {
     title = 'Apostaram no campeão: ' + ptName;
     apostadores = NAMES.filter(function(_, i) {
       return normalize(PALPITES[i].campeao || '') === ptNorm;
