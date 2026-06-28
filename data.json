@@ -4737,6 +4737,72 @@
           "nationality": "Uzbekistan"
         }
       ]
+    },
+    {
+      "area": {
+        "id": 2267,
+        "name": "World",
+        "code": "INT",
+        "flag": null
+      },
+      "competition": {
+        "id": 2000,
+        "name": "FIFA World Cup",
+        "code": "WC",
+        "type": "CUP",
+        "emblem": "https://crests.football-data.org/wm26.png"
+      },
+      "season": {
+        "id": 2398,
+        "startDate": "2026-06-11",
+        "endDate": "2026-07-19",
+        "currentMatchday": 3,
+        "winner": null
+      },
+      "id": 537417,
+      "utcDate": "2026-06-28T19:00:00Z",
+      "status": "FINISHED",
+      "matchday": null,
+      "stage": "LAST_32",
+      "group": null,
+      "lastUpdated": "2026-06-28T21:02:00Z",
+      "homeTeam": {
+        "id": 774,
+        "name": "South Africa",
+        "shortName": "South Africa",
+        "tla": "RSA",
+        "crest": "https://crests.football-data.org/9396.svg"
+      },
+      "awayTeam": {
+        "id": 828,
+        "name": "Canada",
+        "shortName": "Canada",
+        "tla": "CAN",
+        "crest": "https://crests.football-data.org/canada.svg"
+      },
+      "score": {
+        "winner": "AWAY_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "home": 0,
+          "away": 1
+        },
+        "halfTime": {
+          "home": 0,
+          "away": 0
+        }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": [
+        {
+          "id": 38806,
+          "name": "João Pinheiro",
+          "type": "REFEREE",
+          "nationality": "Portugal"
+        }
+      ]
     }
   ],
   "today_matches": [
@@ -4895,11 +4961,11 @@
       },
       "id": 537417,
       "utcDate": "2026-06-28T19:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-06-28T19:48:06Z",
+      "lastUpdated": "2026-06-28T21:02:00Z",
       "homeTeam": {
         "id": 774,
         "name": "South Africa",
@@ -4915,15 +4981,15 @@
         "crest": "https://crests.football-data.org/canada.svg"
       },
       "score": {
-        "winner": "DRAW",
+        "winner": "AWAY_TEAM",
         "duration": "REGULAR",
         "fullTime": {
           "home": 0,
-          "away": 0
+          "away": 1
         },
         "halfTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         }
       },
       "odds": {
@@ -5081,11 +5147,11 @@
       },
       "id": 537417,
       "utcDate": "2026-06-28T19:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-06-28T19:48:42Z",
+      "lastUpdated": "2026-06-28T21:02:00Z",
       "homeTeam": {
         "id": 774,
         "name": "South Africa",
@@ -5101,15 +5167,15 @@
         "crest": "https://crests.football-data.org/canada.svg"
       },
       "score": {
-        "winner": "DRAW",
+        "winner": "AWAY_TEAM",
         "duration": "REGULAR",
         "fullTime": {
           "home": 0,
-          "away": 0
+          "away": 1
         },
         "halfTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         }
       },
       "odds": {
@@ -7480,5 +7546,5 @@
       ]
     }
   ],
-  "updated": "2026-06-28T19:48:43Z"
+  "updated": "2026-06-28T21:11:50Z"
 }
