@@ -609,7 +609,7 @@ body::before{
       </div>
     </div>
   </div>
-  <div class="page-footer">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.1</span></div>
+  <div class="page-footer">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.2</span></div>
 </div>
 
 <!-- ============================
@@ -747,7 +747,7 @@ body::before{
       </div>
 
     </div>
-    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.1</span></div>
+    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.2</span></div>
   </div>
 </div>
 
@@ -813,7 +813,7 @@ body::before{
         Classificados fase de grupos: 32 pts (24 top 1°/2° + 8 melhores 3°s, 1pt cada) · 16 Avos 2pts · Oitavas 3pts · Quartas 4pts · Semis 5pts · Final 8pts · Campeão 25pts
       </div>
     </div>
-    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.1</span></div>
+    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.2</span></div>
   </div>
 </div>
 
@@ -881,7 +881,7 @@ body::before{
       </div>
     </div>
   </div>
-  <div class="page-footer" style="margin-top:4px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.1</span></div>
+  <div class="page-footer" style="margin-top:4px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.2</span></div>
 </div>
 
 <!-- Modal Comparativo -->
@@ -896,6 +896,7 @@ body::before{
 </div>
 
 <script>
+
 
 
 
@@ -1283,10 +1284,9 @@ function calcRealPoints(finishedMatches, standings) {
     let ptsGroup = 0;
     let pts = 0;
 
-    // Grupos encerrados: 1 pt por top2 acertado
-    realTop2.forEach(t => { if (inList(t, p.grupos)) ptsGroup += 1; });
-    // Melhores 3° só quando TODOS os grupos encerraram
-    realBest8.forEach(t => { if (inList(t, p.melhores_terceiros)) ptsGroup += 1; });
+    // Regra: qualquer time classificado (top2 OU melhor 3°) que estava em qualquer das 32 apostas
+    const apostas32 = [...p.grupos, ...(p.melhores_terceiros || [])];
+    [...realTop2, ...realBest8].forEach(t => { if (inList(t, apostas32)) ptsGroup += 1; });
     pts += ptsGroup;
 
     // 16 avos
@@ -1351,11 +1351,10 @@ function calcVirtualPoints(realScores, standings) {
 
   return realScores.map(s => {
     const p = PALPITES[s.idx];
-    // Usa a mesma separação do calcRealPoints: top2 → p.grupos, best8thirds → p.melhores_terceiros
-    // Isso garante que real e virtual sejam consistentes quando todos os grupos encerrarem
+    // Regra: qualquer time classificado (top2 OU melhor 3°) que estava em qualquer das 32 apostas
+    const apostas32 = [...p.grupos, ...p.melhores_terceiros];
     let gruposPts = 0;
-    top2.forEach(t => { if (inList(t, p.grupos)) gruposPts += 1; });
-    best8thirds.forEach(t => { if (inList(t, p.melhores_terceiros)) gruposPts += 1; });
+    classificados32.forEach(t => { if (inList(t, apostas32)) gruposPts += 1; });
     const knockoutPts = s.real - (s.realGroup || 0);
     return {...s, virtual: gruposPts + knockoutPts};
   });
@@ -2131,6 +2130,7 @@ function renderClassifThirds(standings) {
 </script>
 </body>
 </html>
+
 
 
 
