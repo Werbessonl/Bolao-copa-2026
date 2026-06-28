@@ -275,9 +275,11 @@ body::before{
 #cl-tab-thirds.active{background:#C9A84C;border-color:#C9A84C;color:#fff;}
 .avos-date-sep{font-size:10px;color:#7A90D0;padding:12px 0 6px;font-weight:600;}
 .avos-date-sep:first-child{padding-top:0;}
-.avos-match{background:#0F1870;border:1px solid rgba(255,255,255,0.1);border-left:3px solid #7AB0F0;border-radius:10px;overflow:hidden;margin-bottom:8px;}
+.avos-match{background:#0F1870;border:1px solid rgba(255,255,255,0.1);border-left:3px solid #7AB0F0;border-radius:10px;overflow:hidden;margin-bottom:2px;}
 .avos-match.done{border-left-color:#3CAC3B;}
 .avos-match.live{border-left-color:#E61D25;}
+.bracket-pair{display:flex;flex-direction:column;margin-bottom:14px;position:relative;padding-right:14px;}
+.bracket-pair::after{content:'';position:absolute;right:0;top:18px;bottom:18px;border-right:2px solid rgba(122,160,240,0.25);border-top:2px solid rgba(122,160,240,0.25);border-bottom:2px solid rgba(122,160,240,0.25);border-radius:0 5px 5px 0;width:10px;}
 .avos-match-top{display:flex;align-items:center;justify-content:space-between;padding:5px 10px;background:rgba(0,0,0,0.2);}
 .avos-match-info{font-size:9px;color:#7A90D0;font-weight:600;}
 .avos-team-row{display:flex;align-items:center;gap:10px;padding:10px 12px;}
@@ -1741,6 +1743,18 @@ var BRACKET_32 = [
   {home:"2K",away:"2L"},{home:"2D",away:"2G"},{home:"1J",away:"2H"},{home:"1K",away:"3L"}
 ];
 
+// Pares do chaveamento: índices em BRACKET_32 que se enfrentam na mesma oitava
+var BRACKET_PAIRS_32 = [
+  [0, 3],   // África do Sul/Canadá ↔ Países Baixos/Marrocos
+  [2, 5],   // Alemanha/Paraguai ↔ França/Suécia
+  [1, 4],   // Brasil/Japão ↔ Costa do Marfim/Noruega
+  [6, 7],   // México/Equador ↔ Inglaterra/Congo DR
+  [8, 9],   // Bélgica/Senegal ↔ EUA/Bósnia
+  [10, 12], // Espanha/Áustria ↔ Portugal/Croácia
+  [11, 13], // Suíça/Argélia ↔ Austrália/Egito
+  [14, 15]  // Argentina/Cabo Verde ↔ Colômbia/Gana
+];
+
 function bracketTeam(key, standings) {
   if (!key || !standings || !standings.length) return null;
   var pos = parseInt(key[0], 10);
@@ -1813,44 +1827,35 @@ function renderAvos(matches, standings) {
     return name ? {name: name} : null;
   }
 
-  var sorted = matches.filter(function(m){ return m.stage === 'LAST_32'; })
-                      .sort(function(a, b) { return new Date(a.utcDate) - new Date(b.utcDate); });
-  var html = '';
-  var lastDay = '';
-
-  sorted.forEach(function(m) {
-    var d = new Date(m.utcDate);
-    var brt = new Date(d.toLocaleString('en-US', ptBR));
-    var day = brt.getFullYear() + '-' + brt.getMonth() + '-' + brt.getDate();
-    if (day !== lastDay) {
-      lastDay = day;
-      html += '<div class="avos-date-sep">' + fmtDate(m.utcDate).split(' · ')[0] + '</div>';
-    }
-
-    var bracket = {};
-    if (m.stage === 'LAST_32') {
-      var bidx = last32IdxMap[m.id];
-      if (bidx !== undefined) bracket = BRACKET_32[bidx] || {};
-    }
+  function renderMatchCard(m, bracketIdx) {
+    var bracket = BRACKET_32[bracketIdx] || {};
     var homeTeam = resolveTeam(m.homeTeam, bracket.home);
     var awayTeam = resolveTeam(m.awayTeam, bracket.away);
-
     var st = m.status;
     var cardClass = 'avos-match' + (st === 'FINISHED' ? ' done' : st === 'IN_PLAY' || st === 'PAUSED' ? ' live' : '');
     var statusLabel = st === 'FINISHED' ? '<span class="phase-pill done">Encerrado</span>'
       : st === 'IN_PLAY' || st === 'PAUSED' ? '<span class="phase-pill live">Ao Vivo</span>'
       : '<span class="phase-pill next">Agendado</span>';
-
-    var time = fmtDate(m.utcDate).split(' · ')[1];
+    var dateTime = fmtDate(m.utcDate);
     var fin = st === 'FINISHED';
     var hs = fin ? m.score.fullTime.home : null;
     var as = fin ? m.score.fullTime.away : null;
     var hw = fin && hs > as, aw = fin && as > hs;
+    var out = '<div class="' + cardClass + '">';
+    out += '<div class="avos-match-top"><span class="avos-match-info">' + dateTime + '</span>' + statusLabel + '</div>';
+    out += teamRow(homeTeam, hs, hw);
+    out += teamRow(awayTeam, as, aw);
+    out += '</div>';
+    return out;
+  }
 
-    html += '<div class="' + cardClass + '">';
-    html += '<div class="avos-match-top"><span class="avos-match-info">' + time + '</span>' + statusLabel + '</div>';
-    html += teamRow(homeTeam, hs, hw);
-    html += teamRow(awayTeam, as, aw);
+  var html = '';
+  BRACKET_PAIRS_32.forEach(function(pair) {
+    html += '<div class="bracket-pair">';
+    pair.forEach(function(bracketIdx) {
+      var m = last32[bracketIdx];
+      if (m) html += renderMatchCard(m, bracketIdx);
+    });
     html += '</div>';
   });
 
