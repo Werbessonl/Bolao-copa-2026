@@ -298,6 +298,8 @@ body::before{
 .avos-score.loss{color:#FF4D55;}
 .avos-pen-info{font-size:9px;font-weight:700;color:#F0C040;background:rgba(240,192,64,0.15);padding:2px 6px;border-radius:8px;}
 .avos-flag-ph{width:20px;height:13px;border-radius:2px;background:#1A2550;display:flex;align-items:center;justify-content:center;font-size:7px;color:#7A90D0;font-weight:700;flex-shrink:0;}
+.avos-clickable{cursor:pointer;transition:background .12s;}
+.avos-clickable:active{background:rgba(255,255,255,0.06);}
 .cl-live-badge{background:#fff;color:#E61D25;font-size:7px;font-weight:900;padding:1px 5px;border-radius:8px;letter-spacing:.3px;margin-left:2px;}
 
 /* Cazé TV */
@@ -1819,6 +1821,9 @@ function renderAvos(matches, standings) {
     var scoreEl = score !== null && score !== undefined
       ? '<span class="avos-score ' + (isWinner ? 'win' : 'loss') + '">' + score + '</span>'
       : '';
+    if (name !== 'A definir') {
+      return '<div class="avos-team-row avos-clickable" onclick="showKnockoutTooltip(' + JSON.stringify(name) + ',\'oitavas\',event)">' + flagEl + '<span class="' + nameClass + '">' + name + '</span>' + scoreEl + '</div>';
+    }
     return '<div class="avos-team-row">' + flagEl + '<span class="' + nameClass + '">' + name + '</span>' + scoreEl + '</div>';
   }
 
@@ -2053,13 +2058,45 @@ function showTeamTooltip(apiName, event) {
   _tooltipTimer = setTimeout(hideTooltip, 4000);
 }
 
+function showKnockoutTooltip(ptName, field, event) {
+  event.stopPropagation();
+  hideTooltip();
+  var ptNorm = normalize(ptName);
+  var apostadores = NAMES.filter(function(_, i) {
+    var p = PALPITES[i];
+    var lista = p[field] || [];
+    return lista.some(function(t) { return normalize(t) === ptNorm; });
+  });
+  var el = document.createElement('div');
+  el.className = 'flag-tooltip';
+  var inner = '<div class="flag-tooltip-title">Apostaram no avanço de ' + ptName + '</div>';
+  if (apostadores.length === 0) {
+    inner += '<div class="flag-tooltip-empty">Ninguém apostou nessa seleção</div>';
+  } else {
+    apostadores.forEach(function(n) {
+      inner += '<div class="flag-tooltip-name">– ' + n.split(' ')[0] + '</div>';
+    });
+  }
+  el.innerHTML = inner;
+  document.body.appendChild(el);
+  _tooltipEl = el;
+  var rect = event.currentTarget.getBoundingClientRect();
+  var top = rect.top + window.scrollY - el.offsetHeight - 8;
+  var left = rect.left + window.scrollX + (rect.width / 2) - (el.offsetWidth / 2);
+  if (top < 8) top = rect.bottom + window.scrollY + 8;
+  left = Math.max(8, Math.min(left, window.innerWidth - el.offsetWidth - 8));
+  el.style.top = top + 'px';
+  el.style.left = left + 'px';
+  _tooltipTimer = setTimeout(hideTooltip, 4000);
+}
+
 function hideTooltip() {
   if (_tooltipEl) { _tooltipEl.remove(); _tooltipEl = null; }
   if (_tooltipTimer) { clearTimeout(_tooltipTimer); _tooltipTimer = null; }
 }
 
 document.addEventListener('click', function(e) {
-  if (_tooltipEl && !e.target.closest('.jogo-flag-btn')) hideTooltip();
+  if (_tooltipEl && !e.target.closest('.jogo-flag-btn') && !e.target.closest('.avos-clickable')) hideTooltip();
 });
 
 function standingsCmp(a, b) {
