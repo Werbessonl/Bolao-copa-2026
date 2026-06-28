@@ -115,6 +115,7 @@ Andressa · Boaventura · Bruno · Claudio Henrique · Everton Paes · Fabio Fis
 | 4.2 | Correção crítica: `const HTMLS` ausente do `hb_json.txt` restaurado — apostas voltam a funcionar |
 | 4.3 | `viewport-fit=cover` + `safe-area-inset-top` no navbar/home-header — barra do iPhone fica azul escuro |
 | 4.4 | Overscroll background vermelho `#E61D25` — fundo ao deslizar além do limite da página |
+| 4.9 | Nova aba "16 Avos" em Ao Vivo (layout lista, times A definir para grupos pendentes), workflow busca partidas eliminatórias agendadas |
 | 4.8 | Arte da Thais corrigida: melhores 3° exibem o que ela de fato apostou (Argentina, França, Brasil, Alemanha, Portugal, Espanha, Inglaterra, Holanda) |
 | 4.7 | Fix palpites Thais (melhores_terceiros corretos), fix virtual double-counting, melhores 3° reais só quando todos grupos encerram |
 | 4.6 | Fix ranking real: `calcRealPoints` agora pontua grupos encerrados (1 pt por classificado confirmado) |

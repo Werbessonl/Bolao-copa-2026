@@ -270,8 +270,24 @@ body::before{
 .cl-tabs{display:flex;gap:6px;margin-bottom:14px;max-width:900px;margin-left:auto;margin-right:auto;flex-wrap:wrap;}
 .cl-tab{padding:6px 14px;border-radius:20px;font-size:10px;font-weight:700;cursor:pointer;border:1px solid rgba(255,255,255,0.14);color:#B8C8F0;background:#0F1870;transition:all .15s;display:flex;align-items:center;gap:5px;}
 #cl-tab-jogos.active{background:#E61D25;border-color:#E61D25;color:#fff;}
+#cl-tab-avos.active{background:#7AB0F0;border-color:#7AB0F0;color:#111B7A;}
 #cl-tab-class.active{background:#3CAC3B;border-color:#3CAC3B;color:#fff;}
 #cl-tab-thirds.active{background:#C9A84C;border-color:#C9A84C;color:#fff;}
+.avos-date-sep{font-size:10px;color:#7A90D0;padding:12px 0 6px;font-weight:600;}
+.avos-date-sep:first-child{padding-top:0;}
+.avos-match{background:#0F1870;border:1px solid rgba(255,255,255,0.1);border-left:3px solid #7AB0F0;border-radius:10px;overflow:hidden;margin-bottom:8px;}
+.avos-match.done{border-left-color:#3CAC3B;}
+.avos-match.live{border-left-color:#E61D25;}
+.avos-match-top{display:flex;align-items:center;justify-content:space-between;padding:5px 10px;background:rgba(0,0,0,0.2);}
+.avos-match-info{font-size:9px;color:#7A90D0;font-weight:600;}
+.avos-team-row{display:flex;align-items:center;gap:10px;padding:10px 12px;}
+.avos-team-row+.avos-team-row{border-top:1px solid rgba(255,255,255,0.06);}
+.avos-team-name{flex:1;font-size:13px;font-weight:700;color:#fff;}
+.avos-team-name.tbd{color:#7A90D0;font-style:italic;font-weight:400;}
+.avos-score{font-size:14px;font-weight:900;min-width:16px;text-align:right;}
+.avos-score.win{color:#5DC85C;}
+.avos-score.loss{color:#FF4D55;}
+.avos-flag-ph{width:20px;height:13px;border-radius:2px;background:#1A2550;display:flex;align-items:center;justify-content:center;font-size:7px;color:#7A90D0;font-weight:700;flex-shrink:0;}
 .cl-live-badge{background:#fff;color:#E61D25;font-size:7px;font-weight:900;padding:1px 5px;border-radius:8px;letter-spacing:.3px;margin-left:2px;}
 
 /* Cazé TV */
@@ -583,7 +599,7 @@ body::before{
       </div>
     </div>
   </div>
-  <div class="page-footer">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.4.8</span></div>
+  <div class="page-footer">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.4.9</span></div>
 </div>
 
 <!-- ============================
@@ -721,7 +737,7 @@ body::before{
       </div>
 
     </div>
-    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.4.8</span></div>
+    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.4.9</span></div>
   </div>
 </div>
 
@@ -787,7 +803,7 @@ body::before{
         Classificados fase de grupos: 32 pts (24 top 1°/2° + 8 melhores 3°s, 1pt cada) · 16 Avos 2pts · Oitavas 3pts · Quartas 4pts · Semis 5pts · Final 8pts · Campeão 25pts
       </div>
     </div>
-    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.4.8</span></div>
+    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.4.9</span></div>
   </div>
 </div>
 
@@ -816,6 +832,7 @@ body::before{
   <div class="cl-body">
     <div class="cl-tabs">
       <span class="cl-tab active" id="cl-tab-jogos" onclick="setClassifTab('jogos')"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Jogos Hoje<span id="cl-live-count" class="cl-live-badge" style="display:none">0 AO VIVO</span></span>
+      <span class="cl-tab" id="cl-tab-avos" onclick="setClassifTab('avos')"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/></svg>16 Avos</span>
       <span class="cl-tab" id="cl-tab-class" onclick="setClassifTab('class')"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>Classificados</span>
       <span class="cl-tab" id="cl-tab-thirds" onclick="setClassifTab('thirds')"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>Disputa dos 3°s</span>
     </div>
@@ -836,6 +853,9 @@ body::before{
           <span id="cl-jogos-updated"></span>
         </div>
       </div>
+      <div id="cl-panel-avos" style="display:none">
+        <div id="cl-avos-content"></div>
+      </div>
       <div id="cl-panel-class" style="display:none">
         <div class="cl-warn"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;flex-shrink:0"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> Grupos ainda em disputa: classificados provisórios até o encerramento de cada grupo.</div>
         <div class="cl-groups-grid" id="cl-groups-grid"></div>
@@ -851,7 +871,7 @@ body::before{
       </div>
     </div>
   </div>
-  <div class="page-footer" style="margin-top:4px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.4.8</span></div>
+  <div class="page-footer" style="margin-top:4px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.4.9</span></div>
 </div>
 
 <!-- Modal Comparativo -->
@@ -866,6 +886,7 @@ body::before{
 </div>
 
 <script>
+
 
 
 
@@ -1716,10 +1737,80 @@ function flagImgCl(name, h) {
 // ===== CLASSIFICAÇÃO =====
 function setClassifTab(tab) {
   classifTab = tab;
-  ['jogos','class','thirds'].forEach(function(t) {
+  ['jogos','avos','class','thirds'].forEach(function(t) {
     document.getElementById('cl-tab-' + t).classList.toggle('active', tab === t);
     document.getElementById('cl-panel-' + t).style.display = tab === t ? '' : 'none';
   });
+}
+
+function renderAvos(matches) {
+  var el = document.getElementById('cl-avos-content');
+  if (!matches || matches.length === 0) {
+    el.innerHTML = '<div class="cl-loading" style="padding:30px 0;">Os confrontos dos 16 avos serão exibidos após o encerramento de todos os grupos.</div>';
+    return;
+  }
+
+  var ptBR = {timeZone:'America/Sao_Paulo'};
+  var dayNames = ['Dom.','Seg.','Ter.','Qua.','Qui.','Sex.','Sáb.'];
+  var monthNames = ['jan.','fev.','mar.','abr.','mai.','jun.','jul.','ago.','set.','out.','nov.','dez.'];
+
+  function fmtDate(utc) {
+    var d = new Date(utc);
+    var brt = new Date(d.toLocaleString('en-US', ptBR));
+    return dayNames[brt.getDay()] + ', ' + brt.getDate() + ' de ' + monthNames[brt.getMonth()] + ' · ' + String(brt.getHours()).padStart(2,'0') + ':' + String(brt.getMinutes()).padStart(2,'0');
+  }
+
+  function flagImg(team) {
+    if (!team || !team.name || team.name === 'TBD') return null;
+    var code = TEAM_FLAGS[team.name] || TEAM_FLAGS[translate(team.name)] || null;
+    if (!code) return null;
+    return '<img src="https://flagcdn.com/h20/' + code + '.png" width="20" height="13" style="border-radius:2px;flex-shrink:0" alt="' + team.name + '">';
+  }
+
+  function teamRow(team, score, isWinner) {
+    var flag = flagImg(team);
+    var flagEl = flag || '<div class="avos-flag-ph">' + (team && team.name && team.name !== 'TBD' ? team.name.substring(0,2).toUpperCase() : '?') + '</div>';
+    var name = team && team.name && team.name !== 'TBD' ? (translate(team.name) || team.name) : 'A definir';
+    var nameClass = (name === 'A definir') ? 'avos-team-name tbd' : 'avos-team-name';
+    var scoreEl = score !== null && score !== undefined
+      ? '<span class="avos-score ' + (isWinner ? 'win' : 'loss') + '">' + score + '</span>'
+      : '';
+    return '<div class="avos-team-row">' + flagEl + '<span class="' + nameClass + '">' + name + '</span>' + scoreEl + '</div>';
+  }
+
+  var sorted = matches.slice().sort(function(a, b) { return new Date(a.utcDate) - new Date(b.utcDate); });
+  var html = '';
+  var lastDay = '';
+
+  sorted.forEach(function(m) {
+    var d = new Date(m.utcDate);
+    var brt = new Date(d.toLocaleString('en-US', ptBR));
+    var day = brt.getFullYear() + '-' + brt.getMonth() + '-' + brt.getDate();
+    if (day !== lastDay) {
+      lastDay = day;
+      html += '<div class="avos-date-sep">' + fmtDate(m.utcDate).split(' · ')[0] + '</div>';
+    }
+
+    var st = m.status;
+    var cardClass = 'avos-match' + (st === 'FINISHED' ? ' done' : st === 'IN_PLAY' || st === 'PAUSED' ? ' live' : '');
+    var statusLabel = st === 'FINISHED' ? '<span class="phase-pill done">Encerrado</span>'
+      : st === 'IN_PLAY' || st === 'PAUSED' ? '<span class="phase-pill live">Ao Vivo</span>'
+      : '<span class="phase-pill next">Agendado</span>';
+
+    var time = fmtDate(m.utcDate).split(' · ')[1];
+    var fin = st === 'FINISHED';
+    var hs = fin ? m.score.fullTime.home : null;
+    var as = fin ? m.score.fullTime.away : null;
+    var hw = fin && hs > as, aw = fin && as > hs;
+
+    html += '<div class="' + cardClass + '">';
+    html += '<div class="avos-match-top"><span class="avos-match-info">' + time + '</span>' + statusLabel + '</div>';
+    html += teamRow(m.homeTeam, hs, hw);
+    html += teamRow(m.awayTeam, as, aw);
+    html += '</div>';
+  });
+
+  el.innerHTML = html;
 }
 
 async function loadClassificacao(force) {
@@ -1736,6 +1827,9 @@ async function loadClassificacao(force) {
 
     // Jogos hoje
     renderJogosHoje(data.today_matches || []);
+
+    // 16 Avos
+    renderAvos(data.knockout_matches || []);
     if (data.updated) {
       const d = new Date(data.updated);
       const fmt = d.toLocaleString('pt-BR', {timeZone:'America/Sao_Paulo',day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'});
@@ -1971,6 +2065,7 @@ function renderClassifThirds(standings) {
 </script>
 </body>
 </html>
+
 
 
 
