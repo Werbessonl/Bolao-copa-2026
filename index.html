@@ -609,7 +609,7 @@ body::before{
       </div>
     </div>
   </div>
-  <div class="page-footer">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.4.9</span></div>
+  <div class="page-footer">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.0</span></div>
 </div>
 
 <!-- ============================
@@ -747,7 +747,7 @@ body::before{
       </div>
 
     </div>
-    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.4.9</span></div>
+    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.0</span></div>
   </div>
 </div>
 
@@ -813,7 +813,7 @@ body::before{
         Classificados fase de grupos: 32 pts (24 top 1°/2° + 8 melhores 3°s, 1pt cada) · 16 Avos 2pts · Oitavas 3pts · Quartas 4pts · Semis 5pts · Final 8pts · Campeão 25pts
       </div>
     </div>
-    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.4.9</span></div>
+    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.0</span></div>
   </div>
 </div>
 
@@ -881,7 +881,7 @@ body::before{
       </div>
     </div>
   </div>
-  <div class="page-footer" style="margin-top:4px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.4.9</span></div>
+  <div class="page-footer" style="margin-top:4px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.0</span></div>
 </div>
 
 <!-- Modal Comparativo -->
@@ -896,6 +896,7 @@ body::before{
 </div>
 
 <script>
+
 
 
 
@@ -995,7 +996,7 @@ const PALPITES = [
   // 6 Jorge Patricio
   {
     grupos: ["México","Coreia do Sul","Suíça","Canadá","Brasil","Marrocos","Estados Unidos","Turquia","Alemanha","Equador","Holanda","Japão","Bélgica","Egito","Espanha","Uruguai","França","Senegal","Argentina","Áustria","Portugal","Colômbia","Inglaterra","Croácia"],
-    melhores_terceiros: ["Escócia","Suécia","Noruega","Argélia","Costa do Marfim","Austrália","Gana","República Tcheca"],
+    melhores_terceiros: ["Escócia","Suécia","Noruega","Argélia","Costa do Marfim","Austrália","Gana","Tchéquia"],
     dezesseis_avos: ["Alemanha","França","Coreia do Sul","Holanda","Colômbia","Espanha","Estados Unidos","Bélgica","Brasil","Equador","México","Inglaterra","Argentina","Turquia","Suíça","Portugal"],
     oitavas: ["França","Holanda","Espanha","Bélgica","Brasil","Equador","Argentina","Portugal"],
     quartas: ["França","Espanha","Argentina","Brasil"],
@@ -1281,10 +1282,10 @@ function calcRealPoints(finishedMatches, standings) {
     let ptsGroup = 0;
     let pts = 0;
 
-    // Grupos encerrados: pool combinado (qualquer das 32 apostas casa com qualquer dos 32 classificados)
-    const apostasGrupo = [...p.grupos, ...p.melhores_terceiros];
-    const realClassificados = [...realTop2, ...realBest8];
-    realClassificados.forEach(t => { if (inList(t, apostasGrupo)) ptsGroup += 1; });
+    // Grupos encerrados: 1 pt por top2 acertado
+    realTop2.forEach(t => { if (inList(t, p.grupos)) ptsGroup += 1; });
+    // Melhores 3° só quando TODOS os grupos encerraram
+    realBest8.forEach(t => { if (inList(t, p.melhores_terceiros)) ptsGroup += 1; });
     pts += ptsGroup;
 
     // 16 avos
@@ -1338,10 +1339,11 @@ function calcVirtualPoints(realScores, standings) {
     });
   });
 
-  // 8 melhores terceiros — só calcula quando todos os 12 grupos tiverem standings
-  const best8thirds = thirds.length >= 12
-    ? thirds.sort(standingsCmp).slice(0, 8).map(r => r.team.name)
-    : [];
+  // 8 melhores terceiros (ordenados por pontos, saldo, gols)
+  const best8thirds = thirds
+    .sort(standingsCmp)
+    .slice(0, 8)
+    .map(r => r.team.name);
 
   // Pool única dos 32 classificados (24 top2 + 8 melhores 3os)
   const classificados32 = [...top2, ...best8thirds];
@@ -1743,6 +1745,15 @@ function flagImgCl(name, h) {
   return '<img src="https://flagcdn.com/h' + h + '/' + code + '.png" width="' + w + '" height="' + h + '" style="border-radius:2px;vertical-align:middle;object-fit:cover;flex-shrink:0" alt="' + name + '">';
 }
 
+// ===== CLASSIFICAÇÃO =====
+function setClassifTab(tab) {
+  classifTab = tab;
+  ['jogos','avos','class','thirds'].forEach(function(t) {
+    document.getElementById('cl-tab-' + t).classList.toggle('active', tab === t);
+    document.getElementById('cl-panel-' + t).style.display = tab === t ? '' : 'none';
+  });
+}
+
 // Chaveamento FIFA 2026 LAST_32: 16 confrontos em ordem cronológica
 var BRACKET_32 = [
   {home:"2A",away:"2B"},{home:"1C",away:"2F"},{home:"1E",away:"3D"},{home:"1F",away:"2C"},
@@ -1756,18 +1767,10 @@ var BRACKET_SIDES = [
   {
     key: 'a', label: 'Chave A',
     pairs: [[0,3],[2,5],[8,9],[10,12]]
-    // África do Sul/Canadá + Países Baixos/Marrocos
-    // Alemanha/Paraguai + França/Suécia
-    // Bélgica/Senegal + EUA/Bósnia
-    // Espanha/Áustria + Portugal/Croácia
   },
   {
     key: 'b', label: 'Chave B',
     pairs: [[1,4],[6,7],[11,13],[14,15]]
-    // Brasil/Japão + Costa do Marfim/Noruega
-    // México/Equador + Inglaterra/Congo DR
-    // Suíça/Argélia + Austrália/Egito
-    // Argentina/Cabo Verde + Colômbia/Gana
   }
 ];
 
@@ -1785,15 +1788,6 @@ function bracketTeam(key, standings) {
     }
   }
   return null;
-}
-
-// ===== CLASSIFICAÇÃO =====
-function setClassifTab(tab) {
-  classifTab = tab;
-  ['jogos','avos','class','thirds'].forEach(function(t) {
-    document.getElementById('cl-tab-' + t).classList.toggle('active', tab === t);
-    document.getElementById('cl-panel-' + t).style.display = tab === t ? '' : 'none';
-  });
 }
 
 function renderAvos(matches, standings) {
@@ -1834,8 +1828,6 @@ function renderAvos(matches, standings) {
   // Build bracket index for LAST_32 matches
   var last32 = matches.filter(function(m){return m.stage==='LAST_32';})
                       .sort(function(a,b){return new Date(a.utcDate)-new Date(b.utcDate);});
-  var last32IdxMap = {};
-  last32.forEach(function(m,i){ last32IdxMap[m.id] = i; });
 
   function resolveTeam(apiTeam, bracketKey) {
     if (apiTeam && apiTeam.name && apiTeam.name !== 'TBD') return apiTeam;
@@ -2141,6 +2133,7 @@ function renderClassifThirds(standings) {
 </script>
 </body>
 </html>
+
 
 
 
