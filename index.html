@@ -276,10 +276,17 @@ body::before{
 .avos-date-sep{font-size:10px;color:#7A90D0;padding:12px 0 6px;font-weight:600;}
 .avos-date-sep:first-child{padding-top:0;}
 .avos-match{background:#0F1870;border:1px solid rgba(255,255,255,0.1);border-left:3px solid #7AB0F0;border-radius:10px;overflow:hidden;margin-bottom:2px;}
-.avos-match.done{border-left-color:#3CAC3B;}
-.avos-match.live{border-left-color:#E61D25;}
+.avos-match.done{border-left-color:#3CAC3B !important;}
+.avos-match.live{border-left-color:#E61D25 !important;}
+.bracket-side{margin-bottom:24px;}
+.bracket-side-header{font-size:10px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;padding:5px 10px;border-radius:6px;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.bracket-side-a .bracket-side-header{color:#4A9EF0;background:rgba(74,158,240,0.1);border-left:3px solid #4A9EF0;}
+.bracket-side-b .bracket-side-header{color:#F0C040;background:rgba(240,192,64,0.1);border-left:3px solid #F0C040;}
+.bracket-side-a .avos-match{border-left-color:#4A9EF0;}
+.bracket-side-b .avos-match{border-left-color:#F0C040;}
 .bracket-pair{display:flex;flex-direction:column;margin-bottom:14px;position:relative;padding-right:14px;}
-.bracket-pair::after{content:'';position:absolute;right:0;top:18px;bottom:18px;border-right:2px solid rgba(122,160,240,0.25);border-top:2px solid rgba(122,160,240,0.25);border-bottom:2px solid rgba(122,160,240,0.25);border-radius:0 5px 5px 0;width:10px;}
+.bracket-side-a .bracket-pair::after{content:'';position:absolute;right:0;top:18px;bottom:18px;border-right:2px solid rgba(74,158,240,0.3);border-top:2px solid rgba(74,158,240,0.3);border-bottom:2px solid rgba(74,158,240,0.3);border-radius:0 5px 5px 0;width:10px;}
+.bracket-side-b .bracket-pair::after{content:'';position:absolute;right:0;top:18px;bottom:18px;border-right:2px solid rgba(240,192,64,0.3);border-top:2px solid rgba(240,192,64,0.3);border-bottom:2px solid rgba(240,192,64,0.3);border-radius:0 5px 5px 0;width:10px;}
 .avos-match-top{display:flex;align-items:center;justify-content:space-between;padding:5px 10px;background:rgba(0,0,0,0.2);}
 .avos-match-info{font-size:9px;color:#7A90D0;font-weight:600;}
 .avos-team-row{display:flex;align-items:center;gap:10px;padding:10px 12px;}
@@ -1743,16 +1750,24 @@ var BRACKET_32 = [
   {home:"2K",away:"2L"},{home:"2D",away:"2G"},{home:"1J",away:"2H"},{home:"1K",away:"3L"}
 ];
 
-// Pares do chaveamento: índices em BRACKET_32 que se enfrentam na mesma oitava
-var BRACKET_PAIRS_32 = [
-  [0, 3],   // África do Sul/Canadá ↔ Países Baixos/Marrocos
-  [2, 5],   // Alemanha/Paraguai ↔ França/Suécia
-  [1, 4],   // Brasil/Japão ↔ Costa do Marfim/Noruega
-  [6, 7],   // México/Equador ↔ Inglaterra/Congo DR
-  [8, 9],   // Bélgica/Senegal ↔ EUA/Bósnia
-  [10, 12], // Espanha/Áustria ↔ Portugal/Croácia
-  [11, 13], // Suíça/Argélia ↔ Austrália/Egito
-  [14, 15]  // Argentina/Cabo Verde ↔ Colômbia/Gana
+// Lados do chaveamento FIFA 2026 (cada lado → uma semi-final)
+var BRACKET_SIDES = [
+  {
+    key: 'a', label: 'Chave A',
+    pairs: [[0,3],[2,5],[8,9],[10,12]]
+    // África do Sul/Canadá + Países Baixos/Marrocos
+    // Alemanha/Paraguai + França/Suécia
+    // Bélgica/Senegal + EUA/Bósnia
+    // Espanha/Áustria + Portugal/Croácia
+  },
+  {
+    key: 'b', label: 'Chave B',
+    pairs: [[1,4],[6,7],[11,13],[14,15]]
+    // Brasil/Japão + Costa do Marfim/Noruega
+    // México/Equador + Inglaterra/Congo DR
+    // Suíça/Argélia + Austrália/Egito
+    // Argentina/Cabo Verde + Colômbia/Gana
+  }
 ];
 
 function bracketTeam(key, standings) {
@@ -1850,11 +1865,16 @@ function renderAvos(matches, standings) {
   }
 
   var html = '';
-  BRACKET_PAIRS_32.forEach(function(pair) {
-    html += '<div class="bracket-pair">';
-    pair.forEach(function(bracketIdx) {
-      var m = last32[bracketIdx];
-      if (m) html += renderMatchCard(m, bracketIdx);
+  BRACKET_SIDES.forEach(function(side) {
+    html += '<div class="bracket-side bracket-side-' + side.key + '">';
+    html += '<div class="bracket-side-header">' + side.label + '</div>';
+    side.pairs.forEach(function(pair) {
+      html += '<div class="bracket-pair">';
+      pair.forEach(function(bracketIdx) {
+        var m = last32[bracketIdx];
+        if (m) html += renderMatchCard(m, bracketIdx);
+      });
+      html += '</div>';
     });
     html += '</div>';
   });
