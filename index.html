@@ -1813,7 +1813,8 @@ function renderAvos(matches, standings) {
     return name ? {name: name} : null;
   }
 
-  var sorted = matches.slice().sort(function(a, b) { return new Date(a.utcDate) - new Date(b.utcDate); });
+  var sorted = matches.filter(function(m){ return m.stage === 'LAST_32'; })
+                      .sort(function(a, b) { return new Date(a.utcDate) - new Date(b.utcDate); });
   var html = '';
   var lastDay = '';
 
