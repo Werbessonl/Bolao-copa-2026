@@ -296,6 +296,7 @@ body::before{
 .avos-score{font-size:14px;font-weight:900;min-width:16px;text-align:right;}
 .avos-score.win{color:#5DC85C;}
 .avos-score.loss{color:#FF4D55;}
+.avos-pen-info{font-size:9px;font-weight:700;color:#F0C040;background:rgba(240,192,64,0.15);padding:2px 6px;border-radius:8px;}
 .avos-flag-ph{width:20px;height:13px;border-radius:2px;background:#1A2550;display:flex;align-items:center;justify-content:center;font-size:7px;color:#7A90D0;font-weight:700;flex-shrink:0;}
 .cl-live-badge{background:#fff;color:#E61D25;font-size:7px;font-weight:900;padding:1px 5px;border-radius:8px;letter-spacing:.3px;margin-left:2px;}
 
@@ -1855,9 +1856,15 @@ function renderAvos(matches, standings) {
     var fin = st === 'FINISHED';
     var hs = fin ? m.score.fullTime.home : null;
     var as = fin ? m.score.fullTime.away : null;
-    var hw = fin && hs > as, aw = fin && as > hs;
+    // usa score.winner da API para acertar casos de prorrogação/pênaltis
+    var winner = fin ? (m.score && m.score.winner) : null;
+    var hw = winner === 'HOME_TEAM';
+    var aw = winner === 'AWAY_TEAM';
+    // exibe placar de pênaltis se houver
+    var pen = fin && m.score && m.score.penalties && m.score.penalties.home !== null;
+    var penInfo = pen ? '<span class="avos-pen-info">Pen: ' + m.score.penalties.home + '–' + m.score.penalties.away + '</span>' : '';
     var out = '<div class="' + cardClass + '">';
-    out += '<div class="avos-match-top"><span class="avos-match-info">' + dateTime + '</span>' + statusLabel + '</div>';
+    out += '<div class="avos-match-top"><span class="avos-match-info">' + dateTime + '</span>' + (penInfo || statusLabel) + '</div>';
     out += teamRow(homeTeam, hs, hw);
     out += teamRow(awayTeam, as, aw);
     out += '</div>';
