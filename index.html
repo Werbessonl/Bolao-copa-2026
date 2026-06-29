@@ -299,6 +299,14 @@ body::before{
 .avos-pen-info{font-size:9px;font-weight:700;color:#F0C040;background:rgba(240,192,64,0.15);padding:2px 6px;border-radius:8px;}
 .avos-flag-ph{width:20px;height:13px;border-radius:2px;background:#1A2550;display:flex;align-items:center;justify-content:center;font-size:7px;color:#7A90D0;font-weight:700;flex-shrink:0;}
 .avos-clickable{cursor:pointer;transition:background .12s;}
+.garantidos-section{margin-top:20px;background:#0F1870;border:1px solid rgba(255,255,255,0.08);border-left:3px solid #F0C040;border-radius:10px;overflow:hidden;}
+.garantidos-header{display:flex;align-items:center;gap:7px;padding:9px 14px;background:rgba(240,192,64,0.1);font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#F0C040;}
+.garantidos-desc{padding:8px 14px 4px;font-size:10px;color:#7A90D0;line-height:1.4;}
+.garantidos-item{padding:9px 14px;border-top:1px solid rgba(255,255,255,0.06);}
+.garantidos-match-label{font-size:12px;font-weight:700;color:#fff;margin-bottom:4px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
+.garantidos-vs{color:#7A90D0;font-weight:400;font-size:10px;}
+.garantidos-badge{background:rgba(240,192,64,0.18);color:#F0C040;font-size:9px;font-weight:800;padding:2px 7px;border-radius:8px;letter-spacing:.3px;}
+.garantidos-names{font-size:10px;color:#A0B0D8;line-height:1.5;}
 .avos-clickable:active{background:rgba(255,255,255,0.06);}
 .cl-live-badge{background:#fff;color:#E61D25;font-size:7px;font-weight:900;padding:1px 5px;border-radius:8px;letter-spacing:.3px;margin-left:2px;}
 
@@ -1901,6 +1909,39 @@ function renderAvos(matches, standings) {
     });
     html += '</div>';
   });
+
+  // Boletim de pontos garantidos (confrontos TIMED onde apostou nos dois times)
+  var garantidosItems = [];
+  last32.forEach(function(m, bracketIdx) {
+    if (m.status !== 'TIMED' && m.status !== 'SCHEDULED') return;
+    var bracket = BRACKET_32[bracketIdx] || {};
+    var homeTeam = resolveTeam(m.homeTeam, bracket.home);
+    var awayTeam = resolveTeam(m.awayTeam, bracket.away);
+    if (!homeTeam || !awayTeam) return;
+    var homePt = translate(homeTeam.name) || homeTeam.name;
+    var awayPt = translate(awayTeam.name) || awayTeam.name;
+    var hNorm = normalize(homePt);
+    var aNorm = normalize(awayPt);
+    var apostadores = NAMES.filter(function(_, i) {
+      var d = PALPITES[i].dezesseis_avos || [];
+      return d.some(function(t) { return normalize(t) === hNorm; })
+          && d.some(function(t) { return normalize(t) === aNorm; });
+    }).map(function(n) { return n.split(' ')[0]; });
+    if (apostadores.length > 0) garantidosItems.push({home: homePt, away: awayPt, nomes: apostadores});
+  });
+
+  if (garantidosItems.length > 0) {
+    html += '<div class="garantidos-section">';
+    html += '<div class="garantidos-header">⚡ Pontos garantidos nos 16 avos</div>';
+    html += '<div class="garantidos-desc">Quem apostou nos dois lados do mesmo confronto garante +2pts independente do resultado</div>';
+    garantidosItems.forEach(function(item) {
+      html += '<div class="garantidos-item">';
+      html += '<div class="garantidos-match-label">' + item.home + ' <span class="garantidos-vs">vs</span> ' + item.away + '<span class="garantidos-badge">+2pts garantidos</span></div>';
+      html += '<div class="garantidos-names">' + item.nomes.join(' · ') + '</div>';
+      html += '</div>';
+    });
+    html += '</div>';
+  }
 
   el.innerHTML = html;
 }
