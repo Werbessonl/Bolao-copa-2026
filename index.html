@@ -626,7 +626,7 @@ body::before{
       </div>
     </div>
   </div>
-  <div class="page-footer">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.4</span></div>
+  <div class="page-footer">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.5</span></div>
 </div>
 
 <!-- ============================
@@ -764,7 +764,7 @@ body::before{
       </div>
 
     </div>
-    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.4</span></div>
+    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.5</span></div>
   </div>
 </div>
 
@@ -830,7 +830,7 @@ body::before{
         Classificados fase de grupos: 32 pts (24 top 1°/2° + 8 melhores 3°s, 1pt cada) · 16 Avos 2pts · Oitavas 3pts · Quartas 4pts · Semis 5pts · Final 8pts · Campeão 25pts
       </div>
     </div>
-    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.4</span></div>
+    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.5</span></div>
   </div>
 </div>
 
@@ -911,7 +911,7 @@ body::before{
       </div>
     </div>
   </div>
-  <div class="page-footer" style="margin-top:4px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.4</span></div>
+  <div class="page-footer" style="margin-top:4px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.5</span></div>
 </div>
 
 <!-- Modal Comparativo -->
@@ -926,6 +926,7 @@ body::before{
 </div>
 
 <script>
+
 
 
 
@@ -1921,102 +1922,61 @@ function br32Label(idx) {
 }
 
 function renderBracketPhases(ko) {
-  var stageIds = {
-    oitavas: ['LAST_16','ROUND_OF_16'],
-    quartas: ['QUARTER_FINALS'],
-    semis:   ['SEMI_FINALS'],
-    final:   ['FINAL']
-  };
-
-  function matchesByStage(stages) {
-    return ko.filter(function(m) { return stages.indexOf(m.stage) >= 0; })
+  function byStage(stages) {
+    return ko.filter(function(m){ return stages.indexOf(m.stage)>=0; })
              .sort(function(a,b){ return new Date(a.utcDate)-new Date(b.utcDate); });
   }
-
-  function sideHeader(side) {
-    var color = side === 'A' ? '#4A9EF0' : '#F0C040';
-    return '<div style="font-size:9px;font-weight:800;letter-spacing:2px;color:'+color+';padding:8px 0 5px;border-bottom:1px solid '+color+'33;margin-bottom:6px;">CHAVE '+side+'</div>';
+  function sideWrap(cls, header, pairsHtml) {
+    return '<div class="bracket-side '+cls+'"><div class="bracket-side-header">'+header+'</div>'+pairsHtml+'</div>';
   }
+  function bpair(cards) { return '<div class="bracket-pair">'+cards+'</div>'; }
+  function card(m, lbl1, lbl2) { return m ? buildMatchCard(m, lbl1, lbl2) : buildTBDCard(lbl1, lbl2); }
 
-  // ── Slide 3: Oitavas ──────────────────────────────────────────────
+  // Slide 3: Oitavas
   var s3 = document.getElementById('fases-slide-3');
   if (s3) {
-    var oit = matchesByStage(stageIds.oitavas);
-    var html3 = '';
-    ['A','B'].forEach(function(side) {
-      html3 += sideHeader(side);
-      var defs = BRACKET_OITAVAS.filter(function(d){ return d.side===side; });
-      defs.forEach(function(def, di) {
-        var m = oit[BRACKET_OITAVAS.indexOf(def)];
-        if (m) {
-          html3 += buildMatchCard(m, 'Vencedor '+br32Label(def.src[0]), 'Vencedor '+br32Label(def.src[1]));
-        } else {
-          html3 += buildTBDCard('Vencedor '+br32Label(def.src[0]), 'Vencedor '+br32Label(def.src[1]));
-        }
-      });
-    });
-    s3.innerHTML = html3;
+    var oit = byStage(['LAST_16','ROUND_OF_16']);
+    s3.innerHTML =
+      sideWrap('bracket-side-a','CHAVE A',
+        bpair(card(oit[0],'Vencedor '+br32Label(0),'Vencedor '+br32Label(3))+card(oit[1],'Vencedor '+br32Label(2),'Vencedor '+br32Label(5)))+
+        bpair(card(oit[2],'Vencedor '+br32Label(8),'Vencedor '+br32Label(9))+card(oit[3],'Vencedor '+br32Label(10),'Vencedor '+br32Label(12))))+
+      sideWrap('bracket-side-b','CHAVE B',
+        bpair(card(oit[4],'Vencedor '+br32Label(1),'Vencedor '+br32Label(4))+card(oit[5],'Vencedor '+br32Label(6),'Vencedor '+br32Label(7)))+
+        bpair(card(oit[6],'Vencedor '+br32Label(11),'Vencedor '+br32Label(13))+card(oit[7],'Vencedor '+br32Label(14),'Vencedor '+br32Label(15))));
   }
 
-  // ── Slide 4: Quartas ─────────────────────────────────────────────
+  // Slide 4: Quartas
   var s4 = document.getElementById('fases-slide-4');
   if (s4) {
-    var qrt = matchesByStage(stageIds.quartas);
-    var oitLabels = ['Oitavas A1','Oitavas A2','Oitavas A3','Oitavas A4','Oitavas B1','Oitavas B2','Oitavas B3','Oitavas B4'];
-    var quartDefs = [
-      {side:'A', src:[0,1]}, {side:'A', src:[2,3]},
-      {side:'B', src:[4,5]}, {side:'B', src:[6,7]}
-    ];
-    var html4 = '';
-    ['A','B'].forEach(function(side) {
-      html4 += sideHeader(side);
-      quartDefs.filter(function(d){ return d.side===side; }).forEach(function(def, di) {
-        var qIdx = quartDefs.indexOf(def);
-        var m = qrt[qIdx];
-        var lbl1 = 'Venc. '+oitLabels[def.src[0]], lbl2 = 'Venc. '+oitLabels[def.src[1]];
-        html4 += m ? buildMatchCard(m, lbl1, lbl2) : buildTBDCard(lbl1, lbl2);
-      });
-    });
-    s4.innerHTML = html4;
+    var qrt = byStage(['QUARTER_FINALS']);
+    s4.innerHTML =
+      sideWrap('bracket-side-a','CHAVE A',
+        bpair(card(qrt[0],'Venc. Oitavas A1','Venc. Oitavas A2')+card(qrt[1],'Venc. Oitavas A3','Venc. Oitavas A4')))+
+      sideWrap('bracket-side-b','CHAVE B',
+        bpair(card(qrt[2],'Venc. Oitavas B1','Venc. Oitavas B2')+card(qrt[3],'Venc. Oitavas B3','Venc. Oitavas B4')));
   }
 
-  // ── Slide 5: Semis ────────────────────────────────────────────────
+  // Slide 5: Semis
   var s5 = document.getElementById('fases-slide-5');
   if (s5) {
-    var sem = matchesByStage(stageIds.semis);
-    var semiDefs = [
-      {side:'A', lbl1:'Venc. Quartas A1', lbl2:'Venc. Quartas A2'},
-      {side:'B', lbl1:'Venc. Quartas B1', lbl2:'Venc. Quartas B2'}
-    ];
-    var html5 = '';
-    semiDefs.forEach(function(def, i) {
-      html5 += sideHeader(def.side);
-      var m = sem[i];
-      html5 += m ? buildMatchCard(m, def.lbl1, def.lbl2) : buildTBDCard(def.lbl1, def.lbl2);
-    });
-    s5.innerHTML = html5;
+    var sem = byStage(['SEMI_FINALS']);
+    s5.innerHTML =
+      sideWrap('bracket-side-a','SEMI 1',
+        bpair(card(sem[0],'Venc. Quartas A1','Venc. Quartas A2')))+
+      sideWrap('bracket-side-b','SEMI 2',
+        bpair(card(sem[1],'Venc. Quartas B1','Venc. Quartas B2')));
   }
 
-  // ── Slide 6: Final ────────────────────────────────────────────────
+  // Slide 6: Final
   var s6 = document.getElementById('fases-slide-6');
   if (s6) {
-    var fin = matchesByStage(stageIds.final);
-    var html6 = '<div style="font-size:9px;font-weight:800;letter-spacing:2px;color:#C9A84C;padding:8px 0 5px;border-bottom:1px solid rgba(201,168,76,.3);margin-bottom:6px;">GRANDE FINAL · 19 DE JULHO</div>';
-    var mF = fin[0];
-    html6 += mF ? buildMatchCard(mF, 'Vencedor Semi A', 'Vencedor Semi B') : buildTBDCard('Vencedor Semi A', 'Vencedor Semi B', '#C9A84C');
-    s6.innerHTML = html6;
+    var fin = byStage(['FINAL']);
+    s6.innerHTML = '<div class="bracket-side bracket-side-b">'+
+      '<div class="bracket-side-header" style="color:#C9A84C;background:rgba(201,168,76,.1);border-left-color:#C9A84C;">GRANDE FINAL · 19 DE JULHO</div>'+
+      bpair(card(fin[0],'Vencedor Semi 1','Vencedor Semi 2'))+
+      '</div>';
   }
 }
-
-function buildTBDCard(lbl1, lbl2, accentColor) {
-  var c = accentColor || '#4A5580';
-  return '<div class="avos-match tbd" style="margin-bottom:6px;border-left-color:'+c+'">' +
-    '<div class="avos-match-top"><span class="avos-match-info" style="color:'+c+'">A definir</span><span class="phase-pill next" style="font-size:7px;opacity:.6">Agendado</span></div>' +
-    '<div class="avos-team-row"><div class="avos-flag-ph" style="border-color:'+c+'44">?</div><span class="avos-team-name tbd" style="font-size:10px;">'+lbl1+'</span></div>' +
-    '<div class="avos-team-row"><div class="avos-flag-ph" style="border-color:'+c+'44">?</div><span class="avos-team-name tbd" style="font-size:10px;">'+lbl2+'</span></div>' +
-    '</div>';
-}
-
 function buildMatchCard(m, fallbackHome, fallbackAway) {
   var st = m.status;
   var cardCls = 'avos-match' + (st==='FINISHED'?' done':st==='IN_PLAY'||st==='PAUSED'?' live':'');
@@ -2419,6 +2379,7 @@ function renderClassifThirds(standings) {
 </script>
 </body>
 </html>
+
 
 
 
