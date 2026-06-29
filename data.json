@@ -4869,6 +4869,84 @@
           "nationality": "Italy"
         }
       ]
+    },
+    {
+      "area": {
+        "id": 2267,
+        "name": "World",
+        "code": "INT",
+        "flag": null
+      },
+      "competition": {
+        "id": 2000,
+        "name": "FIFA World Cup",
+        "code": "WC",
+        "type": "CUP",
+        "emblem": "https://crests.football-data.org/wm26.png"
+      },
+      "season": {
+        "id": 2398,
+        "startDate": "2026-06-11",
+        "endDate": "2026-07-19",
+        "currentMatchday": 3,
+        "winner": null
+      },
+      "id": 537415,
+      "utcDate": "2026-06-29T20:30:00Z",
+      "status": "FINISHED",
+      "matchday": null,
+      "stage": "LAST_32",
+      "group": null,
+      "lastUpdated": "2026-06-29T23:34:57Z",
+      "homeTeam": {
+        "id": 759,
+        "name": "Germany",
+        "shortName": "Germany",
+        "tla": "GER",
+        "crest": "https://crests.football-data.org/759.svg"
+      },
+      "awayTeam": {
+        "id": 761,
+        "name": "Paraguay",
+        "shortName": "Paraguay",
+        "tla": "PAR",
+        "crest": "https://crests.football-data.org/761.svg"
+      },
+      "score": {
+        "winner": null,
+        "duration": "PENALTY_SHOOTOUT",
+        "fullTime": {
+          "home": 5,
+          "away": 6
+        },
+        "halfTime": {
+          "home": 0,
+          "away": 1
+        },
+        "regularTime": {
+          "home": 1,
+          "away": 1
+        },
+        "extraTime": {
+          "home": 0,
+          "away": 0
+        },
+        "penalties": {
+          "home": 5,
+          "away": 5
+        }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": [
+        {
+          "id": 289426,
+          "name": "Jalal Jayed",
+          "type": "REFEREE",
+          "nationality": "Morocco"
+        }
+      ]
     }
   ],
   "today_matches": [
@@ -4961,11 +5039,11 @@
       },
       "id": 537415,
       "utcDate": "2026-06-29T20:30:00Z",
-      "status": "PAUSED",
+      "status": "FINISHED",
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-06-29T23:07:24Z",
+      "lastUpdated": "2026-06-29T23:34:57Z",
       "homeTeam": {
         "id": 759,
         "name": "Germany",
@@ -4981,23 +5059,27 @@
         "crest": "https://crests.football-data.org/761.svg"
       },
       "score": {
-        "winner": "HOME_TEAM",
-        "duration": "REGULAR",
+        "winner": null,
+        "duration": "PENALTY_SHOOTOUT",
         "fullTime": {
-          "home": 2,
-          "away": 1
+          "home": 5,
+          "away": 6
         },
         "halfTime": {
           "home": 0,
           "away": 1
         },
         "regularTime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 1
         },
         "extraTime": {
-          "home": 1,
+          "home": 0,
           "away": 0
+        },
+        "penalties": {
+          "home": 5,
+          "away": 5
         }
       },
       "odds": {
@@ -5287,11 +5369,11 @@
       },
       "id": 537415,
       "utcDate": "2026-06-29T20:30:00Z",
-      "status": "PAUSED",
+      "status": "FINISHED",
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-06-29T23:07:24Z",
+      "lastUpdated": "2026-06-29T23:34:57Z",
       "homeTeam": {
         "id": 759,
         "name": "Germany",
@@ -5307,23 +5389,27 @@
         "crest": "https://crests.football-data.org/761.svg"
       },
       "score": {
-        "winner": "HOME_TEAM",
-        "duration": "REGULAR",
+        "winner": null,
+        "duration": "PENALTY_SHOOTOUT",
         "fullTime": {
-          "home": 2,
-          "away": 1
+          "home": 5,
+          "away": 6
         },
         "halfTime": {
           "home": 0,
           "away": 1
         },
         "regularTime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 1
         },
         "extraTime": {
-          "home": 1,
+          "home": 0,
           "away": 0
+        },
+        "penalties": {
+          "home": 5,
+          "away": 5
         }
       },
       "odds": {
@@ -8055,5 +8141,5 @@
       ]
     }
   ],
-  "updated": "2026-06-29T23:08:04Z"
+  "updated": "2026-06-29T23:50:00Z"
 }
