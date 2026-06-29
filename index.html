@@ -315,16 +315,6 @@ body::before{
 .avos-score.loss{color:#FF4D55;}
 .avos-pen-info{font-size:9px;font-weight:700;color:#F0C040;background:rgba(240,192,64,0.15);padding:2px 6px;border-radius:8px;}
 .avos-flag-ph{width:20px;height:13px;border-radius:2px;background:#1A2550;display:flex;align-items:center;justify-content:center;font-size:7px;color:#7A90D0;font-weight:700;flex-shrink:0;}
-.avos-clickable{cursor:pointer;transition:background .12s;}
-.garantidos-section{margin-top:20px;background:#0F1870;border:1px solid rgba(255,255,255,0.08);border-left:3px solid #F0C040;border-radius:10px;overflow:hidden;}
-.garantidos-header{display:flex;align-items:center;gap:7px;padding:9px 14px;background:rgba(240,192,64,0.1);font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#F0C040;}
-.garantidos-desc{padding:8px 14px 4px;font-size:10px;color:#7A90D0;line-height:1.4;}
-.garantidos-item{padding:9px 14px;border-top:1px solid rgba(255,255,255,0.06);}
-.garantidos-match-label{font-size:12px;font-weight:700;color:#fff;margin-bottom:4px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
-.garantidos-vs{color:#7A90D0;font-weight:400;font-size:10px;}
-.garantidos-badge{background:rgba(240,192,64,0.18);color:#F0C040;font-size:9px;font-weight:800;padding:2px 7px;border-radius:8px;letter-spacing:.3px;}
-.garantidos-names{font-size:10px;color:#A0B0D8;line-height:1.5;}
-.avos-clickable:active{background:rgba(255,255,255,0.06);}
 .cl-live-badge{background:#fff;color:#E61D25;font-size:7px;font-weight:900;padding:1px 5px;border-radius:8px;letter-spacing:.3px;margin-left:2px;}
 
 /* Cazé TV */
@@ -636,7 +626,7 @@ body::before{
       </div>
     </div>
   </div>
-  <div class="page-footer">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.3</span></div>
+  <div class="page-footer">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.4</span></div>
 </div>
 
 <!-- ============================
@@ -774,7 +764,7 @@ body::before{
       </div>
 
     </div>
-    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.3</span></div>
+    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.4</span></div>
   </div>
 </div>
 
@@ -840,7 +830,7 @@ body::before{
         Classificados fase de grupos: 32 pts (24 top 1°/2° + 8 melhores 3°s, 1pt cada) · 16 Avos 2pts · Oitavas 3pts · Quartas 4pts · Semis 5pts · Final 8pts · Campeão 25pts
       </div>
     </div>
-    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.3</span></div>
+    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.4</span></div>
   </div>
 </div>
 
@@ -921,7 +911,7 @@ body::before{
       </div>
     </div>
   </div>
-  <div class="page-footer" style="margin-top:4px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.3</span></div>
+  <div class="page-footer" style="margin-top:4px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.4</span></div>
 </div>
 
 <!-- Modal Comparativo -->
@@ -936,6 +926,7 @@ body::before{
 </div>
 
 <script>
+
 
 
 
@@ -1363,7 +1354,7 @@ function calcRealPoints(finishedMatches, standings) {
 }
 
 // Calcula pontos virtuais: real + pontos de grupos com base no standings atual
-function calcVirtualPoints(realScores, standings, knockoutMatches) {
+function calcVirtualPoints(realScores, standings) {
   if (!standings || standings.length === 0) {
     return realScores.map(s => ({...s, virtual: s.real}));
   }
@@ -1390,35 +1381,13 @@ function calcVirtualPoints(realScores, standings, knockoutMatches) {
   // Pool única dos 32 classificados (24 top2 + 8 melhores 3os)
   const classificados32 = [...top2, ...best8thirds];
 
-  // Pares de LAST_32 ainda não disputados onde participante apostou nos dois times
-  // → 2pts garantidos independente do resultado
-  const timedLast32Pairs = [];
-  if (knockoutMatches) {
-    const last32Sorted = knockoutMatches
-      .filter(m => m.stage === 'LAST_32')
-      .sort((a, b) => new Date(a.utcDate) - new Date(b.utcDate));
-    last32Sorted.forEach((m, idx) => {
-      if (m.status !== 'TIMED' && m.status !== 'SCHEDULED') return;
-      const bracket = BRACKET_32[idx] || {};
-      const homeNm = (m.homeTeam && m.homeTeam.name && m.homeTeam.name !== 'TBD')
-        ? m.homeTeam.name : bracketTeam(bracket.home, standings);
-      const awayNm = (m.awayTeam && m.awayTeam.name && m.awayTeam.name !== 'TBD')
-        ? m.awayTeam.name : bracketTeam(bracket.away, standings);
-      if (homeNm && awayNm) timedLast32Pairs.push([homeNm, awayNm]);
-    });
-  }
-
   return realScores.map(s => {
     const p = PALPITES[s.idx];
     // Regra: qualquer time classificado (top2 OU melhor 3°) que estava em qualquer das 32 apostas
     const apostas32 = [...p.grupos, ...p.melhores_terceiros];
     let gruposPts = 0;
     classificados32.forEach(t => { if (inList(t, apostas32)) gruposPts += 1; });
-    let knockoutPts = s.real - (s.realGroup || 0);
-    // 2pts garantidos por confronto LAST_32 pendente onde apostou nos dois lados
-    timedLast32Pairs.forEach(([home, away]) => {
-      if (inList(home, p.dezesseis_avos) && inList(away, p.dezesseis_avos)) knockoutPts += 2;
-    });
+    const knockoutPts = s.real - (s.realGroup || 0);
     return {...s, virtual: gruposPts + knockoutPts};
   });
 }
@@ -1553,7 +1522,7 @@ async function loadRanking(force) {
 
     const normalizedStandings = normalizeStandingsGroups(data.standings || [], data.matches || []);
     const realScores = calcRealPoints(data.matches || [], normalizedStandings);
-    const fullScores = calcVirtualPoints(realScores, normalizedStandings, data.knockout_matches || []);
+    const fullScores = calcVirtualPoints(realScores, normalizedStandings);
 
     lastRankingData = {
       real: [...fullScores].sort((a, b) => b.real - a.real),
@@ -1852,14 +1821,22 @@ function fasesGoTo(n, data) {
 }
 
 function detectCurrentPhase(knockoutMatches) {
-  if (!knockoutMatches || knockoutMatches.length === 0) return 0;
+  if (!knockoutMatches || knockoutMatches.length === 0) return 2;
   var stages = {'LAST_32':2,'ROUND_OF_32':2,'LAST_16':3,'ROUND_OF_16':3,'QUARTER_FINALS':4,'SEMI_FINALS':5,'FINAL':6};
-  var maxPhase = 0;
+  // Fase atual = a mais cedo com jogos ainda não encerrados
+  var minActive = 99;
   knockoutMatches.forEach(function(m) {
     var ph = stages[m.stage];
-    if (ph !== undefined && ph > maxPhase) maxPhase = ph;
+    if (ph && m.status !== 'FINISHED' && ph < minActive) minActive = ph;
   });
-  return maxPhase || 2;
+  if (minActive < 99) return minActive;
+  // Todos encerrados → retorna a mais avançada
+  var maxDone = 2;
+  knockoutMatches.forEach(function(m) {
+    var ph = stages[m.stage];
+    if (ph && m.status === 'FINISHED' && ph > maxDone) maxDone = ph;
+  });
+  return maxDone;
 }
 
 function initFases(data, standings) {
@@ -1921,23 +1898,126 @@ function renderFasesSlides(data, standings) {
   var s2 = document.getElementById('fases-slide-2');
   if (s2) { renderAvos(ko, standings); var avosEl = document.getElementById('cl-avos-content'); if (avosEl) s2.innerHTML = avosEl.innerHTML || '<div class="cl-loading">Confrontos a definir após encerramento dos grupos.</div>'; }
 
-  // Slides 3-6 — fases futuras (knockout_matches filtrados por stage)
-  var stageMap = [['LAST_32','ROUND_OF_32'],['LAST_16','ROUND_OF_16'],['QUARTER_FINALS'],['SEMI_FINALS'],['FINAL']];
-  var slideNames = ['Oitavas de Final','Quartas de Final','Semifinais','Final'];
-  [3,4,5,6].forEach(function(idx) {
-    var s = document.getElementById('fases-slide-' + idx);
-    if (!s) return;
-    var stages = stageMap[idx - 2];
-    var matches = ko.filter(function(m) { return stages.indexOf(m.stage) >= 0; });
-    if (matches.length > 0) {
-      s.innerHTML = matches.map(function(m) { return buildMatchCard(m); }).join('');
-    } else {
-      s.innerHTML = '<div class="cl-loading" style="padding:30px 0;text-align:center;font-size:12px;color:#4A5580;">Os confrontos das ' + slideNames[idx-3] + ' serão definidos conforme a fase avançar.</div>';
-    }
-  });
+  // Slides 3-6 — fases eliminatórias com chaveamento
+  renderBracketPhases(ko);
 }
 
-function buildMatchCard(m) {
+// Estrutura do chaveamento FIFA 2026 para Oitavas → Final
+// src = índices em BRACKET_32 (para labels) ou refs de fase anterior
+var BRACKET_OITAVAS = [
+  {side:'A', src:[0,3]},   // Oitavas A1
+  {side:'A', src:[2,5]},   // Oitavas A2
+  {side:'A', src:[8,9]},   // Oitavas A3
+  {side:'A', src:[10,12]}, // Oitavas A4
+  {side:'B', src:[1,4]},   // Oitavas B1
+  {side:'B', src:[6,7]},   // Oitavas B2
+  {side:'B', src:[11,13]}, // Oitavas B3
+  {side:'B', src:[14,15]}  // Oitavas B4
+];
+
+function br32Label(idx) {
+  var b = BRACKET_32[idx];
+  return b ? b.home + '×' + b.away : '?';
+}
+
+function renderBracketPhases(ko) {
+  var stageIds = {
+    oitavas: ['LAST_16','ROUND_OF_16'],
+    quartas: ['QUARTER_FINALS'],
+    semis:   ['SEMI_FINALS'],
+    final:   ['FINAL']
+  };
+
+  function matchesByStage(stages) {
+    return ko.filter(function(m) { return stages.indexOf(m.stage) >= 0; })
+             .sort(function(a,b){ return new Date(a.utcDate)-new Date(b.utcDate); });
+  }
+
+  function sideHeader(side) {
+    var color = side === 'A' ? '#4A9EF0' : '#F0C040';
+    return '<div style="font-size:9px;font-weight:800;letter-spacing:2px;color:'+color+';padding:8px 0 5px;border-bottom:1px solid '+color+'33;margin-bottom:6px;">CHAVE '+side+'</div>';
+  }
+
+  // ── Slide 3: Oitavas ──────────────────────────────────────────────
+  var s3 = document.getElementById('fases-slide-3');
+  if (s3) {
+    var oit = matchesByStage(stageIds.oitavas);
+    var html3 = '';
+    ['A','B'].forEach(function(side) {
+      html3 += sideHeader(side);
+      var defs = BRACKET_OITAVAS.filter(function(d){ return d.side===side; });
+      defs.forEach(function(def, di) {
+        var m = oit[BRACKET_OITAVAS.indexOf(def)];
+        if (m) {
+          html3 += buildMatchCard(m, 'Vencedor '+br32Label(def.src[0]), 'Vencedor '+br32Label(def.src[1]));
+        } else {
+          html3 += buildTBDCard('Vencedor '+br32Label(def.src[0]), 'Vencedor '+br32Label(def.src[1]));
+        }
+      });
+    });
+    s3.innerHTML = html3;
+  }
+
+  // ── Slide 4: Quartas ─────────────────────────────────────────────
+  var s4 = document.getElementById('fases-slide-4');
+  if (s4) {
+    var qrt = matchesByStage(stageIds.quartas);
+    var oitLabels = ['Oitavas A1','Oitavas A2','Oitavas A3','Oitavas A4','Oitavas B1','Oitavas B2','Oitavas B3','Oitavas B4'];
+    var quartDefs = [
+      {side:'A', src:[0,1]}, {side:'A', src:[2,3]},
+      {side:'B', src:[4,5]}, {side:'B', src:[6,7]}
+    ];
+    var html4 = '';
+    ['A','B'].forEach(function(side) {
+      html4 += sideHeader(side);
+      quartDefs.filter(function(d){ return d.side===side; }).forEach(function(def, di) {
+        var qIdx = quartDefs.indexOf(def);
+        var m = qrt[qIdx];
+        var lbl1 = 'Venc. '+oitLabels[def.src[0]], lbl2 = 'Venc. '+oitLabels[def.src[1]];
+        html4 += m ? buildMatchCard(m, lbl1, lbl2) : buildTBDCard(lbl1, lbl2);
+      });
+    });
+    s4.innerHTML = html4;
+  }
+
+  // ── Slide 5: Semis ────────────────────────────────────────────────
+  var s5 = document.getElementById('fases-slide-5');
+  if (s5) {
+    var sem = matchesByStage(stageIds.semis);
+    var semiDefs = [
+      {side:'A', lbl1:'Venc. Quartas A1', lbl2:'Venc. Quartas A2'},
+      {side:'B', lbl1:'Venc. Quartas B1', lbl2:'Venc. Quartas B2'}
+    ];
+    var html5 = '';
+    semiDefs.forEach(function(def, i) {
+      html5 += sideHeader(def.side);
+      var m = sem[i];
+      html5 += m ? buildMatchCard(m, def.lbl1, def.lbl2) : buildTBDCard(def.lbl1, def.lbl2);
+    });
+    s5.innerHTML = html5;
+  }
+
+  // ── Slide 6: Final ────────────────────────────────────────────────
+  var s6 = document.getElementById('fases-slide-6');
+  if (s6) {
+    var fin = matchesByStage(stageIds.final);
+    var html6 = '<div style="font-size:9px;font-weight:800;letter-spacing:2px;color:#C9A84C;padding:8px 0 5px;border-bottom:1px solid rgba(201,168,76,.3);margin-bottom:6px;">GRANDE FINAL · 19 DE JULHO</div>';
+    var mF = fin[0];
+    html6 += mF ? buildMatchCard(mF, 'Vencedor Semi A', 'Vencedor Semi B') : buildTBDCard('Vencedor Semi A', 'Vencedor Semi B', '#C9A84C');
+    s6.innerHTML = html6;
+  }
+}
+
+function buildTBDCard(lbl1, lbl2, accentColor) {
+  var c = accentColor || '#4A5580';
+  return '<div class="avos-match tbd" style="margin-bottom:6px;border-left-color:'+c+'">' +
+    '<div class="avos-match-top"><span class="avos-match-info" style="color:'+c+'">A definir</span><span class="phase-pill next" style="font-size:7px;opacity:.6">Agendado</span></div>' +
+    '<div class="avos-team-row"><div class="avos-flag-ph" style="border-color:'+c+'44">?</div><span class="avos-team-name tbd" style="font-size:10px;">'+lbl1+'</span></div>' +
+    '<div class="avos-team-row"><div class="avos-flag-ph" style="border-color:'+c+'44">?</div><span class="avos-team-name tbd" style="font-size:10px;">'+lbl2+'</span></div>' +
+    '</div>';
+}
+
+function buildMatchCard(m, fallbackHome, fallbackAway) {
   var st = m.status;
   var cardCls = 'avos-match' + (st==='FINISHED'?' done':st==='IN_PLAY'||st==='PAUSED'?' live':'');
   var statusPill = st==='FINISHED' ? '<span class="phase-pill done">Encerrado</span>'
@@ -1948,17 +2028,18 @@ function buildMatchCard(m) {
   var time = String(brt.getHours()).padStart(2,'0')+':'+String(brt.getMinutes()).padStart(2,'0');
   var dateStr = brt.getDate()+'/'+(brt.getMonth()+1)+' · '+time;
 
-  function teamHtml(team, score, isWin) {
+  function teamHtml(team, score, isWin, fallback) {
     var flag = team && team.name && team.name !== 'TBD' ? (function(){var c=TEAM_FLAGS[team.name]||TEAM_FLAGS[translate(team.name)];return c?'<img src="https://flagcdn.com/h20/'+c+'.png" width="20" height="13" style="border-radius:2px;flex-shrink:0" alt="'+team.name+'">':'<div class="avos-flag-ph">?</div>';})() : '<div class="avos-flag-ph">?</div>';
-    var name = team && team.name && team.name !== 'TBD' ? (translate(team.name)||team.name) : 'A definir';
-    var nameCls = name==='A definir' ? 'avos-team-name tbd' : 'avos-team-name';
+    var name = team && team.name && team.name !== 'TBD' ? (translate(team.name)||team.name) : (fallback || null);
+    var nameCls = (!name || name === fallback) ? 'avos-team-name tbd' : 'avos-team-name';
+    if (!name) name = fallback || 'A definir';
     var scoreEl = score!==null&&score!==undefined ? '<span class="avos-score '+(isWin?'win':'loss')+'">'+score+'</span>' : '';
     return '<div class="avos-team-row">'+flag+'<span class="'+nameCls+'">'+name+'</span>'+scoreEl+'</div>';
   }
 
   var fin = st==='FINISHED', hs=fin?m.score.fullTime.home:null, as=fin?m.score.fullTime.away:null;
   var hw=fin&&m.score.winner==='HOME_TEAM', aw=fin&&m.score.winner==='AWAY_TEAM';
-  return '<div class="'+cardCls+'" style="margin-bottom:6px"><div class="avos-match-top"><span class="avos-match-info">'+dateStr+'</span>'+statusPill+'</div>'+teamHtml(m.homeTeam,hs,hw)+teamHtml(m.awayTeam,as,aw)+'</div>';
+  return '<div class="'+cardCls+'" style="margin-bottom:6px"><div class="avos-match-top"><span class="avos-match-info">'+dateStr+'</span>'+statusPill+'</div>'+teamHtml(m.homeTeam,hs,hw,fallbackHome)+teamHtml(m.awayTeam,as,aw,fallbackAway)+'</div>';
 }
 
 // Chaveamento FIFA 2026 LAST_32: 16 confrontos em ordem cronológica
@@ -2029,9 +2110,6 @@ function renderAvos(matches, standings) {
     var scoreEl = score !== null && score !== undefined
       ? '<span class="avos-score ' + (isWinner ? 'win' : 'loss') + '">' + score + '</span>'
       : '';
-    if (name !== 'A definir') {
-      return '<div class="avos-team-row avos-clickable" onclick="showKnockoutTooltip(' + JSON.stringify(name) + ',\'dezesseis_avos\',event)">' + flagEl + '<span class="' + nameClass + '">' + name + '</span>' + scoreEl + '</div>';
-    }
     return '<div class="avos-team-row">' + flagEl + '<span class="' + nameClass + '">' + name + '</span>' + scoreEl + '</div>';
   }
 
@@ -2087,39 +2165,6 @@ function renderAvos(matches, standings) {
     });
     html += '</div>';
   });
-
-  // Boletim de pontos garantidos (confrontos TIMED onde apostou nos dois times)
-  var garantidosItems = [];
-  last32.forEach(function(m, bracketIdx) {
-    if (m.status !== 'TIMED' && m.status !== 'SCHEDULED') return;
-    var bracket = BRACKET_32[bracketIdx] || {};
-    var homeTeam = resolveTeam(m.homeTeam, bracket.home);
-    var awayTeam = resolveTeam(m.awayTeam, bracket.away);
-    if (!homeTeam || !awayTeam) return;
-    var homePt = translate(homeTeam.name) || homeTeam.name;
-    var awayPt = translate(awayTeam.name) || awayTeam.name;
-    var hNorm = normalize(homePt);
-    var aNorm = normalize(awayPt);
-    var apostadores = NAMES.filter(function(_, i) {
-      var d = PALPITES[i].dezesseis_avos || [];
-      return d.some(function(t) { return normalize(t) === hNorm; })
-          && d.some(function(t) { return normalize(t) === aNorm; });
-    }).map(function(n) { return n.split(' ')[0]; });
-    if (apostadores.length > 0) garantidosItems.push({home: homePt, away: awayPt, nomes: apostadores});
-  });
-
-  if (garantidosItems.length > 0) {
-    html += '<div class="garantidos-section">';
-    html += '<div class="garantidos-header">⚡ Pontos garantidos nos 16 avos</div>';
-    html += '<div class="garantidos-desc">Quem apostou nos dois lados do mesmo confronto garante +2pts independente do resultado</div>';
-    garantidosItems.forEach(function(item) {
-      html += '<div class="garantidos-item">';
-      html += '<div class="garantidos-match-label">' + item.home + ' <span class="garantidos-vs">vs</span> ' + item.away + '<span class="garantidos-badge">+2pts garantidos</span></div>';
-      html += '<div class="garantidos-names">' + item.nomes.join(' · ') + '</div>';
-      html += '</div>';
-    });
-    html += '</div>';
-  }
 
   el.innerHTML = html;
 }
@@ -2247,9 +2292,9 @@ function renderJogoCard(m) {
       '<div style="display:flex;align-items:center;gap:8px;">' + statusPill + '<span class="jogo-time">' + hora + '</span></div>' +
     '</div>' +
     '<div class="jogo-card-body">' +
-      '<div class="jogo-team"><button class="jogo-flag-btn" onclick="showTeamTooltip(\'' + m.homeTeam.name.replace(/'/g,"\\'") + '\',\'' + m.stage + '\',event)">' + homeFlag + '<span class="jogo-team-name">' + homeName + '</span></button></div>' +
+      '<div class="jogo-team"><button class="jogo-flag-btn" onclick="showTeamTooltip(\'' + m.homeTeam.name.replace(/'/g,"\\'") + '\',event)">' + homeFlag + '<span class="jogo-team-name">' + homeName + '</span></button></div>' +
       '<div class="jogo-score-wrap">' + scoreHtml + '</div>' +
-      '<div class="jogo-team"><button class="jogo-flag-btn" onclick="showTeamTooltip(\'' + m.awayTeam.name.replace(/'/g,"\\'") + '\',\'' + m.stage + '\',event)">' + awayFlag + '<span class="jogo-team-name">' + awayName + '</span></button></div>' +
+      '<div class="jogo-team"><button class="jogo-flag-btn" onclick="showTeamTooltip(\'' + m.awayTeam.name.replace(/'/g,"\\'") + '\',event)">' + awayFlag + '<span class="jogo-team-name">' + awayName + '</span></button></div>' +
     '</div>' +
   '</div>';
 }
@@ -2257,87 +2302,23 @@ function renderJogoCard(m) {
 var _tooltipEl = null;
 var _tooltipTimer = null;
 
-function showTeamTooltip(apiName, stage, event) {
-  if (stage && typeof stage === 'object') { event = stage; stage = 'GROUP_STAGE'; }
+function showTeamTooltip(apiName, event) {
   event.stopPropagation();
   hideTooltip();
 
   var ptName = translate(apiName) || apiName;
   var ptNorm = normalize(ptName);
 
-  var title, apostadores;
-  if (stage === 'LAST_32') {
-    title = 'Apostaram nos 16 avos: ' + ptName;
-    apostadores = NAMES.filter(function(_, i) {
-      return (PALPITES[i].dezesseis_avos || []).some(function(t) { return normalize(t) === ptNorm; });
-    });
-  } else if (stage === 'LAST_16') {
-    title = 'Apostaram nas oitavas: ' + ptName;
-    apostadores = NAMES.filter(function(_, i) {
-      return (PALPITES[i].oitavas || []).some(function(t) { return normalize(t) === ptNorm; });
-    });
-  } else if (stage === 'QUARTER_FINALS') {
-    title = 'Apostaram nas quartas: ' + ptName;
-    apostadores = NAMES.filter(function(_, i) {
-      return (PALPITES[i].quartas || []).some(function(t) { return normalize(t) === ptNorm; });
-    });
-  } else if (stage === 'SEMI_FINALS') {
-    title = 'Apostaram nas semis: ' + ptName;
-    apostadores = NAMES.filter(function(_, i) {
-      return (PALPITES[i].semis || []).some(function(t) { return normalize(t) === ptNorm; });
-    });
-  } else if (stage === 'FINAL') {
-    title = 'Apostaram no campeão: ' + ptName;
-    apostadores = NAMES.filter(function(_, i) {
-      return normalize(PALPITES[i].campeao || '') === ptNorm;
-    });
-  } else {
-    title = 'Apostaram em ' + ptName;
-    apostadores = NAMES.filter(function(_, i) {
-      var p = PALPITES[i];
-      var todos = (p.grupos || []).concat(p.melhores_terceiros || []);
-      return todos.some(function(t) { return normalize(t) === ptNorm; });
-    });
-  }
-
-  var el = document.createElement('div');
-  el.className = 'flag-tooltip';
-
-  var inner = '<div class="flag-tooltip-title">' + title + '</div>';
-  if (apostadores.length === 0) {
-    inner += '<div class="flag-tooltip-empty">Ninguém apostou nessa seleção</div>';
-  } else {
-    apostadores.forEach(function(n) {
-      inner += '<div class="flag-tooltip-name">– ' + n.split(' ')[0] + '</div>';
-    });
-  }
-  el.innerHTML = inner;
-  document.body.appendChild(el);
-  _tooltipEl = el;
-
-  var rect = event.currentTarget.getBoundingClientRect();
-  var top = rect.top + window.scrollY - el.offsetHeight - 8;
-  var left = rect.left + window.scrollX + (rect.width / 2) - (el.offsetWidth / 2);
-  if (top < 8) top = rect.bottom + window.scrollY + 8;
-  left = Math.max(8, Math.min(left, window.innerWidth - el.offsetWidth - 8));
-  el.style.top = top + 'px';
-  el.style.left = left + 'px';
-
-  _tooltipTimer = setTimeout(hideTooltip, 4000);
-}
-
-function showKnockoutTooltip(ptName, field, event) {
-  event.stopPropagation();
-  hideTooltip();
-  var ptNorm = normalize(ptName);
   var apostadores = NAMES.filter(function(_, i) {
     var p = PALPITES[i];
-    var lista = p[field] || [];
-    return lista.some(function(t) { return normalize(t) === ptNorm; });
+    var todos = (p.grupos || []).concat(p.melhores_terceiros || []);
+    return todos.some(function(t) { return normalize(t) === ptNorm; });
   });
+
   var el = document.createElement('div');
   el.className = 'flag-tooltip';
-  var inner = '<div class="flag-tooltip-title">Apostaram no avanço de ' + ptName + '</div>';
+
+  var inner = '<div class="flag-tooltip-title">Apostaram em ' + ptName + '</div>';
   if (apostadores.length === 0) {
     inner += '<div class="flag-tooltip-empty">Ninguém apostou nessa seleção</div>';
   } else {
@@ -2348,6 +2329,8 @@ function showKnockoutTooltip(ptName, field, event) {
   el.innerHTML = inner;
   document.body.appendChild(el);
   _tooltipEl = el;
+
+  // Posicionar acima do clique
   var rect = event.currentTarget.getBoundingClientRect();
   var top = rect.top + window.scrollY - el.offsetHeight - 8;
   var left = rect.left + window.scrollX + (rect.width / 2) - (el.offsetWidth / 2);
@@ -2355,6 +2338,7 @@ function showKnockoutTooltip(ptName, field, event) {
   left = Math.max(8, Math.min(left, window.innerWidth - el.offsetWidth - 8));
   el.style.top = top + 'px';
   el.style.left = left + 'px';
+
   _tooltipTimer = setTimeout(hideTooltip, 4000);
 }
 
@@ -2364,7 +2348,7 @@ function hideTooltip() {
 }
 
 document.addEventListener('click', function(e) {
-  if (_tooltipEl && !e.target.closest('.jogo-flag-btn') && !e.target.closest('.avos-clickable')) hideTooltip();
+  if (_tooltipEl && !e.target.closest('.jogo-flag-btn')) hideTooltip();
 });
 
 function standingsCmp(a, b) {
@@ -2435,6 +2419,7 @@ function renderClassifThirds(standings) {
 </script>
 </body>
 </html>
+
 
 
 
