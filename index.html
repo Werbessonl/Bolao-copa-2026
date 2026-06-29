@@ -1324,7 +1324,7 @@ function calcRealPoints(finishedMatches, standings) {
 }
 
 // Calcula pontos virtuais: real + pontos de grupos com base no standings atual
-function calcVirtualPoints(realScores, standings) {
+function calcVirtualPoints(realScores, standings, knockoutMatches) {
   if (!standings || standings.length === 0) {
     return realScores.map(s => ({...s, virtual: s.real}));
   }
@@ -1351,13 +1351,35 @@ function calcVirtualPoints(realScores, standings) {
   // Pool única dos 32 classificados (24 top2 + 8 melhores 3os)
   const classificados32 = [...top2, ...best8thirds];
 
+  // Pares de LAST_32 ainda não disputados onde participante apostou nos dois times
+  // → 2pts garantidos independente do resultado
+  const timedLast32Pairs = [];
+  if (knockoutMatches) {
+    const last32Sorted = knockoutMatches
+      .filter(m => m.stage === 'LAST_32')
+      .sort((a, b) => new Date(a.utcDate) - new Date(b.utcDate));
+    last32Sorted.forEach((m, idx) => {
+      if (m.status !== 'TIMED' && m.status !== 'SCHEDULED') return;
+      const bracket = BRACKET_32[idx] || {};
+      const homeNm = (m.homeTeam && m.homeTeam.name && m.homeTeam.name !== 'TBD')
+        ? m.homeTeam.name : bracketTeam(bracket.home, standings);
+      const awayNm = (m.awayTeam && m.awayTeam.name && m.awayTeam.name !== 'TBD')
+        ? m.awayTeam.name : bracketTeam(bracket.away, standings);
+      if (homeNm && awayNm) timedLast32Pairs.push([homeNm, awayNm]);
+    });
+  }
+
   return realScores.map(s => {
     const p = PALPITES[s.idx];
     // Regra: qualquer time classificado (top2 OU melhor 3°) que estava em qualquer das 32 apostas
     const apostas32 = [...p.grupos, ...p.melhores_terceiros];
     let gruposPts = 0;
     classificados32.forEach(t => { if (inList(t, apostas32)) gruposPts += 1; });
-    const knockoutPts = s.real - (s.realGroup || 0);
+    let knockoutPts = s.real - (s.realGroup || 0);
+    // 2pts garantidos por confronto LAST_32 pendente onde apostou nos dois lados
+    timedLast32Pairs.forEach(([home, away]) => {
+      if (inList(home, p.dezesseis_avos) && inList(away, p.dezesseis_avos)) knockoutPts += 2;
+    });
     return {...s, virtual: gruposPts + knockoutPts};
   });
 }
@@ -1492,7 +1514,7 @@ async function loadRanking(force) {
 
     const normalizedStandings = normalizeStandingsGroups(data.standings || [], data.matches || []);
     const realScores = calcRealPoints(data.matches || [], normalizedStandings);
-    const fullScores = calcVirtualPoints(realScores, normalizedStandings);
+    const fullScores = calcVirtualPoints(realScores, normalizedStandings, data.knockout_matches || []);
 
     lastRankingData = {
       real: [...fullScores].sort((a, b) => b.real - a.real),
