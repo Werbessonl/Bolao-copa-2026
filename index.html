@@ -626,7 +626,7 @@ body::before{
       </div>
     </div>
   </div>
-  <div class="page-footer">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.7</span></div>
+  <div class="page-footer">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.8</span></div>
 </div>
 
 <!-- ============================
@@ -764,7 +764,7 @@ body::before{
       </div>
 
     </div>
-    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.7</span></div>
+    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.8</span></div>
   </div>
 </div>
 
@@ -830,7 +830,7 @@ body::before{
         Classificados fase de grupos: 32 pts (24 top 1°/2° + 8 melhores 3°s, 1pt cada) · 16 Avos 2pts · Oitavas 3pts · Quartas 4pts · Semis 5pts · Final 8pts · Campeão 25pts
       </div>
     </div>
-    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.7</span></div>
+    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.8</span></div>
   </div>
 </div>
 
@@ -911,7 +911,7 @@ body::before{
       </div>
     </div>
   </div>
-  <div class="page-footer" style="margin-top:4px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.7</span></div>
+  <div class="page-footer" style="margin-top:4px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.8</span></div>
 </div>
 
 <!-- Modal Comparativo -->
@@ -926,6 +926,7 @@ body::before{
 </div>
 
 <script>
+
 
 
 
@@ -1945,13 +1946,12 @@ function renderBracketPhases(ko) {
   if (s3) {
     var oit = byStage(['LAST_16','ROUND_OF_16']);
     s3.innerHTML =
-      // Ordem FIFA — usa BRACKET_OITAVAS para labels, API para dados reais
       sideWrap('bracket-side-a','CHAVE A',
-        bpair(card(oit[0],'Vencedor '+br32Label(2),'Vencedor '+br32Label(5))+card(oit[1],'Vencedor '+br32Label(0),'Vencedor '+br32Label(3)))+
-        bpair(card(oit[2],'Vencedor '+br32Label(10),'Vencedor '+br32Label(12))+card(oit[3],'Vencedor '+br32Label(8),'Vencedor '+br32Label(9))))+
+        bpair(card(oit[0],'Venc. '+br32Label(0),'Venc. '+br32Label(1))+card(oit[1],'Venc. '+br32Label(2),'Venc. '+br32Label(3)))+
+        bpair(card(oit[2],'Venc. '+br32Label(4),'Venc. '+br32Label(5))+card(oit[3],'Venc. '+br32Label(6),'Venc. '+br32Label(7))))+
       sideWrap('bracket-side-b','CHAVE B',
-        bpair(card(oit[4],'Vencedor '+br32Label(1),'Vencedor '+br32Label(4))+card(oit[5],'Vencedor '+br32Label(6),'Vencedor '+br32Label(7)))+
-        bpair(card(oit[6],'Vencedor '+br32Label(14),'Vencedor '+br32Label(15))+card(oit[7],'Vencedor '+br32Label(11),'Vencedor '+br32Label(13))));
+        bpair(card(oit[4],'Venc. '+br32Label(8),'Venc. '+br32Label(9))+card(oit[5],'Venc. '+br32Label(10),'Venc. '+br32Label(11)))+
+        bpair(card(oit[6],'Venc. '+br32Label(12),'Venc. '+br32Label(13))+card(oit[7],'Venc. '+br32Label(14),'Venc. '+br32Label(15))));
   }
 
   // Slide 4: Quartas
@@ -2012,24 +2012,29 @@ function buildMatchCard(m, fallbackHome, fallbackAway) {
 }
 
 // Chaveamento FIFA 2026 LAST_32: 16 confrontos em ordem cronológica
+// BRACKET_32 — ordem FIFA 2026 verificada
 var BRACKET_32 = [
-  {home:"2A",away:"2B"},{home:"1C",away:"2F"},{home:"1E",away:"3D"},{home:"1F",away:"2C"},
-  {home:"2E",away:"2I"},{home:"1I",away:"3F"},{home:"1A",away:"3E"},{home:"1L",away:"3K"},
-  {home:"1G",away:"3I"},{home:"1D",away:"3B"},{home:"1H",away:"2J"},{home:"1B",away:"3J"},
-  {home:"2K",away:"2L"},{home:"2D",away:"2G"},{home:"1J",away:"2H"},{home:"1K",away:"3L"}
+  {home:"1E",away:"3D"},  // A1: Alemanha x Paraguai
+  {home:"1I",away:"3F"},  // A2: Franca x Suecia
+  {home:"2A",away:"2B"},  // A3: Africa do Sul x Canada
+  {home:"1F",away:"2C"},  // A4: Holanda x Marrocos
+  {home:"2K",away:"2L"},  // A5: Portugal x Croatia
+  {home:"1H",away:"2J"},  // A6: Espanha x Austria
+  {home:"1D",away:"3B"},  // A7: EUA x Bosnia
+  {home:"1G",away:"3I"},  // A8: Belgica x Senegal
+  {home:"1B",away:"2F"},  // B1: Suica x Japao
+  {home:"2E",away:"2I"},  // B2: CIV x Noruega
+  {home:"1A",away:"3E"},  // B3: Mexico x Equador
+  {home:"1L",away:"3K"},  // B4: Inglaterra x Congo DR
+  {home:"1J",away:"2H"},  // B5: Argentina x Cabo Verde
+  {home:"2D",away:"2G"},  // B6: Australia x Egito
+  {home:"1C",away:"3J"},  // B7: Brasil x Algeria
+  {home:"1K",away:"3L"}   // B8: Colombia x Gana
 ];
 
-// Lados do chaveamento FIFA 2026 (cada lado → uma semi-final)
-// Ordem FIFA: Chave A topo→ baixo conforme chaveamento oficial
 var BRACKET_SIDES = [
-  {
-    key: 'a', label: 'Chave A',
-    pairs: [[2,5],[0,3],[10,12],[8,9]]
-  },
-  {
-    key: 'b', label: 'Chave B',
-    pairs: [[1,4],[6,7],[14,15],[11,13]]
-  }
+  {key:'a', label:'Chave A', pairs:[[0,1],[2,3],[4,5],[6,7]]},
+  {key:'b', label:'Chave B', pairs:[[8,9],[10,11],[12,13],[14,15]]}
 ];
 
 function bracketTeam(key, standings) {
@@ -2390,6 +2395,7 @@ function renderClassifThirds(standings) {
 </script>
 </body>
 </html>
+
 
 
 

@@ -115,6 +115,7 @@ Andressa · Boaventura · Bruno · Claudio Henrique · Everton Paes · Fabio Fis
 | 4.2 | Correção crítica: `const HTMLS` ausente do `hb_json.txt` restaurado — apostas voltam a funcionar |
 | 4.3 | `viewport-fit=cover` + `safe-area-inset-top` no navbar/home-header — barra do iPhone fica azul escuro |
 | 4.4 | Overscroll background vermelho `#E61D25` — fundo ao deslizar além do limite da página |
+| 5.8 | BRACKET_32 reconstruído na ordem FIFA correta (A1=ALE×PAR...A8=BEL×SEN, B1=SUI×JPN...B8=COL×GHA), BRACKET_SIDES com pares consecutivos simples |
 | 5.7 | Fix ordenação FIFA: BRACKET_SIDES e BRACKET_OITAVAS reordenados (Chave A começa ALE×PAR+FRA×SWE) |
 | 5.6 | Fases: abre na fase atual ao clicar na aba, workflow estendido para 30 dias (cobre Final 19/jul), `_lastClassifData` global para renavegação |
 | 5.5 | Fases: bracket-pair connector (alça azul/dourada) em Oitavas, Quartas, Semis e Final igual ao 16 Avos |
