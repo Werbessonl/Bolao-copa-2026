@@ -626,7 +626,7 @@ body::before{
       </div>
     </div>
   </div>
-  <div class="page-footer">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.6</span></div>
+  <div class="page-footer">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.7</span></div>
 </div>
 
 <!-- ============================
@@ -764,7 +764,7 @@ body::before{
       </div>
 
     </div>
-    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.6</span></div>
+    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.7</span></div>
   </div>
 </div>
 
@@ -830,7 +830,7 @@ body::before{
         Classificados fase de grupos: 32 pts (24 top 1°/2° + 8 melhores 3°s, 1pt cada) · 16 Avos 2pts · Oitavas 3pts · Quartas 4pts · Semis 5pts · Final 8pts · Campeão 25pts
       </div>
     </div>
-    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.6</span></div>
+    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.7</span></div>
   </div>
 </div>
 
@@ -911,7 +911,7 @@ body::before{
       </div>
     </div>
   </div>
-  <div class="page-footer" style="margin-top:4px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.6</span></div>
+  <div class="page-footer" style="margin-top:4px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.7</span></div>
 </div>
 
 <!-- Modal Comparativo -->
@@ -926,6 +926,7 @@ body::before{
 </div>
 
 <script>
+
 
 
 
@@ -1911,15 +1912,16 @@ function renderFasesSlides(data, standings) {
 
 // Estrutura do chaveamento FIFA 2026 para Oitavas → Final
 // src = índices em BRACKET_32 (para labels) ou refs de fase anterior
+// Ordem FIFA: Chave A topo=ALE/PAR+FRA/SWE, depois RSA/CAN+NED/MAR, ESP/AUT+POR/CRO, EUA/BOS+BEL/SEN
 var BRACKET_OITAVAS = [
-  {side:'A', src:[0,3]},   // Oitavas A1
-  {side:'A', src:[2,5]},   // Oitavas A2
-  {side:'A', src:[8,9]},   // Oitavas A3
-  {side:'A', src:[10,12]}, // Oitavas A4
-  {side:'B', src:[1,4]},   // Oitavas B1
-  {side:'B', src:[6,7]},   // Oitavas B2
-  {side:'B', src:[11,13]}, // Oitavas B3
-  {side:'B', src:[14,15]}  // Oitavas B4
+  {side:'A', src:[2,5]},   // Oitavas A1: ALE×PAR + FRA×SWE
+  {side:'A', src:[0,3]},   // Oitavas A2: RSA×CAN + NED×MAR
+  {side:'A', src:[10,12]}, // Oitavas A3: ESP×AUT + POR×CRO
+  {side:'A', src:[8,9]},   // Oitavas A4: EUA×BOS + BEL×SEN
+  {side:'B', src:[1,4]},   // Oitavas B1: BRA×JPN + CIV×NOR
+  {side:'B', src:[6,7]},   // Oitavas B2: MEX×ECU + ENG×CON
+  {side:'B', src:[14,15]}, // Oitavas B3: ARG×CPV + COL×GHA
+  {side:'B', src:[11,13]}  // Oitavas B4: SUI×ALG + AUS×EGY
 ];
 
 function br32Label(idx) {
@@ -1943,12 +1945,13 @@ function renderBracketPhases(ko) {
   if (s3) {
     var oit = byStage(['LAST_16','ROUND_OF_16']);
     s3.innerHTML =
+      // Ordem FIFA — usa BRACKET_OITAVAS para labels, API para dados reais
       sideWrap('bracket-side-a','CHAVE A',
-        bpair(card(oit[0],'Vencedor '+br32Label(0),'Vencedor '+br32Label(3))+card(oit[1],'Vencedor '+br32Label(2),'Vencedor '+br32Label(5)))+
-        bpair(card(oit[2],'Vencedor '+br32Label(8),'Vencedor '+br32Label(9))+card(oit[3],'Vencedor '+br32Label(10),'Vencedor '+br32Label(12))))+
+        bpair(card(oit[0],'Vencedor '+br32Label(2),'Vencedor '+br32Label(5))+card(oit[1],'Vencedor '+br32Label(0),'Vencedor '+br32Label(3)))+
+        bpair(card(oit[2],'Vencedor '+br32Label(10),'Vencedor '+br32Label(12))+card(oit[3],'Vencedor '+br32Label(8),'Vencedor '+br32Label(9))))+
       sideWrap('bracket-side-b','CHAVE B',
         bpair(card(oit[4],'Vencedor '+br32Label(1),'Vencedor '+br32Label(4))+card(oit[5],'Vencedor '+br32Label(6),'Vencedor '+br32Label(7)))+
-        bpair(card(oit[6],'Vencedor '+br32Label(11),'Vencedor '+br32Label(13))+card(oit[7],'Vencedor '+br32Label(14),'Vencedor '+br32Label(15))));
+        bpair(card(oit[6],'Vencedor '+br32Label(14),'Vencedor '+br32Label(15))+card(oit[7],'Vencedor '+br32Label(11),'Vencedor '+br32Label(13))));
   }
 
   // Slide 4: Quartas
@@ -2017,14 +2020,15 @@ var BRACKET_32 = [
 ];
 
 // Lados do chaveamento FIFA 2026 (cada lado → uma semi-final)
+// Ordem FIFA: Chave A topo→ baixo conforme chaveamento oficial
 var BRACKET_SIDES = [
   {
     key: 'a', label: 'Chave A',
-    pairs: [[0,3],[2,5],[8,9],[10,12]]
+    pairs: [[2,5],[0,3],[10,12],[8,9]]
   },
   {
     key: 'b', label: 'Chave B',
-    pairs: [[1,4],[6,7],[11,13],[14,15]]
+    pairs: [[1,4],[6,7],[14,15],[11,13]]
   }
 ];
 
@@ -2386,6 +2390,7 @@ function renderClassifThirds(standings) {
 </script>
 </body>
 </html>
+
 
 
 
