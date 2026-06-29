@@ -270,9 +270,26 @@ body::before{
 .cl-tabs{display:flex;gap:6px;margin-bottom:14px;max-width:900px;margin-left:auto;margin-right:auto;flex-wrap:wrap;}
 .cl-tab{padding:6px 14px;border-radius:20px;font-size:10px;font-weight:700;cursor:pointer;border:1px solid rgba(255,255,255,0.14);color:#B8C8F0;background:#0F1870;transition:all .15s;display:flex;align-items:center;gap:5px;}
 #cl-tab-jogos.active{background:#E61D25;border-color:#E61D25;color:#fff;}
-#cl-tab-avos.active{background:#7AB0F0;border-color:#7AB0F0;color:#111B7A;}
-#cl-tab-class.active{background:#3CAC3B;border-color:#3CAC3B;color:#fff;}
-#cl-tab-thirds.active{background:#C9A84C;border-color:#C9A84C;color:#fff;}
+#cl-tab-fases.active{background:#7AB0F0;border-color:#7AB0F0;color:#111B7A;}
+/* ===== FASES (swipe) ===== */
+.fases-phase-bar{background:#0A1260;padding:8px 14px;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid rgba(255,255,255,0.06);}
+.fases-phase-bar::-webkit-scrollbar{display:none;}
+.fases-pill{padding:4px 12px;border-radius:20px;font-size:9px;font-weight:700;letter-spacing:.5px;white-space:nowrap;cursor:pointer;color:#7A90D0;background:transparent;border:1px solid transparent;transition:all .2s;flex-shrink:0;}
+.fases-pill.active{background:#7AB0F0;color:#111B7A;border-color:#7AB0F0;}
+.fases-pill.done{color:#5DC85C;}
+.fases-pill.upcoming{color:#3A4570;}
+.fases-swipe-wrap{overflow:hidden;position:relative;}
+.fases-slides{display:flex;transition:transform .32s cubic-bezier(.4,0,.2,1);will-change:transform;}
+.fases-slide{min-width:100%;padding:14px;min-height:200px;}
+.fases-nav{display:flex;align-items:center;justify-content:space-between;padding:6px 14px 10px;background:#0A1260;}
+.fases-arrow{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.14);color:#B8C8F0;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;line-height:1;}
+.fases-arrow:hover{background:rgba(122,176,240,0.2);color:#7AB0F0;}
+.fases-arrow:disabled{opacity:.2;cursor:default;}
+.fases-phase-lbl{font-size:11px;font-weight:700;color:#B8C8F0;letter-spacing:1px;text-transform:uppercase;}
+.fases-dots{display:flex;justify-content:center;gap:5px;padding:8px 0 4px;background:#0A1260;}
+.fases-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.18);cursor:pointer;transition:all .2s;}
+.fases-dot.active{background:#7AB0F0;width:18px;border-radius:3px;}
+.fases-dot.done{background:#3CAC3B;}
 .avos-date-sep{font-size:10px;color:#7A90D0;padding:12px 0 6px;font-weight:600;}
 .avos-date-sep:first-child{padding-top:0;}
 .avos-match{background:#0F1870;border:1px solid rgba(255,255,255,0.1);border-left:3px solid #7AB0F0;border-radius:10px;overflow:hidden;margin-bottom:2px;}
@@ -609,7 +626,7 @@ body::before{
       </div>
     </div>
   </div>
-  <div class="page-footer">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.2</span></div>
+  <div class="page-footer">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.3</span></div>
 </div>
 
 <!-- ============================
@@ -747,7 +764,7 @@ body::before{
       </div>
 
     </div>
-    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.2</span></div>
+    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.3</span></div>
   </div>
 </div>
 
@@ -813,7 +830,7 @@ body::before{
         Classificados fase de grupos: 32 pts (24 top 1°/2° + 8 melhores 3°s, 1pt cada) · 16 Avos 2pts · Oitavas 3pts · Quartas 4pts · Semis 5pts · Final 8pts · Campeão 25pts
       </div>
     </div>
-    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.2</span></div>
+    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.3</span></div>
   </div>
 </div>
 
@@ -841,10 +858,8 @@ body::before{
   </nav>
   <div class="cl-body">
     <div class="cl-tabs">
-      <span class="cl-tab active" id="cl-tab-jogos" onclick="setClassifTab('jogos')"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Jogos Hoje<span id="cl-live-count" class="cl-live-badge" style="display:none">0 AO VIVO</span></span>
-      <span class="cl-tab" id="cl-tab-avos" onclick="setClassifTab('avos')"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/></svg>16 Avos</span>
-      <span class="cl-tab" id="cl-tab-class" onclick="setClassifTab('class')"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>Classificados</span>
-      <span class="cl-tab" id="cl-tab-thirds" onclick="setClassifTab('thirds')"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>Disputa dos 3°s</span>
+      <span class="cl-tab active" id="cl-tab-jogos" onclick="setClassifTab('jogos')"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Ao Vivo<span id="cl-live-count" class="cl-live-badge" style="display:none">0 AO VIVO</span></span>
+      <span class="cl-tab" id="cl-tab-fases" onclick="setClassifTab('fases')"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/></svg>Fases</span>
     </div>
     <div id="cl-loading" class="cl-loading">Carregando classificação...</div>
     <div id="cl-content" style="display:none">
@@ -863,25 +878,40 @@ body::before{
           <span id="cl-jogos-updated"></span>
         </div>
       </div>
-      <div id="cl-panel-avos" style="display:none">
-        <div id="cl-avos-content"></div>
-      </div>
-      <div id="cl-panel-class" style="display:none">
-        <div class="cl-warn"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;flex-shrink:0"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> Grupos ainda em disputa: classificados provisórios até o encerramento de cada grupo.</div>
-        <div class="cl-groups-grid" id="cl-groups-grid"></div>
-      </div>
-      <div id="cl-panel-thirds" style="display:none">
-        <div class="cl-warn"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;flex-shrink:0"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> Os 8 melhores 3° colocados avançam. Times com 0 jogos têm GD=0 (acima de DG negativos).</div>
-        <div class="cl-thirds-table">
-          <table>
-            <thead><tr><th>#</th><th>Seleção</th><th>Pts</th><th>GD</th><th>GP</th><th>Grp</th></tr></thead>
-            <tbody id="cl-thirds-tbody"></tbody>
-          </table>
+      <div id="cl-panel-fases" style="display:none">
+        <!-- Pills de fase -->
+        <div class="fases-phase-bar" id="fases-phase-bar"></div>
+        <!-- Slides swipeable -->
+        <div class="fases-swipe-wrap" id="fases-swipe-wrap">
+          <div class="fases-slides" id="fases-slides">
+            <div class="fases-slide" id="fases-slide-0"></div>
+            <div class="fases-slide" id="fases-slide-1"></div>
+            <div class="fases-slide" id="fases-slide-2"></div>
+            <div class="fases-slide" id="fases-slide-3"></div>
+            <div class="fases-slide" id="fases-slide-4"></div>
+            <div class="fases-slide" id="fases-slide-5"></div>
+            <div class="fases-slide" id="fases-slide-6"></div>
+          </div>
+        </div>
+        <!-- Dots + navegação -->
+        <div style="background:#0A1260;">
+          <div class="fases-dots" id="fases-dots"></div>
+          <div class="fases-nav">
+            <button class="fases-arrow" id="fases-prev">&#8249;</button>
+            <span class="fases-phase-lbl" id="fases-lbl"></span>
+            <button class="fases-arrow" id="fases-next">&#8250;</button>
+          </div>
+        </div>
+        <!-- Painéis internos mantidos para renderização (ocultos) -->
+        <div style="display:none">
+          <div class="cl-groups-grid" id="cl-groups-grid"></div>
+          <table><tbody id="cl-thirds-tbody"></tbody></table>
+          <div id="cl-avos-content"></div>
         </div>
       </div>
     </div>
   </div>
-  <div class="page-footer" style="margin-top:4px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.2</span></div>
+  <div class="page-footer" style="margin-top:4px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.3</span></div>
 </div>
 
 <!-- Modal Comparativo -->
@@ -896,6 +926,7 @@ body::before{
 </div>
 
 <script>
+
 
 
 
@@ -1745,10 +1776,157 @@ function flagImgCl(name, h) {
 // ===== CLASSIFICAÇÃO =====
 function setClassifTab(tab) {
   classifTab = tab;
-  ['jogos','avos','class','thirds'].forEach(function(t) {
+  ['jogos','fases'].forEach(function(t) {
     document.getElementById('cl-tab-' + t).classList.toggle('active', tab === t);
     document.getElementById('cl-panel-' + t).style.display = tab === t ? '' : 'none';
   });
+}
+
+// ===== FASES SWIPE =====
+var fasesPhases = ['Grupos','3° Colocados','16 Avos','Oitavas','Quartas','Semifinais','Final'];
+var fasesCur = 2;
+var fasesInitialized = false;
+
+function fasesGoTo(n, data) {
+  if (n < 0 || n >= fasesPhases.length) return;
+  fasesCur = n;
+  var slides = document.getElementById('fases-slides');
+  if (slides) slides.style.transform = 'translateX(-' + (n * 100) + '%)';
+
+  var dots = document.querySelectorAll('.fases-dot');
+  dots.forEach(function(d, i) {
+    d.className = 'fases-dot' + (i < n ? ' done' : i === n ? ' active' : '');
+  });
+
+  var pills = document.querySelectorAll('.fases-pill');
+  pills.forEach(function(p, i) {
+    var base = i < n ? 'done' : i === n ? 'active' : 'upcoming';
+    p.className = 'fases-pill ' + base;
+  });
+
+  var lbl = document.getElementById('fases-lbl');
+  if (lbl) lbl.textContent = fasesPhases[n];
+
+  var prev = document.getElementById('fases-prev');
+  var next = document.getElementById('fases-next');
+  if (prev) prev.disabled = n === 0;
+  if (next) next.disabled = n === fasesPhases.length - 1;
+
+  var bar = document.getElementById('fases-phase-bar');
+  if (bar) {
+    var pill = bar.children[n];
+    if (pill) pill.scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
+  }
+}
+
+function detectCurrentPhase(knockoutMatches) {
+  if (!knockoutMatches || knockoutMatches.length === 0) return 0;
+  var stages = {'LAST_32':2,'ROUND_OF_32':2,'LAST_16':3,'ROUND_OF_16':3,'QUARTER_FINALS':4,'SEMI_FINALS':5,'FINAL':6};
+  var maxPhase = 0;
+  knockoutMatches.forEach(function(m) {
+    var ph = stages[m.stage];
+    if (ph !== undefined && ph > maxPhase) maxPhase = ph;
+  });
+  return maxPhase || 2;
+}
+
+function initFases(data, standings) {
+  if (fasesInitialized) return;
+  fasesInitialized = true;
+
+  var bar = document.getElementById('fases-phase-bar');
+  var dotsEl = document.getElementById('fases-dots');
+  if (bar) bar.innerHTML = fasesPhases.map(function(n, i) {
+    return '<span class="fases-pill upcoming" data-i="' + i + '">' + n + '</span>';
+  }).join('');
+  if (dotsEl) dotsEl.innerHTML = fasesPhases.map(function(_, i) {
+    return '<div class="fases-dot" data-i="' + i + '"></div>';
+  }).join('');
+
+  document.querySelectorAll('.fases-pill').forEach(function(p) {
+    p.addEventListener('click', function() { fasesGoTo(+this.dataset.i, data); });
+  });
+  document.querySelectorAll('.fases-dot').forEach(function(d) {
+    d.addEventListener('click', function() { fasesGoTo(+this.dataset.i, data); });
+  });
+
+  var prev = document.getElementById('fases-prev');
+  var next = document.getElementById('fases-next');
+  if (prev) prev.addEventListener('click', function() { fasesGoTo(fasesCur - 1, data); });
+  if (next) next.addEventListener('click', function() { fasesGoTo(fasesCur + 1, data); });
+
+  var wrap = document.getElementById('fases-swipe-wrap');
+  if (wrap) {
+    var startX = 0;
+    wrap.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, {passive:true});
+    wrap.addEventListener('touchend', function(e) {
+      var dx = startX - e.changedTouches[0].clientX;
+      if (Math.abs(dx) > 40) fasesGoTo(dx > 0 ? fasesCur + 1 : fasesCur - 1, data);
+    });
+  }
+
+  renderFasesSlides(data, standings);
+  var startPhase = detectCurrentPhase(data.knockout_matches || []);
+  fasesGoTo(startPhase, data);
+}
+
+function renderFasesSlides(data, standings) {
+  var ko = data.knockout_matches || [];
+
+  // Slide 0 — Grupos
+  var gridsEl = document.getElementById('cl-groups-grid');
+  if (gridsEl) renderClassifGroups(standings);
+  var s0 = document.getElementById('fases-slide-0');
+  if (s0 && gridsEl) s0.innerHTML = '<div class="cl-warn" style="margin-bottom:10px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> Top 2 de cada grupo · 8 melhores 3° classificados</div><div class="cl-groups-grid">' + (gridsEl.innerHTML) + '</div>';
+
+  // Slide 1 — 3° colocados
+  var thirdsEl = document.getElementById('cl-thirds-tbody');
+  if (thirdsEl) renderClassifThirds(standings);
+  var s1 = document.getElementById('fases-slide-1');
+  if (s1 && thirdsEl) s1.innerHTML = '<div class="cl-thirds-table"><table><thead><tr><th>#</th><th>Seleção</th><th>Pts</th><th>GD</th><th>GP</th><th>Grp</th></tr></thead><tbody>' + thirdsEl.innerHTML + '</tbody></table></div>';
+
+  // Slide 2 — 16 Avos
+  var s2 = document.getElementById('fases-slide-2');
+  if (s2) { renderAvos(ko, standings); var avosEl = document.getElementById('cl-avos-content'); if (avosEl) s2.innerHTML = avosEl.innerHTML || '<div class="cl-loading">Confrontos a definir após encerramento dos grupos.</div>'; }
+
+  // Slides 3-6 — fases futuras (knockout_matches filtrados por stage)
+  var stageMap = [['LAST_32','ROUND_OF_32'],['LAST_16','ROUND_OF_16'],['QUARTER_FINALS'],['SEMI_FINALS'],['FINAL']];
+  var slideNames = ['Oitavas de Final','Quartas de Final','Semifinais','Final'];
+  [3,4,5,6].forEach(function(idx) {
+    var s = document.getElementById('fases-slide-' + idx);
+    if (!s) return;
+    var stages = stageMap[idx - 2];
+    var matches = ko.filter(function(m) { return stages.indexOf(m.stage) >= 0; });
+    if (matches.length > 0) {
+      s.innerHTML = matches.map(function(m) { return buildMatchCard(m); }).join('');
+    } else {
+      s.innerHTML = '<div class="cl-loading" style="padding:30px 0;text-align:center;font-size:12px;color:#4A5580;">Os confrontos das ' + slideNames[idx-3] + ' serão definidos conforme a fase avançar.</div>';
+    }
+  });
+}
+
+function buildMatchCard(m) {
+  var st = m.status;
+  var cardCls = 'avos-match' + (st==='FINISHED'?' done':st==='IN_PLAY'||st==='PAUSED'?' live':'');
+  var statusPill = st==='FINISHED' ? '<span class="phase-pill done">Encerrado</span>'
+    : (st==='IN_PLAY'||st==='PAUSED') ? '<span class="phase-pill live">Ao Vivo</span>'
+    : '<span class="phase-pill next">Agendado</span>';
+  var d = new Date(m.utcDate);
+  var brt = new Date(d.toLocaleString('en-US',{timeZone:'America/Sao_Paulo'}));
+  var time = String(brt.getHours()).padStart(2,'0')+':'+String(brt.getMinutes()).padStart(2,'0');
+  var dateStr = brt.getDate()+'/'+(brt.getMonth()+1)+' · '+time;
+
+  function teamHtml(team, score, isWin) {
+    var flag = team && team.name && team.name !== 'TBD' ? (function(){var c=TEAM_FLAGS[team.name]||TEAM_FLAGS[translate(team.name)];return c?'<img src="https://flagcdn.com/h20/'+c+'.png" width="20" height="13" style="border-radius:2px;flex-shrink:0" alt="'+team.name+'">':'<div class="avos-flag-ph">?</div>';})() : '<div class="avos-flag-ph">?</div>';
+    var name = team && team.name && team.name !== 'TBD' ? (translate(team.name)||team.name) : 'A definir';
+    var nameCls = name==='A definir' ? 'avos-team-name tbd' : 'avos-team-name';
+    var scoreEl = score!==null&&score!==undefined ? '<span class="avos-score '+(isWin?'win':'loss')+'">'+score+'</span>' : '';
+    return '<div class="avos-team-row">'+flag+'<span class="'+nameCls+'">'+name+'</span>'+scoreEl+'</div>';
+  }
+
+  var fin = st==='FINISHED', hs=fin?m.score.fullTime.home:null, as=fin?m.score.fullTime.away:null;
+  var hw=fin&&m.score.winner==='HOME_TEAM', aw=fin&&m.score.winner==='AWAY_TEAM';
+  return '<div class="'+cardCls+'" style="margin-bottom:6px"><div class="avos-match-top"><span class="avos-match-info">'+dateStr+'</span>'+statusPill+'</div>'+teamHtml(m.homeTeam,hs,hw)+teamHtml(m.awayTeam,as,aw)+'</div>';
 }
 
 // Chaveamento FIFA 2026 LAST_32: 16 confrontos em ordem cronológica
@@ -1893,19 +2071,17 @@ async function loadClassificacao(force) {
     // Jogos hoje
     renderJogosHoje(data.today_matches || []);
 
-    // Classificação e 3°s (computed first — needed by renderAvos)
-    const normalizedStandings = normalizeStandingsGroups(data.standings || [], data.matches || []);
-
-    // 16 Avos
-    renderAvos(data.knockout_matches || [], normalizedStandings);
     if (data.updated) {
       const d = new Date(data.updated);
       const fmt = d.toLocaleString('pt-BR', {timeZone:'America/Sao_Paulo',day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'});
       document.getElementById('cl-jogos-updated').textContent = fmt + ' (Brasília)';
     }
+
+    // Fases swipe (Grupos → 3°s → 16 Avos → Oitavas → Quartas → Semi → Final)
+    const normalizedStandings = normalizeStandingsGroups(data.standings || [], data.matches || []);
     const mainStandings = normalizedStandings.filter(function(s){ return s.table && s.table.length >= 2; });
-    renderClassifGroups(mainStandings);
-    renderClassifThirds(mainStandings);
+    fasesInitialized = false;
+    initFases(data, mainStandings);
   } catch(e) {
     document.getElementById('cl-loading').textContent = '⚠ Erro ao carregar dados: ' + e.message;
   }
@@ -2130,6 +2306,7 @@ function renderClassifThirds(standings) {
 </script>
 </body>
 </html>
+
 
 
 

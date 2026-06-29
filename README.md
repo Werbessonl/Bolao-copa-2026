@@ -115,6 +115,7 @@ Andressa · Boaventura · Bruno · Claudio Henrique · Everton Paes · Fabio Fis
 | 4.2 | Correção crítica: `const HTMLS` ausente do `hb_json.txt` restaurado — apostas voltam a funcionar |
 | 4.3 | `viewport-fit=cover` + `safe-area-inset-top` no navbar/home-header — barra do iPhone fica azul escuro |
 | 4.4 | Overscroll background vermelho `#E61D25` — fundo ao deslizar além do limite da página |
+| 5.3 | Seção "Ao Vivo" reformulada: 2 abas (Ao Vivo = jogos hoje, Fases = swipe estilo Apple Sports com Grupos→3°s→16 Avos→Oitavas→Quartas→Semi→Final), abre na fase atual automaticamente |
 | 5.2 | Fix real = virtual: pontuação de grupos usa `apostas32 = grupos + melhores_terceiros` combinado — qualquer time que classificou (top2 OU melhor 3°) conta se estava em qualquer das 32 apostas |
 | 5.1 | Fix divergência real vs virtual (revertido) |
 | 5.0 | Sincronização e limpeza pós-CLI: chaveamento FIFA 2026 com Chave A/B, placares via `score.winner` (cobre prorrogação/pênaltis), `bracketTeam()` resolve times por classificação dos grupos, `BRACKET_32` e `BRACKET_SIDES` como dados centrais |
