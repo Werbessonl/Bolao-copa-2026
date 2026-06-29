@@ -4829,11 +4829,11 @@
       },
       "id": 537423,
       "utcDate": "2026-06-29T17:00:00Z",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-06-29T05:20:12Z",
+      "lastUpdated": "2026-06-29T18:25:49Z",
       "homeTeam": {
         "id": 764,
         "name": "Brazil",
@@ -4849,15 +4849,15 @@
         "crest": "https://crests.football-data.org/766.svg"
       },
       "score": {
-        "winner": null,
+        "winner": "DRAW",
         "duration": "REGULAR",
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 1
         },
         "halfTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 1
         }
       },
       "odds": {
@@ -5133,11 +5133,11 @@
       },
       "id": 537423,
       "utcDate": "2026-06-29T17:00:00Z",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-06-29T05:20:12Z",
+      "lastUpdated": "2026-06-29T18:25:49Z",
       "homeTeam": {
         "id": 764,
         "name": "Brazil",
@@ -5153,15 +5153,15 @@
         "crest": "https://crests.football-data.org/766.svg"
       },
       "score": {
-        "winner": null,
+        "winner": "DRAW",
         "duration": "REGULAR",
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 1
         },
         "halfTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 1
         }
       },
       "odds": {
@@ -7945,5 +7945,5 @@
       ]
     }
   ],
-  "updated": "2026-06-29T16:13:33Z"
+  "updated": "2026-06-29T18:26:28Z"
 }
