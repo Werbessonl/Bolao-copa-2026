@@ -315,6 +315,16 @@ body::before{
 .avos-score.loss{color:#FF4D55;}
 .avos-pen-info{font-size:9px;font-weight:700;color:#F0C040;background:rgba(240,192,64,0.15);padding:2px 6px;border-radius:8px;}
 .avos-flag-ph{width:20px;height:13px;border-radius:2px;background:#1A2550;display:flex;align-items:center;justify-content:center;font-size:7px;color:#7A90D0;font-weight:700;flex-shrink:0;}
+.avos-clickable{cursor:pointer;transition:background .12s;}
+.garantidos-section{margin-top:20px;background:#0F1870;border:1px solid rgba(255,255,255,0.08);border-left:3px solid #F0C040;border-radius:10px;overflow:hidden;}
+.garantidos-header{display:flex;align-items:center;gap:7px;padding:9px 14px;background:rgba(240,192,64,0.1);font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#F0C040;}
+.garantidos-desc{padding:8px 14px 4px;font-size:10px;color:#7A90D0;line-height:1.4;}
+.garantidos-item{padding:9px 14px;border-top:1px solid rgba(255,255,255,0.06);}
+.garantidos-match-label{font-size:12px;font-weight:700;color:#fff;margin-bottom:4px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
+.garantidos-vs{color:#7A90D0;font-weight:400;font-size:10px;}
+.garantidos-badge{background:rgba(240,192,64,0.18);color:#F0C040;font-size:9px;font-weight:800;padding:2px 7px;border-radius:8px;letter-spacing:.3px;}
+.garantidos-names{font-size:10px;color:#A0B0D8;line-height:1.5;}
+.avos-clickable:active{background:rgba(255,255,255,0.06);}
 .cl-live-badge{background:#fff;color:#E61D25;font-size:7px;font-weight:900;padding:1px 5px;border-radius:8px;letter-spacing:.3px;margin-left:2px;}
 
 /* Cazé TV */
@@ -1353,7 +1363,7 @@ function calcRealPoints(finishedMatches, standings) {
 }
 
 // Calcula pontos virtuais: real + pontos de grupos com base no standings atual
-function calcVirtualPoints(realScores, standings) {
+function calcVirtualPoints(realScores, standings, knockoutMatches) {
   if (!standings || standings.length === 0) {
     return realScores.map(s => ({...s, virtual: s.real}));
   }
@@ -1380,13 +1390,35 @@ function calcVirtualPoints(realScores, standings) {
   // Pool única dos 32 classificados (24 top2 + 8 melhores 3os)
   const classificados32 = [...top2, ...best8thirds];
 
+  // Pares de LAST_32 ainda não disputados onde participante apostou nos dois times
+  // → 2pts garantidos independente do resultado
+  const timedLast32Pairs = [];
+  if (knockoutMatches) {
+    const last32Sorted = knockoutMatches
+      .filter(m => m.stage === 'LAST_32')
+      .sort((a, b) => new Date(a.utcDate) - new Date(b.utcDate));
+    last32Sorted.forEach((m, idx) => {
+      if (m.status !== 'TIMED' && m.status !== 'SCHEDULED') return;
+      const bracket = BRACKET_32[idx] || {};
+      const homeNm = (m.homeTeam && m.homeTeam.name && m.homeTeam.name !== 'TBD')
+        ? m.homeTeam.name : bracketTeam(bracket.home, standings);
+      const awayNm = (m.awayTeam && m.awayTeam.name && m.awayTeam.name !== 'TBD')
+        ? m.awayTeam.name : bracketTeam(bracket.away, standings);
+      if (homeNm && awayNm) timedLast32Pairs.push([homeNm, awayNm]);
+    });
+  }
+
   return realScores.map(s => {
     const p = PALPITES[s.idx];
     // Regra: qualquer time classificado (top2 OU melhor 3°) que estava em qualquer das 32 apostas
     const apostas32 = [...p.grupos, ...p.melhores_terceiros];
     let gruposPts = 0;
     classificados32.forEach(t => { if (inList(t, apostas32)) gruposPts += 1; });
-    const knockoutPts = s.real - (s.realGroup || 0);
+    let knockoutPts = s.real - (s.realGroup || 0);
+    // 2pts garantidos por confronto LAST_32 pendente onde apostou nos dois lados
+    timedLast32Pairs.forEach(([home, away]) => {
+      if (inList(home, p.dezesseis_avos) && inList(away, p.dezesseis_avos)) knockoutPts += 2;
+    });
     return {...s, virtual: gruposPts + knockoutPts};
   });
 }
@@ -1521,7 +1553,7 @@ async function loadRanking(force) {
 
     const normalizedStandings = normalizeStandingsGroups(data.standings || [], data.matches || []);
     const realScores = calcRealPoints(data.matches || [], normalizedStandings);
-    const fullScores = calcVirtualPoints(realScores, normalizedStandings);
+    const fullScores = calcVirtualPoints(realScores, normalizedStandings, data.knockout_matches || []);
 
     lastRankingData = {
       real: [...fullScores].sort((a, b) => b.real - a.real),
@@ -1997,6 +2029,9 @@ function renderAvos(matches, standings) {
     var scoreEl = score !== null && score !== undefined
       ? '<span class="avos-score ' + (isWinner ? 'win' : 'loss') + '">' + score + '</span>'
       : '';
+    if (name !== 'A definir') {
+      return '<div class="avos-team-row avos-clickable" onclick="showKnockoutTooltip(' + JSON.stringify(name) + ',\'dezesseis_avos\',event)">' + flagEl + '<span class="' + nameClass + '">' + name + '</span>' + scoreEl + '</div>';
+    }
     return '<div class="avos-team-row">' + flagEl + '<span class="' + nameClass + '">' + name + '</span>' + scoreEl + '</div>';
   }
 
@@ -2052,6 +2087,39 @@ function renderAvos(matches, standings) {
     });
     html += '</div>';
   });
+
+  // Boletim de pontos garantidos (confrontos TIMED onde apostou nos dois times)
+  var garantidosItems = [];
+  last32.forEach(function(m, bracketIdx) {
+    if (m.status !== 'TIMED' && m.status !== 'SCHEDULED') return;
+    var bracket = BRACKET_32[bracketIdx] || {};
+    var homeTeam = resolveTeam(m.homeTeam, bracket.home);
+    var awayTeam = resolveTeam(m.awayTeam, bracket.away);
+    if (!homeTeam || !awayTeam) return;
+    var homePt = translate(homeTeam.name) || homeTeam.name;
+    var awayPt = translate(awayTeam.name) || awayTeam.name;
+    var hNorm = normalize(homePt);
+    var aNorm = normalize(awayPt);
+    var apostadores = NAMES.filter(function(_, i) {
+      var d = PALPITES[i].dezesseis_avos || [];
+      return d.some(function(t) { return normalize(t) === hNorm; })
+          && d.some(function(t) { return normalize(t) === aNorm; });
+    }).map(function(n) { return n.split(' ')[0]; });
+    if (apostadores.length > 0) garantidosItems.push({home: homePt, away: awayPt, nomes: apostadores});
+  });
+
+  if (garantidosItems.length > 0) {
+    html += '<div class="garantidos-section">';
+    html += '<div class="garantidos-header">⚡ Pontos garantidos nos 16 avos</div>';
+    html += '<div class="garantidos-desc">Quem apostou nos dois lados do mesmo confronto garante +2pts independente do resultado</div>';
+    garantidosItems.forEach(function(item) {
+      html += '<div class="garantidos-item">';
+      html += '<div class="garantidos-match-label">' + item.home + ' <span class="garantidos-vs">vs</span> ' + item.away + '<span class="garantidos-badge">+2pts garantidos</span></div>';
+      html += '<div class="garantidos-names">' + item.nomes.join(' · ') + '</div>';
+      html += '</div>';
+    });
+    html += '</div>';
+  }
 
   el.innerHTML = html;
 }
@@ -2179,9 +2247,9 @@ function renderJogoCard(m) {
       '<div style="display:flex;align-items:center;gap:8px;">' + statusPill + '<span class="jogo-time">' + hora + '</span></div>' +
     '</div>' +
     '<div class="jogo-card-body">' +
-      '<div class="jogo-team"><button class="jogo-flag-btn" onclick="showTeamTooltip(\'' + m.homeTeam.name.replace(/'/g,"\\'") + '\',event)">' + homeFlag + '<span class="jogo-team-name">' + homeName + '</span></button></div>' +
+      '<div class="jogo-team"><button class="jogo-flag-btn" onclick="showTeamTooltip(\'' + m.homeTeam.name.replace(/'/g,"\\'") + '\',\'' + m.stage + '\',event)">' + homeFlag + '<span class="jogo-team-name">' + homeName + '</span></button></div>' +
       '<div class="jogo-score-wrap">' + scoreHtml + '</div>' +
-      '<div class="jogo-team"><button class="jogo-flag-btn" onclick="showTeamTooltip(\'' + m.awayTeam.name.replace(/'/g,"\\'") + '\',event)">' + awayFlag + '<span class="jogo-team-name">' + awayName + '</span></button></div>' +
+      '<div class="jogo-team"><button class="jogo-flag-btn" onclick="showTeamTooltip(\'' + m.awayTeam.name.replace(/'/g,"\\'") + '\',\'' + m.stage + '\',event)">' + awayFlag + '<span class="jogo-team-name">' + awayName + '</span></button></div>' +
     '</div>' +
   '</div>';
 }
@@ -2189,23 +2257,53 @@ function renderJogoCard(m) {
 var _tooltipEl = null;
 var _tooltipTimer = null;
 
-function showTeamTooltip(apiName, event) {
+function showTeamTooltip(apiName, stage, event) {
+  if (stage && typeof stage === 'object') { event = stage; stage = 'GROUP_STAGE'; }
   event.stopPropagation();
   hideTooltip();
 
   var ptName = translate(apiName) || apiName;
   var ptNorm = normalize(ptName);
 
-  var apostadores = NAMES.filter(function(_, i) {
-    var p = PALPITES[i];
-    var todos = (p.grupos || []).concat(p.melhores_terceiros || []);
-    return todos.some(function(t) { return normalize(t) === ptNorm; });
-  });
+  var title, apostadores;
+  if (stage === 'LAST_32') {
+    title = 'Apostaram nos 16 avos: ' + ptName;
+    apostadores = NAMES.filter(function(_, i) {
+      return (PALPITES[i].dezesseis_avos || []).some(function(t) { return normalize(t) === ptNorm; });
+    });
+  } else if (stage === 'LAST_16') {
+    title = 'Apostaram nas oitavas: ' + ptName;
+    apostadores = NAMES.filter(function(_, i) {
+      return (PALPITES[i].oitavas || []).some(function(t) { return normalize(t) === ptNorm; });
+    });
+  } else if (stage === 'QUARTER_FINALS') {
+    title = 'Apostaram nas quartas: ' + ptName;
+    apostadores = NAMES.filter(function(_, i) {
+      return (PALPITES[i].quartas || []).some(function(t) { return normalize(t) === ptNorm; });
+    });
+  } else if (stage === 'SEMI_FINALS') {
+    title = 'Apostaram nas semis: ' + ptName;
+    apostadores = NAMES.filter(function(_, i) {
+      return (PALPITES[i].semis || []).some(function(t) { return normalize(t) === ptNorm; });
+    });
+  } else if (stage === 'FINAL') {
+    title = 'Apostaram no campeão: ' + ptName;
+    apostadores = NAMES.filter(function(_, i) {
+      return normalize(PALPITES[i].campeao || '') === ptNorm;
+    });
+  } else {
+    title = 'Apostaram em ' + ptName;
+    apostadores = NAMES.filter(function(_, i) {
+      var p = PALPITES[i];
+      var todos = (p.grupos || []).concat(p.melhores_terceiros || []);
+      return todos.some(function(t) { return normalize(t) === ptNorm; });
+    });
+  }
 
   var el = document.createElement('div');
   el.className = 'flag-tooltip';
 
-  var inner = '<div class="flag-tooltip-title">Apostaram em ' + ptName + '</div>';
+  var inner = '<div class="flag-tooltip-title">' + title + '</div>';
   if (apostadores.length === 0) {
     inner += '<div class="flag-tooltip-empty">Ninguém apostou nessa seleção</div>';
   } else {
@@ -2217,7 +2315,6 @@ function showTeamTooltip(apiName, event) {
   document.body.appendChild(el);
   _tooltipEl = el;
 
-  // Posicionar acima do clique
   var rect = event.currentTarget.getBoundingClientRect();
   var top = rect.top + window.scrollY - el.offsetHeight - 8;
   var left = rect.left + window.scrollX + (rect.width / 2) - (el.offsetWidth / 2);
@@ -2229,13 +2326,45 @@ function showTeamTooltip(apiName, event) {
   _tooltipTimer = setTimeout(hideTooltip, 4000);
 }
 
+function showKnockoutTooltip(ptName, field, event) {
+  event.stopPropagation();
+  hideTooltip();
+  var ptNorm = normalize(ptName);
+  var apostadores = NAMES.filter(function(_, i) {
+    var p = PALPITES[i];
+    var lista = p[field] || [];
+    return lista.some(function(t) { return normalize(t) === ptNorm; });
+  });
+  var el = document.createElement('div');
+  el.className = 'flag-tooltip';
+  var inner = '<div class="flag-tooltip-title">Apostaram no avanço de ' + ptName + '</div>';
+  if (apostadores.length === 0) {
+    inner += '<div class="flag-tooltip-empty">Ninguém apostou nessa seleção</div>';
+  } else {
+    apostadores.forEach(function(n) {
+      inner += '<div class="flag-tooltip-name">– ' + n.split(' ')[0] + '</div>';
+    });
+  }
+  el.innerHTML = inner;
+  document.body.appendChild(el);
+  _tooltipEl = el;
+  var rect = event.currentTarget.getBoundingClientRect();
+  var top = rect.top + window.scrollY - el.offsetHeight - 8;
+  var left = rect.left + window.scrollX + (rect.width / 2) - (el.offsetWidth / 2);
+  if (top < 8) top = rect.bottom + window.scrollY + 8;
+  left = Math.max(8, Math.min(left, window.innerWidth - el.offsetWidth - 8));
+  el.style.top = top + 'px';
+  el.style.left = left + 'px';
+  _tooltipTimer = setTimeout(hideTooltip, 4000);
+}
+
 function hideTooltip() {
   if (_tooltipEl) { _tooltipEl.remove(); _tooltipEl = null; }
   if (_tooltipTimer) { clearTimeout(_tooltipTimer); _tooltipTimer = null; }
 }
 
 document.addEventListener('click', function(e) {
-  if (_tooltipEl && !e.target.closest('.jogo-flag-btn')) hideTooltip();
+  if (_tooltipEl && !e.target.closest('.jogo-flag-btn') && !e.target.closest('.avos-clickable')) hideTooltip();
 });
 
 function standingsCmp(a, b) {
