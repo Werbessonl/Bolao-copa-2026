@@ -21,7 +21,7 @@ jobs:
         run: |
           TODAY=$(date -u +%Y-%m-%d)
           TOMORROW=$(date -u -d "+1 day" +%Y-%m-%d)
-          NEXT_WEEK=$(date -u -d "+10 days" +%Y-%m-%d)
+          NEXT_WEEK=$(date -u -d "+30 days" +%Y-%m-%d)
           curl -sf -H "X-Auth-Token: $API_KEY" "https://api.football-data.org/v4/competitions/WC/matches?status=FINISHED" -o matches_raw.json
           curl -sf -H "X-Auth-Token: $API_KEY" "https://api.football-data.org/v4/competitions/WC/matches?dateFrom=${TODAY}&dateTo=${TOMORROW}" -o today_raw.json
           curl -sf -H "X-Auth-Token: $API_KEY" "https://api.football-data.org/v4/competitions/WC/matches?dateFrom=${TODAY}&dateTo=${NEXT_WEEK}" -o knockout_raw.json

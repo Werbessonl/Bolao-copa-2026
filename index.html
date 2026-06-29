@@ -626,7 +626,7 @@ body::before{
       </div>
     </div>
   </div>
-  <div class="page-footer">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.5</span></div>
+  <div class="page-footer">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.6</span></div>
 </div>
 
 <!-- ============================
@@ -764,7 +764,7 @@ body::before{
       </div>
 
     </div>
-    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.5</span></div>
+    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.6</span></div>
   </div>
 </div>
 
@@ -830,7 +830,7 @@ body::before{
         Classificados fase de grupos: 32 pts (24 top 1°/2° + 8 melhores 3°s, 1pt cada) · 16 Avos 2pts · Oitavas 3pts · Quartas 4pts · Semis 5pts · Final 8pts · Campeão 25pts
       </div>
     </div>
-    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.5</span></div>
+    <div class="page-footer" style="margin-top:16px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.6</span></div>
   </div>
 </div>
 
@@ -911,7 +911,7 @@ body::before{
       </div>
     </div>
   </div>
-  <div class="page-footer" style="margin-top:4px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.5</span></div>
+  <div class="page-footer" style="margin-top:4px;">Desenvolvido por Agile Tech + · <span style="opacity:.45;font-size:8px;letter-spacing:1.5px;font-weight:700;">V.5.6</span></div>
 </div>
 
 <!-- Modal Comparativo -->
@@ -926,6 +926,7 @@ body::before{
 </div>
 
 <script>
+
 
 
 
@@ -1782,12 +1783,17 @@ function setClassifTab(tab) {
     document.getElementById('cl-tab-' + t).classList.toggle('active', tab === t);
     document.getElementById('cl-panel-' + t).style.display = tab === t ? '' : 'none';
   });
+  // Ao clicar em Fases, sempre navega para a fase atual
+  if (tab === 'fases' && _lastClassifData) {
+    fasesGoTo(detectCurrentPhase(_lastClassifData.knockout_matches || []), _lastClassifData);
+  }
 }
 
 // ===== FASES SWIPE =====
 var fasesPhases = ['Grupos','3° Colocados','16 Avos','Oitavas','Quartas','Semifinais','Final'];
 var fasesCur = 2;
 var fasesInitialized = false;
+var _lastClassifData = null; // guarda o último data.json carregado para reuso no tab-click
 
 function fasesGoTo(n, data) {
   if (n < 0 || n >= fasesPhases.length) return;
@@ -2153,6 +2159,7 @@ async function loadClassificacao(force) {
     // Fases swipe (Grupos → 3°s → 16 Avos → Oitavas → Quartas → Semi → Final)
     const normalizedStandings = normalizeStandingsGroups(data.standings || [], data.matches || []);
     const mainStandings = normalizedStandings.filter(function(s){ return s.table && s.table.length >= 2; });
+    _lastClassifData = data;
     fasesInitialized = false;
     initFases(data, mainStandings);
   } catch(e) {
@@ -2379,6 +2386,7 @@ function renderClassifThirds(standings) {
 </script>
 </body>
 </html>
+
 
 
 
