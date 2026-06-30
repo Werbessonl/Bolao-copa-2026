@@ -4947,6 +4947,84 @@
           "nationality": "Morocco"
         }
       ]
+    },
+    {
+      "area": {
+        "id": 2267,
+        "name": "World",
+        "code": "INT",
+        "flag": null
+      },
+      "competition": {
+        "id": 2000,
+        "name": "FIFA World Cup",
+        "code": "WC",
+        "type": "CUP",
+        "emblem": "https://crests.football-data.org/wm26.png"
+      },
+      "season": {
+        "id": 2398,
+        "startDate": "2026-06-11",
+        "endDate": "2026-07-19",
+        "currentMatchday": 3,
+        "winner": null
+      },
+      "id": 537418,
+      "utcDate": "2026-06-30T01:00:00Z",
+      "status": "FINISHED",
+      "matchday": null,
+      "stage": "LAST_32",
+      "group": null,
+      "lastUpdated": "2026-06-30T04:08:17Z",
+      "homeTeam": {
+        "id": 8601,
+        "name": "Netherlands",
+        "shortName": "Netherlands",
+        "tla": "NED",
+        "crest": "https://crests.football-data.org/8601.svg"
+      },
+      "awayTeam": {
+        "id": 815,
+        "name": "Morocco",
+        "shortName": "Morocco",
+        "tla": "MAR",
+        "crest": "https://crests.football-data.org/morocco.svg"
+      },
+      "score": {
+        "winner": null,
+        "duration": "PENALTY_SHOOTOUT",
+        "fullTime": {
+          "home": 3,
+          "away": 4
+        },
+        "halfTime": {
+          "home": 0,
+          "away": 0
+        },
+        "regularTime": {
+          "home": 1,
+          "away": 1
+        },
+        "extraTime": {
+          "home": 0,
+          "away": 0
+        },
+        "penalties": {
+          "home": 3,
+          "away": 3
+        }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": [
+        {
+          "id": 11412,
+          "name": "Wilton Sampaio",
+          "type": "REFEREE",
+          "nationality": "Brazil"
+        }
+      ]
     }
   ],
   "today_matches": [
@@ -4973,11 +5051,11 @@
       },
       "id": 537418,
       "utcDate": "2026-06-30T01:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-06-30T01:26:10Z",
+      "lastUpdated": "2026-06-30T04:07:35Z",
       "homeTeam": {
         "id": 8601,
         "name": "Netherlands",
@@ -4993,15 +5071,27 @@
         "crest": "https://crests.football-data.org/morocco.svg"
       },
       "score": {
-        "winner": "DRAW",
-        "duration": "REGULAR",
+        "winner": null,
+        "duration": "PENALTY_SHOOTOUT",
         "fullTime": {
+          "home": 4,
+          "away": 4
+        },
+        "halfTime": {
           "home": 0,
           "away": 0
         },
-        "halfTime": {
-          "home": null,
-          "away": null
+        "regularTime": {
+          "home": 1,
+          "away": 1
+        },
+        "extraTime": {
+          "home": 0,
+          "away": 0
+        },
+        "penalties": {
+          "home": 3,
+          "away": 3
         }
       },
       "odds": {
@@ -5395,11 +5485,11 @@
       },
       "id": 537418,
       "utcDate": "2026-06-30T01:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-06-30T01:26:10Z",
+      "lastUpdated": "2026-06-30T04:07:35Z",
       "homeTeam": {
         "id": 8601,
         "name": "Netherlands",
@@ -5415,15 +5505,27 @@
         "crest": "https://crests.football-data.org/morocco.svg"
       },
       "score": {
-        "winner": "DRAW",
-        "duration": "REGULAR",
+        "winner": null,
+        "duration": "PENALTY_SHOOTOUT",
         "fullTime": {
+          "home": 4,
+          "away": 4
+        },
+        "halfTime": {
           "home": 0,
           "away": 0
         },
-        "halfTime": {
-          "home": null,
-          "away": null
+        "regularTime": {
+          "home": 1,
+          "away": 1
+        },
+        "extraTime": {
+          "home": 0,
+          "away": 0
+        },
+        "penalties": {
+          "home": 3,
+          "away": 3
         }
       },
       "odds": {
@@ -8089,5 +8191,5 @@
       ]
     }
   ],
-  "updated": "2026-06-30T01:26:28Z"
+  "updated": "2026-06-30T05:50:04Z"
 }
