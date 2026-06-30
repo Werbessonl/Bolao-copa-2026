@@ -22,11 +22,13 @@ jobs:
           TODAY=$(date -u +%Y-%m-%d)
           TOMORROW=$(date -u -d "+1 day" +%Y-%m-%d)
           NEXT_WEEK=$(date -u -d "+30 days" +%Y-%m-%d)
+          TOURNEY_START=2026-06-11
           curl -sf -H "X-Auth-Token: $API_KEY" "https://api.football-data.org/v4/competitions/WC/matches?status=FINISHED" -o matches_raw.json
           curl -sf -H "X-Auth-Token: $API_KEY" "https://api.football-data.org/v4/competitions/WC/matches?dateFrom=${TODAY}&dateTo=${TOMORROW}" -o today_raw.json
           curl -sf -H "X-Auth-Token: $API_KEY" "https://api.football-data.org/v4/competitions/WC/matches?dateFrom=${TODAY}&dateTo=${NEXT_WEEK}" -o knockout_raw.json
+          curl -sf -H "X-Auth-Token: $API_KEY" "https://api.football-data.org/v4/competitions/WC/matches?dateFrom=${TOURNEY_START}&dateTo=${TODAY}&status=FINISHED" -o knockout_past_raw.json
           curl -sf -H "X-Auth-Token: $API_KEY" "https://api.football-data.org/v4/competitions/WC/standings" -o standings_raw.json
-          jq -n --argjson m "$(cat matches_raw.json)" --argjson t "$(cat today_raw.json)" --argjson k "$(cat knockout_raw.json)" --argjson s "$(cat standings_raw.json)" '{matches:$m.matches,today_matches:$t.matches,knockout_matches:($k.matches//[]|map(select(.stage!="GROUP_STAGE"))),standings:[$s.standings[]|select(.table|length>0)],updated:(now|strftime("%Y-%m-%dT%H:%M:%SZ"))}' > data.json
+          jq -n --argjson m "$(cat matches_raw.json)" --argjson t "$(cat today_raw.json)" --argjson k "$(cat knockout_raw.json)" --argjson kp "$(cat knockout_past_raw.json)" --argjson s "$(cat standings_raw.json)" '{matches:$m.matches,today_matches:$t.matches,knockout_matches:(($kp.matches//[])+($k.matches//[])|map(select(.stage!="GROUP_STAGE"))|unique_by(.id)),standings:[$s.standings[]|select(.table|length>0)],updated:(now|strftime("%Y-%m-%dT%H:%M:%SZ"))}' > data.json
           echo "OK: $(jq '.matches|length' data.json) partidas, $(jq '.today_matches|length' data.json) jogos hoje, $(jq '.knockout_matches|length' data.json) 16avos/knock, $(jq '.standings|length' data.json) grupos"
 
       - name: Commit data.json
