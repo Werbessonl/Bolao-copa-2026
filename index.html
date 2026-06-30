@@ -2010,6 +2010,11 @@ function buildMatchCard(m, fallbackHome, fallbackAway) {
   return '<div class="'+cardCls+'" style="margin-bottom:6px"><div class="avos-match-top"><span class="avos-match-info">'+dateStr+'</span>'+statusPill+'</div>'+teamHtml(m.homeTeam,hs,hw,fallbackHome)+teamHtml(m.awayTeam,as,aw,fallbackAway)+'</div>';
 }
 
+function buildTBDCard(lbl1, lbl2) {
+  function trow(n) { return '<div class="avos-team-row"><div class="avos-flag-ph">?</div><span class="avos-team-name tbd">'+(n||'A definir')+'</span></div>'; }
+  return '<div class="avos-match" style="margin-bottom:6px"><div class="avos-match-top"><span class="avos-match-info">A definir</span><span class="phase-pill">Agendado</span></div>'+trow(lbl1)+trow(lbl2)+'</div>';
+}
+
 // Chaveamento FIFA 2026 LAST_32: 16 confrontos em ordem cronológica
 // BRACKET_32 — ordem FIFA 2026 verificada
 var BRACKET_32 = [
@@ -2021,13 +2026,13 @@ var BRACKET_32 = [
   {home:"1H",away:"2J"},  // A6: Espanha x Austria
   {home:"1D",away:"3B"},  // A7: EUA x Bosnia
   {home:"1G",away:"3I"},  // A8: Belgica x Senegal
-  {home:"1B",away:"2F"},  // B1: Suica x Japao
+  {home:"1B",away:"3J"},  // B1: Suica x Algeria
   {home:"2E",away:"2I"},  // B2: CIV x Noruega
   {home:"1A",away:"3E"},  // B3: Mexico x Equador
   {home:"1L",away:"3K"},  // B4: Inglaterra x Congo DR
   {home:"1J",away:"2H"},  // B5: Argentina x Cabo Verde
   {home:"2D",away:"2G"},  // B6: Australia x Egito
-  {home:"1C",away:"3J"},  // B7: Brasil x Algeria
+  {home:"1C",away:"2F"},  // B7: Brasil x Japao
   {home:"1K",away:"3L"}   // B8: Colombia x Gana
 ];
 
@@ -2153,10 +2158,10 @@ function renderAvos(matches, standings) {
     var m = slotMatches[bracketIdx];
     var bracket = BRACKET_32[bracketIdx] || {};
     if (m) return renderMatchCard(m, bracketIdx);
-    // Jogo ainda não disponível: mostra times esperados como TBD
-    var lbl1 = bracketTeam(bracket.home, standings) || bracket.home;
-    var lbl2 = bracketTeam(bracket.away, standings) || bracket.away;
-    return buildTBDCard(translate(lbl1)||lbl1, translate(lbl2)||lbl2);
+    // Jogo ainda não disponível na API: mostra times esperados como TBD
+    var n1 = bracketTeam(bracket.home, standings); n1 = (n1 && (translate(n1)||n1)) || bracket.home || '?';
+    var n2 = bracketTeam(bracket.away, standings); n2 = (n2 && (translate(n2)||n2)) || bracket.away || '?';
+    return buildTBDCard(n1, n2);
   }
 
   var html = '';
