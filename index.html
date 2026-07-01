@@ -2378,11 +2378,7 @@ function showParticipantTooltip(idx, event) {
   var firstName = NAMES[idx].split(' ')[0];
   var phase = getCurrentPhase();
 
-  var prevPts = 0;
-  if (lastRankingData) {
-    var row = lastRankingData.real.find(function(r) { return r.idx === idx; });
-    if (row) prevPts = row.realGroup || 0;
-  }
+  var _realRow = lastRankingData ? lastRankingData.real.find(function(r) { return r.idx === idx; }) : null;
 
   var stageKeys = {
     dezesseis: ['LAST_32','ROUND_OF_32'],
@@ -2404,6 +2400,9 @@ function showParticipantTooltip(idx, event) {
     var winPt = translate(winEn) || winEn;
     if (picks.some(function(t) { return normalize(t) === normalize(winPt); })) scored.push(winPt);
   });
+
+  // Fases anteriores = total real menos o que já marcou na fase atual
+  var prevPts = _realRow ? _realRow.real - scored.length * ptsEach : 0;
 
   var el = document.createElement('div');
   el.className = 'flag-tooltip';
