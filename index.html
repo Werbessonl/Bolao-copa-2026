@@ -1484,6 +1484,8 @@ let rankingLoaded = false;
 let currentTab = 'real';
 let lastRankingData = null;
 let _lastKnockoutData = [];
+let _lastStandings = [];
+let _matchKOLabel = {};
 let cmpSelA = null;
 let cmpSelB = null;
 
@@ -1534,6 +1536,8 @@ async function loadRanking(force) {
     const realScores = calcRealPoints(data.matches || [], normalizedStandings);
     const fullScores = calcVirtualPoints(realScores, normalizedStandings);
     _lastKnockoutData = data.knockout_matches || [];
+    _lastStandings = normalizedStandings;
+    buildKOLabels();
 
     lastRankingData = {
       real: [...fullScores].sort((a, b) => b.real - a.real),
@@ -2004,6 +2008,67 @@ function renderBracketPhases(ko) {
       '</div>';
   }
 }
+function buildKOLabels() {
+  _matchKOLabel = {};
+  if (!_lastStandings.length || !_lastKnockoutData.length) return;
+
+  function byStg(stages) {
+    return _lastKnockoutData.filter(function(m){ return stages.indexOf(m.stage) >= 0; })
+      .sort(function(a,b){ return new Date(a.utcDate)-new Date(b.utcDate); });
+  }
+
+  var last32 = byStg(['LAST_32','ROUND_OF_32']);
+
+  // Map each chronological LAST_32 slot → BRACKET_32 index
+  var chron2br32 = last32.map(function(m) {
+    var mH = m.homeTeam && m.homeTeam.name !== 'TBD' ? m.homeTeam.name : null;
+    var mA = m.awayTeam && m.awayTeam.name !== 'TBD' ? m.awayTeam.name : null;
+    for (var idx = 0; idx < BRACKET_32.length; idx++) {
+      var br = BRACKET_32[idx];
+      var expH = bracketTeam(br.home, _lastStandings);
+      var expA = bracketTeam(br.away, _lastStandings);
+      if (!expH || !expA) continue;
+      if ((mH===expH&&mA===expA)||(mH===expA&&mA===expH)) return idx;
+    }
+    return null;
+  });
+
+  // Slot label like "A1" or "B8" from BRACKET_32 index
+  function slotName(i) {
+    if (i===null||i===undefined) return '?';
+    return i<8 ? 'A'+(i+1) : 'B'+(i-7);
+  }
+
+  // LAST_32: "1L × 3K" (group bracket positions)
+  last32.forEach(function(m, ci) {
+    var bi = chron2br32[ci];
+    if (bi===null||bi===undefined) return;
+    var br = BRACKET_32[bi];
+    var mH = m.homeTeam && m.homeTeam.name !== 'TBD' ? m.homeTeam.name : null;
+    var expH = bracketTeam(br.home, _lastStandings);
+    _matchKOLabel[m.id] = (mH&&mH===expH) ? br.home+' × '+br.away : br.away+' × '+br.home;
+  });
+
+  // LAST_16 (Oitavas): "A1 × A2" (which LAST_32 slots each team came from)
+  var last16 = byStg(['LAST_16','ROUND_OF_16']);
+  last16.forEach(function(m, i) {
+    if (i>=BRACKET_OITAVAS.length) return;
+    var src = BRACKET_OITAVAS[i].src;
+    _matchKOLabel[m.id] = slotName(chron2br32[src[0]])+' × '+slotName(chron2br32[src[1]]);
+  });
+
+  // QUARTER_FINALS: which Oitavas slots feed each match
+  var OIT_QRT = ['Oit.A1×A2','Oit.A3×A4','Oit.B1×B2','Oit.B3×B4'];
+  byStg(['QUARTER_FINALS']).forEach(function(m,i){ if(OIT_QRT[i]) _matchKOLabel[m.id]=OIT_QRT[i]; });
+
+  // SEMI_FINALS
+  var QRT_SEMI = ['Qua.A1×A2','Qua.B1×B2'];
+  byStg(['SEMI_FINALS']).forEach(function(m,i){ if(QRT_SEMI[i]) _matchKOLabel[m.id]=QRT_SEMI[i]; });
+
+  // FINAL
+  byStg(['FINAL']).forEach(function(m){ _matchKOLabel[m.id]='Semi 1 × Semi 2'; });
+}
+
 function buildMatchCard(m, fallbackHome, fallbackAway) {
   var st = m.status;
   var cardCls = 'avos-match' + (st==='FINISHED'?' done':st==='IN_PLAY'||st==='PAUSED'?' live':'');
@@ -2325,7 +2390,7 @@ function renderJogoCard(m) {
     QUARTER_FINALS:'QUARTAS', SEMI_FINALS:'SEMIS', FINAL:'FINAL'
   };
   if (m.stage && stgMap[m.stage]) {
-    stageLabel = stgMap[m.stage];
+    stageLabel = _matchKOLabel[m.id] || stgMap[m.stage];
   } else {
     stageLabel = 'GRUPO ' + (grpCode || '?');
   }
