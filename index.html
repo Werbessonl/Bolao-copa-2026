@@ -355,6 +355,12 @@ body::before{
 .flag-tooltip-name{font-size:11px;color:#B8C8F0;padding:3px 0;border-bottom:1px solid rgba(255,255,255,0.06);}
 .flag-tooltip-name:last-child{border-bottom:none;}
 .flag-tooltip-empty{font-size:11px;color:#7A90D0;font-style:italic;}
+.pt-tooltip-prev{font-size:14px;font-weight:900;color:#fff;padding:2px 0 4px;}
+.pt-tooltip-label{font-size:9px;font-weight:400;color:#7A90D0;margin-left:5px;text-transform:uppercase;letter-spacing:.5px;}
+.pt-tooltip-divider{border-top:1px solid rgba(255,255,255,0.1);margin:6px 0;}
+.pt-tooltip-score{display:flex;align-items:center;gap:6px;font-size:12px;color:#B8C8F0;padding:4px 0;border-bottom:1px solid rgba(255,255,255,0.05);}
+.pt-tooltip-score:last-child{border-bottom:none;}
+.pt-tooltip-pts{margin-left:auto;color:#3CAC3B;font-weight:900;font-size:12px;}
 .jogo-flag-btn{background:none;border:none;padding:0;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px;transition:transform .15s;}
 .jogo-flag-btn:hover{transform:scale(1.08);}
 /* Rodapé jogos */
@@ -1477,6 +1483,7 @@ function downloadCurrent(e) {
 let rankingLoaded = false;
 let currentTab = 'real';
 let lastRankingData = null;
+let _lastKnockoutData = [];
 let cmpSelA = null;
 let cmpSelB = null;
 
@@ -1526,6 +1533,7 @@ async function loadRanking(force) {
     const normalizedStandings = normalizeStandingsGroups(data.standings || [], data.matches || []);
     const realScores = calcRealPoints(data.matches || [], normalizedStandings);
     const fullScores = calcVirtualPoints(realScores, normalizedStandings);
+    _lastKnockoutData = data.knockout_matches || [];
 
     lastRankingData = {
       real: [...fullScores].sort((a, b) => b.real - a.real),
@@ -1589,7 +1597,9 @@ function renderTable(data, tab) {
         nameSuffix = '<span class="rk-tbl-badge" style="background:#FF4D55;color:#fff;">B</span>';
       }
     }
-    const clickAttr = isVirtual ? ' onclick="selectForCompare(' + row.idx + ')" style="cursor:pointer;"' : '';
+    const clickAttr = isVirtual
+      ? ' onclick="selectForCompare(' + row.idx + ')" style="cursor:pointer;"'
+      : ' onclick="showParticipantTooltip(' + row.idx + ', event)" style="cursor:pointer;"';
 
     return '<tr class="' + selClass + '"' + clickAttr + '>' +
       '<td>' + badge + '</td>' +
@@ -2360,8 +2370,75 @@ function hideTooltip() {
   if (_tooltipTimer) { clearTimeout(_tooltipTimer); _tooltipTimer = null; }
 }
 
+function showParticipantTooltip(idx, event) {
+  event.stopPropagation();
+  hideTooltip();
+
+  var p = PALPITES[idx];
+  var firstName = NAMES[idx].split(' ')[0];
+  var phase = getCurrentPhase();
+
+  var _realRow = lastRankingData ? lastRankingData.real.find(function(r) { return r.idx === idx; }) : null;
+
+  var stageKeys = {
+    dezesseis: ['LAST_32','ROUND_OF_32'],
+    oitavas:   ['LAST_16','ROUND_OF_16'],
+    quartas:   ['QUARTER_FINALS'],
+    semi:      ['SEMI_FINALS'],
+    final:     ['FINAL']
+  }[phase.key] || [];
+  var ptsEach = {dezesseis:2, oitavas:3, quartas:4, semi:5, final:8}[phase.key] || 2;
+
+  var picks = getBetsForPhase(p, phase.key);
+  var scored = [];
+  _lastKnockoutData.forEach(function(m) {
+    if (!stageKeys.includes(m.stage) || m.status !== 'FINISHED') return;
+    var winner = m.score && m.score.winner;
+    var winEn = winner === 'HOME_TEAM' ? (m.homeTeam && m.homeTeam.name)
+              : winner === 'AWAY_TEAM' ? (m.awayTeam && m.awayTeam.name) : null;
+    if (!winEn) return;
+    var winPt = translate(winEn) || winEn;
+    if (picks.some(function(t) { return normalize(t) === normalize(winPt); })) scored.push(winPt);
+  });
+
+  // Fases anteriores = total real menos o que já marcou na fase atual
+  var prevPts = _realRow ? _realRow.real - scored.length * ptsEach : 0;
+
+  var el = document.createElement('div');
+  el.className = 'flag-tooltip';
+
+  var inner = '<div class="flag-tooltip-title">' + firstName + '</div>';
+  inner += '<div class="pt-tooltip-prev">' + prevPts + ' pts<span class="pt-tooltip-label">fases anteriores</span></div>';
+  inner += '<div class="pt-tooltip-divider"></div>';
+
+  if (scored.length === 0) {
+    inner += '<div class="flag-tooltip-empty">Nenhum ponto nesta fase ainda</div>';
+  } else {
+    scored.forEach(function(team) {
+      var code = PT_FLAGS[team] || 'un';
+      inner += '<div class="pt-tooltip-score">'
+        + '<img src="https://flagcdn.com/h20/' + code + '.png" width="16" height="11" style="border-radius:2px;" alt="">'
+        + team + '<span class="pt-tooltip-pts">+' + ptsEach + '</span></div>';
+    });
+  }
+
+  el.innerHTML = inner;
+  document.body.appendChild(el);
+  _tooltipEl = el;
+
+  var rect = event.currentTarget.getBoundingClientRect();
+  var top = rect.bottom + window.scrollY + 6;
+  var left = rect.left + window.scrollX + rect.width / 2 - el.offsetWidth / 2;
+  if (top + el.offsetHeight > window.scrollY + window.innerHeight - 8) top = rect.top + window.scrollY - el.offsetHeight - 6;
+  left = Math.max(8, Math.min(left, window.innerWidth - el.offsetWidth - 8));
+  el.style.top = top + 'px';
+  el.style.left = left + 'px';
+
+  _tooltipTimer = setTimeout(hideTooltip, 5000);
+}
+
 document.addEventListener('click', function(e) {
-  if (_tooltipEl && !e.target.closest('.jogo-flag-btn')) hideTooltip();
+  if (_tooltipEl && !e.target.closest('.jogo-flag-btn') && !e.target.closest('tr')) hideTooltip();
 });
 
 function standingsCmp(a, b) {
