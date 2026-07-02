@@ -2086,7 +2086,7 @@ function buildMatchCard(m, fallbackHome, fallbackAway) {
   var dateStr = brt.getDate()+'/'+(brt.getMonth()+1)+' · '+time;
 
   function teamHtml(team, score, isWin, fallback) {
-    var flag = team && team.name && team.name !== 'TBD' ? (function(){var c=TEAM_FLAGS[team.name]||TEAM_FLAGS[translate(team.name)];return c?'<img src="https://flagcdn.com/h20/'+c+'.png" width="20" height="13" style="border-radius:2px;flex-shrink:0" alt="'+team.name+'">':'<div class="avos-flag-ph">?</div>';})() : '<div class="avos-flag-ph">?</div>';
+    var flag = team && team.name && team.name !== 'TBD' ? (function(){var c=TEAM_FLAGS[team.name]||TEAM_FLAGS[translate(team.name)];return c?'<img src="https://flagcdn.com/h20/'+c+'.png" width="20" height="13" style="border-radius:2px;flex-shrink:0" alt="'+team.name+'">':'<div class="avos-flag-ph">?</div>';})() : (function(){var c=fallback?(PT_FLAGS[fallback]||TEAM_FLAGS[fallback]):null;return c?'<img src="https://flagcdn.com/h20/'+c+'.png" width="20" height="13" style="border-radius:2px;flex-shrink:0" alt="'+(fallback||'')+'">':'<div class="avos-flag-ph">?</div>';})();
     var name = team && team.name && team.name !== 'TBD' ? (translate(team.name)||team.name) : (fallback || null);
     var nameCls = (!name || name === fallback) ? 'avos-team-name tbd' : 'avos-team-name';
     if (!name) name = fallback || 'A definir';
