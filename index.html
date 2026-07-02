@@ -1930,12 +1930,12 @@ function renderFasesSlides(data, standings) {
 var BRACKET_OITAVAS = [
   {side:'A', src:[2,5]},   // Oitavas A1: ALE×PAR + FRA×SWE
   {side:'A', src:[0,3]},   // Oitavas A2: RSA×CAN + NED×MAR
-  {side:'A', src:[10,12]}, // Oitavas A3: ESP×AUT + POR×CRO
-  {side:'A', src:[8,9]},   // Oitavas A4: EUA×BOS + BEL×SEN
+  {side:'A', src:[10,11]}, // Oitavas A3: ESP×AUT + POR×CRO
+  {side:'A', src:[8,9]},   // Oitavas A4: BEL×SEN + EUA×BOS
   {side:'B', src:[1,4]},   // Oitavas B1: BRA×JPN + CIV×NOR
   {side:'B', src:[6,7]},   // Oitavas B2: MEX×ECU + ENG×CON
-  {side:'B', src:[14,15]}, // Oitavas B3: ARG×CPV + COL×GHA
-  {side:'B', src:[11,13]}  // Oitavas B4: SUI×ALG + AUS×EGY
+  {side:'B', src:[14,13]}, // Oitavas B3: ARG×CPV + AUS×EGY
+  {side:'B', src:[12,15]}  // Oitavas B4: SUI×ALG + COL×GHA
 ];
 
 function br32Label(idx) {
@@ -1967,13 +1967,15 @@ function renderBracketPhases(ko) {
       }
       return 'Venc. ' + br32Label(n);
     }
+    // Bracket pos→chron oit index: [1,0,4,5,2,3,6,7]
+    var oitc = [oit[1],oit[0],oit[4],oit[5],oit[2],oit[3],oit[6],oit[7]];
     s3.innerHTML =
       sideWrap('bracket-side-a','CHAVE A',
-        bpair(card(oit[0],l32fb(BRACKET_OITAVAS[0].src[0]),l32fb(BRACKET_OITAVAS[0].src[1]))+card(oit[1],l32fb(BRACKET_OITAVAS[1].src[0]),l32fb(BRACKET_OITAVAS[1].src[1])))+
-        bpair(card(oit[2],l32fb(BRACKET_OITAVAS[2].src[0]),l32fb(BRACKET_OITAVAS[2].src[1]))+card(oit[3],l32fb(BRACKET_OITAVAS[3].src[0]),l32fb(BRACKET_OITAVAS[3].src[1]))))+
+        bpair(card(oitc[0],l32fb(BRACKET_OITAVAS[0].src[0]),l32fb(BRACKET_OITAVAS[0].src[1]))+card(oitc[1],l32fb(BRACKET_OITAVAS[1].src[0]),l32fb(BRACKET_OITAVAS[1].src[1])))+
+        bpair(card(oitc[2],l32fb(BRACKET_OITAVAS[2].src[0]),l32fb(BRACKET_OITAVAS[2].src[1]))+card(oitc[3],l32fb(BRACKET_OITAVAS[3].src[0]),l32fb(BRACKET_OITAVAS[3].src[1]))))+
       sideWrap('bracket-side-b','CHAVE B',
-        bpair(card(oit[4],l32fb(BRACKET_OITAVAS[4].src[0]),l32fb(BRACKET_OITAVAS[4].src[1]))+card(oit[5],l32fb(BRACKET_OITAVAS[5].src[0]),l32fb(BRACKET_OITAVAS[5].src[1])))+
-        bpair(card(oit[6],l32fb(BRACKET_OITAVAS[6].src[0]),l32fb(BRACKET_OITAVAS[6].src[1]))+card(oit[7],l32fb(BRACKET_OITAVAS[7].src[0]),l32fb(BRACKET_OITAVAS[7].src[1]))));
+        bpair(card(oitc[4],l32fb(BRACKET_OITAVAS[4].src[0]),l32fb(BRACKET_OITAVAS[4].src[1]))+card(oitc[5],l32fb(BRACKET_OITAVAS[5].src[0]),l32fb(BRACKET_OITAVAS[5].src[1])))+
+        bpair(card(oitc[6],l32fb(BRACKET_OITAVAS[6].src[0]),l32fb(BRACKET_OITAVAS[6].src[1]))+card(oitc[7],l32fb(BRACKET_OITAVAS[7].src[0]),l32fb(BRACKET_OITAVAS[7].src[1]))));
   }
 
   // Slide 4: Quartas
@@ -2050,10 +2052,13 @@ function buildKOLabels() {
   });
 
   // LAST_16 (Oitavas): "A1 × A2" (which LAST_32 slots each team came from)
+  // OIT_CB: chronological LAST_16 index → BRACKET_OITAVAS index
+  var OIT_CB = [1,0,4,5,2,3,6,7];
   var last16 = byStg(['LAST_16','ROUND_OF_16']);
   last16.forEach(function(m, i) {
-    if (i>=BRACKET_OITAVAS.length) return;
-    var src = BRACKET_OITAVAS[i].src;
+    var bi = OIT_CB[i];
+    if (bi===undefined||bi>=BRACKET_OITAVAS.length) return;
+    var src = BRACKET_OITAVAS[bi].src;
     _matchKOLabel[m.id] = slotName(chron2br32[src[0]])+' × '+slotName(chron2br32[src[1]]);
   });
 
