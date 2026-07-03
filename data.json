@@ -5875,11 +5875,11 @@
       },
       "id": 537427,
       "utcDate": "2026-07-03T22:00:00Z",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-07-02T15:20:12Z",
+      "lastUpdated": "2026-07-03T22:44:06Z",
       "homeTeam": {
         "id": 762,
         "name": "Argentina",
@@ -5895,11 +5895,11 @@
         "crest": "https://crests.football-data.org/cape_verde.svg"
       },
       "score": {
-        "winner": null,
+        "winner": "HOME_TEAM",
         "duration": "REGULAR",
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 0
         },
         "halfTime": {
           "home": null,
@@ -7888,11 +7888,11 @@
       },
       "id": 537427,
       "utcDate": "2026-07-03T22:00:00Z",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-07-02T15:20:12Z",
+      "lastUpdated": "2026-07-03T22:44:06Z",
       "homeTeam": {
         "id": 762,
         "name": "Argentina",
@@ -7908,11 +7908,11 @@
         "crest": "https://crests.football-data.org/cape_verde.svg"
       },
       "score": {
-        "winner": null,
+        "winner": "HOME_TEAM",
         "duration": "REGULAR",
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 0
         },
         "halfTime": {
           "home": null,
@@ -9133,5 +9133,5 @@
       ]
     }
   ],
-  "updated": "2026-07-03T21:33:56Z"
+  "updated": "2026-07-03T22:44:12Z"
 }
