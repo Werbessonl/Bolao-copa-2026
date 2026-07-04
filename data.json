@@ -5807,7 +5807,7 @@
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-07-04T03:37:36Z",
+      "lastUpdated": "2026-07-04T03:45:56Z",
       "homeTeam": {
         "id": 818,
         "name": "Colombia",
@@ -5826,7 +5826,7 @@
         "winner": "HOME_TEAM",
         "duration": "REGULAR",
         "fullTime": {
-          "home": 2,
+          "home": 1,
           "away": 0
         },
         "halfTime": {
@@ -8165,7 +8165,7 @@
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-07-04T03:37:36Z",
+      "lastUpdated": "2026-07-04T03:45:01Z",
       "homeTeam": {
         "id": 818,
         "name": "Colombia",
@@ -8184,7 +8184,7 @@
         "winner": "HOME_TEAM",
         "duration": "REGULAR",
         "fullTime": {
-          "home": 2,
+          "home": 1,
           "away": 0
         },
         "halfTime": {
@@ -9203,5 +9203,5 @@
       ]
     }
   ],
-  "updated": "2026-07-04T03:38:34Z"
+  "updated": "2026-07-04T03:54:16Z"
 }
