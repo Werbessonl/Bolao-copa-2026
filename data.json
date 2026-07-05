@@ -6003,11 +6003,11 @@
       },
       "id": 537377,
       "utcDate": "2026-07-05T20:00:00Z",
-      "status": "IN_PLAY",
+      "status": "LIVE",
       "matchday": null,
       "stage": "LAST_16",
       "group": null,
-      "lastUpdated": "2026-07-05T20:19:13Z",
+      "lastUpdated": "2026-07-05T21:35:25Z",
       "homeTeam": {
         "id": 764,
         "name": "Brazil",
@@ -6030,8 +6030,8 @@
           "away": 0
         },
         "halfTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         }
       },
       "odds": {
@@ -6380,11 +6380,11 @@
       },
       "id": 537377,
       "utcDate": "2026-07-05T20:00:00Z",
-      "status": "IN_PLAY",
+      "status": "LIVE",
       "matchday": null,
       "stage": "LAST_16",
       "group": null,
-      "lastUpdated": "2026-07-05T20:19:13Z",
+      "lastUpdated": "2026-07-05T21:35:25Z",
       "homeTeam": {
         "id": 764,
         "name": "Brazil",
@@ -6407,8 +6407,8 @@
           "away": 0
         },
         "halfTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         }
       },
       "odds": {
@@ -9297,5 +9297,5 @@
       ]
     }
   ],
-  "updated": "2026-07-05T20:19:33Z"
+  "updated": "2026-07-05T21:35:55Z"
 }
