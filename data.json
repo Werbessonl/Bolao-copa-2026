@@ -6201,11 +6201,11 @@
       },
       "id": 537379,
       "utcDate": "2026-07-06T19:00:00Z",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "matchday": null,
       "stage": "LAST_16",
       "group": null,
-      "lastUpdated": "2026-07-06T05:20:12Z",
+      "lastUpdated": "2026-07-06T20:28:51Z",
       "homeTeam": {
         "id": 765,
         "name": "Portugal",
@@ -6221,15 +6221,15 @@
         "crest": "https://crests.football-data.org/760.svg"
       },
       "score": {
-        "winner": null,
+        "winner": "DRAW",
         "duration": "REGULAR",
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         },
         "halfTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         }
       },
       "odds": {
@@ -6710,11 +6710,11 @@
       },
       "id": 537379,
       "utcDate": "2026-07-06T19:00:00Z",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "matchday": null,
       "stage": "LAST_16",
       "group": null,
-      "lastUpdated": "2026-07-06T05:20:12Z",
+      "lastUpdated": "2026-07-06T20:28:51Z",
       "homeTeam": {
         "id": 765,
         "name": "Portugal",
@@ -6730,15 +6730,15 @@
         "crest": "https://crests.football-data.org/760.svg"
       },
       "score": {
-        "winner": null,
+        "winner": "DRAW",
         "duration": "REGULAR",
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         },
         "halfTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         }
       },
       "odds": {
@@ -9509,5 +9509,5 @@
       ]
     }
   ],
-  "updated": "2026-07-06T18:27:26Z"
+  "updated": "2026-07-06T20:29:35Z"
 }
