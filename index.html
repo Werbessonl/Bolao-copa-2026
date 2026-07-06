@@ -2282,8 +2282,16 @@ async function loadClassificacao(force) {
     document.getElementById('cl-loading').style.display = 'none';
     document.getElementById('cl-content').style.display = '';
 
-    // Jogos hoje
-    renderJogosHoje(data.today_matches || []);
+    // Jogos hoje: mescla today_matches + knockout_matches filtrados por hoje em Brasília
+    var _todayPool = (data.today_matches || []).concat(data.knockout_matches || []);
+    var _seenIds = {};
+    var _todayMerged = _todayPool.filter(function(m){
+      if (!m || !m.id || _seenIds[m.id]) return false;
+      _seenIds[m.id] = true;
+      return isTodayBrasilia(m.utcDate);
+    });
+    _todayMerged.sort(function(a,b){ return a.utcDate < b.utcDate ? -1 : 1; });
+    renderJogosHoje(_todayMerged);
 
     if (data.updated) {
       const d = new Date(data.updated);
@@ -2314,6 +2322,9 @@ function isTodayBrasilia(utcDate) {
 function renderJogosHoje(allMatches) {
   var matches = allMatches.filter(function(m){ return isTodayBrasilia(m.utcDate); });
 
+  var _known = {'IN_PLAY':1,'PAUSED':1,'TIMED':1,'SCHEDULED':1,'FINISHED':1};
+  // Normaliza status malformado pelo horário do jogo
+  matches.forEach(function(m){ if (!_known[m.status]) { m.status = new Date(m.utcDate) <= new Date() ? 'FINISHED' : 'TIMED'; } });
   var live  = matches.filter(function(m){ return m.status === 'IN_PLAY' || m.status === 'PAUSED'; });
   var sched = matches.filter(function(m){ return m.status === 'TIMED' || m.status === 'SCHEDULED'; });
   var done  = matches.filter(function(m){ return m.status === 'FINISHED'; });
