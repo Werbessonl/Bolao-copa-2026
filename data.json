@@ -6137,141 +6137,7 @@
       "matchday": null,
       "stage": "LAST_16",
       "group": null,
-      "lastUpdated": "2026-07-06T21:06:44Z",
-      "homeTeam": {
-        "id": 765,
-        "name": "Portugal",
-        "shortName": "Portugal",
-        "tla": "POR",
-        "crest": "https://crests.football-data.org/765.svg"
-      },
-      "awayTeam": {
-        "id": 760,
-        "name": "Spain",
-        "shortName": "Spain",
-        "tla": "ESP",
-        "crest": "https://crests.football-data.org/760.svg"
-      },
-      "score": {
-        "winner": "AWAY_TEAM",
-        "duration": "REGULAR",
-        "fullTime": {
-          "home": 0,
-          "away": 1
-        },
-        "halfTime": {
-          "home": 0,
-          "away": 0
-        }
-      },
-      "odds": {
-        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
-      },
-      "referees": [
-        {
-          "id": 11580,
-          "name": "Anthony Taylor",
-          "type": "REFEREE",
-          "nationality": "England"
-        }
-      ]
-    }
-  ],
-  "today_matches": [
-    {
-      "area": {
-        "id": 2267,
-        "name": "World",
-        "code": "INT",
-        "flag": null
-      },
-      "competition": {
-        "id": 2000,
-        "name": "FIFA World Cup",
-        "code": "WC",
-        "type": "CUP",
-        "emblem": "https://crests.football-data.org/wm26.png"
-      },
-      "season": {
-        "id": 2398,
-        "startDate": "2026-06-11",
-        "endDate": "2026-07-19",
-        "currentMatchday": 3,
-        "winner": null
-      },
-      "id": 537378,
-      "utcDate": "2026-07-06T01:00:00Z",
-      "status": "FINISHED",
-      "matchday": null,
-      "stage": "LAST_16",
-      "group": null,
-      "lastUpdated": "2026-07-06T05:20:12Z",
-      "homeTeam": {
-        "id": 769,
-        "name": "Mexico",
-        "shortName": "Mexico",
-        "tla": "MEX",
-        "crest": "https://crests.football-data.org/769.svg"
-      },
-      "awayTeam": {
-        "id": 770,
-        "name": "England",
-        "shortName": "England",
-        "tla": "ENG",
-        "crest": "https://crests.football-data.org/770.svg"
-      },
-      "score": {
-        "winner": "AWAY_TEAM",
-        "duration": "REGULAR",
-        "fullTime": {
-          "home": 2,
-          "away": 3
-        },
-        "halfTime": {
-          "home": 1,
-          "away": 2
-        }
-      },
-      "odds": {
-        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
-      },
-      "referees": [
-        {
-          "id": 55970,
-          "name": "Alireza Faghani",
-          "type": "REFEREE",
-          "nationality": "Iran"
-        }
-      ]
-    },
-    {
-      "area": {
-        "id": 2267,
-        "name": "World",
-        "code": "INT",
-        "flag": null
-      },
-      "competition": {
-        "id": 2000,
-        "name": "FIFA World Cup",
-        "code": "WC",
-        "type": "CUP",
-        "emblem": "https://crests.football-data.org/wm26.png"
-      },
-      "season": {
-        "id": 2398,
-        "startDate": "2026-06-11",
-        "endDate": "2026-07-19",
-        "currentMatchday": 3,
-        "winner": null
-      },
-      "id": 537379,
-      "utcDate": "2026-07-06T19:00:00Z",
-      "status": "FINISHED",
-      "matchday": null,
-      "stage": "LAST_16",
-      "group": null,
-      "lastUpdated": "2026-07-06T21:06:44Z",
+      "lastUpdated": "2026-07-07T03:25:01Z",
       "homeTeam": {
         "id": 765,
         "name": "Portugal",
@@ -6333,11 +6199,11 @@
       },
       "id": 537380,
       "utcDate": "2026-07-07T00:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "matchday": null,
       "stage": "LAST_16",
       "group": null,
-      "lastUpdated": "2026-07-07T01:18:42Z",
+      "lastUpdated": "2026-07-07T03:25:01Z",
       "homeTeam": {
         "id": 771,
         "name": "United States",
@@ -6357,7 +6223,75 @@
         "duration": "REGULAR",
         "fullTime": {
           "home": 1,
+          "away": 4
+        },
+        "halfTime": {
+          "home": 1,
           "away": 2
+        }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": [
+        {
+          "id": 129250,
+          "name": "Adham Makhadmeh",
+          "type": "REFEREE",
+          "nationality": "Jordan"
+        }
+      ]
+    }
+  ],
+  "today_matches": [
+    {
+      "area": {
+        "id": 2267,
+        "name": "World",
+        "code": "INT",
+        "flag": null
+      },
+      "competition": {
+        "id": 2000,
+        "name": "FIFA World Cup",
+        "code": "WC",
+        "type": "CUP",
+        "emblem": "https://crests.football-data.org/wm26.png"
+      },
+      "season": {
+        "id": 2398,
+        "startDate": "2026-06-11",
+        "endDate": "2026-07-19",
+        "currentMatchday": 3,
+        "winner": null
+      },
+      "id": 537380,
+      "utcDate": "2026-07-07T00:00:00Z",
+      "status": "FINISHED",
+      "matchday": null,
+      "stage": "LAST_16",
+      "group": null,
+      "lastUpdated": "2026-07-07T03:25:01Z",
+      "homeTeam": {
+        "id": 771,
+        "name": "United States",
+        "shortName": "USA",
+        "tla": "USA",
+        "crest": "https://crests.football-data.org/usa.svg"
+      },
+      "awayTeam": {
+        "id": 805,
+        "name": "Belgium",
+        "shortName": "Belgium",
+        "tla": "BEL",
+        "crest": "https://crests.football-data.org/805.svg"
+      },
+      "score": {
+        "winner": "AWAY_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "home": 1,
+          "away": 4
         },
         "halfTime": {
           "home": 1,
@@ -6787,7 +6721,7 @@
       "matchday": null,
       "stage": "LAST_16",
       "group": null,
-      "lastUpdated": "2026-07-06T21:06:44Z",
+      "lastUpdated": "2026-07-07T03:25:01Z",
       "homeTeam": {
         "id": 765,
         "name": "Portugal",
@@ -6849,11 +6783,11 @@
       },
       "id": 537380,
       "utcDate": "2026-07-07T00:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "matchday": null,
       "stage": "LAST_16",
       "group": null,
-      "lastUpdated": "2026-07-07T01:18:42Z",
+      "lastUpdated": "2026-07-07T03:25:01Z",
       "homeTeam": {
         "id": 771,
         "name": "United States",
@@ -6873,7 +6807,7 @@
         "duration": "REGULAR",
         "fullTime": {
           "home": 1,
-          "away": 2
+          "away": 4
         },
         "halfTime": {
           "home": 1,
@@ -9589,5 +9523,5 @@
       ]
     }
   ],
-  "updated": "2026-07-07T01:19:00Z"
+  "updated": "2026-07-07T05:46:47Z"
 }
