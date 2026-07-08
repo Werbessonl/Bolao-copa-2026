@@ -6269,7 +6269,7 @@
       "matchday": null,
       "stage": "LAST_16",
       "group": null,
-      "lastUpdated": "2026-07-08T07:58:07Z",
+      "lastUpdated": "2026-07-08T08:25:01Z",
       "homeTeam": {
         "id": 762,
         "name": "Argentina",
@@ -6872,7 +6872,7 @@
       "matchday": null,
       "stage": "LAST_16",
       "group": null,
-      "lastUpdated": "2026-07-08T07:58:07Z",
+      "lastUpdated": "2026-07-08T08:25:01Z",
       "homeTeam": {
         "id": 762,
         "name": "Argentina",
@@ -9568,5 +9568,5 @@
       ]
     }
   ],
-  "updated": "2026-07-08T06:35:06Z"
+  "updated": "2026-07-08T09:15:16Z"
 }
