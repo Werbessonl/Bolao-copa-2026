@@ -6445,7 +6445,14 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [
+        {
+          "id": 57301,
+          "name": "Facundo Tello",
+          "type": "REFEREE",
+          "nationality": "Argentina"
+        }
+      ]
     },
     {
       "area": {
@@ -7105,7 +7112,14 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [
+        {
+          "id": 57301,
+          "name": "Facundo Tello",
+          "type": "REFEREE",
+          "nationality": "Argentina"
+        }
+      ]
     },
     {
       "area": {
@@ -9627,5 +9641,5 @@
       ]
     }
   ],
-  "updated": "2026-07-09T16:44:00Z"
+  "updated": "2026-07-09T18:31:35Z"
 }
