@@ -6415,7 +6415,7 @@
       "matchday": null,
       "stage": "QUARTER_FINALS",
       "group": null,
-      "lastUpdated": "2026-07-09T20:28:53Z",
+      "lastUpdated": "2026-07-09T22:04:51Z",
       "homeTeam": {
         "id": 773,
         "name": "France",
@@ -6431,15 +6431,15 @@
         "crest": "https://crests.football-data.org/morocco.svg"
       },
       "score": {
-        "winner": "DRAW",
+        "winner": "HOME_TEAM",
         "duration": "REGULAR",
         "fullTime": {
-          "home": 0,
+          "home": 2,
           "away": 0
         },
         "halfTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         }
       },
       "odds": {
@@ -7082,7 +7082,7 @@
       "matchday": null,
       "stage": "QUARTER_FINALS",
       "group": null,
-      "lastUpdated": "2026-07-09T20:28:53Z",
+      "lastUpdated": "2026-07-09T22:04:51Z",
       "homeTeam": {
         "id": 773,
         "name": "France",
@@ -7098,15 +7098,15 @@
         "crest": "https://crests.football-data.org/morocco.svg"
       },
       "score": {
-        "winner": "DRAW",
+        "winner": "HOME_TEAM",
         "duration": "REGULAR",
         "fullTime": {
-          "home": 0,
+          "home": 2,
           "away": 0
         },
         "halfTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         }
       },
       "odds": {
@@ -9641,5 +9641,5 @@
       ]
     }
   ],
-  "updated": "2026-07-09T20:28:59Z"
+  "updated": "2026-07-09T22:05:44Z"
 }
