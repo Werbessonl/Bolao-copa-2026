@@ -6475,50 +6475,43 @@
         "currentMatchday": 3,
         "winner": null
       },
-      "id": 537383,
-      "utcDate": "2026-07-09T20:00:00Z",
-      "status": "FINISHED",
+      "id": 537384,
+      "utcDate": "2026-07-10T19:00:00Z",
+      "status": "TIMED",
       "matchday": null,
       "stage": "QUARTER_FINALS",
       "group": null,
-      "lastUpdated": "2026-07-09T22:25:01Z",
+      "lastUpdated": "2026-07-09T05:20:10Z",
       "homeTeam": {
-        "id": 773,
-        "name": "France",
-        "shortName": "France",
-        "tla": "FRA",
-        "crest": "https://crests.football-data.org/773.svg"
+        "id": 760,
+        "name": "Spain",
+        "shortName": "Spain",
+        "tla": "ESP",
+        "crest": "https://crests.football-data.org/760.svg"
       },
       "awayTeam": {
-        "id": 815,
-        "name": "Morocco",
-        "shortName": "Morocco",
-        "tla": "MAR",
-        "crest": "https://crests.football-data.org/morocco.svg"
+        "id": 805,
+        "name": "Belgium",
+        "shortName": "Belgium",
+        "tla": "BEL",
+        "crest": "https://crests.football-data.org/805.svg"
       },
       "score": {
-        "winner": "HOME_TEAM",
+        "winner": null,
         "duration": "REGULAR",
         "fullTime": {
-          "home": 2,
-          "away": 0
+          "home": null,
+          "away": null
         },
         "halfTime": {
-          "home": 0,
-          "away": 0
+          "home": null,
+          "away": null
         }
       },
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": [
-        {
-          "id": 57301,
-          "name": "Facundo Tello",
-          "type": "REFEREE",
-          "nationality": "Argentina"
-        }
-      ]
+      "referees": []
     },
     {
       "area": {
@@ -6541,26 +6534,26 @@
         "currentMatchday": 3,
         "winner": null
       },
-      "id": 537384,
-      "utcDate": "2026-07-10T19:00:00Z",
+      "id": 537385,
+      "utcDate": "2026-07-11T21:00:00Z",
       "status": "TIMED",
       "matchday": null,
       "stage": "QUARTER_FINALS",
       "group": null,
       "lastUpdated": "2026-07-09T05:20:10Z",
       "homeTeam": {
-        "id": 760,
-        "name": "Spain",
-        "shortName": "Spain",
-        "tla": "ESP",
-        "crest": "https://crests.football-data.org/760.svg"
+        "id": 8872,
+        "name": "Norway",
+        "shortName": "Norway",
+        "tla": "NOR",
+        "crest": "https://crests.football-data.org/813.svg"
       },
       "awayTeam": {
-        "id": 805,
-        "name": "Belgium",
-        "shortName": "Belgium",
-        "tla": "BEL",
-        "crest": "https://crests.football-data.org/805.svg"
+        "id": 770,
+        "name": "England",
+        "shortName": "England",
+        "tla": "ENG",
+        "crest": "https://crests.football-data.org/770.svg"
       },
       "score": {
         "winner": null,
@@ -9707,5 +9700,5 @@
       ]
     }
   ],
-  "updated": "2026-07-10T01:17:27Z"
+  "updated": "2026-07-10T05:43:32Z"
 }
