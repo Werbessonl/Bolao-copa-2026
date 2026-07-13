@@ -6689,58 +6689,43 @@
         "currentMatchday": 3,
         "winner": null
       },
-      "id": 537386,
-      "utcDate": "2026-07-12T01:00:00Z",
-      "status": "FINISHED",
+      "id": 537387,
+      "utcDate": "2026-07-14T19:00:00Z",
+      "status": "TIMED",
       "matchday": null,
-      "stage": "QUARTER_FINALS",
+      "stage": "SEMI_FINALS",
       "group": null,
       "lastUpdated": "2026-07-12T07:47:40Z",
       "homeTeam": {
-        "id": 762,
-        "name": "Argentina",
-        "shortName": "Argentina",
-        "tla": "ARG",
-        "crest": "https://crests.football-data.org/762.png"
+        "id": 773,
+        "name": "France",
+        "shortName": "France",
+        "tla": "FRA",
+        "crest": "https://crests.football-data.org/773.svg"
       },
       "awayTeam": {
-        "id": 788,
-        "name": "Switzerland",
-        "shortName": "Switzerland",
-        "tla": "SUI",
-        "crest": "https://crests.football-data.org/788.svg"
+        "id": 760,
+        "name": "Spain",
+        "shortName": "Spain",
+        "tla": "ESP",
+        "crest": "https://crests.football-data.org/760.svg"
       },
       "score": {
-        "winner": "HOME_TEAM",
-        "duration": "EXTRA_TIME",
+        "winner": null,
+        "duration": "REGULAR",
         "fullTime": {
-          "home": 3,
-          "away": 1
+          "home": null,
+          "away": null
         },
         "halfTime": {
-          "home": 1,
-          "away": 0
-        },
-        "regularTime": {
-          "home": 1,
-          "away": 1
-        },
-        "extraTime": {
-          "home": 2,
-          "away": 0
+          "home": null,
+          "away": null
         }
       },
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": [
-        {
-          "id": 38806,
-          "name": "João Pinheiro",
-          "type": "REFEREE",
-          "nationality": "Portugal"
-        }
-      ]
+      "referees": []
     }
   ],
   "knockout_matches": [
@@ -9907,5 +9892,5 @@
       ]
     }
   ],
-  "updated": "2026-07-13T00:13:12Z"
+  "updated": "2026-07-13T04:04:51Z"
 }
