@@ -6693,7 +6693,7 @@
       "matchday": null,
       "stage": "SEMI_FINALS",
       "group": null,
-      "lastUpdated": "2026-07-14T21:04:16Z",
+      "lastUpdated": "2026-07-14T22:25:01Z",
       "homeTeam": {
         "id": 773,
         "name": "France",
@@ -6761,7 +6761,7 @@
       "matchday": null,
       "stage": "SEMI_FINALS",
       "group": null,
-      "lastUpdated": "2026-07-14T21:04:16Z",
+      "lastUpdated": "2026-07-14T22:25:01Z",
       "homeTeam": {
         "id": 773,
         "name": "France",
@@ -7708,7 +7708,7 @@
       "matchday": null,
       "stage": "SEMI_FINALS",
       "group": null,
-      "lastUpdated": "2026-07-14T21:04:16Z",
+      "lastUpdated": "2026-07-14T22:25:01Z",
       "homeTeam": {
         "id": 773,
         "name": "France",
@@ -10031,5 +10031,5 @@
       ]
     }
   ],
-  "updated": "2026-07-14T22:15:15Z"
+  "updated": "2026-07-14T23:26:32Z"
 }
