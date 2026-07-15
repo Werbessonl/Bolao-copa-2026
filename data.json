@@ -6759,7 +6759,7 @@
       "matchday": null,
       "stage": "SEMI_FINALS",
       "group": null,
-      "lastUpdated": "2026-07-15T21:09:25Z",
+      "lastUpdated": "2026-07-15T22:25:01Z",
       "homeTeam": {
         "id": 770,
         "name": "England",
@@ -6827,7 +6827,7 @@
       "matchday": null,
       "stage": "SEMI_FINALS",
       "group": null,
-      "lastUpdated": "2026-07-15T21:09:25Z",
+      "lastUpdated": "2026-07-15T22:25:01Z",
       "homeTeam": {
         "id": 770,
         "name": "England",
@@ -7781,7 +7781,7 @@
       "matchday": null,
       "stage": "SEMI_FINALS",
       "group": null,
-      "lastUpdated": "2026-07-15T21:09:25Z",
+      "lastUpdated": "2026-07-15T22:25:01Z",
       "homeTeam": {
         "id": 770,
         "name": "England",
@@ -10045,5 +10045,5 @@
       ]
     }
   ],
-  "updated": "2026-07-15T21:31:13Z"
+  "updated": "2026-07-15T22:42:08Z"
 }
