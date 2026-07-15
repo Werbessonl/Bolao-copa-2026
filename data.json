@@ -6791,7 +6791,14 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [
+        {
+          "id": 76608,
+          "name": "Ismail Elfath",
+          "type": "REFEREE",
+          "nationality": "United States"
+        }
+      ]
     }
   ],
   "knockout_matches": [
@@ -7738,7 +7745,14 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [
+        {
+          "id": 76608,
+          "name": "Ismail Elfath",
+          "type": "REFEREE",
+          "nationality": "United States"
+        }
+      ]
     },
     {
       "area": {
@@ -9965,5 +9979,5 @@
       ]
     }
   ],
-  "updated": "2026-07-15T16:05:28Z"
+  "updated": "2026-07-15T17:40:33Z"
 }
