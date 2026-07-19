@@ -6923,7 +6923,14 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [
+        {
+          "id": 9351,
+          "name": "Slavko Vinčič",
+          "type": "REFEREE",
+          "nationality": "Slovenia"
+        }
+      ]
     }
   ],
   "knockout_matches": [
@@ -8002,7 +8009,14 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [
+        {
+          "id": 9351,
+          "name": "Slavko Vinčič",
+          "type": "REFEREE",
+          "nationality": "Slovenia"
+        }
+      ]
     },
     {
       "area": {
@@ -10111,5 +10125,5 @@
       ]
     }
   ],
-  "updated": "2026-07-19T16:29:20Z"
+  "updated": "2026-07-19T17:36:42Z"
 }
