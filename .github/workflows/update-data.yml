@@ -1,8 +1,7 @@
 name: Atualizar Dados Copa 2026
 
+# Copa 2026 encerrada — agendamento desativado. Disparo manual disponível se necessário.
 on:
-  schedule:
-    - cron: '*/15 * * * *'
   workflow_dispatch:
 
 jobs:
